@@ -3,19 +3,22 @@ require 'generators/minitest'
 module MiniTest
   module Generators
     class ModelGenerator < Base
-      argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
-      class_option :fixture, :type => :boolean
+      argument     :attributes, :type => :array,   :default => [], :banner => "field:type field:type"
+      class_option :fixture,    :type => :boolean, :default => false, :desc => "Create fixture file"
+      class_option :spec,       :type => :boolean, :default => false, :desc => "Use MiniTest::Spec DSL"
 
       check_class_collision :suffix => "Test"
 
-      def create_test_file
-        template 'unit_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
-      end
-
-      hook_for :fixture_replacement
-
-      def create_fixture_file
-        if options[:fixture] && options[:fixture_replacement].nil?
+      def create_test_files
+        template 'model_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
+        if options[:spec]
+          puts "template 'model_spec.rb', File.join('test/models', class_path, '#{file_name}_test.rb')"
+          template 'model_spec.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
+        else
+          puts "template 'model_test.rb', File.join('test/models', class_path, '#{file_name}_test.rb')"
+          template 'model_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
+        end
+        if options[:fixture]
           template 'fixtures.yml', File.join('test/fixtures', class_path, "#{plural_file_name}.yml")
         end
       end
