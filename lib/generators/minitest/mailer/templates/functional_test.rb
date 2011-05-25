@@ -2,7 +2,7 @@ require 'test_helper'
 
 <% module_namespacing do -%>
 class <%= class_name %>Test < MiniTest::Unit::TestCase
-  # testing_mailer
+  # load_code_to_test_mailer
 
 <% actions.each do |action| -%>
   def test_<%= action %>

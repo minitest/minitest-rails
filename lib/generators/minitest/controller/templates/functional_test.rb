@@ -2,7 +2,7 @@ require 'test_helper'
 
 <% module_namespacing do -%>
 class <%= class_name %>ControllerTest < MiniTest::Unit::TestCase
-  testing_controller
+  load_code_to_test_controller
 
 <% if actions.empty? -%>
   # def test_truth

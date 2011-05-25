@@ -1,6 +1,9 @@
+require 'rails/railtie'
 require 'active_support/testing/setup_and_teardown'
 require 'active_record/fixtures'
-require 'action_controller/test_case'
+require 'action_controller'
+
+
 require 'minitest/unit'
 require 'minitest/spec'
 require 'minitest/mock'
@@ -24,12 +27,12 @@ end
 class MiniTest::Unit::TestCase
   include ActiveSupport::Testing::SetupAndTeardown
 
-  def testing_model
+  def load_code_to_test_model
     include ActiveRecord::TestFixtures
     self.fixture_path = File.join(Rails.root, 'test', 'fixtures')
   end
 
-  def testing_controller
+  def load_code_to_test_controller
     include ActionController::TestCase::Behavior
   end
 

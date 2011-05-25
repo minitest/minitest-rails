@@ -2,7 +2,7 @@ require 'test_helper'
 
 <% module_namespacing do -%>
 class <%= controller_class_name %>ControllerTest < MiniTest::Unit::TestCase
-  testing_controller
+  load_code_to_test_controller
 
   setup do
     @<%= singular_table_name %> = <%= table_name %>(:one)
