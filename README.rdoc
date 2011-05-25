@@ -1,10 +1,8 @@
-minitest-rails
-==============
+= minitest-rails
 
 MiniTest integration for Rails 3.1.
 
-Install
-------
+== Install
 
     gem install minitest-rails
 
@@ -12,8 +10,7 @@ This installs the following gems:
 
     minitest
 
-Configure
----------
+== Configure
 
 Create a new rails app without Test::Unit:
 
@@ -40,8 +37,7 @@ Now you can add the test directory and default helpers by running the following:
 This adds the spec directory and some skeleton files, including
 the "rake spec" task.
 
-Usage
------
+== Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
 You can either create test classes that inherit from MiniTest::Unit::TestCase or you can use the MiniTest::Spec DSL.
