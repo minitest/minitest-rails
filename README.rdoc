@@ -14,8 +14,6 @@ This installs the following gems:
 
 Create a new rails app without Test::Unit:
 
-TODO: Verify the --skip-test-unit argument
-
     rails new MyApp --skip-test-unit
 
 Add `minitest-rails` to the `:test` and `:development` groups in Isolate:
