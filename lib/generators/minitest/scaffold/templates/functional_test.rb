@@ -1,23 +1,25 @@
 require 'test_helper'
 
 <% module_namespacing do -%>
-class <%= controller_class_name %>ControllerTest < ActionController::TestCase
+class <%= controller_class_name %>ControllerTest < MiniTest::Unit::TestCase
+  testing_controller
+
   setup do
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
 
-  test "should get index" do
+  def test_index do
     get :index
     assert_response :success
     assert_not_nil assigns(:<%= table_name %>)
   end
 
-  test "should get new" do
+  def test_new
     get :new
     assert_response :success
   end
 
-  test "should create <%= singular_table_name %>" do
+  def test_create
     assert_difference('<%= class_name %>.count') do
       post :create, <%= key_value singular_table_name, "@#{singular_table_name}.attributes" %>
     end
@@ -25,22 +27,22 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
     assert_redirected_to <%= singular_table_name %>_path(assigns(:<%= singular_table_name %>))
   end
 
-  test "should show <%= singular_table_name %>" do
+  def test_show
     get :show, <%= key_value :id, "@#{singular_table_name}.to_param" %>
     assert_response :success
   end
 
-  test "should get edit" do
+  def test_edit
     get :edit, <%= key_value :id, "@#{singular_table_name}.to_param" %>
     assert_response :success
   end
 
-  test "should update <%= singular_table_name %>" do
+  def test_update
     put :update, <%= key_value :id, "@#{singular_table_name}.to_param" %>, <%= key_value singular_table_name, "@#{singular_table_name}.attributes" %>
     assert_redirected_to <%= singular_table_name %>_path(assigns(:<%= singular_table_name %>))
   end
 
-  test "should destroy <%= singular_table_name %>" do
+  def test_destroy
     assert_difference('<%= class_name %>.count', -1) do
       delete :destroy, <%= key_value :id, "@#{singular_table_name}.to_param" %>
     end

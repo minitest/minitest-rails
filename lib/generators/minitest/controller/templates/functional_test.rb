@@ -1,14 +1,16 @@
 require 'test_helper'
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < ActionController::TestCase
+class <%= class_name %>ControllerTest < MiniTest::Unit::TestCase
+  testing_controller
+
 <% if actions.empty? -%>
-  # test "the truth" do
+  # def test_truth
   #   assert true
   # end
 <% else -%>
 <% actions.each do |action| -%>
-  test "should get <%= action %>" do
+  def test_<%= action %>
     get :<%= action %>
     assert_response :success
   end

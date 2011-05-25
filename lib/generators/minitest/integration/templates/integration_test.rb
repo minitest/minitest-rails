@@ -1,9 +1,10 @@
 require 'test_helper'
 
-class <%= class_name %>Test < ActionDispatch::IntegrationTest
+class <%= class_name %>Test < MiniTest::Unit::TestCase
+  testing_integration
   fixtures :all
 
-  # test "the truth" do
+  # def test_truth
   #   assert true
   # end
 end
