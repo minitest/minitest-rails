@@ -28,13 +28,6 @@ Or, for the unenlightened, add `minitest-rails` to the `:test` and `:development
       gem 'minitest-rails'
     end
 
-Now you can add the test directory and default helpers by running the following:
-
-    script/rails generate minitest:install
-
-This adds the spec directory and some skeleton files, including
-the "rake spec" task.
-
 == Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
