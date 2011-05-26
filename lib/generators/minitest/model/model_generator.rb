@@ -10,12 +10,9 @@ module MiniTest
       check_class_collision :suffix => "Test"
 
       def create_test_files
-        template 'model_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
         if options[:spec]
-          puts "template 'model_spec.rb', File.join('test/models', class_path, '#{file_name}_test.rb')"
           template 'model_spec.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
         else
-          puts "template 'model_test.rb', File.join('test/models', class_path, '#{file_name}_test.rb')"
           template 'model_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
         end
         if options[:fixture]
