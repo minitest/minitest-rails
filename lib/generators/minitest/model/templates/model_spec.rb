@@ -1,4 +1,4 @@
-require 'test_helper'
+require "minitest_helper"
 
 describe <%= class_name %> do
   before do

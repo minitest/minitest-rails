@@ -1,39 +1,39 @@
 require "minitest/autorun"
 require "minitest-rails"
 
-require 'rails'
-require 'rails/generators'
+require "rails"
+require "rails/generators"
 
-require 'generators/minitest/model/model_generator'
+require "generators/minitest/model/model_generator"
 
-require 'fileutils'
+require "fileutils"
 
 class TestModelGenerator < MiniTest::Unit::TestCase
   Rails::Generators.no_color!
 
   def test_model_generator
     text = capture(:stdout) do
-      MiniTest::Generators::ModelGenerator.start ['user']
+      Minitest::Generators::ModelGenerator.start ["user"]
     end
-    assert_equal "      create  test/models/user_test.rb\n", text
-    assert File.exists? 'test/models/user_test.rb'
-    contents = open('test/models/user_test.rb').read
-    assert_match /class UserTest < MiniTest::Unit::TestCase/m, contents
+    assert_match(/create  test\/models\/user_test.rb/m, text)
+    assert File.exists? "test/models/user_test.rb"
+    contents = open("test/models/user_test.rb").read
+    assert_match(/class UserTest < MiniTest::Rails::ModelTestCase/m, contents)
   ensure
-    # TODO: Don't write the files
+    # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
-    FileUtils.rm_r 'test/models'
+    FileUtils.rm_r "test/models"
   end
 
   def test_model_generator_spec
     text = capture(:stdout) do
-      MiniTest::Generators::ModelGenerator.start ['user', '--spec']
+      Minitest::Generators::ModelGenerator.start ["user", "--spec"]
     end
-    assert_equal "      create  test/models/user_test.rb\n", text
-    assert File.exists? 'test/models/user_test.rb'
-    contents = open('test/models/user_test.rb').read
-    assert_match /describe User do/m, contents
+    assert_match(/create  test\/models\/user_test.rb/m, text)
+    assert File.exists? "test/models/user_test.rb"
+    contents = open("test/models/user_test.rb").read
+    assert_match(/describe User do/m, contents)
   ensure
-    FileUtils.rm_r 'test/models'
+    FileUtils.rm_r "test/models"
   end
 end

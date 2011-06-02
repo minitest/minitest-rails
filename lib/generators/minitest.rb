@@ -1,7 +1,8 @@
 require 'rails/generators/named_base'
 
-# Blatantly stolen from rspec-rails
-module MiniTest
+# Ugh, Rails pukes on minitest -> MiniTest
+# So name this "Minitest" to appease the Rails for now
+module Minitest
   module Generators
     class Base < ::Rails::Generators::NamedBase #:nodoc:
       def self.source_root

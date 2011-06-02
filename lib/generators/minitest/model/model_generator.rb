@@ -1,6 +1,6 @@
-require 'generators/minitest'
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class ModelGenerator < Base
       argument     :attributes, :type => :array,   :default => [], :banner => "field:type field:type"
@@ -11,12 +11,12 @@ module MiniTest
 
       def create_test_files
         if options[:spec]
-          template 'model_spec.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
+          template "model_spec.rb", "test/models/#{file_name}_test.rb"
         else
-          template 'model_test.rb', File.join('test/models', class_path, "#{file_name}_test.rb")
+          template "model_test.rb", "test/models/#{file_name}_test.rb"
         end
         if options[:fixture]
-          template 'fixtures.yml', File.join('test/fixtures', class_path, "#{plural_file_name}.yml")
+          template "fixtures.yml", "test/fixtures/#{plural_file_name}.yml"
         end
       end
     end

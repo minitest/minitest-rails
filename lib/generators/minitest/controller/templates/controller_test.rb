@@ -1,13 +1,12 @@
-require 'test_helper'
+require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < MiniTest::Unit::TestCase
-  load_code_to_test_controller
+class <%= class_name %>ControllerTest < MiniTest::Rails::ControllerTestCase
 
 <% if actions.empty? -%>
-  # def test_truth
-  #   assert true
-  # end
+  def test_truth
+    assert true
+  end
 <% else -%>
 <% actions.each do |action| -%>
   def test_<%= action %>

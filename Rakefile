@@ -17,10 +17,10 @@ Hoe.spec 'minitest-rails' do
   self.readme_file  = "README.rdoc"
   self.testlib      = :minitest
 
-  extra_deps << ['minitest',      '~> 2.0']
-  extra_deps << ['railties',      '~> 3.0']
-  extra_deps << ['activesupport', '~> 3.0']
-  extra_deps << ['actionpack',    '~> 3.0']
+  extra_deps << ['minitest',      '~> 2.2']
+  extra_deps << ['railties',      '= 3.1.0.rc1']
+  extra_deps << ['activesupport', '= 3.1.0.rc1']
+  extra_deps << ['actionpack',    '= 3.1.0.rc1']
 end
 
 # vim: syntax=ruby

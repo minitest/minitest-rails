@@ -1,7 +1,11 @@
-require 'test_helper'
+require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>HelperTest < MiniTest::Unit::TestCase
-  # load_code_to_test_helper
+class <%= class_name %>HelperTest < MiniTest::Rails::HelperTestCase
+
+  def test_truth
+    assert true
+  end
+
 end
 <% end -%>

@@ -1,12 +1,18 @@
-require 'generators/minitest'
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
-    class HelperGenerator < MiniTest::Rails::Generators::Base
+    class HelperGenerator < Base
+      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use MiniTest::Spec DSL"
+
       check_class_collision :suffix => "HelperTest"
 
-      def create_helper_files
-        template 'helper_test.rb', File.join('test/unit/helpers', class_path, "#{file_name}_helper_test.rb")
+      def create_test_files
+        if options[:spec]
+          template "helper_spec.rb", "test/helpers/#{file_name}_helper_test.rb"
+        else
+          template "helper_test.rb", "test/helpers/#{file_name}_helper_test.rb"
+        end
       end
     end
   end

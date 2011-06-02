@@ -1,5 +1,11 @@
-require 'test_helper'
+require "minitest_helper"
 
 describe <%= class_name %>Controller do
-  load_code_to_test_controller
+  before do
+    @controller = <%= class_name %>Controller.new
+  end
+
+  it "must be valid" do
+    @controller.valid?.must_equal true
+  end
 end
