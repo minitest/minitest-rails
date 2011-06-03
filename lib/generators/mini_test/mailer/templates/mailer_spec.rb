@@ -2,7 +2,7 @@ require "minitest_helper"
 
 class <%= class_name %>Test < MiniTest::Rails::Mailer
 <% actions.each do |action| -%>
-  it "<%= action %>"
+  it "<%= action %>" do
     mail = <%= class_name %>.<%= action %>
     mail.subject.must_equal <%= action.to_s.humanize.inspect %>
     mail.to.must_equal ["to@example.org"]
@@ -12,7 +12,7 @@ class <%= class_name %>Test < MiniTest::Rails::Mailer
 
 <% end -%>
 <% if actions.blank? -%>
-  it "must be a real test"
+  it "must be a real test" do
     flunk "Need real tests"
   end
 <% end -%>

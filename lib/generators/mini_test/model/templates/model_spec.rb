@@ -9,6 +9,10 @@ class <%= class_name %>Test < MiniTest::Rails::Model
     @<%= file_name %>.valid?.must_equal true
   end
 
+  it "must be a real test" do
+    flunk "Need real tests"
+  end
+
   # describe "when doing its thing" do
   #   it "must be interesting" do
   #     @<%= file_name %>.blow_minds!

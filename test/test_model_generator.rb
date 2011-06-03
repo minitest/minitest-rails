@@ -18,7 +18,7 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"
     contents = open("test/models/user_test.rb").read
-    assert_match(/class UserTest < MiniTest::Rails::ModelTestCase/m, contents)
+    assert_match(/class UserTest < MiniTest::Rails::Model/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
@@ -32,7 +32,7 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"
     contents = open("test/models/user_test.rb").read
-    assert_match(/describe User do/m, contents)
+    assert_match(/class UserTest < MiniTest::Rails::Model/m, contents)
   ensure
     FileUtils.rm_r "test/models"
   end

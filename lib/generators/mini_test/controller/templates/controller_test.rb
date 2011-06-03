@@ -4,8 +4,8 @@ require "minitest_helper"
 class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
 
 <% if actions.empty? -%>
-  def test_truth
-    assert true
+  def test_sanity
+    flunk "Need real tests"
   end
 <% else -%>
 <% actions.each do |action| -%>

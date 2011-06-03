@@ -18,7 +18,7 @@ class TestInstallGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/minitest_helper.rb/m, text)
     assert File.exists? "test/minitest_helper.rb"
     contents = open("test/minitest_helper.rb").read
-    assert_match(/class MiniTest::Rails::TestCase/m, contents)
+    assert_match(/class MiniTest::Rails::Spec/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written

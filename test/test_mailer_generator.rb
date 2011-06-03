@@ -13,12 +13,12 @@ class TestMailerGenerator < MiniTest::Unit::TestCase
 
   def test_mailer_generator
     text = capture(:stdout) do
-      MiniTest::Generators::MailerGenerator.start ["UserWelcome"]
+      MiniTest::Generators::MailerGenerator.start ["notification"]
     end
-    assert_match(/create  test\/mailers\/user_welcome_mailer_test.rb/m, text)
-    assert File.exists? "test/mailers/user_welcome_mailer_test.rb"
-    contents = open("test/mailers/user_welcome_mailer_test.rb").read
-    assert_match(/class UserWelcomeMailerTest < MiniTest::Rails::MailerTestCase/m, contents)
+    assert_match(/create  test\/mailers\/notification_test.rb/m, text)
+    assert File.exists? "test/mailers/notification_test.rb"
+    contents = open("test/mailers/notification_test.rb").read
+    assert_match(/class NotificationTest < MiniTest::Rails::Mailer/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
@@ -27,12 +27,12 @@ class TestMailerGenerator < MiniTest::Unit::TestCase
 
   def test_mailer_generator_spec
     text = capture(:stdout) do
-      MiniTest::Generators::MailerGenerator.start ["UserWelcome", "--spec"]
+      MiniTest::Generators::MailerGenerator.start ["notification", "--spec"]
     end
-    assert_match(/create  test\/mailers\/user_welcome_mailer_test.rb/m, text)
-    assert File.exists? "test/mailers/user_welcome_mailer_test.rb"
-    contents = open("test/mailers/user_welcome_mailer_test.rb").read
-    assert_match(/describe UserWelcomeMailer do/m, contents)
+    assert_match(/create  test\/mailers\/notification_test.rb/m, text)
+    assert File.exists? "test/mailers/notification_test.rb"
+    contents = open("test/mailers/notification_test.rb").read
+    assert_match(/class NotificationTest < MiniTest::Rails::Mailer/m, contents)
   ensure
     FileUtils.rm_r "test/mailers"
   end
