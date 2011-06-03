@@ -4,9 +4,9 @@ module MiniTest
   module Rails
     VERSION = "0.0.2"
     class Railtie < ::Rails::Railtie
-      config.app_generators.integration_tool :minitest
-      config.app_generators.test_framework   :minitest, :fixture => true
-      config.app_generators.fallbacks[:minitest] = :test_unit
+      config.app_generators.integration_tool :mini_test
+      config.app_generators.test_framework   :mini_test, :fixture => true
+      config.app_generators.fallbacks[:mini_test] = :test_unit
 
       rake_tasks do
         load "minitest/rails/tasks/minitest.rake"

@@ -4,7 +4,7 @@ require "minitest-rails"
 require "rails"
 require "rails/generators"
 
-require "generators/minitest/model/model_generator"
+require "generators/mini_test/model/model_generator"
 
 require "fileutils"
 
@@ -13,7 +13,7 @@ class TestModelGenerator < MiniTest::Unit::TestCase
 
   def test_model_generator
     text = capture(:stdout) do
-      Minitest::Generators::ModelGenerator.start ["user"]
+      MiniTest::Generators::ModelGenerator.start ["user"]
     end
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"
@@ -27,7 +27,7 @@ class TestModelGenerator < MiniTest::Unit::TestCase
 
   def test_model_generator_spec
     text = capture(:stdout) do
-      Minitest::Generators::ModelGenerator.start ["user", "--spec"]
+      MiniTest::Generators::ModelGenerator.start ["user", "--spec"]
     end
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"

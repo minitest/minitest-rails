@@ -1,6 +1,6 @@
-require "generators/minitest"
+require "generators/mini_test"
 
-module Minitest
+module MiniTest
   module Generators
     class HelperGenerator < Base
       class_option :spec,    :type => :boolean, :default => false, :desc   => "Use MiniTest::Spec DSL"
