@@ -1,3 +1,7 @@
+=== 0.0.2 / 2011-06-02
+
+Incomplete, but no longer in (known) a broken state.
+
 === 0.0.1 / 2011-05-24
 
 * 1 major enhancement
