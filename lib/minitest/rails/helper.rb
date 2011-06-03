@@ -1,8 +1,8 @@
-require "minitest/spec"
+require "minitest/rails/test_case"
 
 module MiniTest
   module Rails
-    class HelperTestCase < ::MiniTest::Unit::TestCase
+    class HelperTestCase < TestCase
     end
 
     class HelperSpec < HelperTestCase

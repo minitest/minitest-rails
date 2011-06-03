@@ -1,10 +1,10 @@
-require "minitest/spec"
+require "minitest/rails/test_case"
 require "active_support/testing/setup_and_teardown"
 require "active_record/fixtures"
 
 module MiniTest
   module Rails
-    class ModelTestCase < ::MiniTest::Unit::TestCase
+    class ModelTestCase < TestCase
       # include ActiveSupport::Testing::SetupAndTeardown
       # include ActiveRecord::TestFixtures
       #

@@ -1,9 +1,5 @@
 require "rails/railtie"
 
-require "minitest/unit"
-require "minitest/spec"
-require "minitest/mock"
-
 require "minitest/rails/all"
 
 module MiniTest
