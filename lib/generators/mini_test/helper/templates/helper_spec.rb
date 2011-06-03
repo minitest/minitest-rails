@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe <%= class_name %>Helper do
+class <%= class_name %>HelperTest < MiniTest::Rails::Helper
   before do
     @helper= <%= class_name %>Helper.new
   end

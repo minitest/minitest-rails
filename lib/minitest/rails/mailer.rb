@@ -2,7 +2,7 @@ require "minitest/rails/spec"
 
 module MiniTest
   module Rails
-    class Helper < Spec
+    class Mailer < Spec
     end
   end
 end

@@ -1,7 +1,7 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < MiniTest::Rails::ControllerTestCase
+class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
 
 <% if actions.empty? -%>
   def test_truth

@@ -1,13 +1,10 @@
-require "minitest/rails/base"
+require "minitest/rails/spec"
 # require "action_controller"
 
 module MiniTest
   module Rails
-    class ControllerTestCase < TestCase
+    class Controller < Spec
       # include ActionController::TestCase::Behavior
-    end
-
-    class ControllerSpec < Spec
     end
   end
 end

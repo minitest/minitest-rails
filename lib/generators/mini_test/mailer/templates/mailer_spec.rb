@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe <%= class_name %>Mailer do
+class <%= class_name %>Test < MiniTest::Rails::Mailer
 <% actions.each do |action| -%>
   it "<%= action %>"
     mail = <%= class_name %>.<%= action %>

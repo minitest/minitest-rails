@@ -30,7 +30,7 @@ Or, for the unenlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt> and
 
 Next run the installation generator with the following:
 
-    rails generate minitest:install
+    rails generate mini_test:install
 
 This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> directory.
 
@@ -44,7 +44,7 @@ You can generate tests when you use the standard model, controller, scaffold, an
 
 Or, you can use the MiniTest generators directly:
 
-    rails generate minitest::model User
+    rails generate mini_test::model User
 
 And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the <tt>--spec</tt> option:
 

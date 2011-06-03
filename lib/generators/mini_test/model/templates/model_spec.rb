@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe <%= class_name %> do
+class <%= class_name %>Test < MiniTest::Rails::Model
   before do
     @<%= file_name %> = <%= class_name %>.new
   end
