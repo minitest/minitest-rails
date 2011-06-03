@@ -18,12 +18,11 @@ lib/generators/minitest/model/templates/model_spec.rb
 lib/generators/minitest/model/templates/model_test.rb
 lib/minitest-rails.rb
 lib/minitest/rails.rb
-lib/minitest/rails/all.rb
+lib/minitest/rails/base.rb
 lib/minitest/rails/controller.rb
 lib/minitest/rails/helper.rb
 lib/minitest/rails/model.rb
 lib/minitest/rails/tasks/minitest.rake
-lib/minitest/rails/test_case.rb
 test/test_controller_generator.rb
 test/test_helper_generator.rb
 test/test_install_generator.rb

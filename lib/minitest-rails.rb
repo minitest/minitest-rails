@@ -1,6 +1,4 @@
-require "rails/railtie"
-
-require "minitest/rails/all"
+require "rails"
 
 module MiniTest
   module Rails

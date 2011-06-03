@@ -1,6 +1,6 @@
-require "minitest/rails/test_case"
-require "active_support/testing/setup_and_teardown"
-require "active_record/fixtures"
+require "minitest/rails/base"
+# require "active_support/testing/setup_and_teardown"
+# require "active_record/fixtures"
 
 module MiniTest
   module Rails
@@ -11,8 +11,7 @@ module MiniTest
       # self.fixture_path = File.join(Rails.root, "test", "fixtures")
     end
 
-    class ModelSpec < ModelTestCase
-      alias :method_name :__name__ if defined? :__name__
+    class ModelSpec < Spec
     end
   end
 end

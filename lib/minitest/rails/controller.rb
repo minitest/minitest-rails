@@ -1,5 +1,5 @@
-require "minitest/rails/test_case"
-require "action_controller"
+require "minitest/rails/base"
+# require "action_controller"
 
 module MiniTest
   module Rails
@@ -7,8 +7,7 @@ module MiniTest
       # include ActionController::TestCase::Behavior
     end
 
-    class ControllerSpec < ControllerTestCase
-      alias :method_name :__name__ if defined? :__name__
+    class ControllerSpec < Spec
     end
   end
 end
