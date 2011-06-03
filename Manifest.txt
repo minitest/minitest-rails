@@ -10,6 +10,8 @@ lib/generators/minitest/controller/templates/controller_test.rb
 lib/generators/minitest/helper/helper_generator.rb
 lib/generators/minitest/helper/templates/helper_spec.rb
 lib/generators/minitest/helper/templates/helper_test.rb
+lib/generators/minitest/install/install_generator.rb
+lib/generators/minitest/install/templates/test/minitest_helper.rb
 lib/generators/minitest/model/model_generator.rb
 lib/generators/minitest/model/templates/fixtures.yml
 lib/generators/minitest/model/templates/model_spec.rb
@@ -22,5 +24,7 @@ lib/minitest/rails/helper.rb
 lib/minitest/rails/model.rb
 lib/minitest/rails/tasks/minitest.rake
 test/test_controller_generator.rb
+test/test_helper_generator.rb
+test/test_install_generator.rb
 test/test_minitest.rb
 test/test_model_generator.rb
