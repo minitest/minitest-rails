@@ -16,13 +16,13 @@ Create a new rails app without Test::Unit:
 
     rails new MyApp --skip-test-unit
 
-Add `minitest-rails` to the `:test` and `:development` groups in Isolate:
+Add +minitest-rails+ to the +:test+ and +:development+ groups in Isolate:
 
     env :development, :test do
       gem 'minitest-rails'
     end
 
-Or, for the unenlightened, add `minitest-rails` to the `:test` and `:development` groups in Gemfile:
+Or, for the unenlightened, add +minitest-rails+ to the +:test+ and +:development+ groups in Gemfile:
 
     group :test, :development do
       gem 'minitest-rails'
@@ -32,7 +32,7 @@ Next run the installation generator with the following:
 
     rails generate minitest:install
 
-This will add the `minitest_helper.rb` file to the `test` directory.
+This will add the +minitest_helper.rb+ file to the +test+ directory.
 
 == Usage
 
@@ -46,6 +46,6 @@ Or, you can use the MiniTest generators directly:
 
     rails generate minitest::model User
 
-And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the `--spec` option:
+And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the +--spec+ option:
 
     rails generate model User --spec
