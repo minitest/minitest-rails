@@ -28,7 +28,24 @@ Or, for the unenlightened, add `minitest-rails` to the `:test` and `:development
       gem 'minitest-rails'
     end
 
+Next run the installation generator with the following:
+
+    rails generate minitest:install
+
+This will add the `minitest_helper.rb` file to the `test` directory.
+
 == Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
 You can either create test classes that inherit from MiniTest::Unit::TestCase or you can use the MiniTest::Spec DSL.
+You can generate tests when you use the standard model, controller, scaffold, and other generators:
+
+    rails generate model User
+
+Or, you can use the MiniTest generators directly:
+
+    rails generate minitest::model User
+
+And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the `--spec` option:
+
+    rails generate model User --spec
