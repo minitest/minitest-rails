@@ -1,6 +1,6 @@
 require 'rake/testtask'
 
-MINITEST_TASKS = %w(models controllers views helpers mailers integration)
+MINITEST_TASKS = %w(models controllers helpers mailers) #views integration
 
 desc 'Runs all tests'
 task :test do
