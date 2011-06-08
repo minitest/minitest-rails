@@ -16,15 +16,15 @@ Create a new rails app without Test::Unit:
 
     rails new MyApp --skip-test-unit
 
-Add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Isolate:
+Add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Gemfile:
 
-    env :development, :test do
+    group :test, :development do
       gem 'minitest-rails'
     end
 
-Or, for the unenlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Gemfile:
+Or, for the truly enlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Isolate:
 
-    group :test, :development do
+    env :development, :test do
       gem 'minitest-rails'
     end
 
@@ -42,10 +42,16 @@ You can generate tests when you use the standard model, controller, scaffold, an
 
     rails generate model User
 
-Or, you can use the MiniTest generators directly:
-
-    rails generate mini_test::model User
-
 And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the <tt>--spec</tt> option:
 
     rails generate model User --spec
+
+And you can specify generating the fixture for a model by providing the <tt>--fixture</tt> option:
+
+    rails generate model User --fixture
+
+You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
+
+    config.generators do |g|
+      g.test_framework :mini_test, :spec => true, :fixture => true
+    end
