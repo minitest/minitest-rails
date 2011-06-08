@@ -2,7 +2,7 @@ require "rails"
 
 module MiniTest
   module Rails
-    VERSION = "0.0.3"
+    VERSION = "0.0.4"
     class Railtie < ::Rails::Railtie
       config.app_generators.integration_tool :mini_test
       config.app_generators.test_framework   :mini_test, :fixture => false

@@ -1,3 +1,7 @@
+=== 0.0.4 / 2011-06-08
+
+Add scaffold, bump to Rails 3.1.0.rc2
+
 === 0.0.2 / 2011-06-02
 
 Incomplete, but no longer in (known) a broken state.
