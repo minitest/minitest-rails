@@ -10,7 +10,7 @@ Hoe.spec 'minitest-rails' do
   developer 'Mike Moore', 'mike@blowmage.com'
 
   self.summary     = 'MiniTest integration for Rails 3.1.'
-  self.description = 'Adds MiniTest as the default testing library in Rails. Also adds a bit of sanity with how tests are organized.'
+  self.description = 'Adds MiniTest as the default testing library in Rails.'
   self.url         = 'http://blowmage.com/minitest-rails'
 
   self.history_file = "CHANGELOG.rdoc"
