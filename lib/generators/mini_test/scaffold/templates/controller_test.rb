@@ -2,7 +2,7 @@ require "minitest_helper"
 
 <% module_namespacing do -%>
 class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
-  setup do
+  before do
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
 
