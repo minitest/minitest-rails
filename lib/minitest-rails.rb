@@ -1,4 +1,5 @@
 require "rails"
+require "minitest/unit"
 
 module MiniTest
   module Rails
