@@ -32,7 +32,7 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/helpers\/user_helper_test.rb/m, text)
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = open("test/helpers/user_helper_test.rb").read
-    assert_match(/class UserHelperTest < MiniTest::Rails::Helper/m, contents)
+    assert_match(/describe UserHelper do/m, contents)
   ensure
     FileUtils.rm_r "test/helpers"
   end

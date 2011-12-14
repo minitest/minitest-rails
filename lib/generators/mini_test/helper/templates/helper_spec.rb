@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-class <%= class_name %>HelperTest < MiniTest::Rails::Helper
+describe <%= class_name %>Helper do
 
   it "must be a real test" do
     flunk "Need real tests"

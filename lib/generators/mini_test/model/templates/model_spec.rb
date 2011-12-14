@@ -1,6 +1,11 @@
 require "minitest_helper"
 
-class <%= class_name %>Test < MiniTest::Rails::Model
+describe <%= class_name %> do
+
+  subject { <%= class_name %>.new }
+
+  # fixtures :all
+
   before do
     @<%= file_name %> = <%= class_name %>.new
   end
@@ -19,4 +24,5 @@ class <%= class_name %>Test < MiniTest::Rails::Model
   #     @<%= file_name %>.interesting?.must_equal true
   #   end
   # end
+
 end
