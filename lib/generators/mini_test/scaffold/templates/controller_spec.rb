@@ -1,7 +1,12 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
+describe <%= class_name %>Controller do
+
+  subject { <%= class_name %>Controller }
+
+  # fixtures :all
+
   before do
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
@@ -47,5 +52,6 @@ class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
 
     assert_redirected_to <%= index_helper %>_path
   end
+
 end
 <% end -%>

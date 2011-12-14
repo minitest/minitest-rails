@@ -1,6 +1,11 @@
 require "minitest_helper"
 
-class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
+describe <%= class_name %>Controller do
+
+  subject { <%= class_name %>Controller }
+
+  # fixtures :all
+
   before do
     @controller = <%= class_name %>Controller.new
   end
@@ -8,4 +13,5 @@ class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
   it "must be a real test" do
     flunk "Need real tests"
   end
+
 end

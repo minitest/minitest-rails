@@ -1,6 +1,7 @@
 require "minitest_helper"
 
-class <%= class_name %>Test < MiniTest::Rails::Mailer
+describe <%= class_name %> do
+
 <% actions.each do |action| -%>
   it "<%= action %>" do
     mail = <%= class_name %>.<%= action %>
@@ -9,11 +10,11 @@ class <%= class_name %>Test < MiniTest::Rails::Mailer
     mail.from.must_equal ["from@example.com"]
     mail.body.encoded.must_match "Hi"
   end
-
 <% end -%>
 <% if actions.blank? -%>
   it "must be a real test" do
     flunk "Need real tests"
   end
 <% end -%>
+
 end
