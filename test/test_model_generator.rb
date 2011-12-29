@@ -32,7 +32,9 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"
     contents = open("test/models/user_test.rb").read
-    assert_match(/class UserTest < MiniTest::Rails::Model/m, contents)
+    assert_match(/describe User do/m, contents)
+    assert_match(/subject \{ User.new \}/, contents)
+    assert_match(/# fixtures :all/, contents)
   ensure
     FileUtils.rm_r "test/models"
   end
