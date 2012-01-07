@@ -9,6 +9,10 @@ module MiniTest
       class << self
         alias :context :describe
       end
+      def build_message(*args)
+        args[1].gsub(/\?/, '%s') % args[2..-1]
+      end
     end
   end
 end
+

@@ -34,7 +34,6 @@ class TestScaffoldGenerator < MiniTest::Unit::TestCase
     assert File.exists? "test/controllers/user_controller_test.rb"
     contents = open("test/controllers/user_controller_test.rb").read
     assert_match(/describe UserController do/m, contents)
-    assert_match(/subject \{ UserController \}/m, contents)
     assert_match(/it "must get index"/m, contents)
   ensure
     FileUtils.rm_r "test/controllers"

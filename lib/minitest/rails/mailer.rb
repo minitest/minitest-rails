@@ -6,3 +6,8 @@ module MiniTest
     end
   end
 end
+
+MiniTest::Spec.register_spec_type MiniTest::Rails::Mailer do |desc|
+  desc < ActionMailer::Base
+end
+

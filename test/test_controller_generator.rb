@@ -35,9 +35,7 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
     contents = open("test/controllers/user_controller_test.rb").read
 #    assert_match(/class UserControllerTest < MiniTest::Rails::Controller/m, contents)
     assert_match(/describe UserController do/m, contents)
-    assert_match(/subject \{ UserController \}/m, contents)
     assert_match(/# fixtures :all/m, contents)
-    assert_match(/@controller = UserController.new/m, contents)
     assert_match(/it "must be a real test"/m, contents)
   ensure
     FileUtils.rm_r "test/controllers"

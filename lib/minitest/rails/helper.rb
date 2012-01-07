@@ -6,3 +6,6 @@ module MiniTest
     end
   end
 end
+
+MiniTest::Spec.register_spec_type /Helper$/, MiniTest::Rails::Helper
+
