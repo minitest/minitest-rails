@@ -11,6 +11,9 @@ module MiniTest
 end
 
 MiniTest::Spec.register_spec_type MiniTest::Rails::Model do |desc|
-  desc < ActiveRecord::Base
+  begin
+    desc < ActiveRecord::Base
+  rescue ArgumentError
+  end
 end
 

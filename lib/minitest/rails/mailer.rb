@@ -8,6 +8,9 @@ module MiniTest
 end
 
 MiniTest::Spec.register_spec_type MiniTest::Rails::Mailer do |desc|
-  desc < ActionMailer::Base
+  begin
+    desc < ActionMailer::Base
+  rescue ArgumentError
+  end
 end
 
