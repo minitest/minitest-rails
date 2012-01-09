@@ -32,3 +32,6 @@ class MiniTest::Rails::Mailer
   # Add methods to be used by mailer specs here
 end
 
+class MiniTest::Rails::Integration
+  # Add methods to be used by integration specs here
+end

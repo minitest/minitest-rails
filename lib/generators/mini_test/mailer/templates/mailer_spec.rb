@@ -1,7 +1,7 @@
 require "minitest_helper"
 
+<% module_namespacing do -%>
 describe <%= class_name %> do
-
 <% actions.each do |action| -%>
   it "<%= action %>" do
     mail = <%= class_name %>.<%= action %>
@@ -16,5 +16,6 @@ describe <%= class_name %> do
     flunk "Need real tests"
   end
 <% end -%>
-
 end
+<% end -%>
+

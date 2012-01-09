@@ -2,6 +2,7 @@ require "minitest_helper"
 
 <% module_namespacing do -%>
 class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
+  #fixtures :all
 
 <% if actions.empty? -%>
   def test_sanity

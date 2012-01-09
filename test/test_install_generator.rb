@@ -24,6 +24,7 @@ class TestInstallGenerator < MiniTest::Unit::TestCase
     assert_match(/class MiniTest::Rails::Controller/m, contents)
     assert_match(/class MiniTest::Rails::Helper/m, contents)
     assert_match(/class MiniTest::Rails::Mailer/m, contents)
+    assert_match(/class MiniTest::Rails::Integration/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
