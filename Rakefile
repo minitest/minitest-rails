@@ -18,7 +18,7 @@ Hoe.spec 'minitest-rails' do
   self.testlib      = :minitest
 
   extra_deps << ['minitest',  '~> 2.2']
-  extra_deps << ['rails',     '~> 3.1.0']
+  extra_deps << ['rails',     '~> 3.1']
 end
 
 # vim: syntax=ruby
