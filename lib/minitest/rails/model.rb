@@ -11,9 +11,6 @@ module MiniTest
 end
 
 MiniTest::Spec.register_spec_type MiniTest::Rails::Model do |desc|
-  begin
-    desc < ActiveRecord::Base
-  rescue ArgumentError
-  end
+  desc.respond_to?(:ancestors) && !(desc.ancestors.map(&:to_s) & ["ActiveRecord::Base", "Mongoid::Document", "MongoMapper::Document", "DataMapper::Resource"]).empty?
 end
 
