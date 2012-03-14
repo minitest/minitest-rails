@@ -9,8 +9,8 @@ Hoe.plugins.delete :rubyforge
 Hoe.spec 'minitest-rails' do
   developer 'Mike Moore', 'mike@blowmage.com'
 
-  self.summary     = 'MiniTest integration for Rails 3.1.'
-  self.description = 'Adds MiniTest as the default testing library in Rails.'
+  self.summary     = 'MiniTest integration for Rails 3.'
+  self.description = 'Adds MiniTest as the default testing library in Rails 3.'
   self.url         = 'http://blowmage.com/minitest-rails'
 
   self.history_file = "CHANGELOG.rdoc"
