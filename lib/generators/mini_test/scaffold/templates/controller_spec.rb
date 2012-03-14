@@ -3,8 +3,6 @@ require "minitest_helper"
 <% module_namespacing do -%>
 describe <%= class_name %>Controller do
 
-  subject { <%= class_name %>Controller }
-
   # fixtures :all
 
   before do
