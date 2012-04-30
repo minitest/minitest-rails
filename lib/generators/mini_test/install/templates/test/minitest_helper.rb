@@ -32,7 +32,7 @@ class MiniTest::Rails::Controller
   before do
     @request  = ActionController::TestRequest.new
     @response = ActionController::TestResponse.new
-    @routes   = Rails.application.routes
+    @routes   = ::Rails.application.routes
   end
 
   # Add methods to be used by controller specs here...
