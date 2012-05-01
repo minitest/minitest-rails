@@ -30,7 +30,7 @@ class MiniTest::Rails::Model
 end
 
 MiniTest::Spec.register_spec_type(MiniTest::Rails::Model) do |desc|
-  desc.superclass == ActiveRecord::Base
+  desc.respond_to?(:superclass) && desc.superclass == ActiveRecord::Base
 end
 
 class MiniTest::Rails::Controller
@@ -62,6 +62,6 @@ class MiniTest::Rails::Mailer
 end
 
 MiniTest::Spec.register_spec_type(MiniTest::Rails::Mailer) do |desc|
-  desc.superclass == ActionMailer::Base
+  desc.respond_to?(:superclass) && desc.superclass == ActionMailer::Base
 end
 
