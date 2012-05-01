@@ -34,12 +34,6 @@ MiniTest::Spec.register_spec_type(MiniTest::Rails::Model) do |desc|
 end
 
 class MiniTest::Rails::Controller
-  include ActionController::TestCase::Behavior
-  before do
-    @request  = ActionController::TestRequest.new
-    @response = ActionController::TestResponse.new
-    @routes   = ::Rails.application.routes
-  end
 
   # Add methods to be used by controller specs here...
 
