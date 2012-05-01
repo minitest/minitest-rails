@@ -20,22 +20,22 @@ module MiniTest
       # rendering of templates is disabled. During tests, the routes
       # are redefined to
       #
-      #  resources :anonymous
+      #   resources :anonymous
       #
       # base_controller - superclass for the anonymous controller.
       #
       # Examples
       #
-      #  describe ApplicationController do
-      #    controller do
-      #      def index; end
-      #    end
+      #   describe ApplicationController do
+      #     controller do
+      #       def index; end
+      #     end
       #
-      #    it "assigns the current_user" do
-      #      get :index
-      #      assigns(:current_user).wont_be_nil
-      #    end
-      #  end
+      #     it "assigns the current_user" do
+      #       get :index
+      #       assigns(:current_user).wont_be_nil
+      #     end
+      #   end
       #
       #
       def self.controller(base_controller = ApplicationController, &block)
