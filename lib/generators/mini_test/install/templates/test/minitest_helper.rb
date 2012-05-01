@@ -13,6 +13,12 @@ class MiniTest::Rails::Spec
   # place within spec class you want to support fixtures for
   # include MiniTest::Rails::Fixtures
 
+  # For backward compatibility with Test::Unit
+  def build_message(message, template = nil, *args)
+    template = template.gsub('<?>', '<%s>')
+    message || sprintf(template, *args)
+  end
+
   # Add methods to be used by all specs here...
 
 end
