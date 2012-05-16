@@ -8,9 +8,6 @@ module MiniTest
     class Controller < Spec
       include ActiveSupport::Testing::SetupAndTeardown
       include ActionController::TestCase::Behavior
-      before do
-        @routes = Rails.application.routes
-      end
     end
   end
 end
