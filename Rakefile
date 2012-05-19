@@ -4,6 +4,7 @@ require 'rubygems'
 require 'hoe'
 
 Hoe.plugin :git
+Hoe.plugin :gemspec
 Hoe.plugins.delete :rubyforge
 
 Hoe.spec 'minitest-rails' do
