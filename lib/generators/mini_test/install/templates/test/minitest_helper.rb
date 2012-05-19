@@ -13,6 +13,12 @@ class MiniTest::Rails::Spec
   # place within spec class you want to support fixtures for
   # include MiniTest::Rails::Fixtures
 
+  # For backward compatibility with Test::Unit
+  def build_message(message, template = nil, *args)
+    template = template.gsub('<?>', '<%s>')
+    message || sprintf(template, *args)
+  end
+
   # Add methods to be used by all specs here...
 
 end
@@ -24,16 +30,10 @@ class MiniTest::Rails::Model
 end
 
 MiniTest::Spec.register_spec_type(MiniTest::Rails::Model) do |desc|
-  desc.superclass == ActiveRecord::Base
+  desc.respond_to?(:superclass) && desc.superclass == ActiveRecord::Base
 end
 
 class MiniTest::Rails::Controller
-  include ActionController::TestCase::Behavior
-  before do
-    @request  = ActionController::TestRequest.new
-    @response = ActionController::TestResponse.new
-    @routes   = Rails.application.routes
-  end
 
   # Add methods to be used by controller specs here...
 
@@ -56,6 +56,6 @@ class MiniTest::Rails::Mailer
 end
 
 MiniTest::Spec.register_spec_type(MiniTest::Rails::Mailer) do |desc|
-  desc.superclass == ActionMailer::Base
+  desc.respond_to?(:superclass) && desc.superclass == ActionMailer::Base
 end
 
