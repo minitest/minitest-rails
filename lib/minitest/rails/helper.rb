@@ -1,6 +1,6 @@
 require "minitest/rails/spec"
 
-module MiniTest
+module Minitest
   module Rails
     class Helper < Spec
       include ActiveSupport::Testing::SetupAndTeardown
@@ -14,7 +14,7 @@ module MiniTest
           context_class = self
           context_super = context_class.superclass
 
-          while context_super && context_super != MiniTest::Rails::Helper
+          while context_super && context_super != Minitest::Rails::Helper
             context_class = context_super
             context_super = context_super.superclass
           end

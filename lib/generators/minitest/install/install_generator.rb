@@ -1,6 +1,6 @@
 require 'rails/generators'
 
-module MiniTest
+module Minitest
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
 

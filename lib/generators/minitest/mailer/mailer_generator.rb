@@ -1,10 +1,10 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class MailerGenerator < Base
       argument     :actions, :type => :array,   :default => [],    :banner => "method method"
-      class_option :spec,    :type => :boolean, :default => false, :desc => "Use MiniTest::Spec DSL"
+      class_option :spec,    :type => :boolean, :default => false, :desc => "Use Minitest::Spec DSL"
 
       check_class_collision :suffix => "MailerTest"
 

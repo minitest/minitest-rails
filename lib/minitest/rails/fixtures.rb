@@ -1,4 +1,4 @@
-module MiniTest
+module Minitest
   module Rails
     module Fixtures
       def self.included(klass)

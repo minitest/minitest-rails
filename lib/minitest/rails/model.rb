@@ -1,6 +1,6 @@
 require "minitest/rails/spec"
 
-module MiniTest
+module Minitest
   module Rails
     class Model < Spec
     end

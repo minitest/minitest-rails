@@ -1,8 +1,8 @@
 require "minitest/autorun"
 require "minitest-rails"
 
-class TestMiniTest < MiniTest::Unit::TestCase
+class TestMinitest < Minitest::Unit::TestCase
   def test_sanity
-    assert MiniTest::Rails::VERSION
+    assert Minitest::Rails::VERSION
   end
 end

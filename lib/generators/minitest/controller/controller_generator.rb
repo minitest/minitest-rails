@@ -1,12 +1,10 @@
-require "generators/mini_test"
-require "rails/generators/resource_helpers"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
-    class ScaffoldGenerator < Base
-      include ::Rails::Generators::ResourceHelpers
+    class ControllerGenerator < Base
       argument     :actions, :type => :array,   :default => [],    :banner => "action action"
-      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use MiniTest::Spec DSL"
+      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use Minitest::Spec DSL"
 
       check_class_collision :suffix => "ControllerTest"
 

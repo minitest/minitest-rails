@@ -4,21 +4,21 @@ require "minitest-rails"
 require "rails"
 require "rails/generators"
 
-require "generators/mini_test/controller/controller_generator"
+require "generators/minitest/controller/controller_generator"
 
 require "fileutils"
 
-class TestControllerGenerator < MiniTest::Unit::TestCase
+class TestControllerGenerator < Minitest::Unit::TestCase
   Rails::Generators.no_color!
 
   def test_controller_generator
     text = capture(:stdout) do
-      MiniTest::Generators::ControllerGenerator.start ["user"]
+      Minitest::Generators::ControllerGenerator.start ["user"]
     end
     assert_match(/create  test\/controllers\/user_controller_test.rb/m, text)
     assert File.exists? "test/controllers/user_controller_test.rb"
     contents = open("test/controllers/user_controller_test.rb").read
-    assert_match(/class UserControllerTest < MiniTest::Rails::Controller/m, contents)
+    assert_match(/class UserControllerTest < Minitest::Rails::Controller/m, contents)
     assert_match(/def test_sanity/m, contents)
   ensure
     # TODO: Don"t write the files
@@ -28,7 +28,7 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
 
   def test_controller_generator_spec
     text = capture(:stdout) do
-      MiniTest::Generators::ControllerGenerator.start ["user", "--spec"]
+      Minitest::Generators::ControllerGenerator.start ["user", "--spec"]
     end
     assert_match(/create  test\/controllers\/user_controller_test.rb/m, text)
     assert File.exists? "test/controllers/user_controller_test.rb"

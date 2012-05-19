@@ -1,9 +1,9 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class HelperGenerator < Base
-      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use MiniTest::Spec DSL"
+      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use Minitest::Spec DSL"
 
       check_class_collision :suffix => "HelperTest"
 

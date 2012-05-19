@@ -4,21 +4,21 @@ require "minitest-rails"
 require "rails"
 require "rails/generators"
 
-require "generators/mini_test/helper/helper_generator"
+require "generators/minitest/helper/helper_generator"
 
 require "fileutils"
 
-class TestHelperGenerator < MiniTest::Unit::TestCase
+class TestHelperGenerator < Minitest::Unit::TestCase
   Rails::Generators.no_color!
 
   def test_helper_generator
     text = capture(:stdout) do
-      MiniTest::Generators::HelperGenerator.start ["user"]
+      Minitest::Generators::HelperGenerator.start ["user"]
     end
     assert_match(/create  test\/helpers\/user_helper_test.rb/m, text)
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = open("test/helpers/user_helper_test.rb").read
-    assert_match(/class UserHelperTest < MiniTest::Rails::Helper/m, contents)
+    assert_match(/class UserHelperTest < Minitest::Rails::Helper/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
@@ -27,7 +27,7 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
 
   def test_helper_generator_spec
     text = capture(:stdout) do
-      MiniTest::Generators::HelperGenerator.start ["user", "--spec"]
+      Minitest::Generators::HelperGenerator.start ["user", "--spec"]
     end
     assert_match(/create  test\/helpers\/user_helper_test.rb/m, text)
     assert File.exists? "test/helpers/user_helper_test.rb"
