@@ -17,7 +17,7 @@ Hoe.spec 'minitest-rails' do
   self.readme_file  = "README.rdoc"
   self.testlib      = :minitest
 
-  extra_deps << ['minitest',  '~> 2.11']
+  extra_deps << ['minitest',  '~> 2.12']
   extra_deps << ['rails',     '~> 3.1']
 end
 
