@@ -11,7 +11,7 @@ Hoe.spec 'minitest-rails' do
 
   self.summary     = 'MiniTest integration for Rails 3.'
   self.description = 'Adds MiniTest as the default testing library in Rails 3.'
-  self.url         = 'http://blowmage.com/minitest-rails'
+  self.urls        = ['http://blowmage.com/minitest-rails']
 
   self.history_file = "CHANGELOG.rdoc"
   self.readme_file  = "README.rdoc"
