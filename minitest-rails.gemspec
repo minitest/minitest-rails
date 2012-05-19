@@ -2,15 +2,15 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.0.6"
+  s.version = "0.0.7.20120519113632"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
-  s.date = "2012-03-14"
+  s.date = "2012-05-19"
   s.description = "Adds Minitest as the default testing library in Rails 3."
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
-  s.files = [".autotest", "CHANGELOG.rdoc", "Manifest.txt", "README.rdoc", "Rakefile", "lib/generators/minitest.rb", "lib/generators/minitest/controller/controller_generator.rb", "lib/generators/minitest/controller/templates/controller_spec.rb", "lib/generators/minitest/controller/templates/controller_test.rb", "lib/generators/minitest/helper/helper_generator.rb", "lib/generators/minitest/helper/templates/helper_spec.rb", "lib/generators/minitest/helper/templates/helper_test.rb", "lib/generators/minitest/install/install_generator.rb", "lib/generators/minitest/install/templates/test/minitest_helper.rb", "lib/generators/minitest/mailer/mailer_generator.rb", "lib/generators/minitest/mailer/templates/mailer_spec.rb", "lib/generators/minitest/mailer/templates/mailer_test.rb", "lib/generators/minitest/model/model_generator.rb", "lib/generators/minitest/model/templates/fixtures.yml", "lib/generators/minitest/model/templates/model_spec.rb", "lib/generators/minitest/model/templates/model_test.rb", "lib/generators/minitest/scaffold/scaffold_generator.rb", "lib/generators/minitest/scaffold/templates/controller_spec.rb", "lib/generators/minitest/scaffold/templates/controller_test.rb", "lib/minitest-rails.rb", "lib/minitest/rails.rb", "lib/minitest/rails/controller.rb", "lib/minitest/rails/fixtures.rb", "lib/minitest/rails/helper.rb", "lib/minitest/rails/mailer.rb", "lib/minitest/rails/model.rb", "lib/minitest/rails/spec.rb", "lib/minitest/rails/tasks/minitest.rake", "test/test_controller_generator.rb", "test/test_helper_generator.rb", "test/test_install_generator.rb", "test/test_mailer_generator.rb", "test/test_minitest.rb", "test/test_model_generator.rb", "test/test_scaffold_generator.rb"]
+  s.files = [".autotest", "CHANGELOG.rdoc", "Manifest.txt", "README.rdoc", "Rakefile", "lib/generators/minitest.rb", "lib/generators/minitest/controller/controller_generator.rb", "lib/generators/minitest/controller/templates/controller_spec.rb", "lib/generators/minitest/controller/templates/controller_test.rb", "lib/generators/minitest/helper/helper_generator.rb", "lib/generators/minitest/helper/templates/helper_spec.rb", "lib/generators/minitest/helper/templates/helper_test.rb", "lib/generators/minitest/install/install_generator.rb", "lib/generators/minitest/install/templates/test/minitest_helper.rb", "lib/generators/minitest/mailer/mailer_generator.rb", "lib/generators/minitest/mailer/templates/mailer_spec.rb", "lib/generators/minitest/mailer/templates/mailer_test.rb", "lib/generators/minitest/model/model_generator.rb", "lib/generators/minitest/model/templates/fixtures.yml", "lib/generators/minitest/model/templates/model_spec.rb", "lib/generators/minitest/model/templates/model_test.rb", "lib/generators/minitest/scaffold/scaffold_generator.rb", "lib/generators/minitest/scaffold/templates/controller_spec.rb", "lib/generators/minitest/scaffold/templates/controller_test.rb", "lib/minitest-rails.rb", "lib/minitest/rails.rb", "lib/minitest/rails/controller.rb", "lib/minitest/rails/fixtures.rb", "lib/minitest/rails/helper.rb", "lib/minitest/rails/mailer.rb", "lib/minitest/rails/model.rb", "lib/minitest/rails/spec.rb", "lib/minitest/rails/tasks/minitest.rake", "test/test_controller_generator.rb", "test/test_helper_generator.rb", "test/test_install_generator.rb", "test/test_mailer_generator.rb", "test/test_minitest.rb", "test/test_model_generator.rb", "test/test_scaffold_generator.rb", ".gemtest"]
   s.homepage = "http://blowmage.com/minitest-rails"
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
@@ -23,20 +23,20 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<minitest>, [">= 2.11"])
+      s.add_runtime_dependency(%q<minitest>, ["~> 2.12"])
       s.add_runtime_dependency(%q<rails>, ["~> 3.1"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.10"])
-      s.add_development_dependency(%q<hoe>, ["~> 2.16"])
+      s.add_development_dependency(%q<hoe>, ["~> 3.0"])
     else
-      s.add_dependency(%q<minitest>, [">= 2.11"])
+      s.add_dependency(%q<minitest>, ["~> 2.12"])
       s.add_dependency(%q<rails>, ["~> 3.1"])
       s.add_dependency(%q<rdoc>, ["~> 3.10"])
-      s.add_dependency(%q<hoe>, ["~> 2.16"])
+      s.add_dependency(%q<hoe>, ["~> 3.0"])
     end
   else
-    s.add_dependency(%q<minitest>, [">= 2.11"])
+    s.add_dependency(%q<minitest>, ["~> 2.12"])
     s.add_dependency(%q<rails>, ["~> 3.1"])
     s.add_dependency(%q<rdoc>, ["~> 3.10"])
-    s.add_dependency(%q<hoe>, ["~> 2.16"])
+    s.add_dependency(%q<hoe>, ["~> 3.0"])
   end
 end
