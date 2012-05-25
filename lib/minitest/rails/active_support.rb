@@ -25,6 +25,12 @@ module MiniTest
           desc < ActiveRecord::Base
         end
 
+        # For backward compatibility with Test::Unit
+        def build_message(message, template = nil, *args)
+          template = template.gsub('<?>', '<%s>')
+          message || sprintf(template, *args)
+        end
+
         Assertion = ::MiniTest::Assertion
         alias_method :method_name, :name if method_defined? :name
         alias_method :method_name, :__name__ if method_defined? :__name__
