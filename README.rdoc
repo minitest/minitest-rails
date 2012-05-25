@@ -37,8 +37,9 @@ This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> director
 == Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
-Your test classes will inherit from MiniTest::Rails::Spec (or Model, or Controller, etc) and you can use the MiniTest::Spec DSL.
-You can generate test files with the standard model, controller, scaffold, and other generators:
+Your test classes will inherit from MiniTest::Rails::ActiveSupport::TestCase a opposed to ActiveSupport::TestCase.
+You can use the MiniTest::Spec DSL.
+You can generate test files with the standard model, controller, resource, and other generators:
 
     rails generate model User
 
@@ -55,3 +56,9 @@ You can also set these as defaults by adding the following to the <tt>config/app
     config.generators do |g|
       g.test_framework :mini_test, :spec => true, :fixture => true
     end
+
+== Get Involved
+
+Join the mailing list to get help or offer suggestions.
+
+https://groups.google.com/forum/#!forum/minitest-rails
