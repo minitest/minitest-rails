@@ -1,9 +1,9 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>Test < MiniTest::Rails::Mailer
+class <%= class_name %>Test < MiniTest::Rails::ActionMailer::TestCase
 <% actions.each do |action| -%>
-  def test_<%= action %>
+  test "<%= action %>" do
     mail = <%= class_name %>.<%= action %>
     assert_equal <%= action.to_s.humanize.inspect %>, mail.subject
     assert_equal ["to@example.org"], mail.to
@@ -13,9 +13,9 @@ class <%= class_name %>Test < MiniTest::Rails::Mailer
 
 <% end -%>
 <% if actions.blank? -%>
-  def test_sanity
-    flunk "Need real tests"
-  end
+  # test "the truth" do
+  #   assert true
+  # end
 <% end -%>
 end
 <% end -%>
