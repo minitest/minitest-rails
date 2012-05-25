@@ -1,6 +1,6 @@
 = minitest-rails
 
-Minitest integration for Rails 3.1.
+MiniTest integration for Rails 3.1.
 
 == Install
 
@@ -30,19 +30,19 @@ Or, for the truly enlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt>
 
 Next run the installation generator with the following:
 
-    rails generate minitest:install
+    rails generate mini_test:install
 
 This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> directory.
 
 == Usage
 
-We aim to expose Minitest with minimal changes for testing within Rails.
-Your test classes will inherit from Minitest::Rails::Spec (or Model, or Controller, etc) and you can use the Minitest::Spec DSL.
+We aim to expose MiniTest with minimal changes for testing within Rails.
+Your test classes will inherit from MiniTest::Rails::Spec (or Model, or Controller, etc) and you can use the MiniTest::Spec DSL.
 You can generate test files with the standard model, controller, scaffold, and other generators:
 
     rails generate model User
 
-And you can specify generating the tests using the Minitest::Spec DSL on any of the generators by providing the <tt>--spec</tt> option:
+And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the <tt>--spec</tt> option:
 
     rails generate model User --spec
 
@@ -53,5 +53,5 @@ And you can specify generating the fixture for a model by providing the <tt>--fi
 You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
 
     config.generators do |g|
-      g.test_framework :minitest, :spec => true, :fixture => true
+      g.test_framework :mini_test, :spec => true, :fixture => true
     end

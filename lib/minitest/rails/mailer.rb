@@ -1,6 +1,6 @@
 require "minitest/rails/spec"
 
-module Minitest
+module MiniTest
   module Rails
     class Mailer < Spec
     end

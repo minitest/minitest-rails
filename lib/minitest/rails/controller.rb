@@ -3,7 +3,7 @@ require "active_support/test_case"
 require "action_controller"
 require "action_controller/test_case"
 
-module Minitest
+module MiniTest
   module Rails
     class Controller < Spec
       include ActiveSupport::Testing::SetupAndTeardown

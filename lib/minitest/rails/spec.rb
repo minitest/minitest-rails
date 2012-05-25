@@ -2,9 +2,9 @@ require "minitest/unit"
 require "minitest/spec"
 require "minitest/mock"
 
-module Minitest
+module MiniTest
   module Rails
-    class Spec < ::Minitest::Spec
+    class Spec < ::MiniTest::Spec
       alias :method_name :__name__ if defined? :__name__
       class << self
         alias :context :describe

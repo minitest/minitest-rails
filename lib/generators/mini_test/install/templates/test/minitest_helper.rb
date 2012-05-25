@@ -11,7 +11,7 @@ class Minitest::Rails::Spec
   # Uncomment if you want to support fixtures for all specs
   # or
   # place within spec class you want to support fixtures for
-  # include Minitest::Rails::Fixtures
+  # include MiniTest::Rails::Fixtures
 
   # For backward compatibility with Test::Unit
   def build_message(message, template = nil, *args)
@@ -23,39 +23,39 @@ class Minitest::Rails::Spec
 
 end
 
-class Minitest::Rails::Model
+class MiniTest::Rails::Model
 
   # Add methods to be used by model specs here...
 
 end
 
-Minitest::Spec.register_spec_type(Minitest::Rails::Model) do |desc|
+MiniTest::Spec.register_spec_type(MiniTest::Rails::Model) do |desc|
   desc.respond_to?(:superclass) && desc.superclass == ActiveRecord::Base
 end
 
-class Minitest::Rails::Controller
+class MiniTest::Rails::Controller
 
   # Add methods to be used by controller specs here...
 
 end
 
-Minitest::Spec.register_spec_type(/Controller$/, Minitest::Rails::Controller)
+MiniTest::Spec.register_spec_type(/Controller$/, MiniTest::Rails::Controller)
 
-class Minitest::Rails::Helper
+class MiniTest::Rails::Helper
 
   # Add methods to be used by helper specs here...
 
 end
 
-Minitest::Spec.register_spec_type(/Helper$/, Minitest::Rails::Helper)
+MiniTest::Spec.register_spec_type(/Helper$/, MiniTest::Rails::Helper)
 
-class Minitest::Rails::Mailer
+class MiniTest::Rails::Mailer
 
   # Add methods to be used by mailer specs here...
 
 end
 
-Minitest::Spec.register_spec_type(Minitest::Rails::Mailer) do |desc|
+MiniTest::Spec.register_spec_type(MiniTest::Rails::Mailer) do |desc|
   desc.respond_to?(:superclass) && desc.superclass == ActionMailer::Base
 end
 

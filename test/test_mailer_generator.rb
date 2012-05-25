@@ -4,21 +4,21 @@ require "minitest-rails"
 require "rails"
 require "rails/generators"
 
-require "generators/minitest/mailer/mailer_generator"
+require "generators/mini_test/mailer/mailer_generator"
 
 require "fileutils"
 
-class TestMailerGenerator < Minitest::Unit::TestCase
+class TestMailerGenerator < MiniTest::Unit::TestCase
   Rails::Generators.no_color!
 
   def test_mailer_generator
     text = capture(:stdout) do
-      Minitest::Generators::MailerGenerator.start ["notification"]
+      MiniTest::Generators::MailerGenerator.start ["notification"]
     end
     assert_match(/create  test\/mailers\/notification_test.rb/m, text)
     assert File.exists? "test/mailers/notification_test.rb"
     contents = open("test/mailers/notification_test.rb").read
-    assert_match(/class NotificationTest < Minitest::Rails::Mailer/m, contents)
+    assert_match(/class NotificationTest < MiniTest::Rails::Mailer/m, contents)
   ensure
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
@@ -27,7 +27,7 @@ class TestMailerGenerator < Minitest::Unit::TestCase
 
   def test_mailer_generator_spec
     text = capture(:stdout) do
-      Minitest::Generators::MailerGenerator.start ["notification", "welcome", "--spec"]
+      MiniTest::Generators::MailerGenerator.start ["notification", "welcome", "--spec"]
     end
     assert_match(/create  test\/mailers\/notification_test.rb/m, text)
     assert File.exists? "test/mailers/notification_test.rb"

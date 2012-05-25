@@ -4,21 +4,21 @@ require "minitest-rails"
 require "rails"
 require "rails/generators"
 
-require "generators/minitest/scaffold/scaffold_generator"
+require "generators/mini_test/scaffold/scaffold_generator"
 
 require "fileutils"
 
-class TestScaffoldGenerator < Minitest::Unit::TestCase
+class TestScaffoldGenerator < MiniTest::Unit::TestCase
   Rails::Generators.no_color!
 
   def test_scaffold_generator
     text = capture(:stdout) do
-      Minitest::Generators::ScaffoldGenerator.start ["user"]
+      MiniTest::Generators::ScaffoldGenerator.start ["user"]
     end
     assert_match(/create  test\/controllers\/user_controller_test.rb/m, text)
     assert File.exists? "test/controllers/user_controller_test.rb"
     contents = open("test/controllers/user_controller_test.rb").read
-    assert_match(/class UserControllerTest < Minitest::Rails::Controller/m, contents)
+    assert_match(/class UserControllerTest < MiniTest::Rails::Controller/m, contents)
     assert_match(/def test_index/m, contents)
   ensure
     # TODO: Don"t write the files
@@ -28,7 +28,7 @@ class TestScaffoldGenerator < Minitest::Unit::TestCase
 
   def test_scaffold_generator_spec
     text = capture(:stdout) do
-      Minitest::Generators::ScaffoldGenerator.start ["user", "--spec"]
+      MiniTest::Generators::ScaffoldGenerator.start ["user", "--spec"]
     end
     assert_match(/create  test\/controllers\/user_controller_test.rb/m, text)
     assert File.exists? "test/controllers/user_controller_test.rb"
