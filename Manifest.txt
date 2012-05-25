@@ -12,6 +12,9 @@ lib/generators/mini_test/helper/templates/helper_spec.rb
 lib/generators/mini_test/helper/templates/helper_test.rb
 lib/generators/mini_test/install/install_generator.rb
 lib/generators/mini_test/install/templates/test/minitest_helper.rb
+lib/generators/mini_test/integration/integration_generator.rb
+lib/generators/mini_test/integration/templates/integration_spec.rb
+lib/generators/mini_test/integration/templates/integration_test.rb
 lib/generators/mini_test/mailer/mailer_generator.rb
 lib/generators/mini_test/mailer/templates/mailer_spec.rb
 lib/generators/mini_test/mailer/templates/mailer_test.rb
@@ -25,6 +28,7 @@ lib/generators/mini_test/scaffold/templates/controller_test.rb
 lib/minitest-rails.rb
 lib/minitest/rails.rb
 lib/minitest/rails/action_controller.rb
+lib/minitest/rails/action_dispatch.rb
 lib/minitest/rails/action_mailer.rb
 lib/minitest/rails/active_support.rb
 lib/minitest/rails/tasks/minitest.rake
