@@ -25,6 +25,7 @@ lib/generators/mini_test/scaffold/templates/controller_test.rb
 lib/minitest-rails.rb
 lib/minitest/rails.rb
 lib/minitest/rails/action_controller.rb
+lib/minitest/rails/action_mailer.rb
 lib/minitest/rails/active_support.rb
 lib/minitest/rails/tasks/minitest.rake
 minitest-rails.gemspec
