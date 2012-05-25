@@ -1,11 +1,9 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>Test < MiniTest::Rails::Model
-
-  def test_sanity
-    flunk "Need real tests"
-  end
-
+class <%= class_name %>Test < MiniTest::Rails::ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
 <% end -%>

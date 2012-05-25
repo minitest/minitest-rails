@@ -1,15 +1,14 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < MiniTest::Rails::Controller
-
+class <%= class_name %>ControllerTest < MiniTest::Rails::ActionController::TestCase
 <% if actions.empty? -%>
-  def test_sanity
-    flunk "Need real tests"
-  end
+  # test "the truth" do
+  #   assert true
+  # end
 <% else -%>
 <% actions.each do |action| -%>
-  def test_<%= action %>
+  test "should get <%= action %>" do
     get :<%= action %>
     assert_response :success
   end

@@ -3,12 +3,8 @@ require "minitest_helper"
 <% module_namespacing do -%>
 describe <%= class_name %>Controller do
 
-  subject { <%= class_name %>Controller }
-
-  # fixtures :all
-
   before do
-    @<%= singular_table_name %> = <%= table_name %>(:one)
+    @<%= singular_table_name %> = <%= class_name %>.new
   end
 
   it "must get index" do
