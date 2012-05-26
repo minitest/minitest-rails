@@ -1,29 +1,42 @@
 require 'rake/testtask'
+require 'rails/test_unit/sub_test_task'
 
-MINITEST_TASKS = %w(models controllers helpers mailers integration) #views
+TASKS = %w(models controllers helpers mailers integration) #views
+MINITEST_TASKS = TASKS.map { |sub| "minitest:#{sub}" }
 
-desc 'Runs all tests'
+desc "Runs minitest"
 task :test do
-  errors = MINITEST_TASKS.collect do |task|
-    begin
-      Rake::Task["test:#{task}"].invoke
-      nil
-    rescue => e
-      task
-    end
-  end.compact
-  abort "Errors running #{errors * ', '}!" if errors.any?
+  Rake::Task['minitest'].invoke
 end
 
-namespace :test do
-  task :prepare do
-    # Placeholder task for other Railtie and plugins to enhance. See Active Record for an example.
-  end
+desc "Runs #{MINITEST_TASKS.join(", ")} together"
+task :minitest do
+  Rake::Task['minitest:run'].invoke
+end
 
-  MINITEST_TASKS.each do |sub|
-    Rake::TestTask.new(sub => 'test:prepare') do |t|
-      t.libs << 'test'
+namespace 'minitest' do
+  
+  task :run do
+    errors = MINITEST_TASKS.collect do |task|
+      begin
+        Rake::Task[task].invoke
+        nil
+      rescue => e
+        { :task => task, :exception => e }
+      end
+    end.compact
+    
+    if errors.any?
+      puts errors.map { |e| "Errors running #{e[:task]}! #{e[:exception].inspect}" }.join("\n")
+      abort
+    end
+  end
+  
+  TASKS.each do |sub|
+    Rails::SubTestTask.new(sub => 'test:prepare') do |t|
+      t.libs.push 'test'
       t.pattern = "test/#{sub}/**/*_test.rb"
     end
   end
+  
 end
