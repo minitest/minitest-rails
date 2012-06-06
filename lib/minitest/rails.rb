@@ -9,8 +9,7 @@ require "minitest/rails/action_dispatch"
 
 # Enable turn if it is available
 begin
-  require 'turn'
-  MiniTest::Unit.use_natural_language_case_names = true
+  require 'turn/autorun'
 rescue LoadError
 end
 
