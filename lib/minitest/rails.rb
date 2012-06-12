@@ -22,7 +22,7 @@ if defined?(ActiveRecord::Base)
   MiniTest::Rails::ActionDispatch::IntegrationTest.fixture_path = MiniTest::Rails::ActiveSupport::TestCase.fixture_path
 
   def create_fixtures(*table_names, &block)
-    Fixtures.create_fixtures(MiniTest::Rails::ActiveSupport::TestCase.fixture_path, table_names, {}, &block)
+    ActiveRecord::Fixtures.create_fixtures(MiniTest::Rails::ActiveSupport::TestCase.fixture_path, table_names, {}, &block)
   end
 end
 
