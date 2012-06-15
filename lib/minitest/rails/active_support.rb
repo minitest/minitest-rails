@@ -48,6 +48,10 @@ module MiniTest
           :sorted
         end
 
+        def describe(*args, &block)
+          Kernel.describe(args, block)
+        end
+
         include ::ActiveSupport::Testing::SetupAndTeardown
         include ::ActiveSupport::Testing::Assertions
         include ::ActiveSupport::Testing::Deprecation
