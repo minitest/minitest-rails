@@ -30,7 +30,7 @@ Or, for the truly enlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt>
 
 Next run the installation generator with the following:
 
-    rails generate mini_test:install
+    rails generate minitest:install
 
 This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> directory.
 
