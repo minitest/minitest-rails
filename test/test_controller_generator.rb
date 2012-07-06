@@ -25,6 +25,18 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
     FileUtils.rm_r "test/controllers"
   end
 
+  def test_namespaced_controller_generator
+    text = capture(:stdout) do
+      MiniTest::Generators::ControllerGenerator.start ["admin/user"]
+    end
+    assert_match(/create  test\/controllers\/admin\/user_controller_test.rb/m, text)
+    assert File.exists? "test/controllers/admin/user_controller_test.rb"
+    contents = open("test/controllers/admin/user_controller_test.rb").read
+    assert_match(/class Admin::UserControllerTest/m, contents)
+  ensure
+    FileUtils.rm_r "test/controllers"
+  end
+
   def test_controller_generator_spec
     text = capture(:stdout) do
       MiniTest::Generators::ControllerGenerator.start ["user", "--spec"]
@@ -36,4 +48,17 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
   ensure
     FileUtils.rm_r "test/controllers"
   end
+
+  def test_namespaced_controller_generator_spec
+    text = capture(:stdout) do
+      MiniTest::Generators::ControllerGenerator.start ["admin/user", "--spec"]
+    end
+    assert_match(/create  test\/controllers\/admin\/user_controller_test.rb/m, text)
+    assert File.exists? "test/controllers/admin/user_controller_test.rb"
+    contents = open("test/controllers/admin/user_controller_test.rb").read
+    assert_match(/describe Admin::UserController do/m, contents)
+  ensure
+    FileUtils.rm_r "test/controllers"
+  end
+
 end
