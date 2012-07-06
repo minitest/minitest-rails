@@ -3,7 +3,7 @@ require "minitest/unit"
 
 module MiniTest
   module Rails
-    VERSION = "0.1.0.alpha"
+    VERSION = "0.1.0.alpha2"
     class Railtie < ::Rails::Railtie
       config.app_generators.integration_tool :mini_test
       config.app_generators.test_framework :mini_test
