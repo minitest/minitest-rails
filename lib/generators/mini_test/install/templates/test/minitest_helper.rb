@@ -7,6 +7,13 @@ require "minitest/rails"
 # Uncomment if you want awesome colorful output
 # require "minitest/pride"
 
+class MiniTest::Rails::ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
+  fixtures :all
+
+  # Add more helper methods to be used by all tests here...
+end
+
 # Do you want all existing Rails tests to use MiniTest::Rails?
 # Comment out the following and either:
 # A) Change the require on the existing tests to `require "minitest_helper"`

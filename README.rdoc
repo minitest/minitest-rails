@@ -47,14 +47,14 @@ And you can specify generating the tests using the MiniTest::Spec DSL on any of 
 
     rails generate model User --spec
 
-And you can specify generating the fixture for a model by providing the <tt>--fixture</tt> option:
+And you can specify not generating the fixture for a model by providing the <tt>--skip-fixture</tt> option:
 
-    rails generate model User --fixture
+    rails generate model User --skip-fixture
 
 You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
 
     config.generators do |g|
-      g.test_framework :mini_test, :spec => true, :fixture => true
+      g.test_framework :mini_test, :spec => true, :fixture => false
     end
 
 == Get Involved
