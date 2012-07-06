@@ -23,6 +23,7 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     # TODO: Don"t write the files
     # I agree, it would be better to mock the file getting written
     FileUtils.rm_r "test/models"
+    FileUtils.rm_r "test/fixtures"
   end
 
   def test_model_generator_spec
@@ -31,8 +32,29 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     end
     assert_match(/create  test\/models\/user_test.rb/m, text)
     assert File.exists? "test/models/user_test.rb"
+    assert File.exists? "test/fixtures/users.yml"
     contents = open("test/models/user_test.rb").read
     assert_match(/describe User do/m, contents)
+  ensure
+    FileUtils.rm_r "test/models"
+    FileUtils.rm_r "test/fixtures"
+  end
+
+  def test_model_generator_fixture
+    text = capture(:stdout) do
+      MiniTest::Generators::ModelGenerator.start ["user"]
+    end
+    assert File.exists? "test/fixtures/users.yml"
+  ensure
+    FileUtils.rm_r "test/models"
+    FileUtils.rm_r "test/fixtures"
+  end
+
+  def test_model_generator_no_fixture
+    text = capture(:stdout) do
+      MiniTest::Generators::ModelGenerator.start ["user", "--skip-fixture"]
+    end
+    refute File.exists? "test/fixtures/users.yml"
   ensure
     FileUtils.rm_r "test/models"
   end
