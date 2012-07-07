@@ -16,6 +16,10 @@ end
 
 namespace 'minitest' do
 
+  task :prepare do
+    # Placeholder task for other Railtie and plugins to enhance. See Active Record for an example.
+  end
+
   task :run do
     errors = MINITEST_TASKS.collect do |task|
       begin
@@ -33,7 +37,7 @@ namespace 'minitest' do
   end
 
   TASKS.each do |sub|
-    Rails::SubTestTask.new(sub => 'test:prepare') do |t|
+    Rails::SubTestTask.new(sub => 'minitest:prepare') do |t|
       t.libs.push 'test'
       t.pattern = "test/#{sub}/**/*_test.rb"
     end
