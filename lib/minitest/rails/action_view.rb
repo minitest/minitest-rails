@@ -12,7 +12,6 @@ module MiniTest
 end
 
 # Register by name, because Helpers are just modules
-puts "Registering Helper TestCase!!!"
 MiniTest::Spec.register_spec_type(/Helper$/,      MiniTest::Rails::ActionView::TestCase)
 MiniTest::Spec.register_spec_type(/HelperTest$/,  MiniTest::Rails::ActionView::TestCase)
 MiniTest::Spec.register_spec_type(/Helper Test$/, MiniTest::Rails::ActionView::TestCase)
