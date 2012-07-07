@@ -7,6 +7,7 @@ module MiniTest
       class IntegrationTest < MiniTest::Rails::ActiveSupport::TestCase
         include ::ActionDispatch::Integration::Runner
         include ::ActionController::TemplateAssertions
+        include ::ActionDispatch::Routing::UrlFor
 
         @@app = nil
 
