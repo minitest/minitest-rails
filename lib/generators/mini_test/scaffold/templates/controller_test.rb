@@ -1,7 +1,7 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>ControllerTest < MiniTest::Rails::ActionController::TestCase
+class <%= controller_class_name %>ControllerTest < MiniTest::Rails::ActionController::TestCase
 
   before do
     @<%= singular_table_name %> = <%= class_name %>.new
