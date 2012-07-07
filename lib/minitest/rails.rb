@@ -6,6 +6,7 @@ require "minitest/rails/active_support"
 require "minitest/rails/action_controller"
 require "minitest/rails/action_mailer"
 require "minitest/rails/action_dispatch"
+require "minitest/rails/action_view"
 
 # Enable turn if it is available
 begin

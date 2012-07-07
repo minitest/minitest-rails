@@ -1,4 +1,5 @@
 .autotest
+.gemtest
 CHANGELOG.rdoc
 Manifest.txt
 README.rdoc
@@ -30,6 +31,7 @@ lib/minitest/rails.rb
 lib/minitest/rails/action_controller.rb
 lib/minitest/rails/action_dispatch.rb
 lib/minitest/rails/action_mailer.rb
+lib/minitest/rails/action_view.rb
 lib/minitest/rails/active_support.rb
 lib/minitest/rails/tasks/minitest.rake
 minitest-rails.gemspec
