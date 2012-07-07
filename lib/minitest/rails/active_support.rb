@@ -42,12 +42,6 @@ module MiniTest
           yield if $tags[tag]
         end
 
-        # FIXME: we have tests that depend on run order, we should fix that and
-        # remove this method.
-        def self.test_order # :nodoc:
-          :sorted
-        end
-
         def describe(*args, &block)
           Kernel.describe(args, block)
         end
