@@ -4,9 +4,9 @@ abort("Abort testing: Your Rails environment is running in production mode!") if
 
 require "minitest/rails/active_support"
 require "minitest/rails/action_controller"
+require "minitest/rails/action_view"
 require "minitest/rails/action_mailer"
 require "minitest/rails/action_dispatch"
-require "minitest/rails/action_view"
 
 # Enable turn if it is available
 begin
@@ -36,5 +36,15 @@ end
 class MiniTest::Rails::ActionDispatch::IntegrationTest
   setup do
     @routes = Rails.application.routes
+  end
+end
+
+def self.override_testunit_with_minitest!
+  Kernel.silence_warnings do
+    ActiveSupport.const_set    :TestCase,        MiniTest::Rails::ActiveSupport::TestCase
+    ActionController.const_set :TestCase,        MiniTest::Rails::ActionController::TestCase
+    ActionView.const_set       :TestCase,        MiniTest::Rails::ActionView::TestCase
+    ActionMailer.const_set     :TestCase,        MiniTest::Rails::ActionMailer::TestCase
+    ActionDispatch.const_set   :IntegrationTest, MiniTest::Rails::ActionDispatch::IntegrationTest
   end
 end

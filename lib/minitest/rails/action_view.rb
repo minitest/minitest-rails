@@ -5,6 +5,7 @@ module MiniTest
   module Rails
     module ActionView
       class TestCase < MiniTest::Rails::ActiveSupport::TestCase
+        TestController = ::ActionView::TestCase::TestController
         include ::ActionView::TestCase::Behavior
       end
     end
