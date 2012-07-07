@@ -61,4 +61,4 @@ You can also set these as defaults by adding the following to the <tt>config/app
 
 Join the mailing list to get help or offer suggestions.
 
-https://groups.google.com/forum/#!forum/minitest-rails
+https://groups.google.com/group/minitest-rails
