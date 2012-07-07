@@ -22,12 +22,6 @@ Add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> grou
       gem 'minitest-rails'
     end
 
-Or, for the truly enlightened, add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Isolate:
-
-    env :development, :test do
-      gem 'minitest-rails'
-    end
-
 Next run the installation generator with the following:
 
     rails generate mini_test:install
@@ -37,6 +31,7 @@ This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> director
 == Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
+Because of this, we allow Test::Unit and MiniTest tests to live side by side.
 Your test classes will inherit from MiniTest::Rails::ActiveSupport::TestCase a opposed to ActiveSupport::TestCase.
 You can use the MiniTest::Spec DSL.
 You can generate test files with the standard model, controller, resource, and other generators:
@@ -56,6 +51,29 @@ You can also set these as defaults by adding the following to the <tt>config/app
     config.generators do |g|
       g.test_framework :mini_test, :spec => true, :fixture => false
     end
+
+== Overriding Test::Unit
+
+Of course, you may not want to maintain separate Test::Unit and MiniTest tests.
+If this is the behavior you are wanting, simply add the following to your <tt>test_helper.rb</tt> file:
+
+    require "minitest/rails"
+    MiniTest::Rails.override_testunit!
+
+== Capybara
+
+You can use Capybara in your acceptance/integration tests by adding <tt>minitest-rails-capybara</tt> as a dependency.
+
+    group :test, :development do
+      gem 'minitest-rails'
+      gem 'minitest-rails-capybara'
+    end
+
+And add the following to your test helper file:
+
+    require "minitest/rails/capybara"
+
+See the <tt>minitest-rails-capybara</tt> project for more information.
 
 == Get Involved
 
