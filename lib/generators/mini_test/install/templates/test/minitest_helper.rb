@@ -22,4 +22,4 @@ end
 # A) Change the require on the existing tests to `require "minitest_helper"`
 # B) Require this file's code in test_helper.rb
 
-# override_testunit_with_minitest!
+# MiniTest::Rails.override_testunit!

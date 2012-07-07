@@ -14,6 +14,20 @@ begin
 rescue LoadError
 end
 
+module MiniTest
+  module Rails
+    def self.override_testunit!
+      Kernel.silence_warnings do
+        ::ActiveSupport.const_set    :TestCase,        MiniTest::Rails::ActiveSupport::TestCase
+        ::ActionController.const_set :TestCase,        MiniTest::Rails::ActionController::TestCase
+        ::ActionView.const_set       :TestCase,        MiniTest::Rails::ActionView::TestCase
+        ::ActionMailer.const_set     :TestCase,        MiniTest::Rails::ActionMailer::TestCase
+        ::ActionDispatch.const_set   :IntegrationTest, MiniTest::Rails::ActionDispatch::IntegrationTest
+      end
+    end
+  end
+end
+
 if defined?(ActiveRecord::Base)
   class MiniTest::Rails::ActiveSupport::TestCase
     include ActiveRecord::TestFixtures
@@ -36,15 +50,5 @@ end
 class MiniTest::Rails::ActionDispatch::IntegrationTest
   setup do
     @routes = Rails.application.routes
-  end
-end
-
-def self.override_testunit_with_minitest!
-  Kernel.silence_warnings do
-    ActiveSupport.const_set    :TestCase,        MiniTest::Rails::ActiveSupport::TestCase
-    ActionController.const_set :TestCase,        MiniTest::Rails::ActionController::TestCase
-    ActionView.const_set       :TestCase,        MiniTest::Rails::ActionView::TestCase
-    ActionMailer.const_set     :TestCase,        MiniTest::Rails::ActionMailer::TestCase
-    ActionDispatch.const_set   :IntegrationTest, MiniTest::Rails::ActionDispatch::IntegrationTest
   end
 end
