@@ -80,3 +80,9 @@ See the <tt>minitest-rails-capybara</tt> project for more information.
 Join the mailing list to get help or offer suggestions.
 
 https://groups.google.com/group/minitest-rails
+
+== License
+
+Copyright © 2012 Mike Moore.
+
+Released under the MIT license. See `LICENSE` for details.
