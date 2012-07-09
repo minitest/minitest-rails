@@ -1,6 +1,28 @@
+=== 0.1.0 / 2012-07-09
+
+This is a major change. The approach used is the same approach used in Rails 4. This version is very different than the 0.0.x versions.
+
+https://github.com/blowmage/minitest-rails/compare/v0.0.7...v0.1
+
+=== 0.0.7 / 2012-05-19
+
+* Use the Minitest constant
+
+https://github.com/blowmage/minitest-rails/compare/v0.0.6...v0.0.7
+
+=== 0.0.6 / 2012-03-14
+
+https://github.com/blowmage/minitest-rails/compare/v0.0.5...v0.0.6
+
+=== 0.0.5 / 2011-06-22
+
+https://github.com/blowmage/minitest-rails/compare/v0.0.4...v0.0.5
+
 === 0.0.4 / 2011-06-08
 
 Add scaffold, bump to Rails 3.1.0.rc2
+
+https://github.com/blowmage/minitest-rails/compare/v0.0.2...v0.0.4
 
 === 0.0.2 / 2011-06-02
 

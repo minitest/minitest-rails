@@ -2,9 +2,9 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.1.0.alpha2.20120709095634"
+  s.version = "0.1.20120709115419"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
   s.date = "2012-07-09"
   s.description = "Adds MiniTest as the default testing library in Rails 3."
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "minitest-rails"
-  s.rubygems_version = "1.8.16"
+  s.rubygems_version = "1.8.24"
   s.summary = "MiniTest integration for Rails 3."
   s.test_files = ["test/test_controller_generator.rb", "test/test_helper_generator.rb", "test/test_install_generator.rb", "test/test_mailer_generator.rb", "test/test_minitest.rb", "test/test_model_generator.rb", "test/test_scaffold_generator.rb"]
 
