@@ -1,32 +1,44 @@
 require 'rake/testtask'
 require 'rails/test_unit/sub_test_task'
 
-TASKS = %w(models controllers helpers mailers acceptance) #views
-MINITEST_TASKS = TASKS.map { |sub| "minitest:#{sub}" }
+# The default tests to run, update this list to change behavior
+MINITEST_TASKS = %w(models helpers controllers mailers acceptance) #views
+
+def all_directories_under_test
+  Dir['test/*/'].map {|dir| /test\/(.+?)\//.match(dir)[1] }
+end
+
+def all_minitest_directories
+  (MINITEST_TASKS + all_directories_under_test).uniq
+end
 
 desc "Runs minitest"
 task :test do
+  # Add to existing task if exists, or create new task otherwise
   Rake::Task['minitest'].invoke
+end
+
+namespace 'test' do
+  task :prepare do
+    # Define here in case test_unit isn't loaded
+  end
 end
 
 desc "Runs #{MINITEST_TASKS.join(", ")} together"
 task :minitest do
-  Rake::Task['minitest:run'].invoke
+  Rake::Task['minitest:default'].invoke
 end
 
 namespace 'minitest' do
 
-  task :prepare do
-    # Placeholder task for other Railtie and plugins to enhance. See Active Record for an example.
-  end
-
-  task :run do
+  # Only run the default tasks defined in MINITEST_TASKS
+  task :default do
     errors = MINITEST_TASKS.collect do |task|
       begin
-        Rake::Task[task].invoke
+        Rake::Task["minitest:#{task}"].invoke
         nil
       rescue => e
-        { :task => task, :exception => e }
+        { :task => "minitest:#{task}", :exception => e }
       end
     end.compact
 
@@ -36,10 +48,27 @@ namespace 'minitest' do
     end
   end
 
-  TASKS.each do |sub|
-    Rails::SubTestTask.new(sub => 'minitest:prepare') do |t|
+  # Run all tests in all the test directories
+  task :all do
+    errors = all_minitest_directories.collect do |task|
+      begin
+        Rake::Task["minitest:#{task}"].invoke
+        nil
+      rescue => e
+        { :task => "minitest:#{task}", :exception => e }
+      end
+    end.compact
+
+    if errors.any?
+      puts errors.map { |e| "Errors running #{e[:task]}! #{e[:exception].inspect}" }.join("\n")
+      abort
+    end
+  end
+
+  all_minitest_directories.each do |task|
+    Rails::SubTestTask.new(task => 'test:prepare') do |t|
       t.libs.push 'test'
-      t.pattern = "test/#{sub}/**/*_test.rb"
+      t.pattern = "test/#{task}/**/*_test.rb"
     end
   end
 
