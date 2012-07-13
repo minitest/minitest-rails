@@ -7,7 +7,7 @@ module MiniTest
       class TestCase < MiniTest::Rails::ActiveSupport::TestCase
         # Use AM::TestCase for the base class when describing a mailer
         register_spec_type(self) do |desc|
-          desc < ::ActionMailer::Base
+          desc.respond_to?(:ancestors) && desc.ancestors.include?(ActionMailer::Base)
         end
 
         include ::ActionMailer::TestCase::Behavior
