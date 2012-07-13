@@ -1,5 +1,5 @@
 require 'rake/testtask'
-require 'rails/test_unit/sub_test_task'
+require 'minitest/rails/tasks/sub_test_task'
 
 # The default tests to run, update this list to change behavior
 MINITEST_TASKS = %w(models helpers controllers mailers acceptance) #views
@@ -66,7 +66,7 @@ namespace 'minitest' do
   end
 
   all_minitest_directories.each do |task|
-    Rails::SubTestTask.new(task => 'test:prepare') do |t|
+    MiniTest::Rails::Tasks::SubTestTask.new(task => 'test:prepare') do |t|
       t.libs.push 'test'
       t.pattern = "test/#{task}/**/*_test.rb"
     end
