@@ -34,7 +34,9 @@ lib/minitest/rails/action_dispatch.rb
 lib/minitest/rails/action_mailer.rb
 lib/minitest/rails/action_view.rb
 lib/minitest/rails/active_support.rb
+lib/minitest/rails/mochaing.rb
 lib/minitest/rails/tasks/minitest.rake
+lib/minitest/rails/tasks/sub_test_task.rb
 minitest-rails.gemspec
 test/test_controller_generator.rb
 test/test_helper_generator.rb
