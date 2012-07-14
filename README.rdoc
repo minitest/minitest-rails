@@ -1,6 +1,6 @@
 = minitest-rails
 
-MiniTest integration for Rails 3.
+MiniTest integration for Rails 3.x
 
 == Install
 
