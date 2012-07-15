@@ -44,16 +44,18 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     text = capture(:stdout) do
       MiniTest::Generators::ModelGenerator.start ["user"]
     end
+    assert_match(/create  test\/fixtures\/users.yml/m,  text)
     assert File.exists? "test/fixtures/users.yml"
   ensure
     FileUtils.rm_r "test/models"
     FileUtils.rm_r "test/fixtures"
   end
 
-  def test_model_generator_no_fixture
+  def test_model_generator_skip_fixture
     text = capture(:stdout) do
       MiniTest::Generators::ModelGenerator.start ["user", "--skip-fixture"]
     end
+    refute_match(/create  test\/fixtures\/users.yml/m,  text)
     refute File.exists? "test/fixtures/users.yml"
   ensure
     FileUtils.rm_r "test/models"

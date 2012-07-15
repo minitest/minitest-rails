@@ -49,7 +49,7 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     FileUtils.rm_r "test/helpers"
   end
 
-  def test_helper_generator_spec
+  def test_namespaced_helper_generator_spec
     text = capture(:stdout) do
       MiniTest::Generators::HelperGenerator.start ["admin/user", "--spec"]
     end
