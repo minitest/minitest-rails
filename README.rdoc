@@ -75,6 +75,10 @@ And add the following to your test helper file:
 
 See the <tt>minitest-rails-capybara</tt> project for more information.
 
+== Incompatibilities
+
+Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by MiniTest::Spec blocks.
+
 == Get Involved
 
 Join the mailing list to get help or offer suggestions.
