@@ -2,7 +2,7 @@ require 'minitest/spec'
 require 'active_support/testing/setup_and_teardown'
 require 'active_support/testing/assertions'
 require 'active_support/testing/deprecation'
-require 'active_support/testing/declarative'
+require 'minitest/rails/declarative'
 require 'active_support/testing/pending'
 require 'active_support/testing/isolation'
 require 'minitest/rails/mochaing'
@@ -42,15 +42,11 @@ module MiniTest
           yield if $tags[tag]
         end
 
-        def describe(*args, &block)
-          Kernel.describe(args, block)
-        end
-
         include ::ActiveSupport::Testing::SetupAndTeardown
         include ::ActiveSupport::Testing::Assertions
         include ::ActiveSupport::Testing::Deprecation
         include ::ActiveSupport::Testing::Pending
-        extend  ::ActiveSupport::Testing::Declarative
+        extend  Testing::Declarative
 
         # test/unit backwards compatibility methods
         alias :assert_raise :assert_raises
