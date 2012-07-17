@@ -1,4 +1,12 @@
-=== 0.1.0 / 2012-07-09
+=== 0.1.1 / 2012-07-17
+
+* Improved rake tasks
+* Improved Rails 3.0 support
+* Fixed bug with nested describes
+
+https://github.com/blowmage/minitest-rails/compare/v0.1...v0.1.1
+
+=== 0.1 / 2012-07-09
 
 This is a major change. The approach used is the same approach used in Rails 4. This version is very different than the 0.0.x versions.
 
