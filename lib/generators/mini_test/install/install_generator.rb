@@ -17,6 +17,9 @@ DESC
         directory 'test'
       end
 
+      def require_minitest_rails
+        application %Q{\n    #added by minitest-rails install generator\n    require "minitest-rails"\n}
+      end
     end
   end
 end
