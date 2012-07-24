@@ -24,13 +24,11 @@ module MiniTest
         def app
           super || ::ActionDispatch::IntegrationTest.app
         end
+
+        # Register by name
+        register_spec_type(/Acceptance\s?Test$/, self)
+        register_spec_type(/Integration\s?Test$/, self)
       end
     end
   end
 end
-
-# Register by name
-MiniTest::Spec.register_spec_type(/AcceptanceTest$/,   MiniTest::Rails::ActionDispatch::IntegrationTest)
-MiniTest::Spec.register_spec_type(/Acceptance Test$/,  MiniTest::Rails::ActionDispatch::IntegrationTest)
-MiniTest::Spec.register_spec_type(/IntegrationTest$/,  MiniTest::Rails::ActionDispatch::IntegrationTest)
-MiniTest::Spec.register_spec_type(/Integration Test$/, MiniTest::Rails::ActionDispatch::IntegrationTest)
