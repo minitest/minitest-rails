@@ -11,9 +11,7 @@ module MiniTest
         register_spec_type(self) do |desc|
           desc < ::ActionMailer::Base if desc.is_a?(Class)
         end
-        MiniTest::Spec.register_spec_type(/Mailer$/,      self)
-        MiniTest::Spec.register_spec_type(/MailerTest$/,  self)
-        MiniTest::Spec.register_spec_type(/Mailer Test$/, self)
+        register_spec_type(/Mailer(\s?Test)?$/, self)
       end
     end
   end
