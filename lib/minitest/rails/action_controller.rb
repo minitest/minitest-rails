@@ -5,8 +5,6 @@ module MiniTest
   module Rails
     module ActionController
       class TestCase < MiniTest::Rails::ActiveSupport::TestCase
-        include ::ActionController::TestCase::Behavior
-
         RaiseActionExceptions = ::ActionController::TestCase::RaiseActionExceptions
 
         # Use AC::TestCase for the base class when describing a controller
@@ -14,6 +12,8 @@ module MiniTest
           desc < ::ActionController::Base if desc.is_a?(Class)
         end
         register_spec_type(/Controller(\s?Test)?$/, self)
+
+        include ::ActionController::TestCase::Behavior
       end
     end
   end
