@@ -5,14 +5,16 @@ module MiniTest
   module Rails
     module ActionView
       class TestCase < MiniTest::Rails::ActiveSupport::TestCase
-        TestController = ::ActionView::TestCase::TestController
         include ::ActionView::TestCase::Behavior
+
+        TestController = ::ActionView::TestCase::TestController
+
+        # Register by name, because Helpers are just modules
+        MiniTest::Spec.register_spec_type(/Helper$/,      self)
+        MiniTest::Spec.register_spec_type(/HelperTest$/,  self)
+        MiniTest::Spec.register_spec_type(/Helper Test$/, self)
       end
     end
   end
 end
 
-# Register by name, because Helpers are just modules
-MiniTest::Spec.register_spec_type(/Helper$/,      MiniTest::Rails::ActionView::TestCase)
-MiniTest::Spec.register_spec_type(/HelperTest$/,  MiniTest::Rails::ActionView::TestCase)
-MiniTest::Spec.register_spec_type(/Helper Test$/, MiniTest::Rails::ActionView::TestCase)
