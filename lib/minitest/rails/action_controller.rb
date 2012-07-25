@@ -11,7 +11,7 @@ module MiniTest
         register_spec_type(self) do |desc|
           desc < ::ActionController::Base if desc.is_a?(Class)
         end
-        register_spec_type(/Controller(\s?Test)?$/, self)
+        register_spec_type(/Controller( ?Test)?$/, self)
 
         include ::ActionController::TestCase::Behavior
       end
