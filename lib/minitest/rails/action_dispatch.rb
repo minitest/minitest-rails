@@ -26,8 +26,8 @@ module MiniTest
         end
 
         # Register by name
-        register_spec_type(/Acceptance\s?Test$/, self)
-        register_spec_type(/Integration\s?Test$/, self)
+        register_spec_type(/Acceptance\s?Test$/i, self)
+        register_spec_type(/Integration\s?Test$/i, self)
       end
     end
   end

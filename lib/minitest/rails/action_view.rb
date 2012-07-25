@@ -8,7 +8,7 @@ module MiniTest
         TestController = ::ActionView::TestCase::TestController
 
         # Register by name, because Helpers are just modules
-        register_spec_type(/Helper(\s?Test)?$/, self)
+        register_spec_type(/Helper(\s?Test)?$/i, self)
 
         include ::ActionView::TestCase::Behavior
       end
