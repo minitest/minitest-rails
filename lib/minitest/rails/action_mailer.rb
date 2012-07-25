@@ -10,7 +10,7 @@ module MiniTest
           desc < ::ActionMailer::Base if desc.is_a?(Class)
         end
 
-        register_spec_type(/Mailer(\s?Test)?$/i, self)
+        register_spec_type(/Mailer( ?Test)?\z/i, self)
 
         include ::ActionMailer::TestCase::Behavior
       end
