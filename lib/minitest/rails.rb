@@ -4,7 +4,7 @@ abort("Abort testing: Your Rails environment is running in production mode!") if
 
 require "minitest/rails/active_support"
 require "minitest/rails/action_controller"
-require "minitest/rails/action_view"
+require "minitest/rails/action_view" if defined?(ActionMailer::Base)
 require "minitest/rails/action_mailer"
 require "minitest/rails/action_dispatch"
 
