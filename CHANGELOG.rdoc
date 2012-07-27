@@ -1,3 +1,10 @@
+=== 0.1.2 / 2012-07-26
+
+* Fix bug when ActionMailer isn't loaded (closes #66)
+* Allow specs to use strings in `describe` blocks
+
+https://github.com/blowmage/minitest-rails/compare/v0.1.1...v0.1.2
+
 === 0.1.1 / 2012-07-17
 
 * Improved rake tasks
