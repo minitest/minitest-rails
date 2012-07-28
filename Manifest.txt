@@ -49,7 +49,9 @@ test/generators/test_install_generator.rb
 test/generators/test_mailer_generator.rb
 test/generators/test_model_generator.rb
 test/generators/test_scaffold_generator.rb
-test/rails/test_action_controller_spec_type.rb
+test/rails/action_controller/test_controller_lookup.rb
+test/rails/action_controller/test_controllers.rb
+test/rails/action_controller/test_spec_type.rb
 test/rails/test_action_dispatch_spec_type.rb
 test/rails/test_action_mailer_spec_type.rb
 test/rails/test_action_view_spec_type.rb
