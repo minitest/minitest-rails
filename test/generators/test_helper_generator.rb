@@ -27,43 +27,43 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
   end
 
   def test_helper_generator
-    text = capture :stdout do
+    out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["user"]
     end
-    assert_match /create  test\/helpers\/user_helper_test.rb/m, text
+    assert_match(/create  test\/helpers\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = File.read "test/helpers/user_helper_test.rb"
-    assert_match /class UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents
+    assert_match(/class UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents)
   end
 
   def test_namespaced_helper_generator
-    text = capture :stdout do
+    out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["admin/user"]
     end
-    assert_match /create  test\/helpers\/admin\/user_helper_test.rb/m, text
+    assert_match(/create  test\/helpers\/admin\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/admin/user_helper_test.rb"
     contents = File.read "test/helpers/admin/user_helper_test.rb"
-    assert_match /class Admin::UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents
+    assert_match(/class Admin::UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents)
   end
 
   def test_helper_generator_spec
-    text = capture :stdout do
+    out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["user", "--spec"]
     end
-    assert_match /create  test\/helpers\/user_helper_test.rb/m, text
+    assert_match(/create  test\/helpers\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = File.read "test/helpers/user_helper_test.rb"
-    assert_match /describe UserHelper do/m, contents
+    assert_match(/describe UserHelper do/m, contents)
   end
 
   def test_namespaced_helper_generator_spec
-    text = capture :stdout do
+    out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["admin/user", "--spec"]
     end
-    assert_match /create  test\/helpers\/admin\/user_helper_test.rb/m, text
+    assert_match(/create  test\/helpers\/admin\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/admin/user_helper_test.rb"
     contents = File.read "test/helpers/admin/user_helper_test.rb"
-    assert_match /describe Admin::UserHelper do/m, contents
+    assert_match(/describe Admin::UserHelper do/m, contents)
   end
 
 end

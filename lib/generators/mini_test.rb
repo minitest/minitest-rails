@@ -7,12 +7,20 @@ module MiniTest
         @_minitest_source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'mini_test', generator_name, 'templates'))
       end
 
-      begin
-        # This method doesn't exist in Rails 3.0
+      if ::Rails.version.to_f < 3.1
+        protected
+        # These methods don't exist in Rails 3.0
         def module_namespacing(&block)
           yield if block_given?
         end
-      end unless respond_to?(:module_namespacing)
+        def key_value(key, value)
+          if options[:old_style_hash] || RUBY_VERSION < '1.9'
+            ":#{key} => #{value}"
+          else
+            "#{key}: #{value}"
+          end
+        end
+      end
     end
   end
 end
