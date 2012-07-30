@@ -3,6 +3,7 @@ after_script:
 - rake travis:after -t
 before_script:
 - gem install hoe-travis --no-rdoc --no-ri
+- ruby gemfiles/minitest_tu_shim.rb
 - rake travis:before -t
 language: ruby
 notifications:

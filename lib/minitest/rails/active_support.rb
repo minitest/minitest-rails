@@ -1,4 +1,8 @@
 require 'minitest/spec'
+
+# I hate this! Be sure you have installed minitest_tu_shim
+require "test/unit" if RUBY_VERSION < "1.9"
+
 require 'active_support/testing/setup_and_teardown'
 require 'active_support/testing/assertions'
 require 'active_support/testing/deprecation'

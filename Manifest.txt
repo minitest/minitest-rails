@@ -7,8 +7,12 @@ Manifest.txt
 README.rdoc
 Rakefile
 gemfiles/3.0.gemfile
+gemfiles/3.0.gemfile.lock
 gemfiles/3.1.gemfile
+gemfiles/3.1.gemfile.lock
 gemfiles/3.2.gemfile
+gemfiles/3.2.gemfile.lock
+gemfiles/minitest_tu_shim.rb
 lib/generators/mini_test.rb
 lib/generators/mini_test/controller/controller_generator.rb
 lib/generators/mini_test/controller/templates/controller_spec.rb
