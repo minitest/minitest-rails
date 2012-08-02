@@ -1,5 +1,7 @@
 require 'minitest/rails/active_support'
 require 'action_dispatch/testing/integration'
+require 'action_controller/test_case'
+require 'action_dispatch/routing/url_for'
 
 module MiniTest
   module Rails
