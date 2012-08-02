@@ -1,7 +1,7 @@
 === 0.1.3 / 2012-08-02
 
 * Significant improvements to nested describe blocks (closes #58)
-* Tests no longer need write permission to the filesytem
+* Tests no longer need write permission to the filesystem
 
 https://github.com/blowmage/minitest-rails/compare/v0.1.2...v0.1.3
 
