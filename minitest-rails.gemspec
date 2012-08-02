@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.1.2.20120730143459"
+  s.version = "0.1.3.20120802091804"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
-  s.date = "2012-07-30"
+  s.date = "2012-08-02"
   s.description = "Adds MiniTest as the default testing library in Rails 3.x"
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "minitest-rails"
-  s.rubygems_version = "1.8.16"
+  s.rubygems_version = "1.8.24"
   s.summary = "MiniTest integration for Rails 3.x"
   s.test_files = ["test/generators/test_controller_generator.rb", "test/generators/test_helper_generator.rb", "test/generators/test_install_generator.rb", "test/generators/test_mailer_generator.rb", "test/generators/test_model_generator.rb", "test/generators/test_scaffold_generator.rb", "test/rails/action_controller/test_controller_lookup.rb", "test/rails/action_controller/test_controllers.rb", "test/rails/action_controller/test_spec_type.rb", "test/rails/test_action_dispatch_spec_type.rb", "test/rails/test_action_mailer_spec_type.rb", "test/rails/test_action_view_spec_type.rb", "test/test_minitest.rb"]
 
