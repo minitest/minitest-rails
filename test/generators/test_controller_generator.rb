@@ -50,9 +50,9 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::ControllerGenerator.start ["user", "--spec"]
     end
-    assert_match(/create  test\/controllers\/user_controller_test.rb/m, out)
-    assert File.exists? "test/controllers/user_controller_test.rb"
-    contents = File.read "test/controllers/user_controller_test.rb"
+    assert_match(/create  spec\/controllers\/user_controller_spec.rb/m, out)
+    assert File.exists? "spec/controllers/user_controller_spec.rb"
+    contents = File.read "spec/controllers/user_controller_spec.rb"
     assert_match(/describe UserController do/m, contents)
   end
 
@@ -61,9 +61,9 @@ class TestControllerGenerator < MiniTest::Unit::TestCase
       out, err = capture_io do
         MiniTest::Generators::ControllerGenerator.start ["admin/user", "--spec"]
       end
-      assert_match(/create  test\/controllers\/admin\/user_controller_test.rb/m, out)
-      assert File.exists? "test/controllers/admin/user_controller_test.rb"
-      contents = File.read "test/controllers/admin/user_controller_test.rb"
+      assert_match(/create  spec\/controllers\/admin\/user_controller_spec.rb/m, out)
+      assert File.exists? "spec/controllers/admin/user_controller_spec.rb"
+      contents = File.read "spec/controllers/admin/user_controller_spec.rb"
       assert_match(/describe Admin::UserController do/m, contents)
     end
   end

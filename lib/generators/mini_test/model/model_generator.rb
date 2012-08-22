@@ -10,19 +10,21 @@ module MiniTest
       check_class_collision :suffix => "Test"
 
       def create_test_file
-        if options[:spec]
-          template "model_spec.rb", "test/models/#{file_name}_test.rb"
-        else
-          template "model_test.rb", "test/models/#{file_name}_test.rb"
-        end
+        template "model_#{format}.rb", "#{format}/models/#{file_name}_#{format}.rb"
       end
 
       hook_for :fixture_replacement
 
       def create_fixture_file
         if options[:fixture] && options[:fixture_replacement].nil?
-          template "fixtures.yml", "test/fixtures/#{plural_file_name}.yml"
+          template "fixtures.yml", "#{format}/fixtures/#{plural_file_name}.yml"
         end
+      end
+
+      private
+
+      def format
+        options.spec? ? "spec" : "test"
       end
     end
   end

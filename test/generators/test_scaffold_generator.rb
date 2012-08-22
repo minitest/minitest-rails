@@ -40,9 +40,9 @@ class TestScaffoldGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::ScaffoldGenerator.start ["user", "--spec"]
     end
-    assert_match(/create  test\/controllers\/users_controller_test.rb/m, out)
-    assert File.exists? "test/controllers/users_controller_test.rb"
-    contents = File.read "test/controllers/users_controller_test.rb"
+    assert_match(/create  spec\/controllers\/users_controller_spec.rb/m, out)
+    assert File.exists? "spec/controllers/users_controller_spec.rb"
+    contents = File.read "spec/controllers/users_controller_spec.rb"
     assert_match(/describe UsersController do/m, contents)
   end
 end
