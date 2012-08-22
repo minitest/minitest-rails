@@ -40,9 +40,9 @@ class TestMailerGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::MailerGenerator.start ["notification", "welcome", "--spec"]
     end
-    assert_match(/create  test\/mailers\/notification_test.rb/m, out)
-    assert File.exists? "test/mailers/notification_test.rb"
-    contents = File.read "test/mailers/notification_test.rb"
+    assert_match(/create  spec\/mailers\/notification_spec.rb/m, out)
+    assert File.exists? "spec/mailers/notification_spec.rb"
+    contents = File.read "spec/mailers/notification_spec.rb"
     assert_match(/describe Notification do/m, contents)
   end
 end

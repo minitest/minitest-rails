@@ -9,12 +9,10 @@ module MiniTest
       check_class_collision :suffix => "MailerTest"
 
       def create_test_files
-        if options[:spec]
-          template "mailer_spec.rb", "test/mailers/#{file_name}_test.rb"
-        else
-          template "mailer_test.rb", "test/mailers/#{file_name}_test.rb"
-        end
+        format = options.spec? ? "spec" : "test"
+        template "mailer_#{format}.rb", "#{format}/mailers/#{file_name}_#{format}.rb"
       end
+
     end
   end
 end

@@ -50,9 +50,9 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["user", "--spec"]
     end
-    assert_match(/create  test\/helpers\/user_helper_test.rb/m, out)
-    assert File.exists? "test/helpers/user_helper_test.rb"
-    contents = File.read "test/helpers/user_helper_test.rb"
+    assert_match(/create  spec\/helpers\/user_helper_spec.rb/m, out)
+    assert File.exists? "spec/helpers/user_helper_spec.rb"
+    contents = File.read "spec/helpers/user_helper_spec.rb"
     assert_match(/describe UserHelper do/m, contents)
   end
 
@@ -60,9 +60,9 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::HelperGenerator.start ["admin/user", "--spec"]
     end
-    assert_match(/create  test\/helpers\/admin\/user_helper_test.rb/m, out)
-    assert File.exists? "test/helpers/admin/user_helper_test.rb"
-    contents = File.read "test/helpers/admin/user_helper_test.rb"
+    assert_match(/create  spec\/helpers\/admin\/user_helper_spec.rb/m, out)
+    assert File.exists? "spec/helpers/admin/user_helper_spec.rb"
+    contents = File.read "spec/helpers/admin/user_helper_spec.rb"
     assert_match(/describe Admin::UserHelper do/m, contents)
   end
 

@@ -40,10 +40,10 @@ class TestModelGenerator < MiniTest::Unit::TestCase
     out, err = capture_io do
       MiniTest::Generators::ModelGenerator.start ["user", "--spec"]
     end
-    assert_match(/create  test\/models\/user_test.rb/m, out)
-    assert File.exists? "test/models/user_test.rb"
-    assert File.exists? "test/fixtures/users.yml"
-    contents = File.read "test/models/user_test.rb"
+    assert_match(/create  spec\/models\/user_spec.rb/m, out)
+    assert File.exists? "spec/models/user_spec.rb"
+    assert File.exists? "spec/fixtures/users.yml"
+    contents = File.read "spec/models/user_spec.rb"
     assert_match(/describe User do/m, contents)
   end
 

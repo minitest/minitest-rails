@@ -8,12 +8,12 @@ module MiniTest
       check_class_collision :suffix => "Test"
 
       def create_test_files
-        if options[:spec]
-          template 'integration_spec.rb', File.join('test/acceptance', class_path, "#{file_name}_test.rb")
-        else
-          template 'integration_test.rb', File.join('test/acceptance', class_path, "#{file_name}_test.rb")
-        end
+        format = options.spec? ? "spec" : "test"
+        template "integration_#{format}.rb", File.join(
+          format, "acceptance", class_path, "#{file_name}_#{format}.rb"
+        )
       end
+
     end
   end
 end
