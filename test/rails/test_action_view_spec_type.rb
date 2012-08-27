@@ -12,6 +12,10 @@ class TestActionViewSpecType < MiniTest::Unit::TestCase
     assert_equal MiniTest::Spec.spec_type("widgethelper"), MiniTest::Rails::ActionView::TestCase
     assert_equal MiniTest::Spec.spec_type("widgethelpertest"), MiniTest::Rails::ActionView::TestCase
     assert_equal MiniTest::Spec.spec_type("widget helper test"), MiniTest::Rails::ActionView::TestCase
+    # View specs
+    assert_equal MiniTest::Spec.spec_type("WidgetView"), MiniTest::Rails::ActionView::TestCase
+    assert_equal MiniTest::Spec.spec_type("WidgetViewTest"), MiniTest::Rails::ActionView::TestCase
+    assert_equal MiniTest::Spec.spec_type("Widget View Test"), MiniTest::Rails::ActionView::TestCase
   end
 
   def test_spec_type_wont_match_non_space_characters
