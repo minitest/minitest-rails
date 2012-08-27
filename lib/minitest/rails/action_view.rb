@@ -10,6 +10,9 @@ module MiniTest
         # Register by name, because Helpers are just modules
         register_spec_type(/Helper( ?Test)?\z/i, self)
 
+        # View specs
+        register_spec_type(/View( ?Test)?\z/i, self)
+
         include ::ActionView::TestCase::Behavior
       end
     end
