@@ -73,3 +73,9 @@ namespace 'minitest' do
   end
 
 end
+
+# Override the default task
+task :default => [] # Just in case it hasn't already been set
+Rake::Task[:default].clear
+desc "Runs minitest"
+task :default => "minitest"
