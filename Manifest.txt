@@ -13,6 +13,10 @@ gemfiles/3.1.gemfile.lock
 gemfiles/3.2.gemfile
 gemfiles/3.2.gemfile.lock
 gemfiles/minitest_tu_shim.rb
+lib/autotest/discover.rb
+lib/autotest/fixtures.rb
+lib/autotest/migrate.rb
+lib/autotest/minitest_rails.rb
 lib/generators/mini_test.rb
 lib/generators/mini_test/controller/controller_generator.rb
 lib/generators/mini_test/controller/templates/controller_spec.rb
@@ -59,4 +63,4 @@ test/rails/action_controller/test_spec_type.rb
 test/rails/test_action_dispatch_spec_type.rb
 test/rails/test_action_mailer_spec_type.rb
 test/rails/test_action_view_spec_type.rb
-test/test_minitest.rb
+test/test_sanity.rb
