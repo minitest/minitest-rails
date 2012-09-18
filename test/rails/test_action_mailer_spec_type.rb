@@ -9,26 +9,34 @@ class NotificationMailer < ActionMailer::Base; end
 class Notifications < ActionMailer::Base; end
 
 class TestActionMailerSpecType < MiniTest::Unit::TestCase
+  def assert_mailer actual
+    assert_equal MiniTest::Rails::ActionMailer::TestCase, actual
+  end
+
+  def refute_mailer actual
+    refute_equal MiniTest::Rails::ActionMailer::TestCase, actual
+  end
+
   def test_spec_type_resolves_for_class_constants
-    assert_equal MiniTest::Spec.spec_type(NotificationMailer), MiniTest::Rails::ActionMailer::TestCase
-    assert_equal MiniTest::Spec.spec_type(Notifications),      MiniTest::Rails::ActionMailer::TestCase
+    assert_mailer MiniTest::Spec.spec_type(NotificationMailer)
+    assert_mailer MiniTest::Spec.spec_type(Notifications)
   end
 
   def test_spec_type_resolves_for_matching_strings
-    assert_equal MiniTest::Spec.spec_type("WidgetMailer"), MiniTest::Rails::ActionMailer::TestCase
-    assert_equal MiniTest::Spec.spec_type("WidgetMailerTest"), MiniTest::Rails::ActionMailer::TestCase
-    assert_equal MiniTest::Spec.spec_type("Widget Mailer Test"), MiniTest::Rails::ActionMailer::TestCase
+    assert_mailer MiniTest::Spec.spec_type("WidgetMailer")
+    assert_mailer MiniTest::Spec.spec_type("WidgetMailerTest")
+    assert_mailer MiniTest::Spec.spec_type("Widget Mailer Test")
     # And is not case sensitive
-    assert_equal MiniTest::Spec.spec_type("widgetmailer"), MiniTest::Rails::ActionMailer::TestCase
-    assert_equal MiniTest::Spec.spec_type("widgetmailertest"), MiniTest::Rails::ActionMailer::TestCase
-    assert_equal MiniTest::Spec.spec_type("widget mailer test"), MiniTest::Rails::ActionMailer::TestCase
+    assert_mailer MiniTest::Spec.spec_type("widgetmailer")
+    assert_mailer MiniTest::Spec.spec_type("widgetmailertest")
+    assert_mailer MiniTest::Spec.spec_type("widget mailer test")
   end
 
   def test_spec_type_wont_match_non_space_characters
-    refute_equal MiniTest::Spec.spec_type("Widget Mailer\tTest"), MiniTest::Rails::ActionMailer::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Mailer\rTest"), MiniTest::Rails::ActionMailer::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Mailer\nTest"), MiniTest::Rails::ActionMailer::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Mailer\fTest"), MiniTest::Rails::ActionMailer::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget MailerXTest"),  MiniTest::Rails::ActionMailer::TestCase
+    refute_mailer MiniTest::Spec.spec_type("Widget Mailer\tTest")
+    refute_mailer MiniTest::Spec.spec_type("Widget Mailer\rTest")
+    refute_mailer MiniTest::Spec.spec_type("Widget Mailer\nTest")
+    refute_mailer MiniTest::Spec.spec_type("Widget Mailer\fTest")
+    refute_mailer MiniTest::Spec.spec_type("Widget MailerXTest")
   end
 end

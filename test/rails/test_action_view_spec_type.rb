@@ -4,31 +4,39 @@ require "rails"
 require "minitest/rails/action_view"
 
 class TestActionViewSpecType < MiniTest::Unit::TestCase
+  def assert_view actual
+    assert_equal MiniTest::Rails::ActionView::TestCase, actual
+  end
+
+  def refute_view actual
+    refute_equal MiniTest::Rails::ActionView::TestCase, actual
+  end
+
   def test_spec_type_resolves_for_matching_helper_strings
-    assert_equal MiniTest::Spec.spec_type("WidgetHelper"), MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("WidgetHelperTest"), MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("Widget Helper Test"), MiniTest::Rails::ActionView::TestCase
+    assert_view MiniTest::Spec.spec_type("WidgetHelper")
+    assert_view MiniTest::Spec.spec_type("WidgetHelperTest")
+    assert_view MiniTest::Spec.spec_type("Widget Helper Test")
     # And is not case sensitive
-    assert_equal MiniTest::Spec.spec_type("widgethelper"), MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("widgethelpertest"), MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("widget helper test"), MiniTest::Rails::ActionView::TestCase
+    assert_view MiniTest::Spec.spec_type("widgethelper")
+    assert_view MiniTest::Spec.spec_type("widgethelpertest")
+    assert_view MiniTest::Spec.spec_type("widget helper test")
   end
 
   def test_spec_type_resolves_for_matching_view_strings
-    assert_equal MiniTest::Spec.spec_type("WidgetView"),       MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("WidgetViewTest"),   MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("Widget View Test"), MiniTest::Rails::ActionView::TestCase
+    assert_view MiniTest::Spec.spec_type("WidgetView")
+    assert_view MiniTest::Spec.spec_type("WidgetViewTest")
+    assert_view MiniTest::Spec.spec_type("Widget View Test")
     # And is not case sensitive
-    assert_equal MiniTest::Spec.spec_type("widgetview"),       MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("widgetviewtest"),   MiniTest::Rails::ActionView::TestCase
-    assert_equal MiniTest::Spec.spec_type("widget view test"), MiniTest::Rails::ActionView::TestCase
+    assert_view MiniTest::Spec.spec_type("widgetview")
+    assert_view MiniTest::Spec.spec_type("widgetviewtest")
+    assert_view MiniTest::Spec.spec_type("widget view test")
   end
 
   def test_spec_type_wont_match_non_space_characters
-    refute_equal MiniTest::Spec.spec_type("Widget Helper\tTest"), MiniTest::Rails::ActionView::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Helper\rTest"), MiniTest::Rails::ActionView::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Helper\nTest"), MiniTest::Rails::ActionView::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget Helper\fTest"), MiniTest::Rails::ActionView::TestCase
-    refute_equal MiniTest::Spec.spec_type("Widget HelperXTest"),  MiniTest::Rails::ActionView::TestCase
+    refute_view MiniTest::Spec.spec_type("Widget Helper\tTest")
+    refute_view MiniTest::Spec.spec_type("Widget Helper\rTest")
+    refute_view MiniTest::Spec.spec_type("Widget Helper\nTest")
+    refute_view MiniTest::Spec.spec_type("Widget Helper\fTest")
+    refute_view MiniTest::Spec.spec_type("Widget HelperXTest")
   end
 end
