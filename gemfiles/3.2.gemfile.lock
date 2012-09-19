@@ -1,8 +1,8 @@
 PATH
   remote: /Users/blowmage/codez/minitest-rails
   specs:
-    minitest-rails (0.1.2.20120728124510)
-      minitest (~> 3.0)
+    minitest-rails (0.2.20120919094008)
+      minitest (~> 3.4)
       rails (~> 3.0)
 
 GEM
@@ -50,7 +50,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
-    minitest (3.3.0)
+    minitest (3.4.0)
     multi_json (1.3.6)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -95,7 +95,6 @@ PLATFORMS
 DEPENDENCIES
   fakefs (~> 0.4)
   hoe (~> 3.0)
-  minitest (~> 3.0)
   minitest-rails!
   rails (~> 3.2.6)
   rdoc (~> 3.10)

@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 
 gem "rails", "~> 3.0.15"
-gem "minitest", "~> 3.0"
 gem "rdoc", "~> 3.10"
 gem "hoe", "~> 3.0"
 gem "fakefs", "~> 0.4"
