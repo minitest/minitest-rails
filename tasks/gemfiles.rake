@@ -11,6 +11,13 @@ namespace :gemfiles do
   end
 end
 
+# Building this in case it doesn't exist
+# /me shakes fist at travis-ci
+namespace :gem do
+  task :spec do
+  end
+end
+
 Rake::Task["gem:spec"].enhance do
   Rake::Task["gemfiles:update"].invoke
 end
