@@ -2,6 +2,8 @@
 
 MiniTest integration for Rails 3.x
 
+{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
+
 == Install
 
     gem install minitest-rails
