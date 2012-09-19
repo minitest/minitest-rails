@@ -27,7 +27,7 @@ module MiniTest
         if defined?(ActiveRecord::Base)
           # Use AS::TestCase for the base class when describing a model
           register_spec_type(self) do |desc|
-            desc < ActiveRecord::Base
+            desc < ActiveRecord::Base unless desc.is_a? String
           end
         end
 
