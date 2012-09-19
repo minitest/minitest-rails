@@ -1,3 +1,13 @@
+=== 0.2 / 2012-09-19
+
+* Add support for Autotest (closes #64)
+* Override default rake task (closes #67)
+* Add support for matching view specs names (closes #70)
+* Fixed travis builds (closes #69)
+* Fix bug with registering AS:TestCase (closes #73)
+
+https://github.com/blowmage/minitest-rails/compare/v0.1.3...v0.2
+
 === 0.1.3 / 2012-08-02
 
 * Significant improvements to nested describe blocks (closes #58)

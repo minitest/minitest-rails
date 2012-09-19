@@ -63,4 +63,5 @@ test/rails/action_controller/test_spec_type.rb
 test/rails/test_action_dispatch_spec_type.rb
 test/rails/test_action_mailer_spec_type.rb
 test/rails/test_action_view_spec_type.rb
+test/rails/test_active_support_spec_type.rb
 test/test_sanity.rb
