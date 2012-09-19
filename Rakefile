@@ -24,4 +24,21 @@ Hoe.spec 'minitest-rails' do
   dependency 'fakefs',    '~> 0.4', :dev
 end
 
+namespace :gemfiles do
+  desc "Updates the gemfiles"
+  task :update do
+    `bundle --gemfile=gemfiles/3.0.gemfile`
+    `bundle --gemfile=gemfiles/3.1.gemfile`
+    `bundle --gemfile=gemfiles/3.2.gemfile`
+  end
+  desc "Clear the lock gemfiles"
+  task :clear do
+    `rm gemfiles/3.*.gemfile.lock`
+  end
+end
+
+Rake::Task["gem:spec"].enhance do
+  Rake::Task["gemfiles:update"].invoke
+end
+
 # vim: syntax=ruby
