@@ -12,6 +12,7 @@ require 'active_support/testing/isolation'
 require 'minitest/rails/mochaing'
 require 'active_support/core_ext/kernel/reporting'
 
+require "minitest/rails/constant_lookup"
 module MiniTest
   module Rails
     module ActiveSupport
@@ -51,6 +52,7 @@ module MiniTest
         include ::ActiveSupport::Testing::Deprecation
         include ::ActiveSupport::Testing::Pending
         extend  Testing::Declarative
+        include MiniTest::Rails::ActiveSupport::Testing::ConstantLookup
 
         # test/unit backwards compatibility methods
         alias :assert_raise :assert_raises
