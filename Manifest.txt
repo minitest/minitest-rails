@@ -46,6 +46,7 @@ lib/minitest/rails/action_dispatch.rb
 lib/minitest/rails/action_mailer.rb
 lib/minitest/rails/action_view.rb
 lib/minitest/rails/active_support.rb
+lib/minitest/rails/constant_lookup.rb
 lib/minitest/rails/declarative.rb
 lib/minitest/rails/mochaing.rb
 lib/minitest/rails/tasks/minitest.rake
@@ -58,11 +59,13 @@ test/generators/test_install_generator.rb
 test/generators/test_mailer_generator.rb
 test/generators/test_model_generator.rb
 test/generators/test_scaffold_generator.rb
-test/rails/action_controller/test_controller_lookup.rb
 test/rails/action_controller/test_controllers.rb
 test/rails/action_controller/test_spec_type.rb
-test/rails/test_action_dispatch_spec_type.rb
-test/rails/test_action_mailer_spec_type.rb
-test/rails/test_action_view_spec_type.rb
-test/rails/test_active_support_spec_type.rb
+test/rails/action_dispatch/test_spec_type.rb
+test/rails/action_mailer/test_mailers.rb
+test/rails/action_mailer/test_spec_type.rb
+test/rails/action_view/test_helpers.rb
+test/rails/action_view/test_spec_type.rb
+test/rails/active_support/test_spec_type.rb
+test/rails/test_constant_lookup.rb
 test/test_sanity.rb
