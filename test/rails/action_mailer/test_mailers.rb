@@ -6,6 +6,7 @@ require "minitest/rails/action_mailer"
 
 class TestTestMailer < ActionMailer::Base; end
 
+# From Rails...
 class CrazyNameMailerTest < MiniTest::Rails::ActionMailer::TestCase
   tests TestTestMailer
 
@@ -20,7 +21,7 @@ class CrazySymbolNameMailerTest < MiniTest::Rails::ActionMailer::TestCase
   def test_set_mailer_class_manual_using_symbol
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
 
 class CrazyStringNameMailerTest < MiniTest::Rails::ActionMailer::TestCase
   tests 'test_test_mailer'
@@ -28,8 +29,9 @@ class CrazyStringNameMailerTest < MiniTest::Rails::ActionMailer::TestCase
   def test_set_mailer_class_manual_using_string
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
 
+# New tests...
 describe TestTestMailer do
   it "gets the mailer from the test name" do
     assert_equal TestTestMailer, self.class.mailer_class
@@ -76,7 +78,7 @@ describe "AnotherCrazySymbolNameMailerTest" do
   it "gets the mailer after setting it with a symbol" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
 
 describe "AnotherCrazyStringNameMailerTest" do
   tests 'test_test_mailer'
@@ -84,7 +86,7 @@ describe "AnotherCrazyStringNameMailerTest" do
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
 
 describe "Another Crazy Name Mailer Test" do
   tests TestTestMailer
@@ -100,7 +102,7 @@ describe "Another Crazy Symbol Name Mailer Test" do
   it "gets the mailer after setting it with a symbol" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
 
 describe "Another Crazy String Name Mailer Test" do
   tests 'test_test_mailer'
@@ -108,4 +110,4 @@ describe "Another Crazy String Name Mailer Test" do
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end
+end if Rails::VERSION::STRING >= "3.2"
