@@ -16,7 +16,7 @@ module MiniTest
         def self.app
           # DEPRECATE Rails application fallback
           # This should be set by the initializer
-          @@app || (defined?(Rails.application) && Rails.application) || nil
+          @@app || (defined?(::Rails.application) && ::Rails.application) || nil
         end
 
         def self.app=(app)
