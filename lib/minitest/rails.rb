@@ -6,6 +6,7 @@ require "minitest/rails/active_support"
 require "minitest/rails/action_controller"
 require "minitest/rails/action_view"
 require "minitest/rails/action_mailer" if defined? ActionMailer
+require "minitest/rails/active_model"
 require "minitest/rails/action_dispatch"
 
 # Enable turn if it is available
@@ -22,6 +23,7 @@ module MiniTest
         ::ActionController.const_set :TestCase,        MiniTest::Rails::ActionController::TestCase
         ::ActionView.const_set       :TestCase,        MiniTest::Rails::ActionView::TestCase
         ::ActionMailer.const_set     :TestCase,        MiniTest::Rails::ActionMailer::TestCase if defined? ActionMailer
+        ::ActiveModel.const_set      :TestCase,        MiniTest::Rails::ActiveModel::TestCase
         ::ActionDispatch.const_set   :IntegrationTest, MiniTest::Rails::ActionDispatch::IntegrationTest
       end
     end
