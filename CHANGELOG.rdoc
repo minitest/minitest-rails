@@ -1,3 +1,14 @@
+=== 0.3 / 2012-11-02
+
+* Mailer lookup for spec-style tests
+* Helper lookup for spec-style tests
+* Scaffold controller test green out of the box
+* Bump minitest dependency version to 4.0
+* Fixed builds in travis
+* Added convenience rake tasks for dealing with gemfiles
+
+https://github.com/blowmage/minitest-rails/compare/v0.2...v0.3
+
 === 0.2 / 2012-09-19
 
 * Add support for Autotest (closes #64)
