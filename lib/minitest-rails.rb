@@ -1,9 +1,9 @@
+require "minitest/rails/version"
 require "rails"
 require "minitest/unit"
 
 module MiniTest
   module Rails
-    VERSION = "0.2"
     class Railtie < ::Rails::Railtie
       if ::Rails.version.to_f >= 3.1
         config.app_generators.integration_tool :mini_test

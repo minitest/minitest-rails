@@ -1,7 +1,8 @@
 require 'autotest'
+require "minitest/rails/version"
 
 class Autotest::MinitestRails < Autotest
-  VERSION = "0.2"
+  VERSION = MiniTest::Rails::VERSION
 
   def initialize # :nodoc:
     super

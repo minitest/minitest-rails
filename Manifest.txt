@@ -51,6 +51,7 @@ lib/minitest/rails/declarative.rb
 lib/minitest/rails/mochaing.rb
 lib/minitest/rails/tasks/minitest.rake
 lib/minitest/rails/tasks/sub_test_task.rb
+lib/minitest/rails/version.rb
 minitest-rails.gemspec
 tasks/gemfiles.rake
 tasks/test.rake
