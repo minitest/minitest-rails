@@ -53,6 +53,7 @@ lib/minitest/rails/tasks/minitest.rake
 lib/minitest/rails/tasks/sub_test_task.rb
 minitest-rails.gemspec
 tasks/gemfiles.rake
+tasks/test.rake
 test/generators/test_controller_generator.rb
 test/generators/test_helper_generator.rb
 test/generators/test_install_generator.rb
