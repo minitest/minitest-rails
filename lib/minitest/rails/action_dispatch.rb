@@ -33,8 +33,7 @@ module MiniTest
         end
 
         # Register by name
-        register_spec_type(/Acceptance ?Test\z/i, self)
-        register_spec_type(/Integration ?Test\z/i, self)
+        register_spec_type(/(Acceptance|Integration)( ?Test)?\z/i, self)
       end
     end
   end
