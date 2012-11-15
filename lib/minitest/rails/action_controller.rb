@@ -14,6 +14,14 @@ module MiniTest
         register_spec_type(/Controller( ?Test)?\z/i, self)
 
         include ::ActionController::TestCase::Behavior
+
+        def self.determine_default_controller_class(name)
+          controller = determine_constant_from_test_name(name) do |constant|
+            Class === constant && constant < ::ActionController::Metal
+          end
+          raise ::NameError.new("Unable to resolve controller for #{name}") if controller.nil?
+          controller
+        end
       end
     end
   end

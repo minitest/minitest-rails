@@ -1,4 +1,8 @@
 require 'minitest/spec'
+
+# I hate this! Be sure you have installed minitest_tu_shim
+require "test/unit" if RUBY_VERSION < "1.9"
+
 require 'active_support/testing/setup_and_teardown'
 require 'active_support/testing/assertions'
 require 'active_support/testing/deprecation'
@@ -8,6 +12,7 @@ require 'active_support/testing/isolation'
 require 'minitest/rails/mochaing'
 require 'active_support/core_ext/kernel/reporting'
 
+require "minitest/rails/constant_lookup"
 module MiniTest
   module Rails
     module ActiveSupport
@@ -23,7 +28,7 @@ module MiniTest
         if defined?(ActiveRecord::Base)
           # Use AS::TestCase for the base class when describing a model
           register_spec_type(self) do |desc|
-            desc < ActiveRecord::Base
+            desc < ActiveRecord::Base if desc.is_a?(Class)
           end
         end
 
@@ -47,6 +52,7 @@ module MiniTest
         include ::ActiveSupport::Testing::Deprecation
         include ::ActiveSupport::Testing::Pending
         extend  Testing::Declarative
+        include MiniTest::Rails::ActiveSupport::Testing::ConstantLookup
 
         # test/unit backwards compatibility methods
         alias :assert_raise :assert_raises

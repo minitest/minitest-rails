@@ -19,8 +19,11 @@ Hoe.spec 'minitest-rails' do
   self.readme_file  = "README.rdoc"
   self.testlib      = :minitest
 
-  extra_deps << ['minitest',  '~> 3.0']
-  extra_deps << ['rails',     '~> 3.0']
+  dependency 'minitest',  '~> 4.0'
+  dependency 'rails',     '~> 3.0'
+  dependency 'fakefs',    '~> 0.4', :dev
 end
+
+Dir["tasks/**/*.rake"].each { |t| load t }
 
 # vim: syntax=ruby

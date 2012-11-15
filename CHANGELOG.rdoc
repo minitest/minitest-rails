@@ -1,3 +1,38 @@
+=== 0.3 / 2012-11-02
+
+* Mailer lookup for spec-style tests
+* Helper lookup for spec-style tests
+* Scaffold controller test green out of the box
+* Bump minitest dependency version to 4.0
+* Fixed builds in travis
+* Added convenience rake tasks for dealing with gemfiles
+
+https://github.com/blowmage/minitest-rails/compare/v0.2...v0.3
+
+=== 0.2 / 2012-09-19
+
+* Add support for Autotest (closes #64)
+* Override default rake task (closes #67)
+* Add support for matching view specs names (closes #70)
+* Fixed travis builds (closes #69)
+* Fix bug with registering AS:TestCase (closes #73)
+
+https://github.com/blowmage/minitest-rails/compare/v0.1.3...v0.2
+
+=== 0.1.3 / 2012-08-02
+
+* Significant improvements to nested describe blocks (closes #58)
+* Tests no longer need write permission to the filesystem
+
+https://github.com/blowmage/minitest-rails/compare/v0.1.2...v0.1.3
+
+=== 0.1.2 / 2012-07-26
+
+* Fix bug when ActionMailer isn't loaded (closes #66)
+* Allow specs to use strings in `describe` blocks
+
+https://github.com/blowmage/minitest-rails/compare/v0.1.1...v0.1.2
+
 === 0.1.1 / 2012-07-17
 
 * Improved rake tasks
