@@ -26,10 +26,6 @@ class TestActionMailerSpecType < MiniTest::Unit::TestCase
     assert_mailer MiniTest::Spec.spec_type("WidgetMailer")
     assert_mailer MiniTest::Spec.spec_type("WidgetMailerTest")
     assert_mailer MiniTest::Spec.spec_type("Widget Mailer Test")
-    # And is not case sensitive
-    assert_mailer MiniTest::Spec.spec_type("widgetmailer")
-    assert_mailer MiniTest::Spec.spec_type("widgetmailertest")
-    assert_mailer MiniTest::Spec.spec_type("widget mailer test")
   end
 
   def test_spec_type_wont_match_non_space_characters
@@ -38,5 +34,12 @@ class TestActionMailerSpecType < MiniTest::Unit::TestCase
     refute_mailer MiniTest::Spec.spec_type("Widget Mailer\nTest")
     refute_mailer MiniTest::Spec.spec_type("Widget Mailer\fTest")
     refute_mailer MiniTest::Spec.spec_type("Widget MailerXTest")
+  end
+
+  def test_spec_type_wont_match_non_mailer_strings
+    refute_mailer MiniTest::Spec.spec_type("MailerrorTest")
+    refute_mailer MiniTest::Spec.spec_type("MailErrorTest")
+    refute_mailer MiniTest::Spec.spec_type("WidgetMailerWidgetTest")
+    refute_mailer MiniTest::Spec.spec_type("Widget Mailer Widget Test")
   end
 end

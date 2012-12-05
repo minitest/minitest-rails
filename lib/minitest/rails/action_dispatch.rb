@@ -26,14 +26,14 @@ module MiniTest
         def app
           super || ::ActionDispatch::IntegrationTest.app
         end
-        
+
         def url_options
           reset! unless integration_session
           integration_session.url_options
         end
 
         # Register by name
-        register_spec_type(/(Acceptance|Integration)( ?Test)?\z/i, self)
+        register_spec_type(/(Acceptance|Integration)( ?Test)?\z/, self)
       end
     end
   end
