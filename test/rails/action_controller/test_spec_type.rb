@@ -25,10 +25,6 @@ class TestApplicationControllerSpecType < MiniTest::Unit::TestCase
     assert_controller MiniTest::Spec.spec_type("WidgetController")
     assert_controller MiniTest::Spec.spec_type("WidgetControllerTest")
     assert_controller MiniTest::Spec.spec_type("Widget Controller Test")
-    # And is not case sensitive
-    assert_controller MiniTest::Spec.spec_type("widgetcontroller")
-    assert_controller MiniTest::Spec.spec_type("widgetcontrollertest")
-    assert_controller MiniTest::Spec.spec_type("widget controller test")
   end
 
   def test_spec_type_wont_match_non_space_characters
@@ -37,5 +33,11 @@ class TestApplicationControllerSpecType < MiniTest::Unit::TestCase
     refute_controller MiniTest::Spec.spec_type("Widget Controller\nTest")
     refute_controller MiniTest::Spec.spec_type("Widget Controller\fTest")
     refute_controller MiniTest::Spec.spec_type("Widget ControllerXTest")
+  end
+
+  def test_spec_type_wont_match_non_acceptance_strings
+    refute_controller MiniTest::Spec.spec_type("FinancialControllerAddress")
+    refute_controller MiniTest::Spec.spec_type("FinancialControllerAddressTest")
+    refute_controller MiniTest::Spec.spec_type("FinancialController Address Test")
   end
 end

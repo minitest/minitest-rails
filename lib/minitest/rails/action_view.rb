@@ -8,7 +8,7 @@ module MiniTest
         TestController = ::ActionView::TestCase::TestController
 
         # Use AV::TestCase for the base class for helpers and views
-        register_spec_type(/(Helper|View)( ?Test)?\z/i, self)
+        register_spec_type(/(Helper|View)( ?Test)?\z/, self)
 
         include ::ActionView::TestCase::Behavior
 

@@ -17,20 +17,11 @@ class TestActionDispatchSpecType < MiniTest::Unit::TestCase
     assert_dispatch MiniTest::Spec.spec_type("Widget Acceptance Test")
     assert_dispatch MiniTest::Spec.spec_type("WidgetAcceptance")
     assert_dispatch MiniTest::Spec.spec_type("Widget Acceptance")
-    # And is not case sensitive
-    assert_dispatch MiniTest::Spec.spec_type("widgetacceptancetest")
-    assert_dispatch MiniTest::Spec.spec_type("widget acceptance test")
-    assert_dispatch MiniTest::Spec.spec_type("widgetacceptance")
-    assert_dispatch MiniTest::Spec.spec_type("widget acceptance")
   end
 
   def test_spec_type_wont_match_non_space_characters_acceptance
     refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\tTest")
     refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\rTest")
-    # TODO: Update regex so that new lines don't match.
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\nTest")
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\fTest")
-    refute_dispatch MiniTest::Spec.spec_type("Widget AcceptanceXTest")
   end
 
   def test_spec_type_resolves_for_matching_integration_strings
@@ -38,11 +29,6 @@ class TestActionDispatchSpecType < MiniTest::Unit::TestCase
     assert_dispatch MiniTest::Spec.spec_type("Widget Integration Test")
     assert_dispatch MiniTest::Spec.spec_type("WidgetIntegration")
     assert_dispatch MiniTest::Spec.spec_type("Widget Integration")
-    # And is not case sensitive
-    assert_dispatch MiniTest::Spec.spec_type("widgetintegrationtest")
-    assert_dispatch MiniTest::Spec.spec_type("widget integration test")
-    assert_dispatch MiniTest::Spec.spec_type("widgetintegration")
-    assert_dispatch MiniTest::Spec.spec_type("widget integration")
   end
 
   def test_spec_type_wont_match_non_space_characters_integration
@@ -52,5 +38,18 @@ class TestActionDispatchSpecType < MiniTest::Unit::TestCase
     refute_equal MiniTest::Spec.spec_type("Widget Integration\nTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
     refute_equal MiniTest::Spec.spec_type("Widget Integration\fTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
     refute_equal MiniTest::Spec.spec_type("Widget IntegrationXTest"),  MiniTest::Rails::ActionDispatch::IntegrationTest
+  end
+
+  def test_spec_type_wont_match_non_acceptance_strings
+    refute_dispatch MiniTest::Spec.spec_type("AcceptanceCriteria")
+    refute_dispatch MiniTest::Spec.spec_type("AcceptanceCriteriaTest")
+    refute_dispatch MiniTest::Spec.spec_type("Acceptance Criteria")
+    refute_dispatch MiniTest::Spec.spec_type("Acceptance Criteria Test")
+    refute_dispatch MiniTest::Spec.spec_type("IntegrationProcess")
+    refute_dispatch MiniTest::Spec.spec_type("IntegrationProcessTest")
+    refute_dispatch MiniTest::Spec.spec_type("Integration Process Test")
+    refute_dispatch MiniTest::Spec.spec_type("IntegrationSolver")
+    refute_dispatch MiniTest::Spec.spec_type("IntegrationSolverTest")
+    refute_dispatch MiniTest::Spec.spec_type("Integration Solver Test")
   end
 end
