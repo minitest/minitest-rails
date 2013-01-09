@@ -1,20 +1,21 @@
 require "minitest/autorun"
 require "rails"
 
-require "action_mailer/test_helper"
-require "minitest/rails/action_mailer"
 require "action_mailer"
+require "action_mailer/test_helper"
+
+load "minitest/rails.rb" # force load to ensure ActionMailer is defined
 
 class NotificationMailer < ActionMailer::Base; end
 class Notifications < ActionMailer::Base; end
 
 class TestActionMailerSpecType < MiniTest::Unit::TestCase
   def assert_mailer actual
-    assert_equal MiniTest::Rails::ActionMailer::TestCase, actual
+    assert_equal ActionMailer::TestCase, actual
   end
 
   def refute_mailer actual
-    refute_equal MiniTest::Rails::ActionMailer::TestCase, actual
+    refute_equal ActionMailer::TestCase, actual
   end
 
   def test_spec_type_resolves_for_class_constants

@@ -1,15 +1,15 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/action_dispatch"
+require "minitest/rails"
 
 class TestActionDispatchSpecType < MiniTest::Unit::TestCase
   def assert_dispatch actual
-    assert_equal MiniTest::Rails::ActionDispatch::IntegrationTest, actual
+    assert_equal ActionDispatch::IntegrationTest, actual
   end
 
   def refute_dispatch actual
-    refute_equal MiniTest::Rails::ActionDispatch::IntegrationTest, actual
+    refute_equal ActionDispatch::IntegrationTest, actual
   end
 
   def test_spec_type_resolves_for_matching_acceptance_strings
@@ -46,11 +46,11 @@ class TestActionDispatchSpecType < MiniTest::Unit::TestCase
   end
 
   def test_spec_type_wont_match_non_space_characters_integration
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\tTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\rTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
+    refute_equal MiniTest::Spec.spec_type("Widget Integration\tTest"), ActionDispatch::IntegrationTest
+    refute_equal MiniTest::Spec.spec_type("Widget Integration\rTest"), ActionDispatch::IntegrationTest
     # TODO: Update regex so that new lines don't match.
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\nTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\fTest"), MiniTest::Rails::ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget IntegrationXTest"),  MiniTest::Rails::ActionDispatch::IntegrationTest
+    refute_equal MiniTest::Spec.spec_type("Widget Integration\nTest"), ActionDispatch::IntegrationTest
+    refute_equal MiniTest::Spec.spec_type("Widget Integration\fTest"), ActionDispatch::IntegrationTest
+    refute_equal MiniTest::Spec.spec_type("Widget IntegrationXTest"),  ActionDispatch::IntegrationTest
   end
 end

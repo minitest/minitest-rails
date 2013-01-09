@@ -1,15 +1,15 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/action_view"
+require "minitest/rails"
 
 class TestActionViewSpecType < MiniTest::Unit::TestCase
   def assert_view actual
-    assert_equal MiniTest::Rails::ActionView::TestCase, actual
+    assert_equal ActionView::TestCase, actual
   end
 
   def refute_view actual
-    refute_equal MiniTest::Rails::ActionView::TestCase, actual
+    refute_equal ActionView::TestCase, actual
   end
 
   def test_spec_type_resolves_for_matching_helper_strings
@@ -23,12 +23,8 @@ class TestActionViewSpecType < MiniTest::Unit::TestCase
   end
 
   def test_spec_type_resolves_for_matching_view_strings
-    assert_view MiniTest::Spec.spec_type("WidgetView")
-    assert_view MiniTest::Spec.spec_type("WidgetViewTest")
     assert_view MiniTest::Spec.spec_type("Widget View Test")
     # And is not case sensitive
-    assert_view MiniTest::Spec.spec_type("widgetview")
-    assert_view MiniTest::Spec.spec_type("widgetviewtest")
     assert_view MiniTest::Spec.spec_type("widget view test")
   end
 

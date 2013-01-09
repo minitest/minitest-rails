@@ -33,7 +33,7 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/helpers\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = File.read "test/helpers/user_helper_test.rb"
-    assert_match(/class UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents)
+    assert_match(/class UserHelperTest < ActionView::TestCase/m, contents)
   end
 
   def test_namespaced_helper_generator
@@ -43,7 +43,7 @@ class TestHelperGenerator < MiniTest::Unit::TestCase
     assert_match(/create  test\/helpers\/admin\/user_helper_test.rb/m, out)
     assert File.exists? "test/helpers/admin/user_helper_test.rb"
     contents = File.read "test/helpers/admin/user_helper_test.rb"
-    assert_match(/class Admin::UserHelperTest < MiniTest::Rails::ActionView::TestCase/m, contents)
+    assert_match(/class Admin::UserHelperTest < ActionView::TestCase/m, contents)
   end
 
   def test_helper_generator_spec

@@ -1,19 +1,20 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/action_controller"
 require "action_controller"
+
+require "minitest/rails"
 
 class ApplicationController < ActionController::Base; end
 class ModelsController      < ApplicationController;  end
 
 class TestApplicationControllerSpecType < MiniTest::Unit::TestCase
   def assert_controller actual
-    assert_equal MiniTest::Rails::ActionController::TestCase, actual
+    assert_equal ActionController::TestCase, actual
   end
 
   def refute_controller actual
-    refute_equal MiniTest::Rails::ActionController::TestCase, actual
+    refute_equal ActionController::TestCase, actual
   end
 
   def test_spec_type_resolves_for_class_constants

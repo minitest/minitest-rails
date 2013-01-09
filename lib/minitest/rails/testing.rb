@@ -1,4 +1,4 @@
-require 'rake/testtask'
+require "rake/testtask"
 
 module MiniTest
   module Rails

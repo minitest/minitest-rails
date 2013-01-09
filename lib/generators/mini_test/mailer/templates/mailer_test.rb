@@ -1,7 +1,7 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>Test < MiniTest::Rails::ActionMailer::TestCase
+class <%= class_name %>Test < ActionMailer::TestCase
 <% actions.each do |action| -%>
   test "<%= action %>" do
     mail = <%= class_name %>.<%= action %>

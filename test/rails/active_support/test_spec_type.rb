@@ -2,15 +2,16 @@ require "minitest/autorun"
 require "rails"
 
 require "active_record"
-load "minitest/rails/active_support.rb" # Force reload
-# Not sure why we need to reload, but we do...
+
+require "minitest/rails"
+load "minitest/rails/test_case.rb" # force load to ensure ActiveRecord is defined
 
 class SomeRandomModel < ActiveRecord::Base; end
 
 class TestActiveSupportSpecType < MiniTest::Unit::TestCase
 
   def assert_support actual
-    assert_equal MiniTest::Rails::ActiveSupport::TestCase, actual
+    assert_equal ActiveSupport::TestCase, actual
   end
 
   def assert_spec actual

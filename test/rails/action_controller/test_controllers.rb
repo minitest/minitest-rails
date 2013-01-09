@@ -1,15 +1,10 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/action_controller"
 require "action_controller"
-
-# require "active_record/railtie"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
-# require "active_resource/railtie"
-# require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+
+require "minitest/rails"
 
 class TestApp < Rails::Application
 end
@@ -145,7 +140,7 @@ end
 
 # Nested Admin::WidgetsControllerTest
 module Admin
-  class WidgetsControllerTest < MiniTest::Rails::ActionController::TestCase
+  class WidgetsControllerTest < ActionController::TestCase
     test "exists" do
       assert_kind_of Admin::WidgetsController, @controller
     end
@@ -168,7 +163,7 @@ module Admin
   end
 end
 
-class Admin::WidgetsControllerTest < MiniTest::Rails::ActionController::TestCase
+class Admin::WidgetsControllerTest < ActionController::TestCase
   test "exists here too" do
     assert_kind_of Admin::WidgetsController, @controller
   end

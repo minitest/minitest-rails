@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/action_view"
+require "minitest/rails"
 
 module PeopleHelper
   def title(text)
@@ -22,7 +22,7 @@ module PeopleHelper
 end
 
 # From Rails...
-class CrazyHelperTest < MiniTest::Rails::ActionView::TestCase
+class CrazyHelperTest < ActionView::TestCase
   tests PeopleHelper
 
   def test_helper_class_can_be_set_manually_not_just_inferred
@@ -30,7 +30,7 @@ class CrazyHelperTest < MiniTest::Rails::ActionView::TestCase
   end
 end
 
-class CrazySymbolHelperTest < MiniTest::Rails::ActionView::TestCase
+class CrazySymbolHelperTest < ActionView::TestCase
   tests :people
 
   def test_set_helper_class_using_symbol
@@ -38,7 +38,7 @@ class CrazySymbolHelperTest < MiniTest::Rails::ActionView::TestCase
   end
 end if Rails::VERSION::STRING >= "3.2"
 
-class CrazyStringHelperTest < MiniTest::Rails::ActionView::TestCase
+class CrazyStringHelperTest < ActionView::TestCase
   tests 'people'
 
   def test_set_helper_class_using_string

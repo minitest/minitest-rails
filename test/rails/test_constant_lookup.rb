@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require "rails"
 
-require "minitest/rails/active_support"
+require "minitest/rails"
 
 class Foo; end
 class Bar < Foo;
@@ -11,7 +11,7 @@ end
 class Baz < Bar; end
 module FooBar; end
 
-class TestLookup < MiniTest::Rails::ActiveSupport::TestCase
+class TestLookup < ActiveSupport::TestCase
 
   def find_foo(name)
     self.class.determine_constant_from_test_name(name) do |constant|

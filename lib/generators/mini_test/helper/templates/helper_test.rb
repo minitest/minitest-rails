@@ -1,7 +1,7 @@
 require "minitest_helper"
 
 <% module_namespacing do -%>
-class <%= class_name %>HelperTest < MiniTest::Rails::ActionView::TestCase
+class <%= class_name %>HelperTest < ActionView::TestCase
 
   def test_sanity
     assert true
