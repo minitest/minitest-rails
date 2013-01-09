@@ -18,8 +18,8 @@ class MiniTest::Rails::ActiveSupport::TestCase
 end
 
 # Do you want all existing Rails tests to use MiniTest::Rails?
-# Comment out the following and either:
-# A) Change the require on the existing tests to `require "minitest_helper"`
+# Uncomment the following and either:
+# A) Change the 'require "test_helper"' in the existing tests to 'require "minitest_helper"'
 # B) Require this file's code in test_helper.rb
 
 # MiniTest::Rails.override_testunit!
