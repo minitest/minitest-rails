@@ -4,7 +4,7 @@ require "minitest_helper"
 class <%= class_name %>HelperTest < MiniTest::Rails::ActionView::TestCase
 
   def test_sanity
-    flunk "Need real tests"
+    assert true
   end
 
 end

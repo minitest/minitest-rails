@@ -1,81 +1,52 @@
-require 'rake/testtask'
-require 'minitest/rails/tasks/sub_test_task'
-
-# The default tests to run, update this list to change behavior
-MINITEST_TASKS = %w(models helpers controllers mailers acceptance) #views
-
-def all_directories_under_test
-  Dir['test/*/'].map {|dir| /test\/(.+?)\//.match(dir)[1] }
-end
-
-def all_minitest_directories
-  (MINITEST_TASKS + all_directories_under_test).uniq
-end
+require "rake/testtask"
+require "minitest/rails/testing"
+require "minitest/rails/tasks/sub_test_task"
 
 desc "Runs minitest"
 task :test do
   # Add to existing task if exists, or create new task otherwise
-  Rake::Task['minitest'].invoke
+  Rake::Task["minitest"].invoke
 end
 
-namespace 'test' do
+namespace "test" do
   task :prepare do
     # Define here in case test_unit isn't loaded
   end
 end
 
-desc "Runs #{MINITEST_TASKS.join(", ")} together"
+# desc "Runs default tests (#{MiniTest::Rails::Testing.default_tasks.join(', ')})"
 task :minitest do
-  Rake::Task['minitest:default'].invoke
+  Rake::Task["minitest:default"].invoke
 end
 
-namespace 'minitest' do
+namespace "minitest" do
 
-  # Only run the default tasks defined in MINITEST_TASKS
+  # Only run the default tasks defined in MiniTest::Rails::Testing.default_tasks
   task :default do
-    errors = MINITEST_TASKS.collect do |task|
-      begin
-        Rake::Task["minitest:#{task}"].invoke
-        nil
-      rescue => e
-        { :task => "minitest:#{task}", :exception => e }
-      end
-    end.compact
-
-    if errors.any?
-      puts errors.map { |e| "Errors running #{e[:task]}! #{e[:exception].inspect}" }.join("\n")
-      abort
-    end
+    MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.default_tasks
   end
 
   # Run all tests in all the test directories
+  # desc "Runs all tests"
   task :all do
-    errors = all_minitest_directories.collect do |task|
-      begin
-        Rake::Task["minitest:#{task}"].invoke
-        nil
-      rescue => e
-        { :task => "minitest:#{task}", :exception => e }
-      end
-    end.compact
-
-    if errors.any?
-      puts errors.map { |e| "Errors running #{e[:task]}! #{e[:exception].inspect}" }.join("\n")
-      abort
-    end
+    MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.all_tasks
   end
 
-  all_minitest_directories.each do |task|
-    MiniTest::Rails::Tasks::SubTestTask.new(task => 'test:prepare') do |t|
-      t.libs.push 'test'
-      t.pattern = "test/#{task}/**/*_test.rb"
+  MiniTest::Rails::Testing.all_tasks.each do |task_dir|
+    unless Rake::Task.task_defined? "minitest:#{task_dir}"
+      # desc "Runs tests under test/#{task_dir}"
+      MiniTest::Rails::Tasks::SubTestTask.new(task_dir => "test:prepare") do |t|
+        t.libs.push "test"
+        t.pattern = "test/#{task_dir}/**/*_test.rb"
+        t.options = MiniTest::Rails::Testing.task_opts[task_dir] if MiniTest::Rails::Testing.task_opts[task_dir]
+      end
     end
   end
 
 end
 
 # Override the default task
-task :default => [] # Just in case it hasn't already been set
+task :default => [] # Just in case it hasn"t already been set
 Rake::Task[:default].clear
-desc "Runs minitest"
+desc "Runs default tests"
 task :default => "minitest"
