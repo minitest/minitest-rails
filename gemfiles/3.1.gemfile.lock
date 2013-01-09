@@ -1,9 +1,9 @@
 PATH
   remote: /Users/blowmage/codez/minitest-rails
   specs:
-    minitest-rails (0.3.20121102170159)
+    minitest-rails (0.3.20130109123522)
       minitest (~> 4.0)
-      rails (~> 3.0)
+      rails (>= 3.0)
 
 GEM
   remote: http://rubygems.org/

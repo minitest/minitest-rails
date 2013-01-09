@@ -11,6 +11,7 @@ rescue LoadError
 end
 
 # Override the default ActiveSupport::TestCase to set the minitest dependency
+require "active_support/test_case"
 Kernel.silence_warnings do
   ActiveSupport.const_set :TestCase, MiniTest::Rails::TestCase
 end

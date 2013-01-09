@@ -4,10 +4,11 @@ namespace :gemfiles do
     `bundle --gemfile=gemfiles/3.0.gemfile`
     `bundle --gemfile=gemfiles/3.1.gemfile`
     `bundle --gemfile=gemfiles/3.2.gemfile`
+    `bundle --gemfile=gemfiles/4.0.gemfile`
   end
   desc "Clear the gemfile lock files"
   task :clear do
-    `rm gemfiles/3.*.gemfile.lock`
+    `rm gemfiles/*.gemfile.lock`
   end
 end
 

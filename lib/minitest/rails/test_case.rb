@@ -14,6 +14,9 @@ require "active_support/testing/pending"
 require "active_support/testing/isolation"
 require "active_support/core_ext/kernel/reporting"
 
+begin
+  require 'active_support/testing/constant_lookup'
+rescue LoadError; end
 require "minitest/rails/constant_lookup"
 
 begin

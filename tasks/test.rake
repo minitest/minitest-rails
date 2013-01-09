@@ -16,5 +16,11 @@ namespace :test do
     ENV["BUNDLE_GEMFILE"] = "gemfiles/3.2.gemfile"
     sh "bundle exec rake test"
   end
+
+  desc "Run tests against the 4.0 gemfile"
+  task "4.0" do
+    ENV["BUNDLE_GEMFILE"] = "gemfiles/4.0.gemfile"
+    sh "bundle exec rake test"
+  end
 end
 

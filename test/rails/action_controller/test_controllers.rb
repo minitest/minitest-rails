@@ -9,6 +9,7 @@ require "minitest/rails"
 class TestApp < Rails::Application
 end
 Rails.application = TestApp
+Rails.configuration.secret_key_base = "abc123"
 
 class ApplicationController < ActionController::Base; end
 class ModelsController      < ApplicationController;  end
