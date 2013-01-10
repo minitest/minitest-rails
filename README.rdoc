@@ -33,14 +33,14 @@ This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> director
 == Usage
 
 We aim to expose MiniTest with minimal changes for testing within Rails.
-Because of this, we allow Test::Unit and MiniTest tests to live side by side.
-Your test classes will inherit from MiniTest::Rails::ActiveSupport::TestCase a opposed to ActiveSupport::TestCase.
-You can use the MiniTest::Spec DSL.
+Because of this, we allow <tt>Test::Unit</tt> and <tt>MiniTest</tt> tests to live side by side.
+Your test classes will inherit from <tt>MiniTest::Rails::ActiveSupport::TestCase</tt> as opposed to <tt>ActiveSupport::TestCase</tt>.
+You can use the <tt>MiniTest::Spec</tt> DSL.
 You can generate test files with the standard model, controller, resource, and other generators:
 
     rails generate model User
 
-And you can specify generating the tests using the MiniTest::Spec DSL on any of the generators by providing the <tt>--spec</tt> option:
+And you can specify generating the tests using the <tt>MiniTest::Spec</tt> DSL on any of the generators by providing the <tt>--spec</tt> option:
 
     rails generate model User --spec
 
@@ -54,9 +54,9 @@ You can also set these as defaults by adding the following to the <tt>config/app
       g.test_framework :mini_test, :spec => true, :fixture => false
     end
 
-== Overriding Test::Unit
+== Overriding <tt>Test::Unit</tt>
 
-Of course, you may not want to maintain separate Test::Unit and MiniTest tests.
+Of course, you may not want to maintain separate <tt>Test::Unit</tt> and <tt>MiniTest</tt> tests.
 If this is the behavior you are wanting, simply add the following to your <tt>test_helper.rb</tt> file:
 
     require "minitest/rails"
@@ -79,7 +79,7 @@ See the <tt>minitest-rails-capybara</tt> project for more information.
 
 == Incompatibilities
 
-Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by MiniTest::Spec blocks.
+Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks.
 
 == Get Involved
 
