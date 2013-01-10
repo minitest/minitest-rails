@@ -35,13 +35,6 @@ module MiniTest
         assert yield, msg
       end
 
-      if defined?(ActiveRecord::Base)
-        # Use AS::TestCase for the base class when describing a model
-        register_spec_type(self) do |desc|
-          desc < ActiveRecord::Base if desc.is_a?(Class)
-        end
-      end
-
       # For backward compatibility with Test::Unit
       def build_message(message, template = nil, *args)
         template = template.gsub('<?>', '<%s>')
