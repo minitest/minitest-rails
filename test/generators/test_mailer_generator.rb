@@ -1,12 +1,5 @@
-require "minitest/autorun"
-require "minitest-rails"
-
-require "rails"
-require "rails/generators"
-
+require "helper"
 require "generators/mini_test/mailer/mailer_generator"
-
-require "fakefs/safe"
 
 class FakeFS::File
   def self.binread file

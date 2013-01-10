@@ -1,10 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "active_record"
-
-require "minitest/rails"
-load "minitest/rails/test_case.rb" # force load to ensure ActiveRecord is defined
+require "helper"
 
 class SomeRandomModel < ActiveRecord::Base; end
 

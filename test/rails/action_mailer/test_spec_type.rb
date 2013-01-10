@@ -1,10 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "action_mailer"
-require "action_mailer/test_helper"
-
-load "minitest/rails.rb" # force load to ensure ActionMailer is defined
+require "helper"
 
 class NotificationMailer < ActionMailer::Base; end
 class Notifications < ActionMailer::Base; end

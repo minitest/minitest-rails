@@ -1,9 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "action_controller"
-
-require "minitest/rails"
+require "helper"
 
 class ApplicationController < ActionController::Base; end
 class ModelsController      < ApplicationController;  end

@@ -1,7 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "minitest/rails"
+require "helper"
 
 module PeopleHelper
   def title(text)

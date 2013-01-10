@@ -1,10 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "action_controller"
-require "action_controller/railtie"
-
-require "minitest/rails"
+require "helper"
 
 class TestApp < Rails::Application
 end

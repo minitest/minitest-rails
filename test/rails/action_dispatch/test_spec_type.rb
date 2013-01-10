@@ -1,7 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "minitest/rails"
+require "helper"
 
 class TestActionDispatchSpecType < MiniTest::Unit::TestCase
   def assert_dispatch actual

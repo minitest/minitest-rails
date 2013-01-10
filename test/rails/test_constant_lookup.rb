@@ -1,7 +1,4 @@
-require "minitest/autorun"
-require "rails"
-
-require "minitest/rails"
+require "helper"
 
 class Foo; end
 class Bar < Foo;

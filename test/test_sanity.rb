@@ -1,5 +1,4 @@
-require "minitest/autorun"
-require "minitest-rails"
+require "helper"
 
 class TestMiniTest < MiniTest::Unit::TestCase
   def test_sanity
