@@ -2,7 +2,8 @@
 
 MiniTest integration for Rails 3 and 4
 
-{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]<br>
+{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
+<br>
 {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
 
 == Install

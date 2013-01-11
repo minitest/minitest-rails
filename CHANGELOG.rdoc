@@ -1,9 +1,9 @@
 === 0.5 / 2013-01-11
 
-  * Add support for Rails 4
-  * Use ActiveSupport::TestCase instead of MiniTest::Rails::ActiveSupport::TestCase.
-  * Add MiniTest::Rails::Testing
-  * Use MiniTest::Rails::Testing.default_tasks instead of MINITEST_TASKS.
+* Add support for Rails 4
+* Use ActiveSupport::TestCase instead of MiniTest::Rails::ActiveSupport::TestCase.
+* Add MiniTest::Rails::Testing
+* Use MiniTest::Rails::Testing.default_tasks instead of MINITEST_TASKS.
 
 https://github.com/blowmage/minitest-rails/compare/v0.3...v0.5
 
