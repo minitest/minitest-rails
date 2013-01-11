@@ -1,8 +1,9 @@
 = minitest-rails
 
-MiniTest integration for Rails 3.x
+MiniTest integration for Rails 3 and 4
 
-{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
+{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]<br>
+{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
 
 == Install
 
@@ -32,10 +33,8 @@ This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> director
 
 == Usage
 
-We aim to expose MiniTest with minimal changes for testing within Rails.
-Because of this, we allow <tt>Test::Unit</tt> and <tt>MiniTest</tt> tests to live side by side.
-Your test classes will inherit from <tt>MiniTest::Rails::ActiveSupport::TestCase</tt> as opposed to <tt>ActiveSupport::TestCase</tt>.
-You can use the <tt>MiniTest::Spec</tt> DSL.
+This project aims to enable MiniTest within the Rails TestCase classes.
+Your test will continue to inherit from <tt>ActiveSupport::TestCase</tt>, which will now support the spec DSL.
 You can generate test files with the standard model, controller, resource, and other generators:
 
     rails generate model User
@@ -54,30 +53,13 @@ You can also set these as defaults by adding the following to the <tt>config/app
       g.test_framework :mini_test, :spec => true, :fixture => false
     end
 
-== Overriding <tt>Test::Unit</tt>
-
-Of course, you may not want to maintain separate <tt>Test::Unit</tt> and <tt>MiniTest</tt> tests.
-If this is the behavior you are wanting, simply add the following to your <tt>test_helper.rb</tt> file:
-
-    require "minitest/rails"
-    MiniTest::Rails.override_testunit!
-
 == Capybara
 
-You can use Capybara in your acceptance/integration tests by adding <tt>minitest-rails-capybara</tt> as a dependency.
-
-    group :test, :development do
-      gem 'minitest-rails'
-      gem 'minitest-rails-capybara'
-    end
-
-And add the following to your test helper file:
-
-    require "minitest/rails/capybara"
-
-See the <tt>minitest-rails-capybara</tt> project for more information.
+You can use Capybara for feature tests by adding <tt>minitest-rails-capybara</tt> as a dependency. See the README for more information: https://github.com/blowmage/minitest-rails-capybara
 
 == Incompatibilities
+
+Efforts have been made to be compatible with Ruby 1.8.7, but some rough edges may remain. You have been warned.
 
 Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks.
 
@@ -89,7 +71,7 @@ https://groups.google.com/group/minitest-rails
 
 == License
 
-Copyright (c) 2012 Mike Moore
+Copyright (c) 2013 Mike Moore
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
