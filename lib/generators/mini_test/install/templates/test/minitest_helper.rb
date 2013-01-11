@@ -4,7 +4,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require "minitest/autorun"
 require "minitest/rails"
 
-# Uncomment if you want Capybara in accceptance/integration tests
+# Add `gem "minitest/rails/capybara"` to the test group of your Gemfile
+# and uncomment the following if you want Capybara feature tests
 # require "minitest/rails/capybara"
 
 # Uncomment if you want awesome colorful output
