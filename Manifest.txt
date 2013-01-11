@@ -14,7 +14,6 @@ gemfiles/3.2.gemfile
 gemfiles/3.2.gemfile.lock
 gemfiles/4.0.gemfile
 gemfiles/4.0.gemfile.lock
-gemfiles/minitest_tu_shim.rb
 lib/autotest/discover.rb
 lib/autotest/fixtures.rb
 lib/autotest/migrate.rb
@@ -58,6 +57,7 @@ test/generators/test_install_generator.rb
 test/generators/test_mailer_generator.rb
 test/generators/test_model_generator.rb
 test/generators/test_scaffold_generator.rb
+test/helper.rb
 test/rails/action_controller/test_controllers.rb
 test/rails/action_controller/test_spec_type.rb
 test/rails/action_dispatch/test_spec_type.rb
