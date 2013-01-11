@@ -14,7 +14,7 @@ DESC
       end
 
       def copy_minitest_files
-        directory 'test'
+        template 'test/minitest_helper.rb', File.join("test", "minitest_helper.rb")
       end
 
     end
