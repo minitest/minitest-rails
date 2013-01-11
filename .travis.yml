@@ -2,7 +2,6 @@
 before_install:
 - gem install hoe-travis --no-rdoc --no-ri
 - gem install bundler --pre --no-rdoc --no-ri
-- ruby gemfiles/minitest_tu_shim.rb
 before_script:
 - rake travis:before -t
 language: ruby
