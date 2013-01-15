@@ -84,6 +84,7 @@ require "action_dispatch/testing/integration"
 class ActionDispatch::IntegrationTest
   # Register by name, consider Acceptance to be deprecated
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
+  register_spec_type(/routing/i, self)
 end
 
 # Default wiring for the tests. This was originaly done in the helper.

@@ -6,7 +6,7 @@ module MiniTest
       mattr_accessor :default_tasks
       mattr_accessor :task_opts
 
-      self.default_tasks = %w(models helpers controllers mailers integration)
+      self.default_tasks = %w(models helpers controllers mailers integration routes)
       self.task_opts = { "performance" => "-- --benchmark" }
 
       def self.all_tasks
