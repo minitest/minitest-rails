@@ -6,7 +6,6 @@ module MiniTest
     class ScaffoldGenerator < Base
       include ::Rails::Generators::ResourceHelpers
       argument     :actions, :type => :array,   :default => [],    :banner => "action action"
-      class_option :spec,    :type => :boolean, :default => false, :desc   => "Use MiniTest::Spec DSL"
 
       check_class_collision :suffix => "ControllerTest"
 

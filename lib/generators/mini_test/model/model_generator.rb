@@ -5,7 +5,6 @@ module MiniTest
     class ModelGenerator < Base
       argument     :attributes, :type => :array,   :default => [],    :banner => "field:type field:type"
       class_option :fixture,    :type => :boolean, :default => true,  :desc => "Create fixture file"
-      class_option :spec,       :type => :boolean, :default => false, :desc => "Use MiniTest::Spec DSL"
 
       check_class_collision :suffix => "Test"
 
