@@ -3,8 +3,6 @@ require "generators/mini_test"
 module MiniTest
   module Generators
     class IntegrationGenerator < Base
-      class_option :spec, :type => :boolean, :default => false, :desc => "Use MiniTest::Spec DSL"
-
       check_class_collision :suffix => "Test"
 
       def create_test_files

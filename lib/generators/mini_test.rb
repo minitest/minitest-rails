@@ -7,8 +7,11 @@ module MiniTest
       class_option :old_style_hash, :type => :boolean, :default => false,
                                     :desc => "Force using old style hash (:foo => 'bar') on Ruby >= 1.9"
 
-      def self.source_root
-        @_minitest_source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'mini_test', generator_name, 'templates'))
+      class_option :spec, :type => :boolean, :default => false,
+                          :desc => "Use MiniTest::Spec DSL"
+
+      def self.default_source_root
+        File.expand_path(File.join(File.dirname(__FILE__), 'mini_test', generator_name, 'templates'))
       end
 
       protected
