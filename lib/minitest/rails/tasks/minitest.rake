@@ -2,12 +2,6 @@ require "rake/testtask"
 require "minitest/rails/testing"
 require "minitest/rails/tasks/sub_test_task"
 
-desc "Runs minitest"
-task :test do
-  # Add to existing task if exists, or create new task otherwise
-  Rake::Task["minitest"].invoke
-end
-
 namespace "test" do
   task :prepare do
     # Define here in case test_unit isn't loaded
@@ -51,8 +45,13 @@ namespace "minitest" do
 
 end
 
+# Override the test task
+task :test => [] # Just in case it hasn't already been set
+Rake::Task[:test].clear
+desc "Run default tests (#{MiniTest::Rails::Testing.default_tasks.join(', ')})"
+task :test => "minitest"
+
 # Override the default task
-task :default => [] # Just in case it hasn"t already been set
+task :default => [] # Just in case it hasn't already been set
 Rake::Task[:default].clear
-desc "Runs default tests"
 task :default => "minitest"
