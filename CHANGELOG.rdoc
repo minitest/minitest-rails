@@ -1,3 +1,10 @@
+=== 0.5.1 / 2013-01-24
+
+* Add route test generator
+* Several changes in rake tasks
+
+https://github.com/blowmage/minitest-rails/compare/v0.5...v0.5.1
+
 === 0.5 / 2013-01-11
 
 * Add support for Rails 4
