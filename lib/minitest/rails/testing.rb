@@ -3,10 +3,8 @@ require "rake/testtask"
 module MiniTest
   module Rails
     module Testing
-      mattr_accessor :default_tasks
       mattr_accessor :task_opts
 
-      self.default_tasks = %w(models helpers controllers mailers integration)
       self.task_opts = { "performance" => "-- --benchmark" }
 
       def self.all_tasks
