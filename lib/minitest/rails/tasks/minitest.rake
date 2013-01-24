@@ -26,10 +26,16 @@ namespace "minitest" do
     MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.default_tasks
   end
 
-  # Run all tests in all the test directories
-  # desc "Runs all tests"
+  # desc "Run all tests"
   task :all do
     MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.all_tasks
+  end
+  namespace "all" do
+    # desc "Run all tests, ungrouped for quicker execution"
+    MiniTest::Rails::Tasks::SubTestTask.new(:quick => "test:prepare") do |t|
+      t.libs.push "test"
+      t.pattern = "test/**/*_test.rb"
+    end
   end
 
   MiniTest::Rails::Testing.all_tasks.each do |task_dir|
