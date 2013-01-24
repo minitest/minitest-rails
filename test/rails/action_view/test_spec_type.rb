@@ -25,6 +25,13 @@ class TestActionViewSpecType < MiniTest::Unit::TestCase
     assert_view MiniTest::Spec.spec_type("widget view test")
   end
 
+  def test_spec_type_wont_match_models_that_end_in_view
+    refute_view MiniTest::Spec.spec_type("NewsOverviewTest")
+    refute_view MiniTest::Spec.spec_type("News Overview Test")
+    refute_view MiniTest::Spec.spec_type("NewsOverview")
+    refute_view MiniTest::Spec.spec_type("News Overview")
+  end
+
   def test_spec_type_wont_match_non_space_characters
     refute_view MiniTest::Spec.spec_type("Widget Helper\tTest")
     refute_view MiniTest::Spec.spec_type("Widget Helper\rTest")
