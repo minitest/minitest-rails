@@ -20,11 +20,9 @@ Create a new rails app without Test::Unit:
 
     rails new MyApp --skip-test-unit
 
-Add <tt>minitest-rails</tt> to the <tt>:test</tt> and <tt>:development</tt> groups in Gemfile:
+Add <tt>minitest-rails</tt> to the Gemfile:
 
-    group :test, :development do
-      gem 'minitest-rails'
-    end
+    gem "minitest-rails"
 
 Next run the installation generator with the following:
 
