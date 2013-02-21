@@ -17,7 +17,11 @@ namespace "minitest" do
 
   # Only run the default tasks defined in MiniTest::Rails::Testing.default_tasks
   task :default do
-    MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.default_tasks
+    if ENV["TEST"]
+      Rake::Task["minitest:single"].invoke
+    else
+      MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.default_tasks
+    end
   end
 
   desc "Run all tests"
@@ -30,6 +34,10 @@ namespace "minitest" do
       t.libs.push "test"
       t.pattern = "test/**/*_test.rb"
     end
+  end
+
+  Rake::TestTask.new(:single => "test:prepare") do |t|
+    t.libs << "test"
   end
 
   MiniTest::Rails::Testing.all_tasks.each do |task_dir|
