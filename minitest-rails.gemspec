@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.5.1.20130124111918"
+  s.version = "0.5.2.20130221095237"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
-  s.date = "2013-01-24"
+  s.date = "2013-02-21"
   s.description = "Adds MiniTest as the default testing library in Rails 3 and 4"
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "minitest-rails"
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "1.8.25"
   s.summary = "MiniTest integration for Rails 3 and 4"
   s.test_files = ["test/generators/test_controller_generator.rb", "test/generators/test_helper_generator.rb", "test/generators/test_install_generator.rb", "test/generators/test_mailer_generator.rb", "test/generators/test_model_generator.rb", "test/generators/test_route_generator.rb", "test/generators/test_scaffold_generator.rb", "test/rails/action_controller/test_controllers.rb", "test/rails/action_controller/test_spec_type.rb", "test/rails/action_dispatch/test_spec_type.rb", "test/rails/action_mailer/test_mailers.rb", "test/rails/action_mailer/test_spec_type.rb", "test/rails/action_view/test_helpers.rb", "test/rails/action_view/test_spec_type.rb", "test/rails/active_support/test_spec_type.rb", "test/rails/test_constant_lookup.rb", "test/test_sanity.rb"]
 
@@ -27,19 +27,19 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rails>, [">= 3.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.10"])
       s.add_development_dependency(%q<fakefs>, ["~> 0.4"])
-      s.add_development_dependency(%q<hoe>, ["~> 3.4"])
+      s.add_development_dependency(%q<hoe>, ["~> 3.5"])
     else
       s.add_dependency(%q<minitest>, ["~> 4.0"])
       s.add_dependency(%q<rails>, [">= 3.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.10"])
       s.add_dependency(%q<fakefs>, ["~> 0.4"])
-      s.add_dependency(%q<hoe>, ["~> 3.4"])
+      s.add_dependency(%q<hoe>, ["~> 3.5"])
     end
   else
     s.add_dependency(%q<minitest>, ["~> 4.0"])
     s.add_dependency(%q<rails>, [">= 3.0"])
     s.add_dependency(%q<rdoc>, ["~> 3.10"])
     s.add_dependency(%q<fakefs>, ["~> 0.4"])
-    s.add_dependency(%q<hoe>, ["~> 3.4"])
+    s.add_dependency(%q<hoe>, ["~> 3.5"])
   end
 end
