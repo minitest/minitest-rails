@@ -36,7 +36,7 @@ namespace "minitest" do
     end
   end
 
-  Rake::TestTask.new(:single => "test:prepare") do |t|
+  MiniTest::Rails::Tasks::SubTestTask.new(:single => "test:prepare") do |t|
     t.libs << "test"
   end
 
