@@ -117,27 +117,22 @@ class ActionDispatch::IntegrationTest
   end
 end
 
+################################################################################
 # Deprecated, for backwards compatibility with older minitest-rails only
+# Will be removed at version 1.0
+################################################################################
 
 module MiniTest
   module Rails
     def self.override_testunit!
+      ActiveSupport::Deprecation.warn "MiniTest::Rails.override_testunit! is deprecated. Please remove calls to this method from your helper and tests. The method will removed when minitest-rails reaches 1.0 release.\n\nhttps://github.com/blowmage/minitest-rails/wiki/Upgrading-to-0.9"
       # noop
     end
-    module ActiveSupport
-      TestCase = ::ActiveSupport::TestCase
-    end
-    module ActionController
-      TestCase = ::ActionController::TestCase
-    end
-    module ActionView
-      TestCase = ::ActionView::TestCase
-    end
-    module ActionMailer
-      TestCase = ::ActionMailer::TestCase if defined? ::ActionMailer
-    end
-    module ActionDispatch
-      IntegrationTest = ::ActionDispatch::IntegrationTest
-    end
+    extend ::ActiveSupport::Autoload
+    autoload :ActiveSupport,    'minitest/rails/deprecated/active_support'
+    autoload :ActionController, 'minitest/rails/deprecated/action_controller'
+    autoload :ActionView,       'minitest/rails/deprecated/action_view'
+    autoload :ActionMailer,     'minitest/rails/deprecated/action_mailer'
+    autoload :ActionDispatch,   'minitest/rails/deprecated/action_dispatch'
   end
 end

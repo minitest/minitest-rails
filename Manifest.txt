@@ -46,6 +46,11 @@ lib/generators/mini_test/scaffold/templates/controller_test.rb
 lib/minitest-rails.rb
 lib/minitest/rails.rb
 lib/minitest/rails/constant_lookup.rb
+lib/minitest/rails/deprecated/action_controller.rb
+lib/minitest/rails/deprecated/action_dispatch.rb
+lib/minitest/rails/deprecated/action_mailer.rb
+lib/minitest/rails/deprecated/action_view.rb
+lib/minitest/rails/deprecated/active_support.rb
 lib/minitest/rails/railtie.rb
 lib/minitest/rails/tasks/minitest.rake
 lib/minitest/rails/tasks/sub_test_task.rb
