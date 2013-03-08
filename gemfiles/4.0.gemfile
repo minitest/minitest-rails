@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", github: "rails/rails" # Set to master until we get a release
+gem "rails", "4.0.0.beta1"
 gem "rdoc", "~> 3.10"
 gem "hoe", "~> 3.0"
 gem "fakefs", "~> 0.4"
