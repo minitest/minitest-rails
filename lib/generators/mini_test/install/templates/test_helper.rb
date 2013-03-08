@@ -1,14 +1,13 @@
 ENV["RAILS_ENV"] = "test"
-require File.expand_path('../../config/environment', __FILE__)
-
-require "minitest/autorun"
+require File.expand_path("../../config/environment", __FILE__)
+require "rails/test_help"
 require "minitest/rails"
 
-# Add `gem "minitest-rails-capybara"` to the test group of your Gemfile
-# and uncomment the following if you want Capybara feature tests
+# To add Capybara feature tests add `gem "minitest-rails-capybara"`
+# to the test group in the Gemfile and uncomment the following:
 # require "minitest/rails/capybara"
 
-# Uncomment if you want awesome colorful output
+# Uncomment for awesome colorful output
 # require "minitest/pride"
 
 class ActiveSupport::TestCase

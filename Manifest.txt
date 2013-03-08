@@ -26,7 +26,7 @@ lib/generators/mini_test/helper/helper_generator.rb
 lib/generators/mini_test/helper/templates/helper_spec.rb
 lib/generators/mini_test/helper/templates/helper_test.rb
 lib/generators/mini_test/install/install_generator.rb
-lib/generators/mini_test/install/templates/test/minitest_helper.rb
+lib/generators/mini_test/install/templates/test_helper.rb
 lib/generators/mini_test/integration/integration_generator.rb
 lib/generators/mini_test/integration/templates/integration_spec.rb
 lib/generators/mini_test/integration/templates/integration_test.rb

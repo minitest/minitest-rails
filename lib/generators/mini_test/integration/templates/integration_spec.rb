@@ -1,4 +1,4 @@
-require "minitest_helper"
+require "test_helper"
 
 # To be handled correctly this spec must end with "Integration Test"
 describe "<%= class_name %> Integration Test" do

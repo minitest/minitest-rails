@@ -1,4 +1,4 @@
-require "minitest_helper"
+require "test_helper"
 
 <% module_namespacing do -%>
 class <%= class_name %>ControllerTest < ActionController::TestCase

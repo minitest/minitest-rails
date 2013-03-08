@@ -27,7 +27,7 @@ Next run the installation generator with the following:
 
     rails generate mini_test:install
 
-This will add the <tt>minitest_helper.rb</tt> file to the <tt>test</tt> directory.
+This will add the <tt>test_helper.rb</tt> file to the <tt>test</tt> directory.
 
 == Usage
 
