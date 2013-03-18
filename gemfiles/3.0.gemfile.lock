@@ -1,8 +1,8 @@
 PATH
   remote: /Users/blowmage/codez/minitest-rails
   specs:
-    minitest-rails (0.5.2.20130308152823)
-      minitest (~> 4.0)
+    minitest-rails (0.5.2.20130318175637)
+      minitest (~> 4.7)
       rails (>= 3.0)
 
 GEM
@@ -40,7 +40,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     fakefs (0.4.2)
-    hoe (3.5.1)
+    hoe (3.5.2)
       rake (>= 0.8, < 11.0)
     i18n (0.5.0)
     json (1.7.7)
@@ -50,7 +50,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
-    minitest (4.6.2)
+    minitest (4.7.0)
     polyglot (0.3.3)
     rack (1.2.8)
     rack-mount (0.6.14)
@@ -78,7 +78,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.36)
+    tzinfo (0.3.37)
 
 PLATFORMS
   ruby

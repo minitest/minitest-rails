@@ -19,7 +19,7 @@ Hoe.spec 'minitest-rails' do
   self.readme_file  = "README.rdoc"
   self.testlib      = :minitest
 
-  dependency 'minitest',  '~> 4.0'
+  dependency 'minitest',  '~> 4.7'
   dependency 'rails',     '>= 3.0'
   dependency 'fakefs',    '~> 0.4', :dev
 end

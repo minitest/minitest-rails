@@ -11,6 +11,7 @@ require "action_controller/railtie"
 require "action_mailer"
 
 require "minitest-rails"
+require "rails/test_help"
 require "minitest/rails"
 
 require "fakefs/safe"
