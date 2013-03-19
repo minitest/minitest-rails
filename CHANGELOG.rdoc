@@ -1,3 +1,30 @@
+=== 0.9.0 / 2013-03-18
+
+This release marks a new direction for minitest-rails. Deprecations have been added for the features that won't make it to 1.0. See instructions for upgrading to 0.9:
+
+https://github.com/blowmage/minitest-rails/wiki/Upgrading-to-0.9
+
+* 1 major enhancement:
+
+  * Use newly added MiniTest::Spec::DSL
+
+* 2 minor enhancements:
+
+  * Add deprecation warnings
+  * Switch back to the default test helper name, for easier integration in Rails 4.
+  * Update Rails 4 Gemfile
+
+https://github.com/blowmage/minitest-rails/compare/v0.5.2...v0.9.0
+
+=== 0.5.2 / 2013-02-21
+
+* Allow running of single test file
+* Update README
+* Update install instructions
+* Fix test helper's instructions
+
+https://github.com/blowmage/minitest-rails/compare/v0.5.1...v0.5.2
+
 === 0.5.1 / 2013-01-24
 
 * Add route test generator

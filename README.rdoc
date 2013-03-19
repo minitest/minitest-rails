@@ -55,6 +55,10 @@ You can also set these as defaults by adding the following to the <tt>config/app
 
 You can use Capybara for feature tests by adding <tt>minitest-rails-capybara</tt> as a dependency. See the README for more information: https://github.com/blowmage/minitest-rails-capybara
 
+== Upgrading
+
+The 0.9 release marks a new direction for minitest-rails. Deprecations have been added for the features that won't make it to 1.0. See instructions for upgrading to 0.9: https://github.com/blowmage/minitest-rails/wiki/Upgrading-to-0.9
+
 == Incompatibilities
 
 Efforts have been made to be compatible with Ruby 1.8.7, but some rough edges may remain. You have been warned.

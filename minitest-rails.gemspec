@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.5.2.20130318175637"
+  s.version = "0.9.0.20130318184615"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
-  s.date = "2013-03-18"
+  s.date = "2013-03-19"
   s.description = "Adds MiniTest as the default testing library in Rails 3 and 4"
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
