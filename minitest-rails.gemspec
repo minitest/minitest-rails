@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "0.9.0.20130318184615"
+  s.version = "0.9.1.20130318232905"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
