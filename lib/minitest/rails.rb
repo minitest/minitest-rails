@@ -96,6 +96,15 @@ class ActionDispatch::IntegrationTest
 end
 
 ################################################################################
+# 1.8.7 Spec DSL Support
+################################################################################
+
+if LoadError.const_defined? :REGEXPS
+  # Add relaxed regexp to allow whitespace so nested describes won't fail on 1.8.
+  LoadError::REGEXPS.unshift /^Missing \w+ (?:file\s*)?(.+\.rb)/i
+end
+
+################################################################################
 # Deprecated, for backwards compatibility with older minitest-rails only
 # Will be removed at version 1.0
 ################################################################################
