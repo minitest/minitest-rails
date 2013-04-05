@@ -5,6 +5,6 @@ require "test_helper"
 
 describe "Route Integration Test" do
   it "route root" do
-    assert_routing "/", class: "home", action: "show"
+    assert_routing "/", controller: "home", action: "show"
   end
 end
