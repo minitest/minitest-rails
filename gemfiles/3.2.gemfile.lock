@@ -1,7 +1,7 @@
 PATH
   remote: /Users/blowmage/codez/minitest-rails
   specs:
-    minitest-rails (0.9.1.20130318232905)
+    minitest-rails (0.9.2.20130405010332)
       minitest (~> 4.7)
       rails (>= 3.0)
 
