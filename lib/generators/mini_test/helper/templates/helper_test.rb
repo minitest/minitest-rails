@@ -4,7 +4,7 @@ require "test_helper"
 class <%= class_name %>HelperTest < ActionView::TestCase
 
   def test_sanity
-    assert true
+    flunk "Need real tests"
   end
 
 end
