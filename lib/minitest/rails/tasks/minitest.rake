@@ -2,9 +2,21 @@ require "rake/testtask"
 require "minitest/rails/testing"
 require "minitest/rails/tasks/sub_test_task"
 
+task stats: 'test:setup_stats'
+
 namespace "test" do
   task :prepare do
     # Define here in case test_unit isn't loaded
+  end
+
+  task :setup_stats do
+    require 'rails/code_statistics'
+    dirs = Dir['./test/**/*_test.rb'].map { |f| f.sub(/^\.\/(test\/\w+)\/.*/, '\\1') }.uniq
+    dirs.each do |dir|
+      name = dir.split('/').last
+      ::STATS_DIRECTORIES << ["#{name.singularize.capitalize} tests", dir]
+      ::CodeStatistics::TEST_TYPES << "#{name.singularize.capitalize} tests"
+    end
   end
 end
 
