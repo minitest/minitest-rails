@@ -53,6 +53,28 @@ namespace "minitest" do
 
 end
 
+# Statistics
+
+# set hook on stats task
+task :stats => "minitest:setup_stats"
+
+namespace "minitest" do
+  task :setup_stats do
+    require "rails/code_statistics"
+
+    # Clear existing test directories
+    STATS_DIRECTORIES.reject! { |name, dir| dir.starts_with? Rails.root.join("test").to_s }
+    CodeStatistics::TEST_TYPES.clear
+
+    # Add test directories that minitest-rails knows about
+    MiniTest::Rails::Testing.all_tasks.each do |dir|
+      name = "#{dir.capitalize} tests"
+      STATS_DIRECTORIES << [ name, Rails.root.join("test").join(dir).to_s ]
+      CodeStatistics::TEST_TYPES << name
+    end
+  end
+end
+
 # Override the test task
 task :test => [] # Just in case it hasn't already been set
 Rake::Task[:test].clear
