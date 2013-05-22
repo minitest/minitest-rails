@@ -105,6 +105,12 @@ if LoadError.const_defined? :REGEXPS
 end
 
 ################################################################################
+# Run load hooks so that other gems can register spec types
+################################################################################
+
+ActiveSupport.run_load_hooks(:minitest, ActiveSupport::TestCase)
+
+################################################################################
 # Deprecated, for backwards compatibility with older minitest-rails only
 # Will be removed at version 1.0
 ################################################################################
