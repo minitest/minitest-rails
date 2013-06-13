@@ -24,20 +24,20 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<minitest>, ["~> 4.7"])
-      s.add_runtime_dependency(%q<rails>, [">= 3.0"])
+      s.add_runtime_dependency(%q<railties>, [">= 3.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.10"])
       s.add_development_dependency(%q<fakefs>, ["~> 0.4"])
       s.add_development_dependency(%q<hoe>, ["~> 3.5"])
     else
       s.add_dependency(%q<minitest>, ["~> 4.7"])
-      s.add_dependency(%q<rails>, [">= 3.0"])
+      s.add_dependency(%q<railties>, [">= 3.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.10"])
       s.add_dependency(%q<fakefs>, ["~> 0.4"])
       s.add_dependency(%q<hoe>, ["~> 3.5"])
     end
   else
     s.add_dependency(%q<minitest>, ["~> 4.7"])
-    s.add_dependency(%q<rails>, [">= 3.0"])
+    s.add_dependency(%q<railties>, [">= 3.0"])
     s.add_dependency(%q<rdoc>, ["~> 3.10"])
     s.add_dependency(%q<fakefs>, ["~> 0.4"])
     s.add_dependency(%q<hoe>, ["~> 3.5"])
