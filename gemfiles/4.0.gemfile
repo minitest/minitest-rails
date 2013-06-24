@@ -3,6 +3,7 @@ source "http://rubygems.org"
 gem "rails", "4.0.0.rc2"
 gem "rdoc", "~> 3.10"
 gem "hoe", "~> 3.0"
+gem "hoe-travis", "~> 1.2"
 gem "fakefs", "~> 0.4"
 
 gemspec :path=>"../"

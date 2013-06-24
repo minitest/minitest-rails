@@ -37,9 +37,13 @@ GEM
     builder (3.1.4)
     erubis (2.7.0)
     fakefs (0.4.2)
+    hashr (0.0.22)
     hike (1.2.3)
     hoe (3.6.3)
       rake (>= 0.8, < 11.0)
+    hoe-travis (1.2)
+      hoe (~> 3.0)
+      travis-lint (~> 1.2)
     i18n (0.6.4)
     json (1.8.0)
     mail (2.5.4)
@@ -81,6 +85,8 @@ GEM
     thread_safe (0.1.0)
       atomic
     tilt (1.4.1)
+    travis-lint (1.7.0)
+      hashr (~> 0.0.22)
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
@@ -92,6 +98,7 @@ PLATFORMS
 DEPENDENCIES
   fakefs (~> 0.4)
   hoe (~> 3.0)
+  hoe-travis (~> 1.2)
   minitest-rails!
   rails (= 4.0.0.rc2)
   rdoc (~> 3.10)
