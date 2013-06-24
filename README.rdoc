@@ -73,7 +73,8 @@ The 0.9 release marks a new direction for minitest-rails. Deprecations have been
 
 == Incompatibilities
 
-Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks.
+RSpec and minitest's spec DSL are incompatible.
+Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks. Do not require rspec gem therefore. If you need to use some of the rspec features with minitest-rails please require only the necessary rspec gems for what you need, i.e.: if you need to use rspec mocks with minitest-rails require 'rspec-mocks' solely.
 
 RSpec and minitest's spec DSL are incompatible and cannot both be loaded at the same time. If your tests using the spec DSL are not running it is likely the RSpec DSL is also loaded. Check the dependencies and make sure RSpec is only loaded when running the specs.
 
