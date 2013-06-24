@@ -101,7 +101,7 @@ end
 
 if LoadError.const_defined? :REGEXPS
   # Add relaxed regexp to allow whitespace so nested describes won't fail on 1.8.
-  LoadError::REGEXPS.unshift /^Missing \w+ (?:file\s*)?(.+\.rb)/i
+  LoadError::REGEXPS.unshift(/^Missing \w+ (?:file\s*)?(.+\.rb)/i)
 end
 
 ################################################################################
