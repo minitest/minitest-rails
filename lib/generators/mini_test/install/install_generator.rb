@@ -17,6 +17,10 @@ DESC
         template 'test_helper.rb', File.join("test", "test_helper.rb")
       end
 
+      def add_migration_check
+        ::Rails::VERSION::STRING >= "4.0"
+      end
+
     end
   end
 end
