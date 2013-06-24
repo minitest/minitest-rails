@@ -3,6 +3,7 @@ require 'rails/generators'
 module MiniTest
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
+      class_option :active_record, :type => :boolean, :default => true, :desc => "Add ActiveRecord configuration"
 
       desc <<DESC
 Description:

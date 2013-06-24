@@ -11,6 +11,7 @@ require "minitest/rails"
 # require "minitest/pride"
 
 class ActiveSupport::TestCase
+<% if options[:active_record] -%>
   <% if add_migration_check -%>
   ActiveRecord::Migration.check_pending!
 
@@ -21,5 +22,6 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
+<% end -%>
   # Add more helper methods to be used by all tests here...
 end
