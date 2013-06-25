@@ -95,6 +95,13 @@ class ActionDispatch::IntegrationTest
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
 end
 
+################################################################################
+# Assertions and Expectations
+################################################################################
+
+require "minitest/rails/assertions"
+require "minitest/rails/expectations"
+
 # :stopdoc:
 
 ################################################################################
