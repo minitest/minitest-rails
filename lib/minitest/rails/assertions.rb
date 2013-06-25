@@ -2,6 +2,14 @@ class ActiveSupport::TestCase
   ##
   # Checks if an expression is blank. Passes if actual.blank? is true.
   #
+  # === This assertion is deprecated.
+  #
+  # Use the following to check for <tt>blank?</tt> instead:
+  #
+  #     assert actual.blank?
+  #
+  # The deprecated assertion can be called like this:
+  #
   #     assert_blank []
   #
   # See also MiniTest::Rails::Expectations#must_be_blank
@@ -11,6 +19,14 @@ class ActiveSupport::TestCase
 
   ##
   # Checks if an expression is not present. Passes if actual.present? is false.
+  #
+  # === This assertion is deprecated.
+  #
+  # Use the following to check for <tt>present?</tt> instead:
+  #
+  #     refute actual.present?
+  #
+  # The deprecated assertion can be called like this:
   #
   #     refute_present nil
   #
@@ -22,6 +38,14 @@ class ActiveSupport::TestCase
   ##
   # Checks if an expression is present. Passes if actual.present? is true.
   #
+  # === This assertion is deprecated.
+  #
+  # Use the following to check for <tt>present?</tt> instead:
+  #
+  #     assert actual.present?
+  #
+  # The deprecated assertion can be called like this:
+  #
   #     assert_present Object.new
   #
   # See also MiniTest::Rails::Expectations#must_be_present
@@ -31,6 +55,14 @@ class ActiveSupport::TestCase
 
   ##
   # Checks if an expression is not blank. Passes if actual.blank? is false.
+  #
+  # === This assertion is deprecated.
+  #
+  # Use the following to check for <tt>blank?</tt> instead:
+  #
+  #     refute actual.blank?
+  #
+  # The deprecated assertion can be called like this:
   #
   #     refute_blank [1,2,3]
   #

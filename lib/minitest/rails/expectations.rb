@@ -7,6 +7,14 @@ module MiniTest::Rails::Expectations
   ##
   # Checks if an expression is blank. Passes if actual.blank? is true.
   #
+  # === This expectation is deprecated.
+  #
+  # Use the following to check for <tt>blank?</tt> instead:
+  #
+  #     actual.must_be :blank?
+  #
+  # The deprecated expectation can be called like this:
+  #
   #     "".must_be_blank
   #     nil.must_be_blank
   #     [].must_be_blank
@@ -20,6 +28,14 @@ module MiniTest::Rails::Expectations
 
   ##
   # Checks if an expression is not present. Passes if actual.present? is false.
+  #
+  # === This expectation is deprecated.
+  #
+  # Use the following to check for <tt>present?</tt> instead:
+  #
+  #     actual.wont_be :present?
+  #
+  # The deprecated expectation can be called like this:
   #
   #     "".wont_be_present
   #     nil.wont_be_present
@@ -35,6 +51,14 @@ module MiniTest::Rails::Expectations
   ##
   # Checks if an expression is present. Passes if actual.present? is true.
   #
+  # === This expectation is deprecated.
+  #
+  # Use the following to check for <tt>present?</tt> instead:
+  #
+  #     actual.must_be :present?
+  #
+  # The deprecated expectation can be called like this:
+  #
   #     "here".must_be_present
   #     Object.new.must_be_present
   #     [1,2,3].must_be_present
@@ -48,6 +72,14 @@ module MiniTest::Rails::Expectations
 
   ##
   # Checks if an expression is not blank. Passes if actual.blank? is false.
+  #
+  # === This expectation is deprecated.
+  #
+  # Use the following to check for <tt>blank?</tt> instead:
+  #
+  #     actual.wont_be :blank?
+  #
+  # The deprecated expectation can be called like this:
   #
   #     "here".wont_be_blank
   #     Object.new.wont_be_blank
