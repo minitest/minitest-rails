@@ -95,6 +95,8 @@ class ActionDispatch::IntegrationTest
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
 end
 
+# :stopdoc:
+
 ################################################################################
 # 1.8.7 Spec DSL Support
 ################################################################################

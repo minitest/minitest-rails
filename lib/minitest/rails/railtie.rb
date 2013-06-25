@@ -2,7 +2,7 @@ require "rails"
 
 module MiniTest
   module Rails
-    class Railtie < ::Rails::Railtie
+    class Railtie < ::Rails::Railtie # :nodoc:
       generators = config.respond_to?(:app_generators) ? config.app_generators : config.generators
       generators.integration_tool :mini_test
       generators.test_framework   :mini_test
