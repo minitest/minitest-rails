@@ -1,6 +1,5 @@
 ---
 before_install:
-- gem install hoe-travis bundler --no-rdoc --no-ri
 - ruby gemfiles/minitest_tu_shim.rb
 before_script:
 - rake travis:before -t

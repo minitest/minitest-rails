@@ -1,8 +1,9 @@
 source "http://rubygems.org"
 
-gem "rails", "4.0.0.beta1"
+gem "rails", "4.0.0"
 gem "rdoc", "~> 3.10"
 gem "hoe", "~> 3.0"
+gem "hoe-travis", "~> 1.2"
 gem "fakefs", "~> 0.4"
 
 gemspec :path=>"../"

@@ -3,7 +3,7 @@ require "test_helper"
 <% module_namespacing do -%>
 class <%= controller_class_name %>ControllerTest < ActionController::TestCase
 
-  before do
+  def setup
     @<%= singular_table_name %> = <%= table_name %>(:one)
   end
 

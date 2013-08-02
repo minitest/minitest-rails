@@ -112,13 +112,28 @@ class Rails::Generators::TestCase
   end
 end
 ################################################################################
+# Assertions and Expectations
+################################################################################
+
+require "minitest/rails/assertions"
+require "minitest/rails/expectations"
+
+# :stopdoc:
+
+################################################################################
 # 1.8.7 Spec DSL Support
 ################################################################################
 
 if LoadError.const_defined? :REGEXPS
   # Add relaxed regexp to allow whitespace so nested describes won't fail on 1.8.
-  LoadError::REGEXPS.unshift /^Missing \w+ (?:file\s*)?(.+\.rb)/i
+  LoadError::REGEXPS.unshift(/^Missing \w+ (?:file\s*)?(.+\.rb)/i)
 end
+
+################################################################################
+# Run load hooks so that other gems can register spec types
+################################################################################
+
+ActiveSupport.run_load_hooks(:minitest, ActiveSupport::TestCase)
 
 ################################################################################
 # Deprecated, for backwards compatibility with older minitest-rails only

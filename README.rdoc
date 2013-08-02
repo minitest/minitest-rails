@@ -3,7 +3,7 @@
 MiniTest integration for Rails 3 and 4
 
 {<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
-{<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
+{<img src="https://codeclimate.com/github/blowmage/minitest-rails.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
 
 == Install
 
@@ -74,6 +74,10 @@ The 0.9 release marks a new direction for minitest-rails. Deprecations have been
 == Incompatibilities
 
 Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks.
+
+RSpec and minitest's spec DSL are incompatible and cannot both be loaded at the same time. If your tests using the spec DSL are not running it is likely the RSpec DSL is also loaded. Check the dependencies and make sure RSpec is only loaded when running the specs.
+
+If you need to use some RSpec features with minitest-rails require only the needed gems. e.g. To use RSpec mocks with minitest-rails require the "rspec-mocks" gem only, and not the main "rspec" gem which activates the RSpec DSL.
 
 == Get Involved
 
