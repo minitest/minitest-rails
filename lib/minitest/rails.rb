@@ -1,5 +1,8 @@
 gem "minitest"
-require "minitest/autorun"
+require "minitest/unit"
+require "minitest/spec"
+require "minitest/mock"
+require "minitest/autorun" unless ENV["MT_RAILS_NO_AUTORUN"]
 
 # Call rails/test_help because previous versions of minitest-rails
 # duplicated this functionality while trying to control the order
