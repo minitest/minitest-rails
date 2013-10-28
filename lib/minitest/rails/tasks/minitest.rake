@@ -15,38 +15,47 @@ end
 
 namespace "minitest" do
 
-  # Only run the default tasks defined in MiniTest::Rails::Testing.default_tasks
+  # Main entry point for minitest
   task :default do
     if ENV["TEST"]
       Rake::Task["minitest:single"].invoke
     else
-      MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.default_tasks
+      Rake::Task["minitest:run"].invoke
     end
   end
 
-  desc "Run all tests"
-  task :all do
-    MiniTest::Rails::Testing.run_tests MiniTest::Rails::Testing.all_tasks
+  # Run a single test
+  MiniTest::Rails::Tasks::SubTestTask.new(:single => "test:prepare") do |t|
+    t.libs << "test"
   end
+
+  # Run the default tests as definded in MiniTest::Rails::Testing.default_tasks
+  MiniTest::Rails::Tasks::SubTestTask.new(:run => "test:prepare") do |t|
+    t.libs.push "test"
+    t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
+  end
+
+  desc "Runs all tests"
+  MiniTest::Rails::Tasks::SubTestTask.new(:all => "test:prepare") do |t|
+    t.libs.push "test"
+    t.pattern = "test/**/*_test.rb"
+  end
+
   namespace "all" do
-    desc "Run all tests, ungrouped for quicker execution"
-    MiniTest::Rails::Tasks::SubTestTask.new(:quick => "test:prepare") do |t|
+    desc "Runs all tests, without resetting the db"
+    MiniTest::Rails::Tasks::SubTestTask.new(:quick) do |t|
       t.libs.push "test"
       t.pattern = "test/**/*_test.rb"
     end
   end
 
-  MiniTest::Rails::Tasks::SubTestTask.new(:single => "test:prepare") do |t|
-    t.libs << "test"
-  end
-
+  # Loop that will define a task for each directory that has tests
   MiniTest::Rails::Testing.all_tasks.each do |task_dir|
     unless Rake::Task.task_defined? "minitest:#{task_dir}"
       desc "Runs tests under test/#{task_dir}"
       MiniTest::Rails::Tasks::SubTestTask.new(task_dir => "test:prepare") do |t|
         t.libs.push "test"
         t.pattern = "test/#{task_dir}/**/*_test.rb"
-        t.options = MiniTest::Rails::Testing.task_opts[task_dir] if MiniTest::Rails::Testing.task_opts[task_dir]
       end
     end
   end
@@ -78,7 +87,7 @@ end
 # Override the test task
 task :test => [] # Just in case it hasn't already been set
 Rake::Task[:test].clear
-desc "Run default tests"
+desc "Runs default tests"
 task :test => "minitest"
 
 # Override the default task
