@@ -98,7 +98,6 @@ class ActionDispatch::IntegrationTest
   # Register by name, consider Acceptance to be deprecated
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
 end
-
 ################################################################################
 # Assertions and Expectations
 ################################################################################
