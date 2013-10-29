@@ -1,5 +1,6 @@
 gem "minitest"
 require "minitest/unit"
+require "minitest/test"
 require "minitest/spec"
 require "minitest/mock"
 require "minitest/autorun" unless ENV["MT_RAILS_NO_AUTORUN"]
