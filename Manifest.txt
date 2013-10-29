@@ -61,7 +61,6 @@ lib/minitest/rails/tasks/sub_test_task.rb
 lib/minitest/rails/testing.rb
 lib/minitest/rails/version.rb
 minitest-rails.gemspec
-tasks/gemfiles.rake
 tasks/test.rake
 test/generators/test_controller_generator.rb
 test/generators/test_helper_generator.rb
