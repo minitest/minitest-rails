@@ -1,10 +1,5 @@
 source "http://rubygems.org"
 
 gem "rails", "~> 3.2.13"
+gem "rake"
 gem "rdoc", "~> 3.10"
-gem "hoe", "~> 3.0"
-gem "hoe-travis", "~> 1.2"
-gem "minitest-test", "~> 1.0"
-gem "fakefs", "~> 0.4"
-
-gemspec :path=>"../"

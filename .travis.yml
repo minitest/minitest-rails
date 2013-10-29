@@ -1,23 +1,22 @@
 ---
 before_install:
-- ruby gemfiles/minitest_tu_shim.rb
-before_script:
-- rake travis:before -t
+  - gem update --system
+  - gem --version
+  - ruby gemfiles/minitest_tu_shim.rb
 language: ruby
 notifications:
   email:
-  - mike@blowmage.com
+    - mike@blowmage.com
 rvm:
-- 1.8.7
-- 1.9.3
-- 2.0.0
-gemfile:
-- gemfiles/3.0.gemfile
-- gemfiles/3.1.gemfile
-- gemfiles/3.2.gemfile
-- gemfiles/4.0.gemfile
-script: rake travis
+  - 2.0.0
+  - 1.9.3
+  - 1.8.7
+env:
+  - "RAILS_VERSION=4.0"
+  - "RAILS_VERSION=3.2"
+  - "RAILS_VERSION=3.1"
+  - "RAILS_VERSION=3.0"
 matrix:
   exclude:
-  - rvm: 1.8.7
-    gemfile: gemfiles/4.0.gemfile
+    - rvm: 1.8.7
+      env: "RAILS_VERSION=4.0"
