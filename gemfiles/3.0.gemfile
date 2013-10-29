@@ -4,6 +4,7 @@ gem "rails", "~> 3.0.20"
 gem "rdoc", "~> 3.10"
 gem "hoe", "~> 3.0"
 gem "hoe-travis", "~> 1.2"
+gem "minitest-test", "~> 1.0"
 gem "fakefs", "~> 0.4"
 
 gemspec :path=>"../"
