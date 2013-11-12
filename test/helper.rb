@@ -34,3 +34,30 @@ class GeneratorTest < MiniTest::Unit::TestCase
     FakeFS.deactivate!
   end
 end
+
+require "rails/test_help"
+
+module TestApp
+  class Application < ::Rails::Application
+    config.secret_key_base = "abc123"
+  end
+end
+
+TestApp::Application.initialize!
+
+class ApplicationController < ActionController::Base; end
+class ModelsController < ApplicationController
+  def index; render :text => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>"; end
+  def new; redirect_to "/models"; end
+end
+module Admin
+  class WidgetsController < ApplicationController; end
+end
+
+TestApp::Application.routes.draw do
+  # root :to => "models#index"
+  resources :models
+  namespace :admin do
+    resources :widgets
+  end
+end

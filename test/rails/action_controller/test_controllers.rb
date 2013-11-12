@@ -1,16 +1,5 @@
 require "helper"
 
-class TestApp < Rails::Application
-end
-Rails.application = TestApp
-Rails.configuration.secret_key_base = "abc123"
-
-class ApplicationController < ActionController::Base; end
-class ModelsController      < ApplicationController;  end
-module Admin
-  class WidgetsController < ApplicationController; end
-end
-
 # ApplicationController
 describe ApplicationController do
   describe "nested" do
