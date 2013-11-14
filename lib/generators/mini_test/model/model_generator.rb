@@ -10,9 +10,9 @@ module MiniTest
 
       def create_test_file
         if options[:spec]
-          template "model_spec.rb", "test/models/#{file_name}_test.rb"
+          template "model_spec.rb", File.join("test","models", class_path, "#{file_name}_test.rb")
         else
-          template "model_test.rb", "test/models/#{file_name}_test.rb"
+          template "model_test.rb", File.join("test","models", class_path, "#{file_name}_test.rb")
         end
       end
 
