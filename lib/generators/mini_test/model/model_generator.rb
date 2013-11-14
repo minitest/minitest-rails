@@ -20,7 +20,7 @@ module MiniTest
 
       def create_fixture_file
         if options[:fixture] && options[:fixture_replacement].nil?
-          template "fixtures.yml", "test/fixtures/#{plural_file_name}.yml"
+          template "fixtures.yml", File.join("test","fixtures", class_path, "#{plural_file_name}.yml")
         end
       end
     end

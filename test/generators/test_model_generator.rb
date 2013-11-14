@@ -47,6 +47,13 @@ class TestModelGenerator < GeneratorTest
     assert File.exists? "test/fixtures/users.yml"
   end
 
+  def test_namespaced_model_generator_fixture
+    assert_output(/create  test\/fixtures\/admin\/users.yml/m) do
+      MiniTest::Generators::ModelGenerator.start ["admin/user"]
+    end
+    assert File.exists? "test/fixtures/admin/users.yml"
+  end
+
   def test_model_generator_skip_fixture
     out, _ = capture_io do
       MiniTest::Generators::ModelGenerator.start ["user", "--skip-fixture"]
