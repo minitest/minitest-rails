@@ -12,11 +12,6 @@ gemfiles/3.1.gemfile
 gemfiles/3.2.gemfile
 gemfiles/4.0.gemfile
 gemfiles/minitest_tu_shim.rb
-lib/autotest/.document
-lib/autotest/discover.rb
-lib/autotest/fixtures.rb
-lib/autotest/migrate.rb
-lib/autotest/minitest_rails.rb
 lib/generators/.document
 lib/generators/mini_test.rb
 lib/generators/mini_test/controller/controller_generator.rb
