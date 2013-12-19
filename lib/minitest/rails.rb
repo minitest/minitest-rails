@@ -67,7 +67,7 @@ class ActionView::TestCase
   # Resolve the helper or view from the test name when using the spec DSL
   def self.determine_default_helper_class(name)
     determine_constant_from_test_name(name) do |constant|
-      Module === constant
+      Module === constant && !(Class === constant)
     end
   end
 end
