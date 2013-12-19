@@ -1,7 +1,7 @@
 require "test_helper"
 
 class <%= class_name %>Test < ActionDispatch::IntegrationTest
-  test "sanity" do
+  def test_sanity
     flunk "Need real tests"
   end
 end

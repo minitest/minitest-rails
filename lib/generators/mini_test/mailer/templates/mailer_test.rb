@@ -3,7 +3,7 @@ require "test_helper"
 <% module_namespacing do -%>
 class <%= class_name %>Test < ActionMailer::TestCase
 <% actions.each do |action| -%>
-  test "<%= action %>" do
+  def test_<%= action %>
     mail = <%= class_name %>.<%= action %>
     assert_equal <%= action.to_s.humanize.inspect %>, mail.subject
     assert_equal ["to@example.org"], mail.to
@@ -13,7 +13,7 @@ class <%= class_name %>Test < ActionMailer::TestCase
 
 <% end -%>
 <% if actions.blank? -%>
-  test "sanity" do
+  def test_sanity
     flunk "Need real tests"
   end
 <% end -%>
