@@ -136,7 +136,7 @@ end
 # Nested Admin::WidgetsControllerTest
 module Admin
   class WidgetsControllerTest < ActionController::TestCase
-    test "exists" do
+    def test_exists
       assert_kind_of Admin::WidgetsController, @controller
     end
   end
@@ -159,7 +159,7 @@ module Admin
 end
 
 class Admin::WidgetsControllerTest < ActionController::TestCase
-  test "exists here too" do
+  def test_exists_here_too
     assert_kind_of Admin::WidgetsController, @controller
   end
 end
