@@ -65,7 +65,9 @@ test/generators/test_model_generator.rb
 test/generators/test_route_generator.rb
 test/generators/test_scaffold_generator.rb
 test/helper.rb
+test/rails/action_controller/test_assertions.rb
 test/rails/action_controller/test_controllers.rb
+test/rails/action_controller/test_expectations.rb
 test/rails/action_controller/test_spec_type.rb
 test/rails/action_dispatch/test_spec_type.rb
 test/rails/action_mailer/test_mailers.rb
