@@ -15,7 +15,7 @@ class TestActionControllerExpectations < ActionController::TestCase
 
   def test_must_render_template
     get :index
-    must_render_template layout: false
+    must_render_template :layout => false
   end
 
   def test_routing_expectations

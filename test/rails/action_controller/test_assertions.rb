@@ -15,7 +15,7 @@ class TestActionControllerAssertions < ActionController::TestCase
 
   def test_assert_template
     get :index
-    assert_template layout: false
+    assert_template :layout => false
   end
 
   def test_routing_assertions
