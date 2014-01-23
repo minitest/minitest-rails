@@ -35,6 +35,13 @@ namespace "minitest" do
     t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
   end
 
+  # Run the default tests as definded in MiniTest::Rails::Testing.default_tasks
+  desc "Runs the default tests, without resetting the db"
+  MiniTest::Rails::Tasks::SubTestTask.new(:quick) do |t|
+    t.libs.push "test"
+    t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
+  end
+
   desc "Runs all tests"
   MiniTest::Rails::Tasks::SubTestTask.new(:all => "test:prepare") do |t|
     t.libs.push "test"
