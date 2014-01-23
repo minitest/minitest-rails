@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
-# stub: minitest-rails 1.0.0.beta2.20131220161119 ruby lib
+# stub: minitest-rails 1.0.0.beta3.20140123185750 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "1.0.0.beta2.20131220161119"
+  s.version = "1.0.0.beta3.20140123185750"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Moore"]
-  s.date = "2013-12-20"
+  s.date = "2014-01-23"
   s.description = "Adds MiniTest as the default testing library in Rails 3 and 4"
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
