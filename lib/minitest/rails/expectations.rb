@@ -635,6 +635,7 @@ unless ENV["MT_NO_EXPECTATIONS"]
     alias :must_select :assert_select
     alias :must_select_email :assert_select_email
     alias :must_select_encoded :assert_select_encoded
+    alias :must_change :assert_difference
   end
   class ActionView::TestCase # :nodoc:
     alias :must_respond_with :assert_response
