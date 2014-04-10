@@ -20,7 +20,7 @@ module MiniTest
 
       def module_namespacing(&block)
         yield if block_given?
-      end unless respond_to? :module_namespacing
+      end unless protected_instance_methods.include? :module_namespacing
 
       def key_value(key, value)
         if options[:old_style_hash] || RUBY_VERSION < '1.9'
