@@ -20,7 +20,7 @@ module MiniTest
 
       def module_namespacing(&block)
         yield if block_given?
-      end unless respond_to? :module_namespacing
+      end unless instance_methods(true).include? :module_namespacing
 
       def key_value(key, value)
         if options[:old_style_hash] || RUBY_VERSION < '1.9'
@@ -28,14 +28,14 @@ module MiniTest
         else
           "#{key}: #{value}"
         end
-      end unless respond_to? :key_value
+      end unless instance_methods(true).include? :key_value
 
       def attributes_names
         @attributes_names ||= attributes.each_with_object([]) do |a, names|
           names << a.column_name
           names << "#{a.name}_type" if a.polymorphic?
         end
-      end unless respond_to? :attributes_names
+      end unless instance_methods(true).include? :attributes_names
 
     end
   end

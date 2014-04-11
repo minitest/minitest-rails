@@ -21,6 +21,22 @@ class TestControllerGenerator < GeneratorTest
     assert_match(/class Admin::UserControllerTest/m, contents)
   end
 
+  def test_module_namespaced_controller_generator
+    assert_nil Rails::Generators.namespace
+    Rails::Generators.namespace = TestApp
+
+    assert_output(/create  test\/controllers\/test_app\/user_controller_test.rb/m) do
+      MiniTest::Generators::ControllerGenerator.start ["user"]
+    end
+    assert File.exists? "test/controllers/test_app/user_controller_test.rb"
+    contents = File.read "test/controllers/test_app/user_controller_test.rb"
+    assert_match(/module TestApp/m, contents)
+    assert_match(/class UserControllerTest/m, contents)
+  ensure
+    # Restore default namespace
+    Rails::Generators.namespace = nil
+  end if Rails::Generators.respond_to? :namespace
+
   def test_controller_generator_spec
     assert_output(/create  test\/controllers\/user_controller_test.rb/m) do
       MiniTest::Generators::ControllerGenerator.start ["user", "--spec"]

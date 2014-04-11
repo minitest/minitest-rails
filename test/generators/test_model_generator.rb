@@ -21,6 +21,22 @@ class TestModelGenerator < GeneratorTest
     assert_match(/class Admin::UserTest/m, contents)
   end
 
+  def test_module_namespaced_model_generator
+    assert_nil Rails::Generators.namespace
+    Rails::Generators.namespace = TestApp
+
+    assert_output(/create  test\/models\/test_app\/user_test.rb/m) do
+      MiniTest::Generators::ModelGenerator.start ["user"]
+    end
+    assert File.exists? "test/models/test_app/user_test.rb"
+    contents = File.read "test/models/test_app/user_test.rb"
+    assert_match(/module TestApp/m, contents)
+    assert_match(/class UserTest/m, contents)
+  ensure
+    # Restore default namespace
+    Rails::Generators.namespace = nil
+  end if Rails::Generators.respond_to? :namespace
+
   def test_model_generator_spec
     assert_output(/create  test\/models\/user_test.rb/m) do
       MiniTest::Generators::ModelGenerator.start ["user", "--spec"]
