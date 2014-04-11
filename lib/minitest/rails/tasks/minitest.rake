@@ -91,11 +91,29 @@ namespace "minitest" do
   end
 end
 
-# Override the test task
-task :test => [] # Just in case it hasn't already been set
-Rake::Task[:test].clear
-desc "Runs default tests"
-task :test => "minitest"
+# Define tasks under "test" if they don't already exist
+if !Rake::Task.task_defined? :test
+  desc "Runs default tests"
+  task :test => "minitest"
+
+  namespace "test" do
+    MiniTest::Rails::Testing.all_tasks.each do |task_dir|
+      desc "Runs tests under test/#{task_dir}"
+      task task_dir => "minitest:#{task_dir}"
+    end
+
+    desc "Runs the default tests, without resetting the db"
+    task "quick" => "minitest:quick"
+
+    desc "Runs all tests"
+    task "all" => "minitest:all"
+
+    namespace "all" do
+      desc "Runs all tests, without resetting the db"
+      task "quick" => "minitest:all:quick"
+    end
+  end
+end
 
 # Override the default task
 task :default => [] # Just in case it hasn't already been set
