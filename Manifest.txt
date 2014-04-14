@@ -24,6 +24,7 @@ lib/generators/minitest/integration/templates/integration_test.rb
 lib/generators/minitest/mailer/mailer_generator.rb
 lib/generators/minitest/mailer/templates/mailer_spec.rb
 lib/generators/minitest/mailer/templates/mailer_test.rb
+lib/generators/minitest/mailer/templates/preview.rb
 lib/generators/minitest/model/model_generator.rb
 lib/generators/minitest/model/templates/fixtures.yml
 lib/generators/minitest/model/templates/model_spec.rb

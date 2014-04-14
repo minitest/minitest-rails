@@ -5,7 +5,6 @@ module Minitest
   module Generators
     class ScaffoldGenerator < Base
       include ::Rails::Generators::ResourceHelpers
-      argument :actions, type: :array, default: [], banner: "action action"
 
       check_class_collision suffix: "ControllerTest"
 
@@ -13,16 +12,12 @@ module Minitest
 
       def create_test_files
         if options[:spec]
-          template "controller_spec.rb",
-                   File.join("test/controllers",
-                             class_path,
-                             "#{controller_file_name}_controller_test.rb")
+          template_file = "controller_spec.rb"
         else
-          template "controller_test.rb",
-                   File.join("test/controllers",
-                             class_path,
-                             "#{controller_file_name}_controller_test.rb")
+          template_file = "controller_test.rb"
         end
+        template template_file,
+                 File.join("test/controllers", controller_class_path, "#{controller_file_name}_controller_test.rb")
       end
 
       private
@@ -36,7 +31,7 @@ module Minitest
           else
             "#{name}: @#{singular_table_name}.#{name}"
           end
-        end.sort.join(', ')
+        end.sort.join(", ")
       end
     end
   end
