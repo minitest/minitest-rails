@@ -25,42 +25,42 @@ namespace "minitest" do
   end
 
   # Run a single test
-  MiniTest::Rails::Tasks::SubTestTask.new(single: "test:prepare") do |t|
+  Minitest::Rails::Tasks::SubTestTask.new(single: "test:prepare") do |t|
     t.libs << "test"
   end
 
-  # Run the default tests as definded in MiniTest::Rails::Testing.default_tasks
-  MiniTest::Rails::Tasks::SubTestTask.new(run: "test:prepare") do |t|
+  # Run the default tests as definded in Minitest::Rails::Testing.default_tasks
+  Minitest::Rails::Tasks::SubTestTask.new(run: "test:prepare") do |t|
     t.libs.push "test"
-    t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
+    t.pattern = "test/{#{Minitest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
   end
 
-  # Run the default tests as definded in MiniTest::Rails::Testing.default_tasks
+  # Run the default tests as definded in Minitest::Rails::Testing.default_tasks
   desc "Runs the default tests, without resetting the db"
-  MiniTest::Rails::Tasks::SubTestTask.new(:quick) do |t|
+  Minitest::Rails::Tasks::SubTestTask.new(:quick) do |t|
     t.libs.push "test"
-    t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
+    t.pattern = "test/{#{Minitest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
   end
 
   desc "Runs all tests"
-  MiniTest::Rails::Tasks::SubTestTask.new(all: "test:prepare") do |t|
+  Minitest::Rails::Tasks::SubTestTask.new(all: "test:prepare") do |t|
     t.libs.push "test"
     t.pattern = "test/**/*_test.rb"
   end
 
   namespace "all" do
     desc "Runs all tests, without resetting the db"
-    MiniTest::Rails::Tasks::SubTestTask.new(:quick) do |t|
+    Minitest::Rails::Tasks::SubTestTask.new(:quick) do |t|
       t.libs.push "test"
       t.pattern = "test/**/*_test.rb"
     end
   end
 
   # Loop that will define a task for each directory that has tests
-  MiniTest::Rails::Testing.all_tasks.each do |task_dir|
+  Minitest::Rails::Testing.all_tasks.each do |task_dir|
     unless Rake::Task.task_defined? "minitest:#{task_dir}"
       desc "Runs tests under test/#{task_dir}"
-      MiniTest::Rails::Tasks::SubTestTask.new(task_dir => "test:prepare") do |t|
+      Minitest::Rails::Tasks::SubTestTask.new(task_dir => "test:prepare") do |t|
         t.libs.push "test"
         t.pattern = "test/#{task_dir}/**/*_test.rb"
       end
@@ -83,7 +83,7 @@ namespace "minitest" do
     CodeStatistics::TEST_TYPES.clear
 
     # Add test directories that minitest-rails knows about
-    MiniTest::Rails::Testing.all_tasks.each do |dir|
+    Minitest::Rails::Testing.all_tasks.each do |dir|
       name = "#{dir.capitalize} tests"
       STATS_DIRECTORIES << [ name, Rails.root.join("test").join(dir).to_s ]
       CodeStatistics::TEST_TYPES << name
@@ -97,7 +97,7 @@ if !Rake::Task.task_defined? :test
   task test: "minitest"
 
   namespace "test" do
-    MiniTest::Rails::Testing.all_tasks.each do |task_dir|
+    Minitest::Rails::Testing.all_tasks.each do |task_dir|
       desc "Runs tests under test/#{task_dir}"
       task task_dir => "minitest:#{task_dir}"
     end
