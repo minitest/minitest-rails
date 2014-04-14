@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
-# stub: minitest-rails 1.0.0.beta3.20140411164042 ruby lib
+# stub: minitest-rails 1.0.0.20140414095814 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "1.0.0.beta3.20140411164042"
+  s.version = "1.0.0.20140414095814"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Mike Moore"]
-  s.date = "2014-04-11"
+  s.date = "2014-04-14"
   s.description = "Adds MiniTest as the default testing library in Rails 3 and 4"
   s.email = ["mike@blowmage.com"]
   s.extra_rdoc_files = ["CHANGELOG.rdoc", "Manifest.txt", "README.rdoc"]
@@ -26,14 +26,14 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<minitest>, ["~> 4.7"])
       s.add_runtime_dependency(%q<minitest-test>, ["~> 1.0"])
-      s.add_runtime_dependency(%q<railties>, [">= 3.0"])
+      s.add_runtime_dependency(%q<railties>, ["< 4.1", ">= 3.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 4.0"])
       s.add_development_dependency(%q<fakefs>, ["= 0.4.3"])
       s.add_development_dependency(%q<hoe>, ["~> 3.11"])
     else
       s.add_dependency(%q<minitest>, ["~> 4.7"])
       s.add_dependency(%q<minitest-test>, ["~> 1.0"])
-      s.add_dependency(%q<railties>, [">= 3.0"])
+      s.add_dependency(%q<railties>, ["< 4.1", ">= 3.0"])
       s.add_dependency(%q<rdoc>, ["~> 4.0"])
       s.add_dependency(%q<fakefs>, ["= 0.4.3"])
       s.add_dependency(%q<hoe>, ["~> 3.11"])
@@ -41,7 +41,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<minitest>, ["~> 4.7"])
     s.add_dependency(%q<minitest-test>, ["~> 1.0"])
-    s.add_dependency(%q<railties>, [">= 3.0"])
+    s.add_dependency(%q<railties>, ["< 4.1", ">= 3.0"])
     s.add_dependency(%q<rdoc>, ["~> 4.0"])
     s.add_dependency(%q<fakefs>, ["= 0.4.3"])
     s.add_dependency(%q<hoe>, ["~> 3.11"])
