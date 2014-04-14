@@ -1,6 +1,6 @@
 require 'rake/testtask'
 
-module MiniTest
+module Minitest
   module Rails
     module Tasks
       # Silence the default description to cut down on `rake -T` noise.

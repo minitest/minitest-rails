@@ -1,5 +1,5 @@
 gem "minitest"
-require "minitest/unit"
+require "minitest"
 require "minitest/test"
 require "minitest/spec"
 require "minitest/mock"
@@ -18,10 +18,10 @@ class ActiveSupport::TestCase
   end if self.respond_to? :describe
 
   # Add spec DSL
-  extend MiniTest::Spec::DSL
+  extend Minitest::Spec::DSL
 
   # Resolve constants from the test name when using the spec DSL
-  include MiniTest::Rails::Testing::ConstantLookup
+  include Minitest::Rails::Testing::ConstantLookup
 end
 
 if defined?(ActiveRecord::Base)
@@ -99,15 +99,6 @@ require "minitest/rails/assertions"
 require "minitest/rails/expectations"
 
 # :stopdoc:
-
-################################################################################
-# 1.8.7 Spec DSL Support
-################################################################################
-
-if LoadError.const_defined? :REGEXPS
-  # Add relaxed regexp to allow whitespace so nested describes won't fail on 1.8.
-  LoadError::REGEXPS.unshift(/^Missing \w+ (?:file\s*)?(.+\.rb)/i)
-end
 
 ################################################################################
 # Run load hooks so that other gems can register spec types

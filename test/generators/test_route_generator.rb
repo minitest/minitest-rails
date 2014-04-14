@@ -1,11 +1,11 @@
 require "helper"
-require "generators/mini_test/route/route_generator"
+require "generators/minitest/route/route_generator"
 
 class TestRouteGenerator < GeneratorTest
 
   def test_route_generator
     assert_output(/create  test\/routes\/route_test.rb/m) do
-      MiniTest::Generators::RouteGenerator.start
+      Minitest::Generators::RouteGenerator.start
     end
     assert File.exists? "test/routes/route_test.rb"
     contents = File.read "test/routes/route_test.rb"
@@ -14,7 +14,7 @@ class TestRouteGenerator < GeneratorTest
 
   def test_route_generator_spec
     assert_output(/create  test\/routes\/route_test.rb/m) do
-      MiniTest::Generators::RouteGenerator.start ["--spec"]
+      Minitest::Generators::RouteGenerator.start ["--spec"]
     end
     assert File.exists? "test/routes/route_test.rb"
     contents = File.read "test/routes/route_test.rb"

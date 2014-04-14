@@ -1,11 +1,11 @@
 require "helper"
-require "generators/mini_test/mailer/mailer_generator"
+require "generators/minitest/mailer/mailer_generator"
 
 class TestMailerGenerator < GeneratorTest
 
   def test_mailer_generator
     assert_output(/create  test\/mailers\/notification_test.rb/m) do
-      MiniTest::Generators::MailerGenerator.start ["notification"]
+      Minitest::Generators::MailerGenerator.start ["notification"]
     end
     assert File.exists? "test/mailers/notification_test.rb"
     contents = File.read "test/mailers/notification_test.rb"
@@ -14,7 +14,7 @@ class TestMailerGenerator < GeneratorTest
 
   def test_namespaced_mailer_generator
     assert_output(/create  test\/mailers\/admin\/notification_test.rb/m) do
-      MiniTest::Generators::MailerGenerator.start ["admin/notification"]
+      Minitest::Generators::MailerGenerator.start ["admin/notification"]
     end
     assert File.exists? "test/mailers/admin/notification_test.rb"
     contents = File.read "test/mailers/admin/notification_test.rb"
@@ -23,7 +23,7 @@ class TestMailerGenerator < GeneratorTest
 
   def test_mailer_generator_spec
     assert_output(/create  test\/mailers\/notification_test.rb/m) do
-      MiniTest::Generators::MailerGenerator.start ["notification", "welcome", "--spec"]
+      Minitest::Generators::MailerGenerator.start ["notification", "welcome", "--spec"]
     end
     assert File.exists? "test/mailers/notification_test.rb"
     contents = File.read "test/mailers/notification_test.rb"
@@ -32,7 +32,7 @@ class TestMailerGenerator < GeneratorTest
 
   def test_namespaced_mailer_generator_spec
     assert_output(/create  test\/mailers\/admin\/notification_test.rb/m) do
-      MiniTest::Generators::MailerGenerator.start ["admin/notification", "welcome", "--spec"]
+      Minitest::Generators::MailerGenerator.start ["admin/notification", "welcome", "--spec"]
     end
     assert File.exists? "test/mailers/admin/notification_test.rb"
     contents = File.read "test/mailers/admin/notification_test.rb"

@@ -1,11 +1,11 @@
 require "helper"
-require "generators/mini_test/scaffold/scaffold_generator"
+require "generators/minitest/scaffold/scaffold_generator"
 
 class TestScaffoldGenerator < GeneratorTest
 
   def test_scaffold_generator
     assert_output(/create  test\/controllers\/users_controller_test.rb/m) do
-      MiniTest::Generators::ScaffoldGenerator.start ["user"]
+      Minitest::Generators::ScaffoldGenerator.start ["user"]
     end
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"
@@ -14,7 +14,7 @@ class TestScaffoldGenerator < GeneratorTest
 
   def test_scaffold_generator_spec
     assert_output(/create  test\/controllers\/users_controller_test.rb/m) do
-      MiniTest::Generators::ScaffoldGenerator.start ["user", "--spec"]
+      Minitest::Generators::ScaffoldGenerator.start ["user", "--spec"]
     end
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"

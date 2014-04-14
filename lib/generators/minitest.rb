@@ -1,6 +1,6 @@
 require 'rails/generators/named_base'
 
-module MiniTest
+module Minitest
   module Generators
     class Base < ::Rails::Generators::NamedBase #:nodoc:
 
@@ -8,10 +8,10 @@ module MiniTest
                                     :desc => "Force using old style hash (:foo => 'bar') on Ruby >= 1.9"
 
       class_option :spec, :type => :boolean, :default => false,
-                          :desc => "Use MiniTest::Spec DSL"
+                          :desc => "Use Minitest::Spec DSL"
 
       def self.default_source_root
-        File.expand_path(File.join(File.dirname(__FILE__), 'mini_test', generator_name, 'templates'))
+        File.expand_path(File.join(File.dirname(__FILE__), 'minitest', generator_name, 'templates'))
       end
 
       protected

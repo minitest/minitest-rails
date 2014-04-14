@@ -1,6 +1,6 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class ControllerGenerator < Base
       argument     :actions, :type => :array,   :default => [],    :banner => "action action"

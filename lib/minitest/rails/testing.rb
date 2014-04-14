@@ -1,6 +1,6 @@
 require "rake/testtask"
 
-module MiniTest
+module Minitest
   module Rails
     module Testing
       mattr_accessor :default_tasks
@@ -10,7 +10,7 @@ module MiniTest
       # The default tasks that are to be run by <tt>rake minitest</tt>.
       #
       #     # Add test/presenters to default test task
-      #     MiniTest::Rails::Testing.default_tasks << "presenters"
+      #     Minitest::Rails::Testing.default_tasks << "presenters"
       #
       # Default values are: models helpers controllers mailers integration
       # :attr: default_tasks

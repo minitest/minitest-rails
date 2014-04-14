@@ -1,6 +1,6 @@
 require "helper"
 
-class TestActionDispatchSpecType < MiniTest::Unit::TestCase
+class TestActionDispatchSpecType < Minitest::Test
   def assert_dispatch actual
     assert_equal ActionDispatch::IntegrationTest, actual
   end
@@ -10,44 +10,44 @@ class TestActionDispatchSpecType < MiniTest::Unit::TestCase
   end
 
   def test_spec_type_resolves_for_matching_acceptance_strings
-    assert_dispatch MiniTest::Spec.spec_type("WidgetAcceptanceTest")
-    assert_dispatch MiniTest::Spec.spec_type("Widget Acceptance Test")
-    assert_dispatch MiniTest::Spec.spec_type("WidgetAcceptance")
-    assert_dispatch MiniTest::Spec.spec_type("Widget Acceptance")
+    assert_dispatch Minitest::Spec.spec_type("WidgetAcceptanceTest")
+    assert_dispatch Minitest::Spec.spec_type("Widget Acceptance Test")
+    assert_dispatch Minitest::Spec.spec_type("WidgetAcceptance")
+    assert_dispatch Minitest::Spec.spec_type("Widget Acceptance")
     # And is not case sensitive
-    assert_dispatch MiniTest::Spec.spec_type("widgetacceptancetest")
-    assert_dispatch MiniTest::Spec.spec_type("widget acceptance test")
-    assert_dispatch MiniTest::Spec.spec_type("widgetacceptance")
-    assert_dispatch MiniTest::Spec.spec_type("widget acceptance")
+    assert_dispatch Minitest::Spec.spec_type("widgetacceptancetest")
+    assert_dispatch Minitest::Spec.spec_type("widget acceptance test")
+    assert_dispatch Minitest::Spec.spec_type("widgetacceptance")
+    assert_dispatch Minitest::Spec.spec_type("widget acceptance")
   end
 
   def test_spec_type_wont_match_non_space_characters_acceptance
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\tTest")
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\rTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\tTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\rTest")
     # TODO: Update regex so that new lines don't match.
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\nTest")
-    refute_dispatch MiniTest::Spec.spec_type("Widget Acceptance\fTest")
-    refute_dispatch MiniTest::Spec.spec_type("Widget AcceptanceXTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\nTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\fTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget AcceptanceXTest")
   end
 
   def test_spec_type_resolves_for_matching_integration_strings
-    assert_dispatch MiniTest::Spec.spec_type("WidgetIntegrationTest")
-    assert_dispatch MiniTest::Spec.spec_type("Widget Integration Test")
-    assert_dispatch MiniTest::Spec.spec_type("WidgetIntegration")
-    assert_dispatch MiniTest::Spec.spec_type("Widget Integration")
+    assert_dispatch Minitest::Spec.spec_type("WidgetIntegrationTest")
+    assert_dispatch Minitest::Spec.spec_type("Widget Integration Test")
+    assert_dispatch Minitest::Spec.spec_type("WidgetIntegration")
+    assert_dispatch Minitest::Spec.spec_type("Widget Integration")
     # And is not case sensitive
-    assert_dispatch MiniTest::Spec.spec_type("widgetintegrationtest")
-    assert_dispatch MiniTest::Spec.spec_type("widget integration test")
-    assert_dispatch MiniTest::Spec.spec_type("widgetintegration")
-    assert_dispatch MiniTest::Spec.spec_type("widget integration")
+    assert_dispatch Minitest::Spec.spec_type("widgetintegrationtest")
+    assert_dispatch Minitest::Spec.spec_type("widget integration test")
+    assert_dispatch Minitest::Spec.spec_type("widgetintegration")
+    assert_dispatch Minitest::Spec.spec_type("widget integration")
   end
 
   def test_spec_type_wont_match_non_space_characters_integration
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\tTest"), ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\rTest"), ActionDispatch::IntegrationTest
+    refute_equal Minitest::Spec.spec_type("Widget Integration\tTest"), ActionDispatch::IntegrationTest
+    refute_equal Minitest::Spec.spec_type("Widget Integration\rTest"), ActionDispatch::IntegrationTest
     # TODO: Update regex so that new lines don't match.
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\nTest"), ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget Integration\fTest"), ActionDispatch::IntegrationTest
-    refute_equal MiniTest::Spec.spec_type("Widget IntegrationXTest"),  ActionDispatch::IntegrationTest
+    refute_equal Minitest::Spec.spec_type("Widget Integration\nTest"), ActionDispatch::IntegrationTest
+    refute_equal Minitest::Spec.spec_type("Widget Integration\fTest"), ActionDispatch::IntegrationTest
+    refute_equal Minitest::Spec.spec_type("Widget IntegrationXTest"),  ActionDispatch::IntegrationTest
   end
 end

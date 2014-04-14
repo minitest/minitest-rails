@@ -1,7 +1,7 @@
 require "active_support/concern"
 require "active_support/inflector"
 
-module MiniTest
+module Minitest
   module Rails
     module Testing
       # Resolves a constant from a minitest spec name.

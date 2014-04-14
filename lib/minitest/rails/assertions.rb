@@ -1,84 +1,12 @@
 class ActiveSupport::TestCase
   ##
-  # Checks if an expression is blank. Passes if actual.blank? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     assert actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_blank []
-  #
-  # See also MiniTest::Rails::Expectations#must_be_blank
-  #
-  # :method: assert_blank
-  # :call-seq: assert_blank(actual, message = nil)
-
-  ##
-  # Checks if an expression is not present. Passes if actual.present? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     refute actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_present nil
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_present
-  #
-  # :args: actual, message = nil
-  alias :refute_present :assert_blank
-
-  ##
-  # Checks if an expression is present. Passes if actual.present? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     assert actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_present Object.new
-  #
-  # See also MiniTest::Rails::Expectations#must_be_present
-  #
-  # :method: assert_present
-  # :call-seq: assert_present(actual, message = nil)
-
-  ##
-  # Checks if an expression is not blank. Passes if actual.blank? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     refute actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_blank [1,2,3]
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_blank
-  #
-  # :args: actual, message = nil
-  alias :refute_blank :assert_present
-
-  ##
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
   #
   #     assert_difference "User.count", +1 do
   #       User.create
   #     end
   #
-  # See also MiniTest::Rails::Expectations#must_change
+  # See also Minitest::Rails::Expectations#must_change
   #
   # :method: assert_difference
   # :call-seq: assert_difference(expression, difference = 1, message = nil, &block)
@@ -90,7 +18,7 @@ class ActiveSupport::TestCase
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :method: assert_no_difference
   # :call-seq: assert_no_difference(expression, message = nil, &block)
@@ -102,7 +30,7 @@ class ActiveSupport::TestCase
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :args: expression, message = nil, &block
   alias :refute_difference :assert_no_difference
@@ -127,7 +55,7 @@ class ActionController::TestCase
   #     # assert that the response code was status code 401 (unauthorized)
   #     assert_response 401
   #
-  # See also MiniTest::Rails::Expectations#must_respond_with
+  # See also Minitest::Rails::Expectations#must_respond_with
   #
   # :method: assert_response
   # :call-seq: assert_response(type, message = nil)
@@ -149,7 +77,7 @@ class ActionController::TestCase
   #     # asserts that the redirection matches the regular expression
   #     assert_redirected_to %r(\Ahttp://example.org)
   #
-  # See also MiniTest::Rails::Expectations#must_redirect_to
+  # See also Minitest::Rails::Expectations#must_redirect_to
   #
   # :method: assert_redirected_to
   # :call-seq: assert_redirected_to(options = {}, message=nil)
@@ -184,7 +112,7 @@ class ActionController::TestCase
   #     # assert that the "_customer" partial was rendered with a specific object
   #     assert_template partial: '_customer', locals: { customer: @customer }
   #
-  # See also MiniTest::Rails::Expectations#must_render_template
+  # See also Minitest::Rails::Expectations#must_render_template
   #
   # :method: assert_template
   # :call-seq: assert_template(options = {}, message = nil)
@@ -208,7 +136,7 @@ class ActionController::TestCase
   #   # Asserts that the generated route gives us our custom route
   #   assert_generates "changesets/12", { controller: 'scm', action: 'show_diff', revision: "12" }
   #
-  # See also MiniTest::Rails::Expectations#must_route_to
+  # See also Minitest::Rails::Expectations#must_route_to
   #
   # :method: assert_generates
   # :call-seq: assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)
@@ -245,7 +173,7 @@ class ActionController::TestCase
   #   # Test a custom route
   #   assert_recognizes({controller: 'items', action: 'show', id: '1'}, 'view/item1')
   #
-  # See also MiniTest::Rails::Expectations#must_route_from
+  # See also Minitest::Rails::Expectations#must_route_from
   #
   # :method: assert_recognizes
   # :call-seq: assert_recognizes(expected_options, path, extras={}, msg=nil)
@@ -273,7 +201,7 @@ class ActionController::TestCase
   #  # Tests a route with a HTTP method
   #  assert_routing({ method: 'put', path: '/product/321' }, { controller: "product", action: "update", id: "321" })
   #
-  # See also MiniTest::Rails::Expectations#must_route
+  # See also Minitest::Rails::Expectations#must_route
   #
   # :method: assert_routing
   # :call-seq: assert_routing(path, options, defaults={}, extras={}, message=nil)
@@ -366,7 +294,7 @@ class ActionController::TestCase
   #     assert_select "[name=?]", /.+/  # Not empty
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select
+  # See also Minitest::Rails::Expectations#must_select
   #
   # :method: assert_select
   # :call-seq: assert_select(*args, &block)
@@ -387,7 +315,7 @@ class ActionController::TestCase
   #    end
   #  end
   #
-  # See also MiniTest::Rails::Expectations#must_select_email
+  # See also Minitest::Rails::Expectations#must_select_email
   #
   # :method: assert_select_email
   # :call-seq: assert_select_email(&block)
@@ -425,7 +353,7 @@ class ActionController::TestCase
   #     end
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select_encoded
+  # See also Minitest::Rails::Expectations#must_select_encoded
   #
   # :method: assert_select_encoded
   # :call-seq: assert_select_encoded(element = nil, &block)
@@ -436,7 +364,7 @@ class ActionController::TestCase
   #     assert_dom_equal '<a href="http://www.example.com">Apples</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#must_dom_equal
+  # See also Minitest::Rails::Expectations#must_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -447,7 +375,7 @@ class ActionController::TestCase
   #     assert_dom_not_equal '<a href="http://www.example.com">Oranges</a>',
   #                          link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_not_equal
   # :call-seq: assert_dom_not_equal(expected, actual, message = nil)
@@ -458,7 +386,7 @@ class ActionController::TestCase
   #     refute_dom_equal '<a href="http://www.example.com">Oranges</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -555,7 +483,7 @@ class ActionController::TestCase
   # that allow optional closing tags (p, li, td). <em>You must explicitly
   # close all of your tags to use these assertions.</em>
   #
-  # See also MiniTest::Rails::Expectations#must_have_tag
+  # See also Minitest::Rails::Expectations#must_have_tag
   #
   # :method: assert_tag
   # :call-seq: assert_tag(*opts)
@@ -575,7 +503,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: assert_no_tag
   # :call-seq: assert_no_tag(*opts)
@@ -595,7 +523,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: refute_tag
   # :call-seq: refute_tag(*opts)
@@ -604,85 +532,13 @@ end
 
 class ActionView::TestCase
   ##
-  # Checks if an expression is blank. Passes if actual.blank? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     assert actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_blank []
-  #
-  # See also MiniTest::Rails::Expectations#must_be_blank
-  #
-  # :method: assert_blank
-  # :call-seq: assert_blank(actual, message = nil)
-
-  ##
-  # Checks if an expression is not present. Passes if actual.present? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     refute actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_present nil
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_present
-  #
-  # :args: actual, message = nil
-  alias :refute_present :assert_blank
-
-  ##
-  # Checks if an expression is present. Passes if actual.present? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     assert actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_present Object.new
-  #
-  # See also MiniTest::Rails::Expectations#must_be_present
-  #
-  # :method: assert_present
-  # :call-seq: assert_present(actual, message = nil)
-
-  ##
-  # Checks if an expression is not blank. Passes if actual.blank? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     refute actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_blank [1,2,3]
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_blank
-  #
-  # :args: actual, message = nil
-  alias :refute_blank :assert_present
-
-  ##
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
   #
   #     assert_difference "User.count", +1 do
   #       User.create
   #     end
   #
-  # See also MiniTest::Rails::Expectations#must_change
+  # See also Minitest::Rails::Expectations#must_change
   #
   # :method: assert_difference
   # :call-seq: assert_difference(expression, difference = 1, message = nil, &block)
@@ -694,7 +550,7 @@ class ActionView::TestCase
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :method: assert_no_difference
   # :call-seq: assert_no_difference(expression, message = nil, &block)
@@ -706,7 +562,7 @@ class ActionView::TestCase
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :args: expression, message = nil, &block
   alias :refute_difference :assert_no_difference
@@ -731,7 +587,7 @@ class ActionController::TestCase
   #     # assert that the response code was status code 401 (unauthorized)
   #     assert_response 401
   #
-  # See also MiniTest::Rails::Expectations#must_respond_with
+  # See also Minitest::Rails::Expectations#must_respond_with
   #
   # :method: assert_response
   # :call-seq: assert_response(type, message = nil)
@@ -753,7 +609,7 @@ class ActionController::TestCase
   #     # asserts that the redirection matches the regular expression
   #     assert_redirected_to %r(\Ahttp://example.org)
   #
-  # See also MiniTest::Rails::Expectations#must_redirect_to
+  # See also Minitest::Rails::Expectations#must_redirect_to
   #
   # :method: assert_redirected_to
   # :call-seq: assert_redirected_to(options = {}, message=nil)
@@ -788,7 +644,7 @@ class ActionController::TestCase
   #     # assert that the "_customer" partial was rendered with a specific object
   #     assert_template partial: '_customer', locals: { customer: @customer }
   #
-  # See also MiniTest::Rails::Expectations#must_render_template
+  # See also Minitest::Rails::Expectations#must_render_template
   #
   # :method: assert_template
   # :call-seq: assert_template(options = {}, message = nil)
@@ -812,7 +668,7 @@ class ActionController::TestCase
   #   # Asserts that the generated route gives us our custom route
   #   assert_generates "changesets/12", { controller: 'scm', action: 'show_diff', revision: "12" }
   #
-  # See also MiniTest::Rails::Expectations#must_route_to
+  # See also Minitest::Rails::Expectations#must_route_to
   #
   # :method: assert_generates
   # :call-seq: assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)
@@ -849,7 +705,7 @@ class ActionController::TestCase
   #   # Test a custom route
   #   assert_recognizes({controller: 'items', action: 'show', id: '1'}, 'view/item1')
   #
-  # See also MiniTest::Rails::Expectations#must_route_from
+  # See also Minitest::Rails::Expectations#must_route_from
   #
   # :method: assert_recognizes
   # :call-seq: assert_recognizes(expected_options, path, extras={}, msg=nil)
@@ -877,7 +733,7 @@ class ActionController::TestCase
   #  # Tests a route with a HTTP method
   #  assert_routing({ method: 'put', path: '/product/321' }, { controller: "product", action: "update", id: "321" })
   #
-  # See also MiniTest::Rails::Expectations#must_route
+  # See also Minitest::Rails::Expectations#must_route
   #
   # :method: assert_routing
   # :call-seq: assert_routing(path, options, defaults={}, extras={}, message=nil)
@@ -970,7 +826,7 @@ class ActionController::TestCase
   #     assert_select "[name=?]", /.+/  # Not empty
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select
+  # See also Minitest::Rails::Expectations#must_select
   #
   # :method: assert_select
   # :call-seq: assert_select(*args, &block)
@@ -991,7 +847,7 @@ class ActionController::TestCase
   #    end
   #  end
   #
-  # See also MiniTest::Rails::Expectations#must_select_email
+  # See also Minitest::Rails::Expectations#must_select_email
   #
   # :method: assert_select_email
   # :call-seq: assert_select_email(&block)
@@ -1029,7 +885,7 @@ class ActionController::TestCase
   #     end
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select_encoded
+  # See also Minitest::Rails::Expectations#must_select_encoded
   #
   # :method: assert_select_encoded
   # :call-seq: assert_select_encoded(element = nil, &block)
@@ -1040,7 +896,7 @@ class ActionController::TestCase
   #     assert_dom_equal '<a href="http://www.example.com">Apples</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#must_dom_equal
+  # See also Minitest::Rails::Expectations#must_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -1051,7 +907,7 @@ class ActionController::TestCase
   #     assert_dom_not_equal '<a href="http://www.example.com">Oranges</a>',
   #                          link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_not_equal
   # :call-seq: assert_dom_not_equal(expected, actual, message = nil)
@@ -1062,7 +918,7 @@ class ActionController::TestCase
   #     refute_dom_equal '<a href="http://www.example.com">Oranges</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -1159,7 +1015,7 @@ class ActionController::TestCase
   # that allow optional closing tags (p, li, td). <em>You must explicitly
   # close all of your tags to use these assertions.</em>
   #
-  # See also MiniTest::Rails::Expectations#must_have_tag
+  # See also Minitest::Rails::Expectations#must_have_tag
   #
   # :method: assert_tag
   # :call-seq: assert_tag(*opts)
@@ -1179,7 +1035,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: assert_no_tag
   # :call-seq: assert_no_tag(*opts)
@@ -1199,7 +1055,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: refute_tag
   # :call-seq: refute_tag(*opts)
@@ -1208,85 +1064,13 @@ end
 
 class ActionDispatch::IntegrationTest
   ##
-  # Checks if an expression is blank. Passes if actual.blank? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     assert actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_blank []
-  #
-  # See also MiniTest::Rails::Expectations#must_be_blank
-  #
-  # :method: assert_blank
-  # :call-seq: assert_blank(actual, message = nil)
-
-  ##
-  # Checks if an expression is not present. Passes if actual.present? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     refute actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_present nil
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_present
-  #
-  # :args: actual, message = nil
-  alias :refute_present :assert_blank
-
-  ##
-  # Checks if an expression is present. Passes if actual.present? is true.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     assert actual.present?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     assert_present Object.new
-  #
-  # See also MiniTest::Rails::Expectations#must_be_present
-  #
-  # :method: assert_present
-  # :call-seq: assert_present(actual, message = nil)
-
-  ##
-  # Checks if an expression is not blank. Passes if actual.blank? is false.
-  #
-  # === This assertion is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     refute actual.blank?
-  #
-  # The deprecated assertion can be called like this:
-  #
-  #     refute_blank [1,2,3]
-  #
-  # See also MiniTest::Rails::Expectations#wont_be_blank
-  #
-  # :args: actual, message = nil
-  alias :refute_blank :assert_present
-
-  ##
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
   #
   #     assert_difference "User.count", +1 do
   #       User.create
   #     end
   #
-  # See also MiniTest::Rails::Expectations#must_change
+  # See also Minitest::Rails::Expectations#must_change
   #
   # :method: assert_difference
   # :call-seq: assert_difference(expression, difference = 1, message = nil, &block)
@@ -1298,7 +1082,7 @@ class ActionDispatch::IntegrationTest
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :method: assert_no_difference
   # :call-seq: assert_no_difference(expression, message = nil, &block)
@@ -1310,7 +1094,7 @@ class ActionDispatch::IntegrationTest
   #       User.new
   #     end
   #
-  # See also MiniTest::Rails::Expectations#wont_change
+  # See also Minitest::Rails::Expectations#wont_change
   #
   # :args: expression, message = nil, &block
   alias :refute_difference :assert_no_difference
@@ -1335,7 +1119,7 @@ class ActionController::TestCase
   #     # assert that the response code was status code 401 (unauthorized)
   #     assert_response 401
   #
-  # See also MiniTest::Rails::Expectations#must_respond_with
+  # See also Minitest::Rails::Expectations#must_respond_with
   #
   # :method: assert_response
   # :call-seq: assert_response(type, message = nil)
@@ -1357,7 +1141,7 @@ class ActionController::TestCase
   #     # asserts that the redirection matches the regular expression
   #     assert_redirected_to %r(\Ahttp://example.org)
   #
-  # See also MiniTest::Rails::Expectations#must_redirect_to
+  # See also Minitest::Rails::Expectations#must_redirect_to
   #
   # :method: assert_redirected_to
   # :call-seq: assert_redirected_to(options = {}, message=nil)
@@ -1392,7 +1176,7 @@ class ActionController::TestCase
   #     # assert that the "_customer" partial was rendered with a specific object
   #     assert_template partial: '_customer', locals: { customer: @customer }
   #
-  # See also MiniTest::Rails::Expectations#must_render_template
+  # See also Minitest::Rails::Expectations#must_render_template
   #
   # :method: assert_template
   # :call-seq: assert_template(options = {}, message = nil)
@@ -1416,7 +1200,7 @@ class ActionController::TestCase
   #   # Asserts that the generated route gives us our custom route
   #   assert_generates "changesets/12", { controller: 'scm', action: 'show_diff', revision: "12" }
   #
-  # See also MiniTest::Rails::Expectations#must_route_to
+  # See also Minitest::Rails::Expectations#must_route_to
   #
   # :method: assert_generates
   # :call-seq: assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)
@@ -1453,7 +1237,7 @@ class ActionController::TestCase
   #   # Test a custom route
   #   assert_recognizes({controller: 'items', action: 'show', id: '1'}, 'view/item1')
   #
-  # See also MiniTest::Rails::Expectations#must_route_from
+  # See also Minitest::Rails::Expectations#must_route_from
   #
   # :method: assert_recognizes
   # :call-seq: assert_recognizes(expected_options, path, extras={}, msg=nil)
@@ -1481,7 +1265,7 @@ class ActionController::TestCase
   #  # Tests a route with a HTTP method
   #  assert_routing({ method: 'put', path: '/product/321' }, { controller: "product", action: "update", id: "321" })
   #
-  # See also MiniTest::Rails::Expectations#must_route
+  # See also Minitest::Rails::Expectations#must_route
   #
   # :method: assert_routing
   # :call-seq: assert_routing(path, options, defaults={}, extras={}, message=nil)
@@ -1574,7 +1358,7 @@ class ActionController::TestCase
   #     assert_select "[name=?]", /.+/  # Not empty
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select
+  # See also Minitest::Rails::Expectations#must_select
   #
   # :method: assert_select
   # :call-seq: assert_select(*args, &block)
@@ -1595,7 +1379,7 @@ class ActionController::TestCase
   #    end
   #  end
   #
-  # See also MiniTest::Rails::Expectations#must_select_email
+  # See also Minitest::Rails::Expectations#must_select_email
   #
   # :method: assert_select_email
   # :call-seq: assert_select_email(&block)
@@ -1633,7 +1417,7 @@ class ActionController::TestCase
   #     end
   #   end
   #
-  # See also MiniTest::Rails::Expectations#must_select_encoded
+  # See also Minitest::Rails::Expectations#must_select_encoded
   #
   # :method: assert_select_encoded
   # :call-seq: assert_select_encoded(element = nil, &block)
@@ -1644,7 +1428,7 @@ class ActionController::TestCase
   #     assert_dom_equal '<a href="http://www.example.com">Apples</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#must_dom_equal
+  # See also Minitest::Rails::Expectations#must_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -1655,7 +1439,7 @@ class ActionController::TestCase
   #     assert_dom_not_equal '<a href="http://www.example.com">Oranges</a>',
   #                          link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_not_equal
   # :call-seq: assert_dom_not_equal(expected, actual, message = nil)
@@ -1666,7 +1450,7 @@ class ActionController::TestCase
   #     refute_dom_equal '<a href="http://www.example.com">Oranges</a>',
   #                      link_to("Apples", "http://www.example.com")
   #
-  # See also MiniTest::Rails::Expectations#wont_dom_equal
+  # See also Minitest::Rails::Expectations#wont_dom_equal
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
@@ -1763,7 +1547,7 @@ class ActionController::TestCase
   # that allow optional closing tags (p, li, td). <em>You must explicitly
   # close all of your tags to use these assertions.</em>
   #
-  # See also MiniTest::Rails::Expectations#must_have_tag
+  # See also Minitest::Rails::Expectations#must_have_tag
   #
   # :method: assert_tag
   # :call-seq: assert_tag(*opts)
@@ -1783,7 +1567,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: assert_no_tag
   # :call-seq: assert_no_tag(*opts)
@@ -1803,7 +1587,7 @@ class ActionController::TestCase
   #   assert_no_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also MiniTest::Rails::Expectations#wont_have_tag
+  # See also Minitest::Rails::Expectations#wont_have_tag
   #
   # :method: refute_tag
   # :call-seq: refute_tag(*opts)

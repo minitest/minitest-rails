@@ -3,6 +3,7 @@ require "minitest/autorun"
 require "rails"
 require "rails/generators"
 
+require "sqlite3"
 require "active_record"
 
 require "action_controller"
@@ -22,7 +23,7 @@ class FakeFS::File
   end
 end
 
-class GeneratorTest < MiniTest::Unit::TestCase
+class GeneratorTest < Minitest::Test
   def setup
     Rails::Generators.no_color!
     FakeFS.activate!
@@ -61,3 +62,5 @@ TestApp::Application.routes.draw do
     resources :widgets
   end
 end
+
+ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"

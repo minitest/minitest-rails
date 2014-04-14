@@ -1,11 +1,11 @@
 require "helper"
-require "generators/mini_test/helper/helper_generator"
+require "generators/minitest/helper/helper_generator"
 
 class TestHelperGenerator < GeneratorTest
 
   def test_helper_generator
     assert_output(/create  test\/helpers\/user_helper_test.rb/m) do
-      MiniTest::Generators::HelperGenerator.start ["user"]
+      Minitest::Generators::HelperGenerator.start ["user"]
     end
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = File.read "test/helpers/user_helper_test.rb"
@@ -14,7 +14,7 @@ class TestHelperGenerator < GeneratorTest
 
   def test_namespaced_helper_generator
     assert_output(/create  test\/helpers\/admin\/user_helper_test.rb/m) do
-      MiniTest::Generators::HelperGenerator.start ["admin/user"]
+      Minitest::Generators::HelperGenerator.start ["admin/user"]
     end
     assert File.exists? "test/helpers/admin/user_helper_test.rb"
     contents = File.read "test/helpers/admin/user_helper_test.rb"
@@ -23,7 +23,7 @@ class TestHelperGenerator < GeneratorTest
 
   def test_helper_generator_spec
     assert_output(/create  test\/helpers\/user_helper_test.rb/m) do
-      MiniTest::Generators::HelperGenerator.start ["user", "--spec"]
+      Minitest::Generators::HelperGenerator.start ["user", "--spec"]
     end
     assert File.exists? "test/helpers/user_helper_test.rb"
     contents = File.read "test/helpers/user_helper_test.rb"
@@ -32,7 +32,7 @@ class TestHelperGenerator < GeneratorTest
 
   def test_namespaced_helper_generator_spec
     assert_output(/create  test\/helpers\/admin\/user_helper_test.rb/m) do
-      MiniTest::Generators::HelperGenerator.start ["admin/user", "--spec"]
+      Minitest::Generators::HelperGenerator.start ["admin/user", "--spec"]
     end
     assert File.exists? "test/helpers/admin/user_helper_test.rb"
     contents = File.read "test/helpers/admin/user_helper_test.rb"

@@ -1,11 +1,11 @@
 require "helper"
-require "generators/mini_test/install/install_generator"
+require "generators/minitest/install/install_generator"
 
 class TestInstallGenerator < GeneratorTest
 
   def test_install_generator
     assert_output(/create  test\/test_helper.rb/m) do
-      MiniTest::Generators::InstallGenerator.start
+      Minitest::Generators::InstallGenerator.start
     end
     assert File.exists? "test/test_helper.rb"
     contents = File.read "test/test_helper.rb"
@@ -21,7 +21,7 @@ class TestInstallGenerator < GeneratorTest
 
   def test_install_generator_without_active_record
     assert_output(/create  test\/test_helper.rb/m) do
-      MiniTest::Generators::InstallGenerator.start ["--skip-active-record"]
+      Minitest::Generators::InstallGenerator.start ["--skip-active-record"]
     end
     assert File.exists? "test/test_helper.rb"
     contents = File.read "test/test_helper.rb"

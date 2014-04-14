@@ -1,6 +1,6 @@
 = minitest-rails
 
-MiniTest integration for Rails 3 and 4
+Minitest integration for Rails 4.1+
 
 {<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
 {<img src="https://codeclimate.com/github/blowmage/minitest-rails.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
@@ -23,21 +23,25 @@ Add <tt>minitest-rails</tt> to the Gemfile:
 
     gem "minitest-rails"
 
+If you are running Rails 4.0 or earlier, be sure to specify a 1.x release in the Gemfile:
+
+    gem "minitest-rails", "~> 1.0"
+
 Next run the installation generator with the following:
 
-    rails generate mini_test:install
+    rails generate minitest:install
 
 This will add the <tt>test_helper.rb</tt> file to the <tt>test</tt> directory.
 
 == Usage
 
-This project aims to enable MiniTest within the Rails TestCase classes.
+This project aims to enable Minitest within the Rails TestCase classes.
 Your test will continue to inherit from <tt>ActiveSupport::TestCase</tt>, which will now support the spec DSL.
 You can generate test files with the standard model, controller, resource, and other generators:
 
     rails generate model User
 
-And you can specify generating the tests using the <tt>MiniTest::Spec</tt> DSL on any of the generators by providing the <tt>--spec</tt> option:
+And you can specify generating the tests using the <tt>Minitest::Spec</tt> DSL on any of the generators by providing the <tt>--spec</tt> option:
 
     rails generate model User --spec
 
@@ -48,7 +52,7 @@ And you can specify not generating the fixture for a model by providing the <tt>
 You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
 
     config.generators do |g|
-      g.test_framework :mini_test, :spec => true, :fixture => false
+      g.test_framework :minitest, :spec => true, :fixture => false
     end
     
 To run your tests, minitest-rails provides multiple rake tasks by default, for a complete list, simply run <tt>rake -T</tt>.
@@ -57,25 +61,19 @@ You can also add any directories under <tt>test/</tt> and minitest-rails will au
 
 If you want to automatically run <tt>rake minitest:api</tt> when you call <tt>rake minitest</tt>, add this line to a new .rake file under <tt>lib/tasks/</tt>:
 
-    MiniTest::Rails::Testing.default_tasks << 'api'
+    Minitest::Rails::Testing.default_tasks << 'api'
 
-== Running on Ruby 1.8
+== Using Rails 4.0 or earlier
 
-Efforts have been made to be compatible with Ruby 1.8.7, but some rough edges may remain. For the latest information on 1.8 compatibility see the wiki: https://github.com/blowmage/minitest-rails/wiki/Running-on-1.8
+For information on running Rails 3.0 through 4.0, see the README for the 1.x branch: https://github.com/blowmage/minitest-rails/tree/1.x#readme
 
 == Capybara
 
 You can use Capybara for feature tests by adding <tt>minitest-rails-capybara</tt> as a dependency. See the README for more information: https://github.com/blowmage/minitest-rails-capybara
 
-== Upgrading
+== RSpec Compatibility
 
-The 0.9 release marks a new direction for minitest-rails. Deprecations have been added for the features that won't make it to 1.0. See instructions for upgrading to 0.9: https://github.com/blowmage/minitest-rails/wiki/Upgrading-to-0.9
-
-== Incompatibilities
-
-Existing tests that call <tt>describe</tt> will not work, since <tt>describe</tt> is used by <tt>MiniTest::Spec</tt> blocks.
-
-RSpec and minitest's spec DSL are incompatible and cannot both be loaded at the same time. If your tests using the spec DSL are not running it is likely the RSpec DSL is also loaded. Check the dependencies and make sure RSpec is only loaded when running the specs.
+RSpec and Minitest's spec DSL are incompatible and both cannot be loaded at the same time. If your tests using the spec DSL are not running it is likely the RSpec DSL is also loaded. Check the dependencies and make sure RSpec is only loaded when running the specs.
 
 If you need to use some RSpec features with minitest-rails require only the needed gems. e.g. To use RSpec mocks with minitest-rails require the "rspec-mocks" gem only, and not the main "rspec" gem which activates the RSpec DSL.
 
@@ -87,7 +85,7 @@ https://groups.google.com/group/minitest-rails
 
 == License
 
-Copyright (c) 2013 Mike Moore
+Copyright (c) 2014 Mike Moore
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -1,5 +1,0 @@
-source "http://rubygems.org"
-
-gem "rails", "~> 3.0.20"
-gem "rake"
-gem "rdoc", "~> 3.10"

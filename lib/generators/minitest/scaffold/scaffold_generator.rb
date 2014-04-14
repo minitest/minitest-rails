@@ -1,7 +1,7 @@
-require "generators/mini_test"
+require "generators/minitest"
 require "rails/generators/resource_helpers"
 
-module MiniTest
+module Minitest
   module Generators
     class ScaffoldGenerator < Base
       include ::Rails::Generators::ResourceHelpers

@@ -1,12 +1,12 @@
 require "rails"
 
-module MiniTest
+module Minitest
   module Rails
     class Railtie < ::Rails::Railtie # :nodoc:
       generators = config.respond_to?(:app_generators) ? config.app_generators : config.generators
-      generators.integration_tool :mini_test
-      generators.test_framework   :mini_test
-      generators.fallbacks[:mini_test] = :test_unit
+      generators.integration_tool :minitest
+      generators.test_framework   :minitest
+      generators.fallbacks[:minitest] = :test_unit
 
       rake_tasks do
         load "minitest/rails/tasks/minitest.rake"

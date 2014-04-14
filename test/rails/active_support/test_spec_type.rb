@@ -2,21 +2,21 @@ require "helper"
 
 class SomeRandomModel < ActiveRecord::Base; end
 
-class TestActiveSupportSpecType < MiniTest::Unit::TestCase
+class TestActiveSupportSpecType < Minitest::Test
 
   def assert_support actual
     assert_equal ActiveSupport::TestCase, actual
   end
 
   def assert_spec actual
-    assert_equal MiniTest::Spec, actual
+    assert_equal Minitest::Spec, actual
   end
 
   def test_spec_type_resolves_for_actitive_record_constants
-    assert_support MiniTest::Spec.spec_type(SomeRandomModel)
+    assert_support Minitest::Spec.spec_type(SomeRandomModel)
   end
 
   def test_spec_type_doesnt_resolve_random_strings
-    assert_spec MiniTest::Spec.spec_type("Unmatched String")
+    assert_spec Minitest::Spec.spec_type("Unmatched String")
   end
 end

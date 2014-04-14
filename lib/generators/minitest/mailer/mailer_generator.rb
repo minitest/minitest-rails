@@ -1,6 +1,6 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class MailerGenerator < Base
       argument     :actions, :type => :array,   :default => [],    :banner => "method method"

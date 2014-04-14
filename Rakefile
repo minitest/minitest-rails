@@ -9,8 +9,8 @@ Hoe.plugin :gemspec
 Hoe.spec "minitest-rails" do
   developer "Mike Moore", "mike@blowmage.com"
 
-  self.summary     = "MiniTest integration for Rails 3 and 4"
-  self.description = "Adds MiniTest as the default testing library in Rails 3 and 4"
+  self.summary     = "Minitest integration for Rails 4.1+"
+  self.description = "Adds Minitest as the default testing library in Rails 3 and 4"
   self.urls        = ["http://blowmage.com/minitest-rails"]
 
   self.history_file = "CHANGELOG.rdoc"
@@ -19,10 +19,9 @@ Hoe.spec "minitest-rails" do
 
   license "MIT"
 
-  dependency "minitest",      "~> 4.7"
-  dependency "minitest-test", "~> 1.0"
-  dependency "railties",    [ ">= 3.0", "< 4.1" ]
-  dependency "fakefs",        "= 0.4.3", :dev
+  dependency "minitest", [ ">= 5.3.3", "< 6.0" ]
+  dependency "railties",   "~> 4.1"
+  dependency "fakefs",     "= 0.4.3", :dev
 end
 
 Dir["tasks/**/*.rake"].each { |t| load t }

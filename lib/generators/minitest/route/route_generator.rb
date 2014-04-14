@@ -1,11 +1,11 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class RouteGenerator < ::Rails::Generators::Base
 
       class_option :spec, :type => :boolean, :default => false,
-                          :desc => "Use MiniTest::Spec DSL"
+                          :desc => "Use Minitest::Spec DSL"
 
       desc <<DESC
 Description:

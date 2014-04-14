@@ -1,96 +1,8 @@
-module MiniTest::Rails::Expectations
+module Minitest::Rails::Expectations
 
   ##############################################################################
   # ActiveSupport Expectations
   ##############################################################################
-
-  ##
-  # Checks if an expression is blank. Passes if actual.blank? is true.
-  #
-  # === This expectation is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     actual.must_be :blank?
-  #
-  # The deprecated expectation can be called like this:
-  #
-  #     "".must_be_blank
-  #     nil.must_be_blank
-  #     [].must_be_blank
-  #     {}.must_be_blank
-  #
-  # See also ActiveSupport::TestCase#assert_blank
-  #
-  # :method: must_be_blank
-  # :args: message = nil
-  infect_an_assertion :assert_blank, :must_be_blank, :unary
-
-  ##
-  # Checks if an expression is not present. Passes if actual.present? is false.
-  #
-  # === This expectation is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     actual.wont_be :present?
-  #
-  # The deprecated expectation can be called like this:
-  #
-  #     "".wont_be_present
-  #     nil.wont_be_present
-  #     [].wont_be_present
-  #     {}.wont_be_present
-  #
-  # See also ActiveSupport::TestCase#refute_present
-  #
-  # :method: wont_be_present
-  # :args: message = nil
-  infect_an_assertion :refute_present, :wont_be_present, :unary
-
-  ##
-  # Checks if an expression is present. Passes if actual.present? is true.
-  #
-  # === This expectation is deprecated.
-  #
-  # Use the following to check for <tt>present?</tt> instead:
-  #
-  #     actual.must_be :present?
-  #
-  # The deprecated expectation can be called like this:
-  #
-  #     "here".must_be_present
-  #     Object.new.must_be_present
-  #     [1,2,3].must_be_present
-  #     {:key => :value}.must_be_present
-  #
-  # See also ActiveSupport::TestCase#assert_present
-  #
-  # :method: must_be_present
-  # :args: message = nil
-  infect_an_assertion :assert_present, :must_be_present, :unary
-
-  ##
-  # Checks if an expression is not blank. Passes if actual.blank? is false.
-  #
-  # === This expectation is deprecated.
-  #
-  # Use the following to check for <tt>blank?</tt> instead:
-  #
-  #     actual.wont_be :blank?
-  #
-  # The deprecated expectation can be called like this:
-  #
-  #     "here".wont_be_blank
-  #     Object.new.wont_be_blank
-  #     [1,2,3].wont_be_blank
-  #     {:key => :value}.wont_be_blank
-  #
-  # See also ActiveSupport::TestCase#refute_blank
-  #
-  # :method: wont_be_blank
-  # :args: message = nil
-  infect_an_assertion :refute_blank, :wont_be_blank, :unary
 
   ##
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
@@ -622,7 +534,7 @@ end
 
 unless ENV["MT_NO_EXPECTATIONS"]
   class Object # :nodoc:
-    include MiniTest::Rails::Expectations
+    include Minitest::Rails::Expectations
   end
   # Not real expectations, just aliases
   # The error messages don't get messed up this way

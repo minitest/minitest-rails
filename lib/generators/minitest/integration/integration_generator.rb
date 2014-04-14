@@ -1,6 +1,6 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class IntegrationGenerator < Base
       check_class_collision :suffix => "Test"

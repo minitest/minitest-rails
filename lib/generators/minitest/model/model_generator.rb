@@ -1,6 +1,6 @@
-require "generators/mini_test"
+require "generators/minitest"
 
-module MiniTest
+module Minitest
   module Generators
     class ModelGenerator < Base
       argument     :attributes, :type => :array,   :default => [],    :banner => "field:type field:type"
