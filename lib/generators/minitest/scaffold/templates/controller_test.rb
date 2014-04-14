@@ -27,23 +27,23 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
   end
 
   def test_show
-    get :show, <%= key_value :id, singular_table_name %>
+    get :show, id: <%= singular_table_name %>
     assert_response :success
   end
 
   def test_edit
-    get :edit, <%= key_value :id, singular_table_name %>
+    get :edit, id: <%= singular_table_name %>
     assert_response :success
   end
 
   def test_update
-    put :update, <%= key_value :id, singular_table_name %>, <%= "#{singular_table_name}: { #{attributes_hash} }" %>
+    put :update, id: <%= singular_table_name %>, <%= "#{singular_table_name}: { #{attributes_hash} }" %>
     assert_redirected_to <%= singular_table_name %>_path(assigns(:<%= singular_table_name %>))
   end
 
   def test_destroy
     assert_difference('<%= class_name %>.count', -1) do
-      delete :destroy, <%= key_value :id, singular_table_name %>
+      delete :destroy, id: <%= singular_table_name %>
     end
 
     assert_redirected_to <%= index_helper %>_path
