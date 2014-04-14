@@ -24,12 +24,15 @@ class ActiveSupport::TestCase
   include Minitest::Rails::Testing::ConstantLookup
 end
 
-if defined?(ActiveRecord::Base)
-  class ActiveSupport::TestCase
+class ActiveSupport::TestCase
+  if defined?(ActiveRecord::Base)
     # Use AS::TestCase for the base class when describing a model
     register_spec_type(self) do |desc|
       desc < ActiveRecord::Base if desc.is_a?(Class)
     end
+  end
+  register_spec_type(self) do |desc, addl|
+    :model == addl
   end
 end
 
@@ -40,6 +43,9 @@ class ActionController::TestCase
     Class === desc && desc < ActionController::Metal
   end
   register_spec_type(/Controller( ?Test)?\z/i, self)
+  register_spec_type(self) do |desc, addl|
+    :controller == addl
+  end
 
   # Resolve the controller from the test name when using the spec DSL
   def self.determine_default_controller_class(name)
@@ -55,6 +61,9 @@ require "action_view/test_case"
 class ActionView::TestCase
   # Use AV::TestCase for the base class for helpers and views
   register_spec_type(/(Helper( ?Test)?| View Test)\z/i, self)
+  register_spec_type(self) do |desc, addl|
+    [ :view, :helper ].include? addl
+  end
 
   # Resolve the helper or view from the test name when using the spec DSL
   def self.determine_default_helper_class(name)
@@ -73,6 +82,9 @@ if defined? ActionMailer
       desc < ActionMailer::Base if desc.is_a?(Class)
     end
     register_spec_type(/Mailer( ?Test)?\z/i, self)
+  register_spec_type(self) do |desc, addl|
+    :mailer == addl
+  end
 
     # Resolve the mailer from the test name when using the spec DSL
     def self.determine_default_mailer(name)
@@ -89,6 +101,9 @@ require "action_dispatch/testing/integration"
 class ActionDispatch::IntegrationTest
   # Register by name, consider Acceptance to be deprecated
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
+  register_spec_type(self) do |desc, addl|
+    :integration == addl
+  end
 end
 
 ################################################################################

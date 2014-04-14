@@ -8,8 +8,8 @@ class TestActiveSupportSpecType < Minitest::Test
     assert_equal ActiveSupport::TestCase, actual
   end
 
-  def assert_spec actual
-    assert_equal Minitest::Spec, actual
+  def refute_support actual
+    refute_equal ActiveSupport::TestCase, actual
   end
 
   def test_spec_type_resolves_for_actitive_record_constants
@@ -17,6 +17,10 @@ class TestActiveSupportSpecType < Minitest::Test
   end
 
   def test_spec_type_doesnt_resolve_random_strings
-    assert_spec Minitest::Spec.spec_type("Unmatched String")
+    refute_support Minitest::Spec.spec_type("Unmatched String")
+  end
+
+  def test_spec_type_resolves_for_additional_desc_model
+    assert_support Minitest::Spec.spec_type(["Unmatched String", :model])
   end
 end

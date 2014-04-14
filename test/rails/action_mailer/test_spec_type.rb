@@ -34,4 +34,9 @@ class TestActionMailerSpecType < Minitest::Test
     refute_mailer Minitest::Spec.spec_type("Widget Mailer\fTest")
     refute_mailer Minitest::Spec.spec_type("Widget MailerXTest")
   end
+
+  def test_spec_type_resolves_for_additional_desc_mailer
+    refute_mailer Minitest::Spec.spec_type("Unmatched String")
+    assert_mailer Minitest::Spec.spec_type(["Unmatched String", :mailer])
+  end
 end

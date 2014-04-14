@@ -24,7 +24,6 @@ class TestActionDispatchSpecType < Minitest::Test
   def test_spec_type_wont_match_non_space_characters_acceptance
     refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\tTest")
     refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\rTest")
-    # TODO: Update regex so that new lines don't match.
     refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\nTest")
     refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\fTest")
     refute_dispatch Minitest::Spec.spec_type("Widget AcceptanceXTest")
@@ -43,11 +42,15 @@ class TestActionDispatchSpecType < Minitest::Test
   end
 
   def test_spec_type_wont_match_non_space_characters_integration
-    refute_equal Minitest::Spec.spec_type("Widget Integration\tTest"), ActionDispatch::IntegrationTest
-    refute_equal Minitest::Spec.spec_type("Widget Integration\rTest"), ActionDispatch::IntegrationTest
-    # TODO: Update regex so that new lines don't match.
-    refute_equal Minitest::Spec.spec_type("Widget Integration\nTest"), ActionDispatch::IntegrationTest
-    refute_equal Minitest::Spec.spec_type("Widget Integration\fTest"), ActionDispatch::IntegrationTest
-    refute_equal Minitest::Spec.spec_type("Widget IntegrationXTest"),  ActionDispatch::IntegrationTest
+    refute_dispatch Minitest::Spec.spec_type("Widget Integration\tTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Integration\rTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Integration\nTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget Integration\fTest")
+    refute_dispatch Minitest::Spec.spec_type("Widget IntegrationXTest")
+  end
+
+  def test_spec_type_resolves_for_additional_desc_integration
+    refute_dispatch Minitest::Spec.spec_type("Unmatched String")
+    assert_dispatch Minitest::Spec.spec_type(["Unmatched String", :integration])
   end
 end
