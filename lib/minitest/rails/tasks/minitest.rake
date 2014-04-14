@@ -25,12 +25,12 @@ namespace "minitest" do
   end
 
   # Run a single test
-  MiniTest::Rails::Tasks::SubTestTask.new(:single => "test:prepare") do |t|
+  MiniTest::Rails::Tasks::SubTestTask.new(single: "test:prepare") do |t|
     t.libs << "test"
   end
 
   # Run the default tests as definded in MiniTest::Rails::Testing.default_tasks
-  MiniTest::Rails::Tasks::SubTestTask.new(:run => "test:prepare") do |t|
+  MiniTest::Rails::Tasks::SubTestTask.new(run: "test:prepare") do |t|
     t.libs.push "test"
     t.pattern = "test/{#{MiniTest::Rails::Testing.default_tasks.join(',')}}/**/*_test.rb"
   end
@@ -43,7 +43,7 @@ namespace "minitest" do
   end
 
   desc "Runs all tests"
-  MiniTest::Rails::Tasks::SubTestTask.new(:all => "test:prepare") do |t|
+  MiniTest::Rails::Tasks::SubTestTask.new(all: "test:prepare") do |t|
     t.libs.push "test"
     t.pattern = "test/**/*_test.rb"
   end
@@ -72,7 +72,7 @@ end
 # Statistics
 
 # set hook on stats task
-task :stats => "minitest:setup_stats"
+task stats: "minitest:setup_stats"
 
 namespace "minitest" do
   task :setup_stats do
@@ -94,7 +94,7 @@ end
 # Define tasks under "test" if they don't already exist
 if !Rake::Task.task_defined? :test
   desc "Runs default tests"
-  task :test => "minitest"
+  task test: "minitest"
 
   namespace "test" do
     MiniTest::Rails::Testing.all_tasks.each do |task_dir|
@@ -103,19 +103,19 @@ if !Rake::Task.task_defined? :test
     end
 
     desc "Runs the default tests, without resetting the db"
-    task "quick" => "minitest:quick"
+    task quick: "minitest:quick"
 
     desc "Runs all tests"
-    task "all" => "minitest:all"
+    task all: "minitest:all"
 
     namespace "all" do
       desc "Runs all tests, without resetting the db"
-      task "quick" => "minitest:all:quick"
+      task quick: "minitest:all:quick"
     end
   end
 end
 
 # Override the default task
-task :default => [] # Just in case it hasn't already been set
+task default: [] # Just in case it hasn't already been set
 Rake::Task[:default].clear
-task :default => "minitest"
+task default: "minitest"

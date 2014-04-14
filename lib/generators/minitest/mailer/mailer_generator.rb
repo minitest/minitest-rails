@@ -3,9 +3,9 @@ require "generators/minitest"
 module Minitest
   module Generators
     class MailerGenerator < Base
-      argument     :actions, :type => :array,   :default => [],    :banner => "method method"
+      argument :actions, type: :array, default: [], banner: "method method"
 
-      check_class_collision :suffix => "MailerTest"
+      check_class_collision suffix: "MailerTest"
 
       def create_test_files
         if options[:spec]

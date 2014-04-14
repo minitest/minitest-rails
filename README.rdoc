@@ -52,7 +52,7 @@ And you can specify not generating the fixture for a model by providing the <tt>
 You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
 
     config.generators do |g|
-      g.test_framework :minitest, :spec => true, :fixture => false
+      g.test_framework :minitest, spec: true, fixture: false
     end
     
 To run your tests, minitest-rails provides multiple rake tasks by default, for a complete list, simply run <tt>rake -T</tt>.

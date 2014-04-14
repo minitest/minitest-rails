@@ -3,9 +3,9 @@ require "generators/minitest"
 module Minitest
   module Generators
     class ControllerGenerator < Base
-      argument     :actions, :type => :array,   :default => [],    :banner => "action action"
+      argument :actions, type: :array, default: [], banner: "action action"
 
-      check_class_collision :suffix => "ControllerTest"
+      check_class_collision suffix: "ControllerTest"
 
       def create_test_files
         if options[:spec]

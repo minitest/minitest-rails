@@ -4,11 +4,11 @@ module Minitest
   module Generators
     class Base < ::Rails::Generators::NamedBase #:nodoc:
 
-      class_option :old_style_hash, :type => :boolean, :default => false,
-                                    :desc => "Force using old style hash (:foo => 'bar') on Ruby >= 1.9"
+      class_option :old_style_hash, type: :boolean, default: false,
+                                    desc: "Force using old style hash (:foo => 'bar') on Ruby >= 1.9"
 
-      class_option :spec, :type => :boolean, :default => false,
-                          :desc => "Use Minitest::Spec DSL"
+      class_option :spec, type: :boolean, default: false,
+                          desc: "Use Minitest::Spec DSL"
 
       def self.default_source_root
         File.expand_path(File.join(File.dirname(__FILE__), 'minitest', generator_name, 'templates'))

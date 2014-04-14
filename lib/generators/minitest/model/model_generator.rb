@@ -3,10 +3,10 @@ require "generators/minitest"
 module Minitest
   module Generators
     class ModelGenerator < Base
-      argument     :attributes, :type => :array,   :default => [],    :banner => "field:type field:type"
-      class_option :fixture,    :type => :boolean, :default => true,  :desc => "Create fixture file"
+      argument     :attributes, type: :array,   default: [],    banner: "field:type field:type"
+      class_option :fixture,    type: :boolean, default: true,  desc: "Create fixture file"
 
-      check_class_collision :suffix => "Test"
+      check_class_collision suffix: "Test"
 
       def create_test_file
         if options[:spec]

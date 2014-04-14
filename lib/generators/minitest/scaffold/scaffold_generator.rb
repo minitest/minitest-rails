@@ -5,11 +5,11 @@ module Minitest
   module Generators
     class ScaffoldGenerator < Base
       include ::Rails::Generators::ResourceHelpers
-      argument     :actions, :type => :array,   :default => [],    :banner => "action action"
+      argument :actions, type: :array, default: [], banner: "action action"
 
-      check_class_collision :suffix => "ControllerTest"
+      check_class_collision suffix: "ControllerTest"
 
-      argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
+      argument :attributes, type: :array, default: [], banner: "field:type field:type"
 
       def create_test_files
         if options[:spec]

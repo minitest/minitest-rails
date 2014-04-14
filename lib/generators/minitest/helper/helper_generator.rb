@@ -3,7 +3,7 @@ require "generators/minitest"
 module Minitest
   module Generators
     class HelperGenerator < Base
-      check_class_collision :suffix => "HelperTest"
+      check_class_collision suffix: "HelperTest"
 
       def create_test_files
         if options[:spec]
