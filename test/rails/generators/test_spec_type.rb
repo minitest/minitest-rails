@@ -1,5 +1,4 @@
 require "helper"
-require "minitest/rails/generators"
 
 class InstallGenerator < Rails::Generators::Base; end
 

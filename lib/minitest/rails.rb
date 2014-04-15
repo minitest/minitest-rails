@@ -106,6 +106,24 @@ class ActionDispatch::IntegrationTest
   end
 end
 
+class Rails::Generators::TestCase
+  register_spec_type(self) do |desc|
+    desc < Rails::Generators::Base if desc.is_a?(Class)
+  end
+  register_spec_type(/Generator( ?Test)?\z/i, self)
+  register_spec_type(self) do |desc, addl|
+    :generator == addl
+  end
+
+  def self.determine_default_generator(name)
+    generator = determine_constant_from_test_name(name) do |constant|
+      Class === constant && constant < Rails::Generators::Base
+    end
+    raise NameError.new("Unable to resolve generator for #{name}") if generator.nil?
+    generator
+  end
+end
+
 ################################################################################
 # Assertions and Expectations
 ################################################################################

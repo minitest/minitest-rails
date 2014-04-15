@@ -40,7 +40,6 @@ lib/minitest/rails.rb
 lib/minitest/rails/assertions.rb
 lib/minitest/rails/constant_lookup.rb
 lib/minitest/rails/expectations.rb
-lib/minitest/rails/generators.rb
 lib/minitest/rails/railtie.rb
 lib/minitest/rails/tasks/.document
 lib/minitest/rails/tasks/minitest.rake
