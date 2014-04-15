@@ -13,6 +13,9 @@ lib/generators/minitest.rb
 lib/generators/minitest/controller/controller_generator.rb
 lib/generators/minitest/controller/templates/controller_spec.rb
 lib/generators/minitest/controller/templates/controller_test.rb
+lib/generators/minitest/generator/generator_generator.rb
+lib/generators/minitest/generator/templates/generator_spec.rb
+lib/generators/minitest/generator/templates/generator_test.rb
 lib/generators/minitest/helper/helper_generator.rb
 lib/generators/minitest/helper/templates/helper_spec.rb
 lib/generators/minitest/helper/templates/helper_test.rb
@@ -49,6 +52,7 @@ lib/minitest/rails/version.rb
 minitest-rails.gemspec
 tasks/test.rake
 test/generators/test_controller_generator.rb
+test/generators/test_generator_generator.rb
 test/generators/test_helper_generator.rb
 test/generators/test_install_generator.rb
 test/generators/test_mailer_generator.rb
