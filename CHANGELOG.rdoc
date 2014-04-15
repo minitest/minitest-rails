@@ -1,3 +1,27 @@
+=== 1.0.1 / 2014-04-15
+
+* Add missing module_namespacing to Helper spec
+
+https://github.com/blowmage/minitest-rails/compare/v1.0.0...v1.0.1
+
+=== 1.0.0 / 2014-04-14
+
+Yay! A 1.0.0 release, finally!
+
+* New rake tasks
+  * rake minitest:quick - Runs default tests without DB prep
+  * rake minitest:all - Runs all test
+  * rake minitest:all:quick - Runs all tests without DB prep
+* Add 'test' rake tasks if not already defined
+* Set the MT_RAILS_NO_AUTORUN flag to stop autorun from being called
+  * Useful for integrating with zeus or other app loaders
+* Support Minitest 5's API
+  * Allow use of Minitest::Test instead of MiniTest::Unit::TestCase
+* Add AS::TC assertions and expectations
+* Add MT_RAILS_NO_AUTORUN flag
+
+https://github.com/blowmage/minitest-rails/compare/v0.9.2...v1.0.0
+
 === 0.9.2 / 2013-04-05
 
 * Fix nested describes in ruby 1.8
