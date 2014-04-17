@@ -55,13 +55,19 @@ You can also set these as defaults by adding the following to the <tt>config/app
       g.test_framework :minitest, spec: true, fixture: false
     end
     
-To run your tests, minitest-rails provides multiple rake tasks by default, for a complete list, simply run <tt>rake -T</tt>.
+== Running Tests
 
-You can also add any directories under <tt>test/</tt> and minitest-rails will automatically create the associated rake task for it. So let say you add a <tt>test/api/</tt> directory, <tt>rake minitest:api</tt> will automagically be available.
+To run your tests use the <tt>rake test</tt> that ship with rails. For a complete list run <tt>rake -T</tt>.
 
-If you want to automatically run <tt>rake minitest:api</tt> when you call <tt>rake minitest</tt>, add this line to a new .rake file under <tt>lib/tasks/</tt>:
+To add additional testing tasks, define them in your <tt>Rakefile</tt> or a file in <tt>lib/tasks</tt> like so:
 
-    Minitest::Rails::Testing.default_tasks << 'api'
+    Rails::TestTask.new("test:presenters" => "test:prepare") do |t|
+      t.pattern = "test/presenters/**/*_test.rb"
+    end
+
+If you want your new task to be run when you run <tt>rake test</tt>, also add the following:
+
+    Rake::Task["test:run"].enhance ["test:presenters"]
 
 == Using Rails 4.0 or earlier
 

@@ -9,7 +9,7 @@ module Minitest
       generators.fallbacks[:minitest] = :test_unit
 
       rake_tasks do
-        load "minitest/rails/tasks/minitest.rake"
+        load "rails/test_unit/testing.rake"
       end
     end
   end

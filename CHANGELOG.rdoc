@@ -7,6 +7,7 @@ Major release, specific to Rails 4.1+ and Minitest 5.
   * describe "Users can do things", :integration do
 * Support Generators in default config
   * No longer need to require "minitest/rails/generators" in your test_helper.rb
+* Removed <tt>minitest</tt> rake tasks
 * Code is cleaner now that older Rubies and Rails are no longer supported
 
 https://github.com/blowmage/minitest-rails/compare/v1.0.0...v2.0.0
