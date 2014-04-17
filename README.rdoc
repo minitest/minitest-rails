@@ -71,7 +71,7 @@ If you want your new task to be run when you run <tt>rake test</tt>, also add th
 
 == Using Rails 4.0 or earlier
 
-For information on running Rails 3.0 through 4.0, see the README for the 1.x branch: https://github.com/blowmage/minitest-rails/tree/1.x#readme
+For information on using minitest-rails with Rails 3.0 through 4.0, see the README for the 1.x branch: https://github.com/blowmage/minitest-rails/tree/1.x#readme
 
 == Capybara
 
