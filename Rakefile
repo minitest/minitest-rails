@@ -9,8 +9,8 @@ Hoe.plugin :gemspec
 Hoe.spec "minitest-rails" do
   developer "Mike Moore", "mike@blowmage.com"
 
-  self.summary     = "Minitest integration for Rails 4.1+"
-  self.description = "Adds Minitest as the default testing library in Rails 3 and 4"
+  self.summary     = "Minitest integration for Rails"
+  self.description = "Adds Minitest as the default testing library in Rails"
   self.urls        = ["http://blowmage.com/minitest-rails"]
 
   self.history_file = "CHANGELOG.rdoc"
