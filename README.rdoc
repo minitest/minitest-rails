@@ -15,9 +15,9 @@ This installs the following gems:
 
 == Configure
 
-Create a new rails app without Test::Unit:
+Create a new rails app:
 
-    rails new MyApp --skip-test-unit
+    rails new MyApp
 
 Add <tt>minitest-rails</tt> to the Gemfile:
 
