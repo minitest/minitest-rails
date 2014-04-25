@@ -1,3 +1,9 @@
+=== 2.0.1 / 2014-04-25
+
+* Set RAILS_ENV in railtie (taq)
+
+https://github.com/blowmage/minitest-rails/compare/v2.0.0...v2.0.1
+
 === 2.0.0 / 2014-04-21
 
 Major release, specific to Rails 4.1+ and Minitest 5.
