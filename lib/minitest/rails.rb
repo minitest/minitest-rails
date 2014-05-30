@@ -15,7 +15,7 @@ class ActiveSupport::TestCase
   # Remove describe method, added in Rails 3
   class << self
     remove_method :describe
-  end if self.respond_to? :describe
+  end if self.respond_to?(:describe) && self.method(:describe).owner == ActiveSupport::TestCase
 
   # Add spec DSL
   extend Minitest::Spec::DSL
