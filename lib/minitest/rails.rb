@@ -21,7 +21,7 @@ class ActiveSupport::TestCase
   extend Minitest::Spec::DSL
 
   # Resolve constants from the test name when using the spec DSL
-  include Minitest::Rails::Testing::ConstantLookup
+  include Minitest::Rails::ConstantLookup
 end
 
 class ActiveSupport::TestCase
