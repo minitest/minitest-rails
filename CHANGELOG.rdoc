@@ -1,3 +1,10 @@
+=== 2.0.2 / 2014-06-10
+
+* Put an additional guard on the call to remove describe to make sure
+* Remove unused testing module
+
+https://github.com/blowmage/minitest-rails/compare/v2.0.1...v2.0.2
+
 === 2.0.1 / 2014-04-25
 
 * Set RAILS_ENV in railtie (taq)
