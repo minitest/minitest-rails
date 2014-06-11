@@ -1,3 +1,9 @@
+=== 2.0.3 / 2014-06-11
+
+* Fix bug in loading rake tasks (rmm5t)
+
+https://github.com/blowmage/minitest-rails/compare/v2.0.2...v2.0.3
+
 === 2.0.2 / 2014-06-10
 
 * Put an additional guard on the call to remove describe to make sure
