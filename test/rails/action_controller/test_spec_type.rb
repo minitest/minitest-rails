@@ -35,8 +35,13 @@ class TestApplicationControllerSpecType < Minitest::Test
     refute_controller Minitest::Spec.spec_type("Widget ControllerXTest")
   end
 
-  def test_spec_type_resolves_for_additional_desc_controller
+  def test_spec_type_doesnt_resolve_random_strings
     refute_controller Minitest::Spec.spec_type("Unmatched String")
+  end
+
+  def test_spec_type_resolves_for_additional_desc_controller
     assert_controller Minitest::Spec.spec_type(["Unmatched String", :controller])
+    assert_controller Minitest::Spec.spec_type(["Unmatched String", [:controller, :other]])
+    assert_controller Minitest::Spec.spec_type(["Unmatched String", {controller: true, other: false}])
   end
 end
