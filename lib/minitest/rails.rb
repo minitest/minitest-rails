@@ -33,7 +33,7 @@ class ActiveSupport::TestCase
     end
   end
   register_spec_type(self) do |desc, addl|
-    :model == addl
+    Array(addl).flatten.include? :model
   end
 end
 
@@ -45,7 +45,7 @@ class ActionController::TestCase
   end
   register_spec_type(/Controller( ?Test)?\z/i, self)
   register_spec_type(self) do |desc, addl|
-    :controller == addl
+    Array(addl).flatten.include? :controller
   end
 
   # Resolve the controller from the test name when using the spec DSL
@@ -63,7 +63,8 @@ class ActionView::TestCase
   # Use AV::TestCase for the base class for helpers and views
   register_spec_type(/(Helper( ?Test)?| View Test)\z/i, self)
   register_spec_type(self) do |desc, addl|
-    [ :view, :helper ].include? addl
+    Array(addl).flatten.include?(:view) ||
+    Array(addl).flatten.include?(:helper)
   end
 
   # Resolve the helper or view from the test name when using the spec DSL
@@ -84,7 +85,7 @@ if defined? ActionMailer
     end
     register_spec_type(/Mailer( ?Test)?\z/i, self)
   register_spec_type(self) do |desc, addl|
-    :mailer == addl
+    Array(addl).flatten.include? :mailer
   end
 
     # Resolve the mailer from the test name when using the spec DSL
@@ -103,7 +104,7 @@ class ActionDispatch::IntegrationTest
   # Register by name, consider Acceptance to be deprecated
   register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
   register_spec_type(self) do |desc, addl|
-    :integration == addl
+    Array(addl).flatten.include? :integration
   end
 end
 
@@ -113,7 +114,7 @@ class Rails::Generators::TestCase
   end
   register_spec_type(/Generator( ?Test)?\z/i, self)
   register_spec_type(self) do |desc, addl|
-    :generator == addl
+    Array(addl).flatten.include? :generator
   end
 
   def self.determine_default_generator(name)
