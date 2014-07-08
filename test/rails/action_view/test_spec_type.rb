@@ -40,9 +40,19 @@ class TestActionViewSpecType < Minitest::Test
     refute_view Minitest::Spec.spec_type("Widget HelperXTest")
   end
 
-  def test_spec_type_resolves_for_additional_desc_view_or_helper
+  def test_spec_type_doesnt_resolve_random_strings
     refute_view Minitest::Spec.spec_type("Unmatched String")
-    assert_view Minitest::Spec.spec_type(["Unmatched String", :view])
-    assert_view Minitest::Spec.spec_type(["Unmatched String", :helper])
+  end
+
+  def test_spec_type_resolves_for_additional_desc_view
+    assert_view Minitest::Spec.spec_type("Unmatched String", :view)
+    assert_view Minitest::Spec.spec_type("Unmatched String", :view, :other)
+    assert_view Minitest::Spec.spec_type("Unmatched String", :other, :view)
+  end
+
+  def test_spec_type_resolves_for_additional_desc_helper
+    assert_view Minitest::Spec.spec_type("Unmatched String", :helper)
+    assert_view Minitest::Spec.spec_type("Unmatched String", :helper, :other)
+    assert_view Minitest::Spec.spec_type("Unmatched String", :other, :helper)
   end
 end

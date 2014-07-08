@@ -21,6 +21,8 @@ class TestActiveSupportSpecType < Minitest::Test
   end
 
   def test_spec_type_resolves_for_additional_desc_model
-    assert_support Minitest::Spec.spec_type(["Unmatched String", :model])
+    assert_support Minitest::Spec.spec_type("Unmatched String", :model)
+    assert_support Minitest::Spec.spec_type("Unmatched String", :model, :other)
+    assert_support Minitest::Spec.spec_type("Unmatched String", :other, :model)
   end
 end

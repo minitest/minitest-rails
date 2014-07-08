@@ -32,4 +32,14 @@ class TestGeneratorsSpecType < Minitest::Test
     refute_generator Minitest::Spec.spec_type("Install Generator\fTest")
     refute_generator Minitest::Spec.spec_type("Install GeneratorXTest")
   end
+
+  def test_spec_type_doesnt_resolve_random_strings
+    refute_generator Minitest::Spec.spec_type("Unmatched String")
+  end
+
+  def test_spec_type_resolves_for_additional_desc_generator
+    assert_generator Minitest::Spec.spec_type("Unmatched String", :generator)
+    assert_generator Minitest::Spec.spec_type("Unmatched String", :generator, :other)
+    assert_generator Minitest::Spec.spec_type("Unmatched String", :other, :generator)
+  end
 end
