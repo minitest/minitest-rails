@@ -62,7 +62,7 @@ To run your tests use the <tt>rake test</tt> that ship with rails. For a complet
 To add additional testing tasks, define them in your <tt>Rakefile</tt> or a file in <tt>lib/tasks</tt> like so:
 
     Rails::TestTask.new("test:presenters" => "test:prepare") do |t|
-      t.pattern = "test/presenters/**/*_test.rb"
+      t.pattern = "test/presenters/**/test_*.rb"
     end
 
 If you want your new task to be run when you run <tt>rake test</tt>, also add the following:
