@@ -29,7 +29,7 @@ module Minitest
           if %w(password password_confirmation).include?(name) && attributes.any?(&:password_digest?)
             "#{name}: 'secret'"
           else
-            "#{name}: @#{singular_table_name}.#{name}"
+            "#{name}: #{singular_table_name}.#{name}"
           end
         end.sort.join(", ")
       end
