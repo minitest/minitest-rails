@@ -4,6 +4,7 @@ Minitest integration for Rails 4.1+
 
 {<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
 {<img src="https://codeclimate.com/github/blowmage/minitest-rails.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
+{<img src="https://badges.gitter.im/Join Chat.svg" />}[https://gitter.im/blowmage/minitest-rails]
 
 == Install
 
@@ -88,6 +89,10 @@ If you need to use some RSpec features with minitest-rails require only the need
 Join the mailing list to get help or offer suggestions.
 
 https://groups.google.com/group/minitest-rails
+
+Or join the discussion on Gitter.
+
+https://gitter.im/blowmage/minitest-rails
 
 == License
 
