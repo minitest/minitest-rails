@@ -12,11 +12,6 @@ class TestInstallGenerator < GeneratorTest
     assert_match(/require "rails\/test_help"/m, contents)
     assert_match(/require "minitest\/rails"/m, contents)
     assert_match(/fixtures :all/m, contents)
-    if Rails::VERSION::STRING >= "4.0"
-      assert_match(/ActiveRecord::Migration.check_pending\!/m, contents)
-    else
-      refute_match(/ActiveRecord::Migration.check_pending\!/m, contents)
-    end
   end
 
   def test_install_generator_without_active_record
@@ -28,6 +23,5 @@ class TestInstallGenerator < GeneratorTest
     assert_match(/require "rails\/test_help"/m, contents)
     assert_match(/require "minitest\/rails"/m, contents)
     refute_match(/fixtures :all/m, contents)
-    refute_match(/ActiveRecord::Migration.check_pending\!/m, contents)
   end
 end

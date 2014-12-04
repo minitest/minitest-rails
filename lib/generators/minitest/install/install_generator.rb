@@ -3,7 +3,7 @@ require 'rails/generators'
 module Minitest
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
-      class_option :active_record, type: :boolean, default: true, desc: "Add ActiveRecord configuration"
+      class_option :skip_active_record, type: :boolean, default: false, desc: "Skip Active Record files"
 
       desc <<DESC
 Description:
@@ -17,11 +17,6 @@ DESC
       def copy_minitest_files
         template 'test_helper.rb', File.join("test", "test_helper.rb")
       end
-
-      def add_migration_check
-        ::Rails::VERSION::STRING >= "4.0"
-      end
-
     end
   end
 end
