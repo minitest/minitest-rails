@@ -84,9 +84,9 @@ if defined? ActionMailer
       desc < ActionMailer::Base if desc.is_a?(Class)
     end
     register_spec_type(/Mailer( ?Test)?\z/i, self)
-  register_spec_type(self) do |desc, *addl|
-    addl.include? :mailer
-  end
+    register_spec_type(self) do |desc, *addl|
+      addl.include? :mailer
+    end
 
     # Resolve the mailer from the test name when using the spec DSL
     def self.determine_default_mailer(name)
