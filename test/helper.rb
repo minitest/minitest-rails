@@ -9,6 +9,11 @@ require "active_record"
 require "action_controller"
 require "action_controller/railtie"
 
+begin
+  require "active_job"
+rescue LoadError
+end
+
 require "action_mailer"
 
 require "minitest-rails"
@@ -64,3 +69,9 @@ TestApp::Application.routes.draw do
 end
 
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
+
+if defined? ActiveJob
+  class UserInviteJob < ActiveJob::Base
+    def perform(arg = nil); end
+  end
+end

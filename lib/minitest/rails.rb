@@ -75,6 +75,19 @@ class ActionView::TestCase
   end
 end
 
+if defined? ActiveJob
+  class ActiveJob::TestCase
+    # Use AJ::TestCase for the base when describing a job
+    register_spec_type(self) do |desc|
+      desc < ActiveJob::Base if desc.is_a?(Class)
+    end
+    register_spec_type(/Job( ?Test)?\z/i, self)
+    register_spec_type(self) do |desc, *addl|
+      addl.include? :job
+    end
+  end
+end
+
 if defined? ActionMailer
   require "action_mailer/test_helper"
   require "action_mailer/test_case"
