@@ -528,6 +528,74 @@ class ActionController::TestCase
   # :method: refute_tag
   # :call-seq: refute_tag(*opts)
   alias :refute_tag :assert_no_tag
+
+  ##
+  # Simulate a GET request with the given parameters.
+  #
+  # - +action+: The controller action to call.
+  # - +params+: The hash with HTTP parameters that you want to pass. This may be
+  # +nil+.
+  # - +body+: The request body with a string that is appropriately encoded
+  #   (<tt>application/x-www-form-urlencoded</tt> or
+  #   <tt>multipart/form-data</tt>).
+  # - +session+: A hash of parameters to store in the session. This may be
+  # +nil+.
+  # - +flash+: A hash of parameters to store in the flash. This may be +nil+.
+  #
+  # You can also simulate POST, PATCH, PUT, DELETE, and HEAD requests with
+  # +post+, +patch+, +put+, +delete+, and +head+.
+  # Example sending parameters, session and setting a flash message:
+  #
+  #    get :show,
+  #      params: { id: 7 },
+  #      session: { user_id: 1 },
+  #      flash: { notice: 'This is a flash message' }
+  #
+  # Note that the request method is not verified. The different methods are
+  # available to make the tests more expressive.
+  #
+  # :method: get
+  # :call-seq: get(action, *args)
+
+  ##
+  # Simulate a POST request with the given parameters and set/volley the
+  # response.
+  # See +get+ for more details.
+  #
+  # :method: post
+  # :call-seq: post(action, *args)
+
+  ##
+  # Simulate a PATCH request with the given parameters and set/volley the
+  # response.
+  # See +get+ for more details.
+  #
+  # :method: patch
+  # :call-seq: patch(action, *args)
+
+  ##
+  # Simulate a PUT request with the given parameters and set/volley the
+  # response.
+  # See +get+ for more details.
+  #
+  # :method: put
+  # :call-seq: put(action, *args)
+
+  ##
+  # Simulate a DELETE request with the given parameters and set/volley the
+  # response.
+  # See +get+ for more details.
+  #
+  # :method: delete
+  # :call-seq: delete(action, *args)
+
+  ##
+  # Simulate a HEAD request with the given parameters and set/volley the
+  # response.
+  # See +get+ for more details.
+  #
+  # :method: head
+  # :call-seq: head(action, *args)
 end
 
 class ActionView::TestCase
