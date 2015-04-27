@@ -1,7 +1,10 @@
 require "test_helper"
 
 # Add the following to your Rake file to test routes by default:
-#   Minitest::Rails::Testing.default_tasks << "routes"
+#   Rails::TestTask.new("test:routes" => "test:prepare") do |t|
+#     t.pattern = "test/routes/**/*_test.rb"
+#   end
+#   Rake::Task["test:run"].enhance ["test:routes"]
 
 class RouteTest < ActionDispatch::IntegrationTest
   def test_root

@@ -10,7 +10,7 @@ describe <%= class_name %>Controller do
 <% actions.each do |action| -%>
   it "should get <%= action %>" do
     get :<%= action %>
-    assert_response :success
+    value(response).must_be :success?
   end
 
 <% end -%>

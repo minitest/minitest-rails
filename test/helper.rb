@@ -45,6 +45,7 @@ require "rails/test_help"
 
 module TestApp
   class Application < ::Rails::Application
+    config.active_support.test_order = :random
     config.secret_key_base = "abc123"
   end
 end
