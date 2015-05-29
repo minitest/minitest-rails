@@ -18,7 +18,7 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('<%= class_name %>.count') do
+    assert_difference("<%= class_name %>.count") do
       post :create, <%= "#{singular_table_name}: { #{attributes_hash} }" %>
     end
 
@@ -41,7 +41,7 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
   end
 
   def test_destroy
-    assert_difference('<%= class_name %>.count', -1) do
+    assert_difference("<%= class_name %>.count", -1) do
       delete :destroy, id: <%= singular_table_name %>
     end
 

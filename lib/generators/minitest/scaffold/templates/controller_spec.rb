@@ -16,9 +16,9 @@ describe <%= controller_class_name %>Controller do
   end
 
   it "creates <%= singular_table_name %>" do
-    assert_difference('<%= class_name %>.count') do
+    expect {
       post :create, <%= "#{singular_table_name}: { #{attributes_hash} }" %>
-    end
+    }.must_change "<%= class_name %>.count"
 
     must_redirect_to <%= singular_table_name %>_path(assigns(:<%= singular_table_name %>))
   end
@@ -39,9 +39,9 @@ describe <%= controller_class_name %>Controller do
   end
 
   it "destroys <%= singular_table_name %>" do
-    assert_difference('<%= class_name %>.count', -1) do
+    expect {
       delete :destroy, id: <%= singular_table_name %>
-    end
+    }.must_change "<%= class_name %>.count", -1
 
     must_redirect_to <%= index_helper %>_path
   end
