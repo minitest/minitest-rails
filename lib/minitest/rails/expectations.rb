@@ -9,10 +9,10 @@ module Minitest::Rails::Expectations
   ##
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
   #
-  #     lambda { User.create password: "valid" }.must_change "User.count"
-  #     lambda { 3.times do
-  #            User.create password: "valid"
-  #          end }.must_change "User.count", 3
+  #     value { User.create password: "valid" }.must_change "User.count"
+  #     value { 3.times do
+  #               User.create password: "valid"
+  #             end }.must_change "User.count", 3
   #
   # See also ActiveSupport::TestCase#assert_difference
   #
@@ -23,7 +23,7 @@ module Minitest::Rails::Expectations
   ##
   # Checks that the numeric result of evaluating an expression is not changed before and after invoking.
   #
-  #     lambda { User.new }.wont_change "User.count"
+  #     value { User.new }.wont_change "User.count"
   #
   # See also ActiveSupport::TestCase#refute_difference
   #
@@ -48,11 +48,11 @@ module Minitest::Rails::Expectations
   #
   #     # expect that the response was a redirection
   #     must_respond_with :redirect
-  #     response.must_respond_with :redirect
+  #     value(response).must_respond_with :redirect
   #
   #     # expect that the response code was status code 401 (unauthorized)
   #     must_respond_with 401
-  #     response.must_respond_with 401
+  #     value(response).must_respond_with 401
   #
   # See also ActionController::TestCase#assert_response
   # See also ActionView::TestCase#assert_response
@@ -130,16 +130,16 @@ module Minitest::Rails::Expectations
   # The +defaults+ parameter is unused.
   #
   #   # Expects that the default action is generated for a route with no action
-  #   {controller: "items", action: "index"}.must_route_from "/items"
+  #   value({controller: "items", action: "index"}).must_route_from "/items"
   #
   #   # Tests that the list action is properly routed
-  #   {controller: "items", action: "list"}.must_route_to "/items/list"
+  #   value({controller: "items", action: "list"}).must_route_to "/items/list"
   #
   #   # Tests the generation of a route with a parameter
-  #   { controller: "items", action: "list", id: "1" }.must_route_from "/items/list/1"
+  #   value({ controller: "items", action: "list", id: "1" }).must_route_from "/items/list/1"
   #
   #   # Expects that the generated route gives us our custom route
-  #   { controller: 'scm', action: 'show_diff', revision: "12" }.must_route_from "changesets/12"
+  #   value({ controller: 'scm', action: 'show_diff', revision: "12" }).must_route_from "changesets/12"
   #
   # See also ActionController::TestCase#assert_generates
   # See also ActionView::TestCase#assert_generates
@@ -165,21 +165,21 @@ module Minitest::Rails::Expectations
   # extras argument, appending the query string on the path directly will not work. For example:
   #
   #   # Expect that a path of '/items/list/1?view=print' returns the correct options
-  #   'items/list/1'.must_route_from({controller: 'items', action: 'list', id: '1', view: 'print'}, { view: "print" })
+  #   value('items/list/1').must_route_from({controller: 'items', action: 'list', id: '1', view: 'print'}, { view: "print" })
   #
   # The +message+ parameter allows you to pass in an error message that is displayed upon failure.
   #
   #   # Check the default route (i.e., the index action)
-  #   'items'.must_route_from({controller: 'items', action: 'index'})
+  #   value('items').must_route_from({controller: 'items', action: 'index'})
   #
   #   # Test a specific action
-  #   'items/list'.must_route_from({controller: 'items', action: 'list'})
+  #   value('items/list').must_route_from({controller: 'items', action: 'list'})
   #
   #   # Test an action with a parameter
-  #   'items/destroy/1'.must_route_from({controller: 'items', action: 'destroy', id: '1'})
+  #   value('items/destroy/1').must_route_from({controller: 'items', action: 'destroy', id: '1'})
   #
   #   # Test a custom route
-  #   'view/item1'.must_route_from({controller: 'items', action: 'show', id: '1'})
+  #   value('view/item1').must_route_from({controller: 'items', action: 'show', id: '1'})
   #
   # See also ActionController::TestCase#assert_recognizes
   # See also ActionView::TestCase#assert_recognizes
@@ -198,19 +198,19 @@ module Minitest::Rails::Expectations
   # +message+ parameter allows you to specify a custom error message to display upon failure.
   #
   #  # Expect a basic route: a controller with the default action (index)
-  #  { controller: 'home', action: 'index' }.must_route_for '/home'
+  #  value({ controller: 'home', action: 'index' }).must_route_for '/home'
   #
   #  # Test a route generated with a specific controller, action, and parameter (id)
-  #  { controller: 'entries', action: 'show', id: 23 }.must_route_for '/entries/show/23'
+  #  value({ controller: 'entries', action: 'show', id: 23 }).must_route_for '/entries/show/23'
   #
   #  # Expect a basic route (controller + default action), with an error message if it fails
-  #  { controller: 'store', action: 'index' }.must_route_for '/store'
+  #  value({ controller: 'store', action: 'index' }).must_route_for '/store'
   #
   #  # Tests a route, providing a defaults hash
-  #  {id: "9", item: "square"}.must_route_for 'controller/action/9', {controller: "controller", action: "action"}, {}, {item: "square"}
+  #  value({id: "9", item: "square"}).must_route_for 'controller/action/9', {controller: "controller", action: "action"}, {}, {item: "square"}
   #
   #  # Tests a route with a HTTP method
-  #  { controller: "product", action: "update", id: "321" }.must_route_for({ method: 'put', path: '/product/321' })
+  #  value({ controller: "product", action: "update", id: "321" }).must_route_for({ method: 'put', path: '/product/321' })
   #
   # See also ActionController::TestCase#assert_routing
   # See also ActionView::TestCase#assert_routing
@@ -383,7 +383,7 @@ module Minitest::Rails::Expectations
   # Checks the numeric difference between the return value of an expression as a result of what is evaluated.
   #
   #     apple_link = '<a href="http://www.example.com">Apples</a>'
-  #     link_to("Apples", "http://www.example.com").must_dom_equal apple_link
+  #     value(link_to("Apples", "http://www.example.com")).must_dom_equal apple_link
   #
   # See also ActionController::TestCase#assert_dom_equal
   # See also ActionView::TestCase#assert_dom_equal

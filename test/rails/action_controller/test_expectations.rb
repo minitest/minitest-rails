@@ -6,6 +6,7 @@ class TestActionControllerExpectations < ActionController::TestCase
   def test_must_respond_with
     get :index
     must_respond_with :success
+    value(response).must_be :success?
   end
 
   def test_must_redirect_to
@@ -21,9 +22,9 @@ class TestActionControllerExpectations < ActionController::TestCase
   def test_routing_expectations
     params = { :controller => "models", :action => "index" }
     path = "/models"
-    params.must_route_to path
-    path.must_route_from params
-    params.must_route_for path
+    value(params).must_route_to path
+    value(path).must_route_from params
+    value(params).must_route_for path
   end
 
   def test_must_dom_equal
@@ -31,8 +32,8 @@ class TestActionControllerExpectations < ActionController::TestCase
     apple_link2 = '<a target="_blank" href="http://www.example.com">Apples</a>'
     orange_link = '<a href="http://www.example.com">Oranges</a>'
 
-    apple_link.must_dom_equal apple_link2
-    apple_link.wont_dom_equal orange_link
+    value(apple_link).must_dom_equal apple_link2
+    value(apple_link).wont_dom_equal orange_link
   end
 
   def test_must_select

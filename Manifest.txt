@@ -25,6 +25,9 @@ lib/generators/minitest/install/templates/test_helper.rb
 lib/generators/minitest/integration/integration_generator.rb
 lib/generators/minitest/integration/templates/integration_spec.rb
 lib/generators/minitest/integration/templates/integration_test.rb
+lib/generators/minitest/job/job_generator.rb
+lib/generators/minitest/job/templates/job_spec.rb
+lib/generators/minitest/job/templates/job_test.rb
 lib/generators/minitest/mailer/mailer_generator.rb
 lib/generators/minitest/mailer/templates/mailer_spec.rb
 lib/generators/minitest/mailer/templates/mailer_test.rb
@@ -52,6 +55,7 @@ test/generators/test_controller_generator.rb
 test/generators/test_generator_generator.rb
 test/generators/test_helper_generator.rb
 test/generators/test_install_generator.rb
+test/generators/test_job_generator.rb
 test/generators/test_mailer_generator.rb
 test/generators/test_model_generator.rb
 test/generators/test_route_generator.rb
@@ -66,6 +70,9 @@ test/rails/action_mailer/test_mailers.rb
 test/rails/action_mailer/test_spec_type.rb
 test/rails/action_view/test_helpers.rb
 test/rails/action_view/test_spec_type.rb
+test/rails/active_job/test_assertions.rb
+test/rails/active_job/test_expectations.rb
+test/rails/active_job/test_spec_type.rb
 test/rails/active_support/test_assertions.rb
 test/rails/active_support/test_expectations.rb
 test/rails/active_support/test_spec_type.rb
