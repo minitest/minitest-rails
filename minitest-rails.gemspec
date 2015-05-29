@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
-# stub: minitest-rails 2.1.1.20150529092342 ruby lib
+# stub: minitest-rails 2.2.0.20150529121029 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "minitest-rails"
-  s.version = "2.1.1.20150529092342"
+  s.version = "2.2.0.20150529121029"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]

@@ -1,3 +1,12 @@
+=== 2.2.0 / 2015-05-29
+
+* Update to Minitest 5.7
+* Use Value Monad for Expectations
+* Active Job support (liseki)
+* Documentation improvements (WendyBeth)
+
+https://github.com/blowmage/minitest-rails/compare/v2.1.1...v2.2.0
+
 === 2.1.1 / 2014-10-28
 
 * Fix scaffold generator to use accessor instead of ivar (isaacsloan)
