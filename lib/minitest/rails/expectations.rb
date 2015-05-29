@@ -18,7 +18,7 @@ module Minitest::Rails::Expectations
   #
   # :method: must_change
   # :args: expression, difference = 1, message = nil
-  infect_an_assertion :assert_difference, :must_change
+  infect_an_assertion :assert_difference, :must_change, :block
 
   ##
   # Checks that the numeric result of evaluating an expression is not changed before and after invoking.
@@ -29,7 +29,7 @@ module Minitest::Rails::Expectations
   #
   # :method: wont_change
   # :args: expression, message = nil
-  infect_an_assertion :refute_difference, :wont_change
+  infect_an_assertion :refute_difference, :wont_change, :block
 
   ##############################################################################
   # ActionController/ActionView/ActionDispatch Expectations
