@@ -1,5 +1,5 @@
 # Read about fixtures at
-# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 <% unless attributes.empty? -%>
 one:
