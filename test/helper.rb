@@ -54,7 +54,8 @@ TestApp::Application.initialize!
 
 class ApplicationController < ActionController::Base; end
 class ModelsController < ApplicationController
-  def index; render :text => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>"; end
+  def index; render :html => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>".html_safe; end
+  def show; index; end
   def new; redirect_to "/models"; end
 end
 module Admin

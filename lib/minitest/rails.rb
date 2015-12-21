@@ -9,6 +9,15 @@ require "minitest/autorun" unless ENV["MT_RAILS_NO_AUTORUN"]
 # Add and configure the spec DSL
 ################################################################################
 
+module Minitest
+  module Rails
+    def self.has_template_assertion?
+      ::Rails::VERSION::MAJOR < 5 ||
+        defined?(Rails::Controller::Testing::TemplateAssertions)
+    end
+  end
+end
+
 require "active_support/test_case"
 require "minitest/rails/constant_lookup"
 class ActiveSupport::TestCase

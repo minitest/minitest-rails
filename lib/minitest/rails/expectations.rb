@@ -719,7 +719,10 @@ unless ENV["MT_NO_EXPECTATIONS"]
   class ActionController::TestCase # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_render_template :assert_template
+
+    if Minitest::Rails.has_template_assertion?
+      alias :must_render_template :assert_template
+    end
     alias :must_have_tag :assert_tag
     alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select
@@ -742,7 +745,9 @@ unless ENV["MT_NO_EXPECTATIONS"]
   class ActionDispatch::IntegrationTest # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_render_template :assert_template
+    if Minitest::Rails.has_template_assertion?
+      alias :must_render_template :assert_template
+    end
     alias :must_have_tag :assert_tag
     alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select

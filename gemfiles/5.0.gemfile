@@ -1,5 +1,7 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
-gem "rails", github: "rails/rails"
+gemspec path: Dir.pwd
+
+gem "rails", "~> 5.0.beta"
 gem "sqlite3"
 gem "rake"
