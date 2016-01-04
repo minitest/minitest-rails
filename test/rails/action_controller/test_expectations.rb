@@ -14,17 +14,19 @@ class TestActionControllerExpectations < ActionController::TestCase
     must_redirect_to :models
   end
 
-  def test_must_render_template
-    get :index
-    must_render_template :layout => false
+  if Minitest::Rails.has_template_assertion?
+    def test_must_render_template
+      get :index
+      must_render_template :layout => false
+    end
   end
 
   def test_routing_expectations
     params = { :controller => "models", :action => "index" }
     path = "/models"
-    value(params).must_route_to path
-    value(path).must_route_from params
-    value(params).must_route_for path
+    value(params.dup).must_route_to path
+    value(path).must_route_from params.dup
+    value(params.dup).must_route_for path
   end
 
   def test_must_dom_equal

@@ -13,14 +13,22 @@ class TestActionControllerAssertions < ActionController::TestCase
     assert_redirected_to :models
   end
 
-  def test_assert_template
-    get :index
-    assert_template :layout => false
+  if Minitest::Rails.has_template_assertion?
+    def test_assert_template
+      get :index
+      assert_template :layout => false
+    end
   end
 
   def test_routing_assertions
     params = { :controller => "models", :action => "index" }
     path = "/models"
+    assert_generates path, params.dup
+    assert_recognizes params.dup, path
+    assert_routing path, params.dup
+
+    params = { :controller => "models", :action => "show", :id => "1" }
+    path = "/models/1"
     assert_generates path, params
     assert_recognizes params, path
     assert_routing path, params
