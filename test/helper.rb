@@ -14,6 +14,11 @@ begin
 rescue LoadError
 end
 
+begin
+  require 'rails-controller-testing'
+rescue LoadError
+end
+
 require "action_mailer"
 
 require "minitest-rails"
@@ -54,7 +59,7 @@ TestApp::Application.initialize!
 
 class ApplicationController < ActionController::Base; end
 class ModelsController < ApplicationController
-  def index; render :text => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>"; end
+  def index; render (Rails::VERSION::MAJOR < 5 ? :text : :plain) => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>"; end
   def new; redirect_to "/models"; end
 end
 module Admin
