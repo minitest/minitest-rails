@@ -635,9 +635,6 @@ class ActionView::TestCase
   # :args: expression, message = nil, &block
   alias :refute_difference :assert_no_difference
 
-end
-
-class ActionController::TestCase
   # Asserts that the response is one of the following types:
   #
   # * <tt>:success</tt>   - Status code was in the 200-299 range
@@ -1167,9 +1164,6 @@ class ActionDispatch::IntegrationTest
   # :args: expression, message = nil, &block
   alias :refute_difference :assert_no_difference
 
-end
-
-class ActionController::TestCase
   # Asserts that the response is one of the following types:
   #
   # * <tt>:success</tt>   - Status code was in the 200-299 range
