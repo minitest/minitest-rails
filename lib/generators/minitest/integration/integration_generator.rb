@@ -11,8 +11,7 @@ module Minitest
         else
           template_file = "integration_test.rb"
         end
-        template template_file,
-                 File.join("test/integration", class_path, "#{file_name}_test.rb")
+        template template_file, File.join("test/integration", class_path, "#{file_name}_test.rb")
       end
     end
   end

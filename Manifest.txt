@@ -7,8 +7,8 @@ LICENSE
 Manifest.txt
 README.rdoc
 Rakefile
-gemfiles/4.1.gemfile
-gemfiles/4.2.gemfile
+gemfiles/5.0.gemfile
+gemfiles/head.gemfile
 lib/generators/.document
 lib/generators/minitest.rb
 lib/generators/minitest/controller/controller_generator.rb
@@ -18,8 +18,6 @@ lib/generators/minitest/generator/generator_generator.rb
 lib/generators/minitest/generator/templates/generator_spec.rb
 lib/generators/minitest/generator/templates/generator_test.rb
 lib/generators/minitest/helper/helper_generator.rb
-lib/generators/minitest/helper/templates/helper_spec.rb
-lib/generators/minitest/helper/templates/helper_test.rb
 lib/generators/minitest/install/install_generator.rb
 lib/generators/minitest/install/templates/test_helper.rb
 lib/generators/minitest/integration/integration_generator.rb
@@ -36,10 +34,9 @@ lib/generators/minitest/model/model_generator.rb
 lib/generators/minitest/model/templates/fixtures.yml
 lib/generators/minitest/model/templates/model_spec.rb
 lib/generators/minitest/model/templates/model_test.rb
-lib/generators/minitest/route/route_generator.rb
-lib/generators/minitest/route/templates/route_spec.rb
-lib/generators/minitest/route/templates/route_test.rb
 lib/generators/minitest/scaffold/scaffold_generator.rb
+lib/generators/minitest/scaffold/templates/api_controller_spec.rb
+lib/generators/minitest/scaffold/templates/api_controller_test.rb
 lib/generators/minitest/scaffold/templates/controller_spec.rb
 lib/generators/minitest/scaffold/templates/controller_test.rb
 lib/minitest-rails.rb
@@ -58,13 +55,10 @@ test/generators/test_install_generator.rb
 test/generators/test_job_generator.rb
 test/generators/test_mailer_generator.rb
 test/generators/test_model_generator.rb
-test/generators/test_route_generator.rb
 test/generators/test_scaffold_generator.rb
 test/helper.rb
-test/rails/action_controller/test_assertions.rb
-test/rails/action_controller/test_controllers.rb
-test/rails/action_controller/test_expectations.rb
-test/rails/action_controller/test_spec_type.rb
+test/rails/action_dispatch/test_assertions.rb
+test/rails/action_dispatch/test_expectations.rb
 test/rails/action_dispatch/test_spec_type.rb
 test/rails/action_mailer/test_mailers.rb
 test/rails/action_mailer/test_spec_type.rb
@@ -77,6 +71,5 @@ test/rails/active_support/test_assertions.rb
 test/rails/active_support/test_expectations.rb
 test/rails/active_support/test_spec_type.rb
 test/rails/generators/test_spec_type.rb
-test/rails/minitest_5_api_test.rb
 test/rails/test_constant_lookup.rb
 test/test_sanity.rb

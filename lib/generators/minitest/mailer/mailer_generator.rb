@@ -6,7 +6,7 @@ module Minitest
       argument :actions, type: :array, default: [], banner: "method method"
 
       def check_class_collision
-        class_collisions "#{class_name}Test", "#{class_name}Preview"
+        class_collisions "#{class_name}MailerTest", "#{class_name}MailerPreview"
       end
 
       def create_test_files
@@ -15,12 +15,17 @@ module Minitest
         else
           template_file = "mailer_test.rb"
         end
-        template template_file,
-                 File.join("test/mailers", class_path, "#{file_name}_test.rb")
+        template template_file, File.join("test/mailers", class_path, "#{file_name}_mailer_test.rb")
       end
 
       def create_preview_files
-        template "preview.rb", File.join("test/mailers/previews", class_path, "#{file_name}_preview.rb")
+        template "preview.rb", File.join("test/mailers/previews", class_path, "#{file_name}_mailer_preview.rb")
+      end
+
+      protected
+
+      def file_name
+        @_file_name ||= super.gsub(/_mailer/i, "")
       end
     end
   end

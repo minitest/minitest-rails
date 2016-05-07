@@ -33,7 +33,7 @@ class CrazySymbolHelperTest < ActionView::TestCase
   def test_set_helper_class_using_symbol
     assert_equal PeopleHelper, self.class.helper_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 class CrazyStringHelperTest < ActionView::TestCase
   tests 'people'
@@ -41,7 +41,7 @@ class CrazyStringHelperTest < ActionView::TestCase
   def test_set_helper_class_using_string
     assert_equal PeopleHelper, self.class.helper_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 # New tests...
 describe PeopleHelper do

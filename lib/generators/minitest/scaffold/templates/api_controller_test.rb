@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 <% module_namespacing do -%>
 class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTest
@@ -15,17 +15,12 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
     assert_response :success
   end
 
-  def test_new
-    get <%= new_helper %>
-    assert_response :success
-  end
-
   def test_create
-    assert_difference "<%= class_name %>.count" do
+    assert_difference('<%= class_name %>.count') do
       post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_hash} }" %> }
     end
 
-    assert_redirected_to <%= singular_table_name %>_path(<%= class_name %>.last)
+    assert_response 201
   end
 
   def test_show
@@ -33,22 +28,17 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
     assert_response :success
   end
 
-  def test_edit
-    get <%= edit_helper %>
-    assert_response :success
-  end
-
   def test_update
     patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_hash} }" %> }
-    assert_redirected_to <%= singular_table_name %>_path(<%= "#{singular_table_name}" %>)
+    assert_response 200
   end
 
   def test_destroy
-    assert_difference "<%= class_name %>.count", -1  do
+    assert_difference('<%= class_name %>.count', -1) do
       delete <%= show_helper %>
     end
 
-    assert_redirected_to <%= index_helper %>_path
+    assert_response 204
   end
 end
 <% end -%>

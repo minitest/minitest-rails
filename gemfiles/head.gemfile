@@ -1,0 +1,5 @@
+source "http://rubygems.org" do
+  gem "rails", github: "rails/rails"
+  gem "sqlite3"
+  gem "rake"
+end

@@ -14,8 +14,7 @@ module Minitest
         else
           template_file = "generator_test.rb"
         end
-        template template_file,
-                 File.join("test/lib/generators", class_path, "#{file_name}_generator_test.rb")
+        template template_file, File.join("test/lib/generators", class_path, "#{file_name}_generator_test.rb")
       end
 
       protected

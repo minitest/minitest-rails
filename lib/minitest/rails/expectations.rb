@@ -54,7 +54,6 @@ module Minitest::Rails::Expectations
   #     must_respond_with 401
   #     value(response).must_respond_with 401
   #
-  # See also ActionController::TestCase#assert_response
   # See also ActionView::TestCase#assert_response
   # See also ActionDispatch::IntegrationTest#assert_response
   #
@@ -78,49 +77,11 @@ module Minitest::Rails::Expectations
   #     # expect that the redirection matches the regular expression
   #     must_redirect_to %r(\Ahttp://example.org)
   #
-  # See also ActionController::TestCase#assert_redirected_to
   # See also ActionView::TestCase#assert_redirected_to
   # See also ActionDispatch::IntegrationTest#assert_redirected_to
   #
   # :method: must_redirect_to
   # :call-seq: must_redirect_to(options = {}, message=nil)
-
-  ##
-  # Expects that the request was rendered with the appropriate template file or partials.
-  #
-  #     # expect that the "new" view template was rendered
-  #     must_render_template "new"
-  #
-  #     # expect that the exact template "admin/posts/new" was rendered
-  #     must_render_template %r{\Aadmin/posts/new\Z}
-  #
-  #     # expect that the layout 'admin' was rendered
-  #     must_render_template layout: 'admin'
-  #     must_render_template layout: 'layouts/admin'
-  #     must_render_template layout: :admin
-  #
-  #     # expect that no layout was rendered
-  #     must_render_template layout: nil
-  #     must_render_template layout: false
-  #
-  #     # expect that the "_customer" partial was rendered twice
-  #     must_render_template partial: '_customer', count: 2
-  #
-  #     # expect that no partials were rendered
-  #     must_render_template partial: false
-  #
-  # In a view test case, you can also expect that specific locals are passed
-  # to partials:
-  #
-  #     # expect that the "_customer" partial was rendered with a specific object
-  #     must_render_template partial: '_customer', locals: { customer: @customer }
-  #
-  # See also ActionController::TestCase#assert_template
-  # See also ActionView::TestCase#assert_template
-  # See also ActionDispatch::IntegrationTest#assert_template
-  #
-  # :method: must_render_template
-  # :call-seq: must_render_template(options = {}, message = nil)
 
   ##
   # Expects that the provided options can be used to generate the provided path. This is the inverse of +assert_recognizes+.
@@ -141,7 +102,6 @@ module Minitest::Rails::Expectations
   #   # Expects that the generated route gives us our custom route
   #   value({ controller: 'scm', action: 'show_diff', revision: "12" }).must_route_from "changesets/12"
   #
-  # See also ActionController::TestCase#assert_generates
   # See also ActionView::TestCase#assert_generates
   # See also ActionDispatch::IntegrationTest#assert_generates
   #
@@ -181,7 +141,6 @@ module Minitest::Rails::Expectations
   #   # Test a custom route
   #   value('view/item1').must_route_from({controller: 'items', action: 'show', id: '1'})
   #
-  # See also ActionController::TestCase#assert_recognizes
   # See also ActionView::TestCase#assert_recognizes
   # See also ActionDispatch::IntegrationTest#assert_recognizes
   #
@@ -212,7 +171,6 @@ module Minitest::Rails::Expectations
   #  # Tests a route with a HTTP method
   #  value({ controller: "product", action: "update", id: "321" }).must_route_for({ method: 'put', path: '/product/321' })
   #
-  # See also ActionController::TestCase#assert_routing
   # See also ActionView::TestCase#assert_routing
   # See also ActionDispatch::IntegrationTest#assert_routing
   #
@@ -308,7 +266,6 @@ module Minitest::Rails::Expectations
   #     must_select "[name=?]", /.+/  # Not empty
   #   end
   #
-  # See also ActionController::TestCase#assert_select
   # See also ActionView::TestCase#assert_select
   # See also ActionDispatch::IntegrationTest#assert_select
   #
@@ -331,7 +288,6 @@ module Minitest::Rails::Expectations
   #    end
   #  end
   #
-  # See also ActionController::TestCase#assert_select_email
   # See also ActionView::TestCase#assert_select_email
   # See also ActionDispatch::IntegrationTest#assert_select_email
   #
@@ -371,7 +327,6 @@ module Minitest::Rails::Expectations
   #     end
   #   end
   #
-  # See also ActionController::TestCase#assert_select_encoded
   # See also ActionView::TestCase#assert_select_encoded
   # See also ActionDispatch::IntegrationTest#assert_select_encoded
   #
@@ -385,7 +340,6 @@ module Minitest::Rails::Expectations
   #     apple_link = '<a href="http://www.example.com">Apples</a>'
   #     value(link_to("Apples", "http://www.example.com")).must_dom_equal apple_link
   #
-  # See also ActionController::TestCase#assert_dom_equal
   # See also ActionView::TestCase#assert_dom_equal
   # See also ActionDispatch::IntegrationTest#assert_dom_equal
   #
@@ -399,10 +353,8 @@ module Minitest::Rails::Expectations
   #     orange_link = '<a href="http://www.example.com">Oranges</a>'
   #     link_to("Apples", "http://www.example.com").wont_dom_equal orange_link
   #
-  # See also ActionController::TestCase#refute_dom_equal
   # See also ActionView::TestCase#refute_dom_equal
   # See also ActionDispatch::IntegrationTest#refute_dom_equal
-  # See also ActionController::TestCase#assert_dom_not_equal
   # See also ActionView::TestCase#assert_dom_not_equal
   # See also ActionDispatch::IntegrationTest#assert_dom_not_equal
   #
@@ -501,7 +453,6 @@ module Minitest::Rails::Expectations
   # that allow optional closing tags (p, li, td). <em>You must explicitly
   # close all of your tags to use these assertions.</em>
   #
-  # See also ActionController::TestCase#assert_tag
   # See also ActionView::TestCase#assert_tag
   # See also ActionDispatch::IntegrationTest#assert_tag
   #
@@ -523,10 +474,8 @@ module Minitest::Rails::Expectations
   #   wont_have_tag tag: "p",
   #              children: { count: 1..3, only: { tag: "img" } }
   #
-  # See also ActionController::TestCase#refute_tag
   # See also ActionView::TestCase#refute_tag
   # See also ActionDispatch::IntegrationTest#refute_tag
-  # See also ActionController::TestCase#assert_no_tag
   # See also ActionView::TestCase#assert_no_tag
   # See also ActionDispatch::IntegrationTest#assert_no_tag
   #
@@ -716,20 +665,9 @@ unless ENV["MT_NO_EXPECTATIONS"]
   end
   # Not real expectations, just aliases
   # The error messages don't get messed up this way
-  class ActionController::TestCase # :nodoc:
-    alias :must_respond_with :assert_response
-    alias :must_redirect_to :assert_redirected_to
-    alias :must_render_template :assert_template
-    alias :must_have_tag :assert_tag
-    alias :wont_have_tag :assert_no_tag
-    alias :must_select :assert_select
-    alias :must_select_email :assert_select_email
-    alias :must_select_encoded :assert_select_encoded
-  end
   class ActionView::TestCase # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_render_template :assert_template
     alias :must_have_tag :assert_tag
     alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select
@@ -742,7 +680,6 @@ unless ENV["MT_NO_EXPECTATIONS"]
   class ActionDispatch::IntegrationTest # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_render_template :assert_template
     alias :must_have_tag :assert_tag
     alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select

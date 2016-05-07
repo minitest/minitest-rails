@@ -7,13 +7,15 @@ notifications:
   email:
     - mike@blowmage.com
 rvm:
-  - 2.2
-  - 2.1
-  - 2.0
-  - 1.9.3
+  - 2.3.1
+  - 2.3.0
+  - 2.2.4
+  - 2.2.3
+  - 2.2.2
+  - head
 env:
-  - "RAILS_VERSION=4.1"
-  - "RAILS_VERSION=4.2"
+  - "RAILS_VERSION=5.0"
+  - "RAILS_VERSION=head"
 notifications:
   webhooks:
     urls:

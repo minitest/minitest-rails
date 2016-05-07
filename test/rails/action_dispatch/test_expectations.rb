@@ -1,22 +1,15 @@
 require "helper"
 
-class TestActionControllerExpectations < ActionController::TestCase
-  tests ModelsController
-
+class TestIntegrationExpectations < ActionDispatch::IntegrationTest
   def test_must_respond_with
-    get :index
+    get models_path
     must_respond_with :success
     value(response).must_be :success?
   end
 
   def test_must_redirect_to
-    get :new
+    get new_model_path
     must_redirect_to :models
-  end
-
-  def test_must_render_template
-    get :index
-    must_render_template :layout => false
   end
 
   def test_routing_expectations
@@ -37,7 +30,7 @@ class TestActionControllerExpectations < ActionController::TestCase
   end
 
   def test_must_select
-    get :index
+    get models_path
     must_select "body h1"
     must_select "body" do
       must_select "h1"

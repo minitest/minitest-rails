@@ -1,7 +1,7 @@
 require "test_helper"
 
 <% module_namespacing do -%>
-describe <%= class_name %> do
+describe <%= class_name %>Mailer do
 <% actions.each do |action| -%>
   it "<%= action %>" do
     mail = <%= class_name %>.<%= action %>
@@ -12,9 +12,9 @@ describe <%= class_name %> do
   end
 <% end -%>
 <% if actions.blank? -%>
-  it "must be a real test" do
-    flunk "Need real tests"
-  end
+  # it "must be a real test" do
+  #   flunk "Need real tests"
+  # end
 <% end -%>
 end
 <% end -%>

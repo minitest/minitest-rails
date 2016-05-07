@@ -19,9 +19,10 @@ Hoe.spec "minitest-rails" do
 
   license "MIT"
 
-  dependency "minitest", "~> 5.7"
-  dependency "railties", "~> 4.1"
-  dependency "fakefs",   "= 0.4.3", :dev
+  dependency "minitest",       "~> 5.8"
+  dependency "railties",       "~> 5.0.0.rc1"
+  dependency "fakefs",         "= 0.4.3", :dev
+  dependency "minitest-focus", "~> 1.1", :dev
 end
 
 Dir["tasks/**/*.rake"].each { |t| load t }

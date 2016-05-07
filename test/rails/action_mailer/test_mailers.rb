@@ -17,7 +17,7 @@ class CrazySymbolNameMailerTest < ActionMailer::TestCase
   def test_set_mailer_class_manual_using_symbol
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 class CrazyStringNameMailerTest < ActionMailer::TestCase
   tests 'test_test_mailer'
@@ -25,7 +25,7 @@ class CrazyStringNameMailerTest < ActionMailer::TestCase
   def test_set_mailer_class_manual_using_string
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 # New tests...
 describe TestTestMailer do
@@ -74,7 +74,7 @@ describe "AnotherCrazySymbolNameMailerTest" do
   it "gets the mailer after setting it with a symbol" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 describe "AnotherCrazyStringNameMailerTest" do
   tests 'test_test_mailer'
@@ -82,7 +82,7 @@ describe "AnotherCrazyStringNameMailerTest" do
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 describe "Another Crazy Name Mailer Test" do
   tests TestTestMailer
@@ -98,7 +98,7 @@ describe "Another Crazy Symbol Name Mailer Test" do
   it "gets the mailer after setting it with a symbol" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end
 
 describe "Another Crazy String Name Mailer Test" do
   tests 'test_test_mailer'
@@ -106,4 +106,4 @@ describe "Another Crazy String Name Mailer Test" do
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class
   end
-end if Rails::VERSION::STRING >= "3.2"
+end

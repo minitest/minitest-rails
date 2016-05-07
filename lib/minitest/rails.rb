@@ -1,9 +1,8 @@
 gem "minitest"
 require "minitest"
-require "minitest/test"
 require "minitest/spec"
 require "minitest/mock"
-require "minitest/autorun" unless ENV["MT_RAILS_NO_AUTORUN"]
+require "minitest/hell" if ENV["MT_HELL"]
 
 ################################################################################
 # Add and configure the spec DSL
@@ -37,34 +36,13 @@ class ActiveSupport::TestCase
   end
 end
 
-require "action_controller/test_case"
-class ActionController::TestCase
-  # Use AC::TestCase for the base class when describing a controller
-  register_spec_type(self) do |desc|
-    Class === desc && desc < ActionController::Metal
-  end
-  register_spec_type(/Controller( ?Test)?\z/i, self)
-  register_spec_type(self) do |desc, *addl|
-    addl.include? :controller
-  end
-
-  # Resolve the controller from the test name when using the spec DSL
-  def self.determine_default_controller_class(name)
-    controller = determine_constant_from_test_name(name) do |constant|
-      Class === constant && constant < ActionController::Metal
-    end
-    raise NameError.new("Unable to resolve controller for #{name}") if controller.nil?
-    controller
-  end
-end
-
 require "action_view/test_case"
 class ActionView::TestCase
   # Use AV::TestCase for the base class for helpers and views
   register_spec_type(/(Helper( ?Test)?| View Test)\z/i, self)
   register_spec_type(self) do |desc, *addl|
     addl.include?(:view) ||
-    addl.include?(:helper)
+      addl.include?(:helper)
   end
 
   # Resolve the helper or view from the test name when using the spec DSL
@@ -114,10 +92,15 @@ end
 
 require "action_dispatch/testing/integration"
 class ActionDispatch::IntegrationTest
-  # Register by name, consider Acceptance to be deprecated
-  register_spec_type(/(Integration|Acceptance)( ?Test)?\z/i, self)
+  # Use AD::IntegrationTest for the base class when describing a controller
+  register_spec_type(self) do |desc|
+    Class === desc && desc < ActionController::Metal
+  end
+  # Register by name, either Integration or Controller
+  register_spec_type(/(Integration|Controller)( ?Test)?\z/i, self)
   register_spec_type(self) do |desc, *addl|
-    addl.include? :integration
+    addl.include?(:integration) ||
+      addl.include?(:controller)
   end
 end
 

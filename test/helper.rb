@@ -20,6 +20,7 @@ require "minitest-rails"
 require "rails/test_help"
 require "minitest/rails"
 
+require "minitest/focus"
 require "fakefs/safe"
 
 class FakeFS::File
@@ -39,6 +40,20 @@ class GeneratorTest < Minitest::Test
     FakeFS::FileSystem.clear
     FakeFS.deactivate!
   end
+
+  def refute_output stdout = nil, stderr = nil
+    out, err = capture_io do
+      yield
+    end
+
+    err_msg = Regexp === stderr ? :refute_match : :refute_equal if stderr
+    out_msg = Regexp === stdout ? :refute_match : :refute_equal if stdout
+
+    y = send err_msg, stderr, err, "In stderr" if err_msg
+    x = send out_msg, stdout, out, "In stdout" if out_msg
+
+    (!stdout || x) && (!stderr || y)
+  end
 end
 
 require "rails/test_help"
@@ -54,7 +69,7 @@ TestApp::Application.initialize!
 
 class ApplicationController < ActionController::Base; end
 class ModelsController < ApplicationController
-  def index; render :text => "<html><head><title>Models</title></head><body><h1>All Models</h1></body></html>"; end
+  def index; render html: "<html><head><title>Models</title></head><body><h1>All <em>Models</em></h1></body></html>".html_safe; end
   def new; redirect_to "/models"; end
 end
 module Admin

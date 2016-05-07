@@ -1,21 +1,14 @@
 require "helper"
 
-class TestActionControllerAssertions < ActionController::TestCase
-  tests ModelsController
-
+class TestIntegrationAssertions < ActionDispatch::IntegrationTest
   def test_assert_response
-    get :index
+    get models_path
     assert_response :success
   end
 
   def test_assert_redirected_to
-    get :new
+    get new_model_path
     assert_redirected_to :models
-  end
-
-  def test_assert_template
-    get :index
-    assert_template :layout => false
   end
 
   def test_routing_assertions
@@ -37,7 +30,7 @@ class TestActionControllerAssertions < ActionController::TestCase
   end
 
   def test_assert_select
-    get :index
+    get models_path
     assert_select "body h1"
     assert_select "body" do
       assert_select "h1"

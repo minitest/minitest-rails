@@ -10,7 +10,7 @@ class TestScaffoldGenerator < GeneratorTest
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"
     assert_match(/class UsersControllerTest/m, contents)
-    assert_match(/post :create, user: { email: user.email, name: user.name }/m, contents)
+    assert_match(/post users_url, params: { user: { email: user.email, name: user.name } }/m, contents)
   end
 
   def test_scaffold_generator_spec
@@ -20,7 +20,7 @@ class TestScaffoldGenerator < GeneratorTest
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"
     assert_match(/describe UsersController do/m, contents)
-    assert_match(/post :create, user: { email: user.email, name: user.name }/m, contents)
+    assert_match(/post users_url, params: { user: { email: user.email, name: user.name } }/m, contents)
   end
 
 end

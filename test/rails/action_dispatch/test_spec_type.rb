@@ -1,5 +1,8 @@
 require "helper"
 
+class ApplicationController < ActionController::Base; end
+class ModelsController      < ApplicationController;  end
+
 class TestActionDispatchSpecType < Minitest::Test
   def assert_dispatch actual
     assert_equal ActionDispatch::IntegrationTest, actual
@@ -9,24 +12,9 @@ class TestActionDispatchSpecType < Minitest::Test
     refute_equal ActionDispatch::IntegrationTest, actual
   end
 
-  def test_spec_type_resolves_for_matching_acceptance_strings
-    assert_dispatch Minitest::Spec.spec_type("WidgetAcceptanceTest")
-    assert_dispatch Minitest::Spec.spec_type("Widget Acceptance Test")
-    assert_dispatch Minitest::Spec.spec_type("WidgetAcceptance")
-    assert_dispatch Minitest::Spec.spec_type("Widget Acceptance")
-    # And is not case sensitive
-    assert_dispatch Minitest::Spec.spec_type("widgetacceptancetest")
-    assert_dispatch Minitest::Spec.spec_type("widget acceptance test")
-    assert_dispatch Minitest::Spec.spec_type("widgetacceptance")
-    assert_dispatch Minitest::Spec.spec_type("widget acceptance")
-  end
-
-  def test_spec_type_wont_match_non_space_characters_acceptance
-    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\tTest")
-    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\rTest")
-    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\nTest")
-    refute_dispatch Minitest::Spec.spec_type("Widget Acceptance\fTest")
-    refute_dispatch Minitest::Spec.spec_type("Widget AcceptanceXTest")
+  def test_spec_type_resolves_for_class_constants
+    assert_dispatch Minitest::Spec.spec_type(ApplicationController)
+    assert_dispatch Minitest::Spec.spec_type(ModelsController)
   end
 
   def test_spec_type_resolves_for_matching_integration_strings
