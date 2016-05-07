@@ -1,6 +1,7 @@
 ---
 before_install:
   - gem update --system
+  - gem update bundler
   - gem --version
 language: ruby
 notifications:
