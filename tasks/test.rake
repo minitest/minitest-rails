@@ -18,5 +18,6 @@ namespace :test do
   desc "Run tests for all Rails versions"
   task "all" do
     sh "rake test:5.0"
+    sh "rake test:head"
   end
 end
