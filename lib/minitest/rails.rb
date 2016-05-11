@@ -5,6 +5,21 @@ require "minitest/mock"
 require "minitest/hell" if ENV["MT_HELL"]
 
 ################################################################################
+# Do we support old school controller tests?
+################################################################################
+
+module Minitest
+  module Rails
+    def self.controller_tests?
+      require "rails-controller-testing"
+      return true
+    rescue LoadError
+      return false
+    end
+  end
+end
+
+################################################################################
 # Add and configure the spec DSL
 ################################################################################
 
@@ -33,6 +48,30 @@ class ActiveSupport::TestCase
   end
   register_spec_type(self) do |desc, *addl|
     addl.include? :model
+  end
+end
+
+if Minitest::Rails.controller_tests?
+  require "action_controller/test_case"
+  require "minitest/rails/controller"
+  class ActionController::TestCase
+    # Use AC::TestCase for the base class when describing a controller
+    register_spec_type(self) do |desc|
+      Class === desc && desc < ActionController::Metal
+    end
+    register_spec_type(/Controller( ?Test)?\z/i, self)
+    register_spec_type(self) do |desc, *addl|
+      addl.include? :controller
+    end
+
+    # Resolve the controller from the test name when using the spec DSL
+    def self.determine_default_controller_class(name)
+      controller = determine_constant_from_test_name(name) do |constant|
+        Class === constant && constant < ActionController::Metal
+      end
+      raise NameError.new("Unable to resolve controller for #{name}") if controller.nil?
+      controller
+    end
   end
 end
 
@@ -92,15 +131,23 @@ end
 
 require "action_dispatch/testing/integration"
 class ActionDispatch::IntegrationTest
-  # Use AD::IntegrationTest for the base class when describing a controller
-  register_spec_type(self) do |desc|
-    Class === desc && desc < ActionController::Metal
-  end
-  # Register by name, either Integration or Controller
-  register_spec_type(/(Integration|Controller)( ?Test)?\z/i, self)
-  register_spec_type(self) do |desc, *addl|
-    addl.include?(:integration) ||
-      addl.include?(:controller)
+  if Minitest::Rails.controller_tests?
+    # Register by Integration name only
+    register_spec_type(/Integration( ?Test)?\z/i, self)
+    register_spec_type(self) do |desc, *addl|
+      addl.include? :integration
+    end
+  else
+    # Use AD::IntegrationTest for the base class when describing a controller
+    register_spec_type(self) do |desc|
+      Class === desc && desc < ActionController::Metal
+    end
+    # Register by name, either Integration or Controller
+    register_spec_type(/(Integration|Controller)( ?Test)?\z/i, self)
+    register_spec_type(self) do |desc, *addl|
+      addl.include?(:integration) ||
+        addl.include?(:controller)
+    end
   end
 end
 
