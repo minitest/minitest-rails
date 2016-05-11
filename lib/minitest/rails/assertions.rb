@@ -119,41 +119,6 @@ class ActionView::TestCase
   # :call-seq: assert_redirected_to(options = {}, message=nil)
 
   ##
-  # Asserts that the request was rendered with the appropriate template file or partials.
-  #
-  #     # assert that the "new" view template was rendered
-  #     assert_template "new"
-  #
-  #     # assert that the exact template "admin/posts/new" was rendered
-  #     assert_template %r{\Aadmin/posts/new\Z}
-  #
-  #     # assert that the layout 'admin' was rendered
-  #     assert_template layout: 'admin'
-  #     assert_template layout: 'layouts/admin'
-  #     assert_template layout: :admin
-  #
-  #     # assert that no layout was rendered
-  #     assert_template layout: nil
-  #     assert_template layout: false
-  #
-  #     # assert that the "_customer" partial was rendered twice
-  #     assert_template partial: '_customer', count: 2
-  #
-  #     # assert that no partials were rendered
-  #     assert_template partial: false
-  #
-  # In a view test case, you can also assert that specific locals are passed
-  # to partials:
-  #
-  #     # assert that the "_customer" partial was rendered with a specific object
-  #     assert_template partial: '_customer', locals: { customer: @customer }
-  #
-  # See also Minitest::Rails::Expectations#must_render_template
-  #
-  # :method: assert_template
-  # :call-seq: assert_template(options = {}, message = nil)
-
-  ##
   # Asserts that the provided options can be used to generate the provided path. This is the inverse of +assert_recognizes+.
   # The +extras+ parameter is used to tell the request the names and values of additional request parameters that would be in
   # a query string. The +message+ parameter allows you to specify a custom error message for assertion failures.
@@ -646,41 +611,6 @@ class ActionDispatch::IntegrationTest
   #
   # :method: assert_redirected_to
   # :call-seq: assert_redirected_to(options = {}, message=nil)
-
-  ##
-  # Asserts that the request was rendered with the appropriate template file or partials.
-  #
-  #     # assert that the "new" view template was rendered
-  #     assert_template "new"
-  #
-  #     # assert that the exact template "admin/posts/new" was rendered
-  #     assert_template %r{\Aadmin/posts/new\Z}
-  #
-  #     # assert that the layout 'admin' was rendered
-  #     assert_template layout: 'admin'
-  #     assert_template layout: 'layouts/admin'
-  #     assert_template layout: :admin
-  #
-  #     # assert that no layout was rendered
-  #     assert_template layout: nil
-  #     assert_template layout: false
-  #
-  #     # assert that the "_customer" partial was rendered twice
-  #     assert_template partial: '_customer', count: 2
-  #
-  #     # assert that no partials were rendered
-  #     assert_template partial: false
-  #
-  # In a view test case, you can also assert that specific locals are passed
-  # to partials:
-  #
-  #     # assert that the "_customer" partial was rendered with a specific object
-  #     assert_template partial: '_customer', locals: { customer: @customer }
-  #
-  # See also Minitest::Rails::Expectations#must_render_template
-  #
-  # :method: assert_template
-  # :call-seq: assert_template(options = {}, message = nil)
 
   ##
   # Asserts that the provided options can be used to generate the provided path. This is the inverse of +assert_recognizes+.
