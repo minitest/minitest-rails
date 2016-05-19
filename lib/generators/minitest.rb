@@ -3,7 +3,7 @@ require 'rails/generators/named_base'
 module Minitest
   module Generators
     class Base < ::Rails::Generators::NamedBase #:nodoc:
-      class_option :spec, type: :boolean, default: false,
+      class_option :spec, type: :boolean, default: true,
                           desc: "Use Minitest::Spec DSL"
 
       def self.default_source_root

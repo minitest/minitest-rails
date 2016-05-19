@@ -5,7 +5,7 @@ class TestGeneratorGenerator < GeneratorTest
 
   def test_generator_generator
     assert_output(/create  test\/lib\/generators\/awesome_generator_test.rb/m) do
-      Minitest::Generators::GeneratorGenerator.start ["awesome"]
+      Minitest::Generators::GeneratorGenerator.start ["awesome", "--no-spec"]
     end
     assert File.exists? "test/lib/generators/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/awesome_generator_test.rb"
@@ -14,7 +14,7 @@ class TestGeneratorGenerator < GeneratorTest
 
   def test_namespaced_generator_generator
     assert_output(/create  test\/lib\/generators\/rails\/awesome_generator_test.rb/m) do
-      Minitest::Generators::GeneratorGenerator.start ["rails/awesome"]
+      Minitest::Generators::GeneratorGenerator.start ["rails/awesome", "--no-spec"]
     end
     assert File.exists? "test/lib/generators/rails/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/rails/awesome_generator_test.rb"
@@ -26,7 +26,7 @@ class TestGeneratorGenerator < GeneratorTest
     Rails::Generators.namespace = TestApp
 
     assert_output(/create  test\/lib\/generators\/test_app\/awesome_generator_test.rb/m) do
-      Minitest::Generators::GeneratorGenerator.start ["awesome"]
+      Minitest::Generators::GeneratorGenerator.start ["awesome", "--no-spec"]
     end
     assert File.exists? "test/lib/generators/test_app/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/test_app/awesome_generator_test.rb"
@@ -39,7 +39,7 @@ class TestGeneratorGenerator < GeneratorTest
 
   def test_generator_generator_spec
     assert_output(/create  test\/lib\/generators\/awesome_generator_test.rb/m) do
-      Minitest::Generators::GeneratorGenerator.start ["awesome", "--spec"]
+      Minitest::Generators::GeneratorGenerator.start ["awesome"]
     end
     assert File.exists? "test/lib/generators/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/awesome_generator_test.rb"
@@ -48,7 +48,7 @@ class TestGeneratorGenerator < GeneratorTest
 
   def test_namespaced_generator_generator_spec
     assert_output(/create  test\/lib\/generators\/rails\/awesome_generator_test.rb/m) do
-      Minitest::Generators::GeneratorGenerator.start ["rails/awesome", "--spec"]
+      Minitest::Generators::GeneratorGenerator.start ["rails/awesome"]
     end
     assert File.exists? "test/lib/generators/rails/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/rails/awesome_generator_test.rb"

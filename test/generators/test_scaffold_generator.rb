@@ -5,7 +5,7 @@ class TestScaffoldGenerator < GeneratorTest
 
   def test_scaffold_generator
     assert_output(/create  test\/controllers\/users_controller_test.rb/m) do
-      Minitest::Generators::ScaffoldGenerator.start ["User", "name:string", "email:string"]
+      Minitest::Generators::ScaffoldGenerator.start ["User", "name:string", "email:string", "--no-spec"]
     end
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"
@@ -15,7 +15,7 @@ class TestScaffoldGenerator < GeneratorTest
 
   def test_scaffold_generator_spec
     assert_output(/create  test\/controllers\/users_controller_test.rb/m) do
-      Minitest::Generators::ScaffoldGenerator.start ["User", "name:string", "email:string", "--spec"]
+      Minitest::Generators::ScaffoldGenerator.start ["User", "name:string", "email:string"]
     end
     assert File.exists? "test/controllers/users_controller_test.rb"
     contents = File.read "test/controllers/users_controller_test.rb"

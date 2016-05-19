@@ -5,7 +5,7 @@ class TestControllerGenerator < GeneratorTest
 
   def test_controller_generator
     assert_output(/create  test\/controllers\/user_controller_test.rb/m) do
-      Minitest::Generators::ControllerGenerator.start ["user"]
+      Minitest::Generators::ControllerGenerator.start ["user", "--no-spec"]
     end
     assert File.exists? "test/controllers/user_controller_test.rb"
     contents = File.read "test/controllers/user_controller_test.rb"
@@ -14,7 +14,7 @@ class TestControllerGenerator < GeneratorTest
 
   def test_namespaced_controller_generator
     assert_output(/create  test\/controllers\/admin\/user_controller_test.rb/m) do
-      Minitest::Generators::ControllerGenerator.start ["admin/user"]
+      Minitest::Generators::ControllerGenerator.start ["admin/user", "--no-spec"]
     end
     assert File.exists? "test/controllers/admin/user_controller_test.rb"
     contents = File.read "test/controllers/admin/user_controller_test.rb"
@@ -26,7 +26,7 @@ class TestControllerGenerator < GeneratorTest
     Rails::Generators.namespace = TestApp
 
     assert_output(/create  test\/controllers\/test_app\/user_controller_test.rb/m) do
-      Minitest::Generators::ControllerGenerator.start ["user"]
+      Minitest::Generators::ControllerGenerator.start ["user", "--no-spec"]
     end
     assert File.exists? "test/controllers/test_app/user_controller_test.rb"
     contents = File.read "test/controllers/test_app/user_controller_test.rb"
@@ -39,7 +39,7 @@ class TestControllerGenerator < GeneratorTest
 
   def test_controller_generator_spec
     assert_output(/create  test\/controllers\/user_controller_test.rb/m) do
-      Minitest::Generators::ControllerGenerator.start ["user", "--spec"]
+      Minitest::Generators::ControllerGenerator.start ["user"]
     end
     assert File.exists? "test/controllers/user_controller_test.rb"
     contents = File.read "test/controllers/user_controller_test.rb"
@@ -48,7 +48,7 @@ class TestControllerGenerator < GeneratorTest
 
   def test_namespaced_controller_generator_spec
     assert_output(/create  test\/controllers\/admin\/user_controller_test.rb/m) do
-      Minitest::Generators::ControllerGenerator.start ["admin/user", "--spec"]
+      Minitest::Generators::ControllerGenerator.start ["admin/user"]
     end
     assert File.exists? "test/controllers/admin/user_controller_test.rb"
     contents = File.read "test/controllers/admin/user_controller_test.rb"
