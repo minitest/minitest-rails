@@ -362,126 +362,6 @@ module Minitest::Rails::Expectations
   # :args: expected, message = nil
   infect_an_assertion :refute_dom_equal, :wont_dom_equal
 
-  ##
-  # Expects that there is a tag/node/element in the body of the response
-  # that meets all of the given conditions. The +conditions+ parameter must
-  # be a hash of any of the following keys (all are optional):
-  #
-  # * <tt>:tag</tt>: the node type must match the corresponding value
-  # * <tt>:attributes</tt>: a hash. The node's attributes must match the
-  #   corresponding values in the hash.
-  # * <tt>:parent</tt>: a hash. The node's parent must match the
-  #   corresponding hash.
-  # * <tt>:child</tt>: a hash. At least one of the node's immediate children
-  #   must meet the criteria described by the hash.
-  # * <tt>:ancestor</tt>: a hash. At least one of the node's ancestors must
-  #   meet the criteria described by the hash.
-  # * <tt>:descendant</tt>: a hash. At least one of the node's descendants
-  #   must meet the criteria described by the hash.
-  # * <tt>:sibling</tt>: a hash. At least one of the node's siblings must
-  #   meet the criteria described by the hash.
-  # * <tt>:after</tt>: a hash. The node must be after any sibling meeting
-  #   the criteria described by the hash, and at least one sibling must match.
-  # * <tt>:before</tt>: a hash. The node must be before any sibling meeting
-  #   the criteria described by the hash, and at least one sibling must match.
-  # * <tt>:children</tt>: a hash, for counting children of a node. Accepts
-  #   the keys:
-  #   * <tt>:count</tt>: either a number or a range which must equal (or
-  #     include) the number of children that match.
-  #   * <tt>:less_than</tt>: the number of matching children must be less
-  #     than this number.
-  #   * <tt>:greater_than</tt>: the number of matching children must be
-  #     greater than this number.
-  #   * <tt>:only</tt>: another hash consisting of the keys to use
-  #     to match on the children, and only matching children will be
-  #     counted.
-  # * <tt>:content</tt>: the textual content of the node must match the
-  #   given value. This will not match HTML tags in the body of a
-  #   tag--only text.
-  #
-  # Conditions are matched using the following algorithm:
-  #
-  # * if the condition is a string, it must be a substring of the value.
-  # * if the condition is a regexp, it must match the value.
-  # * if the condition is a number, the value must match number.to_s.
-  # * if the condition is +true+, the value must not be +nil+.
-  # * if the condition is +false+ or +nil+, the value must be +nil+.
-  #
-  #   # Expect that there is a "span" tag
-  #   must_have_tag tag: "span"
-  #
-  #   # Expect that there is a "span" tag with id="x"
-  #   must_have_tag tag: "span", attributes: { id: "x" }
-  #
-  #   # Expect that there is a "span" tag using the short-hand
-  #   must_have_tag :span
-  #
-  #   # Expect that there is a "span" tag with id="x" using the short-hand
-  #   must_have_tag :span, attributes: { id: "x" }
-  #
-  #   # Expect that there is a "span" inside of a "div"
-  #   must_have_tag tag: "span", parent: { tag: "div" }
-  #
-  #   # Expect that there is a "span" somewhere inside a table
-  #   must_have_tag tag: "span", ancestor: { tag: "table" }
-  #
-  #   # Expect that there is a "span" with at least one "em" child
-  #   must_have_tag tag: "span", child: { tag: "em" }
-  #
-  #   # Expect that there is a "span" containing a (possibly nested)
-  #   # "strong" tag.
-  #   must_have_tag tag: "span", descendant: { tag: "strong" }
-  #
-  #   # Expect that there is a "span" containing between 2 and 4 "em" tags
-  #   # as immediate children
-  #   must_have_tag tag: "span",
-  #              children: { count: 2..4, only: { tag: "em" } }
-  #
-  #   # Get funky: assert that there is a "div", with an "ul" ancestor
-  #   # and an "li" parent (with "class" = "enum"), and containing a
-  #   # "span" descendant that contains text matching /hello world/
-  #   must_have_tag tag: "div",
-  #              ancestor: { tag: "ul" },
-  #              parent: { tag: "li",
-  #                           attributes: { class: "enum" } },
-  #              descendant: { tag: "span",
-  #                               child: /hello world/ }
-  #
-  # <b>Please note</b>: +must_have_tag+ and +wont_have_tag+ only work
-  # with well-formed XHTML. They recognize a few tags as implicitly self-closing
-  # (like br and hr and such) but will not work correctly with tags
-  # that allow optional closing tags (p, li, td). <em>You must explicitly
-  # close all of your tags to use these assertions.</em>
-  #
-  # See also ActionView::TestCase#assert_tag
-  # See also ActionDispatch::IntegrationTest#assert_tag
-  #
-  # :method: must_have_tag
-  # :call-seq: must_have_tag(*opts)
-
-  ##
-  # Identical to +must_have_tag+, but asserts that a matching tag does _not_
-  # exist. (See +must_have_tag+ for a full discussion of the syntax.)
-  #
-  #   # Expect that there is not a "div" containing a "p"
-  #   wont_have_tag tag: "div", descendant: { tag: "p" }
-  #
-  #   # Expect that an unordered list is empty
-  #   wont_have_tag tag: "ul", descendant: { tag: "li" }
-  #
-  #   # Expect that there is not a "p" tag with between 1 to 3 "img" tags
-  #   # as immediate children
-  #   wont_have_tag tag: "p",
-  #              children: { count: 1..3, only: { tag: "img" } }
-  #
-  # See also ActionView::TestCase#refute_tag
-  # See also ActionDispatch::IntegrationTest#refute_tag
-  # See also ActionView::TestCase#assert_no_tag
-  # See also ActionDispatch::IntegrationTest#assert_no_tag
-  #
-  # :method: wont_have_tag
-  # :call-seq: wont_have_tag(*opts)
-
   if defined?(::ActiveJob)
     ##############################################################################
     # ActiveJob Expectations
@@ -668,8 +548,6 @@ unless ENV["MT_NO_EXPECTATIONS"]
   class ActionView::TestCase # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_have_tag :assert_tag
-    alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select
     alias :must_select_email :assert_select_email
     alias :must_select_encoded :assert_select_encoded
@@ -680,8 +558,6 @@ unless ENV["MT_NO_EXPECTATIONS"]
   class ActionDispatch::IntegrationTest # :nodoc:
     alias :must_respond_with :assert_response
     alias :must_redirect_to :assert_redirected_to
-    alias :must_have_tag :assert_tag
-    alias :wont_have_tag :assert_no_tag
     alias :must_select :assert_select
     alias :must_select_email :assert_select_email
     alias :must_select_encoded :assert_select_encoded
