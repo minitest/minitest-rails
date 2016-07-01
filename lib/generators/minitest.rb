@@ -9,6 +9,10 @@ module Minitest
       def self.default_source_root
         File.expand_path(File.join(File.dirname(__FILE__), 'minitest', generator_name, 'templates'))
       end
+
+      def show_helper
+        "#{singular_table_name}_url(#{singular_table_name})"
+      end
     end
   end
 end
