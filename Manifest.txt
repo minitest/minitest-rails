@@ -43,6 +43,7 @@ lib/minitest-rails.rb
 lib/minitest/rails.rb
 lib/minitest/rails/assertions.rb
 lib/minitest/rails/constant_lookup.rb
+lib/minitest/rails/controller.rb
 lib/minitest/rails/expectations.rb
 lib/minitest/rails/railtie.rb
 lib/minitest/rails/version.rb
