@@ -1,3 +1,14 @@
+=== 3.0.0 / 2016-07-01
+
+* Support Rails 5
+
+  * The spec DSL is now default.
+  * Controller specs now use ActionDispatch::IntegrationTest.
+  * Controller specs optionally use ActionController::TestCase when
+    rails-controller-testing gem is present.
+
+https://github.com/blowmage/minitest-rails/compare/v2.2.0...v3.0.0
+
 === 2.2.0 / 2015-05-29
 
 * Update to Minitest 5.7
