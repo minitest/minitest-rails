@@ -26,7 +26,7 @@ Add <tt>minitest-rails</tt> to the Gemfile:
 
 If you are running Rails 4.1 or 4.2, be sure to specify a 2.x release in the Gemfile:
 
-    gem "minitest-rails", "~> 1.0"
+    gem "minitest-rails", "~> 2.0"
 
 If you are running Rails 4.0 or earlier, be sure to specify a 1.x release in the Gemfile:
 
