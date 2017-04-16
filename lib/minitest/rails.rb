@@ -151,6 +151,7 @@ class ActionDispatch::IntegrationTest
   end
 end
 
+require 'rails/generators'
 class Rails::Generators::TestCase
   register_spec_type(self) do |desc|
     desc < Rails::Generators::Base if desc.is_a?(Class)
