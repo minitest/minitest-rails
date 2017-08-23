@@ -56,8 +56,6 @@ class GeneratorTest < Minitest::Test
   end
 end
 
-require "rails/test_help"
-
 module TestApp
   class Application < ::Rails::Application
     config.active_support.test_order = :random
