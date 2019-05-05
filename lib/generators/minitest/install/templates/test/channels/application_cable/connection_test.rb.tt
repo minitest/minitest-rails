@@ -1,0 +1,23 @@
+require "test_helper"
+
+<%- if options[:spec] -%>
+describe "ApplicationCable Connection", :connection do
+  # it "connects with cookies" do
+  #   cookies.signed[:user_id] = 42
+  #
+  #   connect
+  #
+  #   connection.user_id.must_equal "42"
+  # end
+end
+<%- else -%>
+class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
+  # def test_connects_with_cookies
+  #   cookies.signed[:user_id] = 42
+  #
+  #   connect
+  #
+  #   assert_equal connection.user_id, "42"
+  # end
+end
+<%- end -%>

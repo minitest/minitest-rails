@@ -1,0 +1,21 @@
+require "test_helper"
+
+<% module_namespacing do -%>
+describe <%= class_name %>Mailer do
+<% actions.each do |action| -%>
+  it "creates <%= action %> email" do
+    mail = <%= class_name %>Mailer.<%= action %>
+    mail.subject.must_equal <%= action.to_s.humanize.inspect %>
+    mail.to.must_equal ["to@example.org"]
+    mail.from.must_equal ["from@example.com"]
+    mail.body.encoded.must_equal "Hi"
+  end
+
+<% end -%>
+<% if actions.blank? -%>
+  # it "does a thing" do
+  #   <%= spec_expectation_monad %>(1+1).must_equal 2
+  # end
+<% end -%>
+end
+<% end -%>

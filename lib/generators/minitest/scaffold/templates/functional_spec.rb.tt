@@ -1,0 +1,52 @@
+require "test_helper"
+
+<% module_namespacing do -%>
+describe <%= controller_class_name %>Controller do
+  <%- if mountable_engine? -%>
+  include Engine.routes.url_helpers
+
+  <%- end -%>
+  let(:<%= singular_table_name %>) { <%= fixture_name %>(:one) }
+
+  it "should get index" do
+    get <%= index_helper %>_url
+    must_respond_with :success
+  end
+
+  it "should get new" do
+    get <%= new_helper %>
+    must_respond_with :success
+  end
+
+  it "should create <%= singular_table_name %>" do
+    assert_difference("<%= class_name %>.count") do
+      post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
+    end
+
+    must_redirect_to <%= singular_table_name %>_url(<%= class_name %>.last)
+  end
+
+  it "should show <%= singular_table_name %>" do
+    get <%= show_helper %>
+    must_respond_with :success
+  end
+
+  it "should get edit" do
+    get <%= edit_helper %>
+    must_respond_with :success
+  end
+
+  it "should update <%= singular_table_name %>" do
+    patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
+    must_redirect_to <%= singular_table_name %>_url(<%= "#{singular_table_name}" %>)
+  end
+
+  it "should destroy <%= singular_table_name %>" do
+    assert_difference("<%= class_name %>.count", -1) do
+      delete <%= show_helper %>
+    end
+
+    must_redirect_to <%= index_helper %>_url
+  end
+end
+<% end -%>

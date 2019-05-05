@@ -1,0 +1,42 @@
+require "test_helper"
+
+<% module_namespacing do -%>
+describe <%= controller_class_name %>Controller do
+  <%- if mountable_engine? -%>
+  include Engine.routes.url_helpers
+
+  <%- end -%>
+  let(:<%= singular_table_name %>) { <%= fixture_name %>(:one) }
+
+  it "should get index" do
+    get <%= index_helper %>_url, as: :json
+    must_respond_with :success
+  end
+
+  it "should create <%= singular_table_name %>" do
+    <%= spec_expectation_monad %> do
+      post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }, as: :json
+    end.must_differ "<%= class_name %>.count"
+
+    must_respond_with 201
+  end
+
+  it "should show <%= singular_table_name %>" do
+    get <%= show_helper %>, as: :json
+    must_respond_with :success
+  end
+
+  it "should update <%= singular_table_name %>" do
+    patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }, as: :json
+    must_respond_with 200
+  end
+
+  it "should destroy <%= singular_table_name %>" do
+    <%= spec_expectation_monad %> do
+      delete <%= show_helper %>, as: :json
+    end.must_differ "<%= class_name %>.count", -1
+
+    must_respond_with 204
+  end
+end
+<% end -%>
