@@ -10,6 +10,9 @@ require "active_record"
 require "action_controller"
 require "action_controller/railtie"
 
+require "action_cable"
+require "action_cable/connection/test_case"
+
 begin
   require "active_job"
 rescue LoadError
@@ -78,4 +81,21 @@ ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 class UserInviteJob < ActiveJob::Base
   def perform arg = nil; end
+end
+
+# Set test adapter and logger
+ActionCable.server.config.cable = { "adapter" => "test" }
+ActionCable.server.config.logger = Logger.new(nil)
+
+class MyAppChannel < ActionCable::Channel::Base
+end
+
+class MyAppConnection < ActionCable::Connection::Base
+  def connect
+    reject_unauthorized_connection
+  end
+
+  def disconnect
+    # Any cleanup work needed when the cable connection is cut.
+  end
 end
