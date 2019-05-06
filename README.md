@@ -1,67 +1,71 @@
-= minitest-rails
+# minitest-rails
 
 Minitest integration for Rails 6.0
 
 {<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
 {<img src="https://codeclimate.com/github/blowmage/minitest-rails.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
 
-== Install
+## Install
 
-    gem install minitest-rails
+`gem install minitest-rails`
 
 This installs the following gems:
 
-    minitest
+* `minitest`
 
-== Configure
+## Configure
 
 Create a new rails app:
 
-    rails new MyApp
+`rails new MyApp`
 
-Add <tt>minitest-rails</tt> to the Gemfile:
+Add `minitest-rails` to the Gemfile:
 
-    gem "minitest-rails"
+```ruby
+gem "minitest-rails"
+```
 
 Next run the installation generator with the following:
 
-    rails generate minitest:install
+`rails generate minitest:install`
 
-This will add the <tt>test_helper.rb</tt> file to the <tt>test</tt> directory.
+This will add the `test_helper.rb` file to the `test` directory.
 
-== Usage
+## Usage
 
 This project aims to enable Minitest within the Rails TestCase classes.
-Your test will continue to inherit from <tt>ActiveSupport::TestCase</tt>, which will now support the spec DSL.
-You can generate test files using the <tt>Minitest::Spec</tt> DSL with the standard model, controller, resource, and other generators:
+Your test will continue to inherit from `ActiveSupport::TestCase`, which will now support the spec DSL.
+You can generate test files using the `Minitest::Spec` DSL with the standard model, controller, resource, and other generators:
 
-    rails generate model User
+`rails generate model User`
 
-And you can specify generating the tests without the <tt>Minitest::Spec</tt> DSL on any of the generators by providing the <tt>--no-spec</tt> option:
+And you can specify generating the tests without the `Minitest::Spec` DSL on any of the generators by providing the `--no-spec` option:
 
-    rails generate model User --no-spec
+`rails generate model User --no-spec`
 
-And you can specify not generating the fixture for a model by providing the <tt>--skip-fixture</tt> option:
+And you can specify not generating the fixture for a model by providing the `--skip-fixture` option:
 
-    rails generate model User --skip-fixture
+`rails generate model User --skip-fixture`
 
-You can also set these as defaults by adding the following to the <tt>config/application.rb</tt> file:
+You can also set these as defaults by adding the following to the `config/application.rb` file:
 
-    config.generators do |g|
-      g.test_framework :minitest, spec: false, fixture: false
-    end
+```ruby
+config.generators do |g|
+  g.test_framework :minitest, spec: false, fixture: false
+end
+```
 
-== Running Tests
+## Running Tests
 
-To run your tests use the <tt>rails test</tt> that ship with rails.
+To run your tests use the `rails test` that ship with rails.
 
-== Get Involved
+## Get Involved
 
 Join the mailing list to get help or offer suggestions.
 
 https://groups.google.com/group/minitest-rails
 
-== License
+## License
 
 Copyright (c) 2019 Mike Moore
 

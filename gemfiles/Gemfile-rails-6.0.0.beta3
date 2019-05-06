@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+
+gem "minitest-rails", path: "../"
+gem "rails", "6.0.0.beta3"
+gem "rake"
+gem "sqlite3"

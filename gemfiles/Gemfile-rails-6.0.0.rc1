@@ -1,8 +1,6 @@
 source "http://rubygems.org"
 
-gemspec
-
-gem "irb"
+gem "minitest-rails", path: "../"
 gem "rails", "6.0.0.rc1"
 gem "rake"
 gem "sqlite3"

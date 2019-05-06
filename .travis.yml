@@ -7,13 +7,13 @@ notifications:
   email:
     - mike@blowmage.com
 rvm:
-  - 2.6.2
+  - 2.6.3
   - 2.6.0
   - 2.5.5
   - 2.5.0
   - ruby-head
-env:
-  - "RAILS_VERSION=6.0.0.rc1"
-  - "RAILS_VERSION=6.0.0.beta3"
-  - "RAILS_VERSION=6.0.0.beta2"
-  - "RAILS_VERSION=6.0.0.beta1"
+gemfile:
+  - gemfiles/Gemfile-rails-6.0.0.rc1
+  - gemfiles/Gemfile-rails-6.0.0.beta3
+  - gemfiles/Gemfile-rails-6.0.0.beta2
+  - gemfiles/Gemfile-rails-6.0.0.beta1

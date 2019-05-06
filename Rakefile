@@ -1,31 +1,25 @@
-# -*- ruby -*-
+require "bundler"
+require "bundler/setup"
+require "bundler/gem_tasks"
 
-require "rubygems"
-require "hoe"
+# require "rubocop/rake_task"
+# RuboCop::RakeTask.new
 
-Hoe.plugin :git
-Hoe.plugin :gemspec
-
-Hoe.spec "minitest-rails" do
-  developer "Mike Moore", "mike@blowmage.com"
-
-  self.summary     = "Minitest integration for Rails"
-  self.description = "Adds Minitest as the default testing library in Rails"
-  self.urls        = ["http://blowmage.com/minitest-rails"]
-
-  self.history_file = "CHANGELOG.rdoc"
-  self.readme_file  = "README.rdoc"
-  self.testlib      = :minitest
-
-  license "MIT"
-
-  dependency "minitest",          "~> 5.10"
-  dependency "railties",          "~> 6.0.0.beta1"
-  dependency "minitest-autotest", "~> 1.0",  :dev
-  dependency "minitest-focus",    "~> 1.1",  :dev
-  dependency "minitest-rg",       "~> 5.2",  :dev
+require "rake/testtask"
+desc "Run tests."
+Rake::TestTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList["test/**/test_*.rb"]
+  t.warning = false
 end
 
-Dir["tasks/**/*.rake"].each { |t| load t }
-
-# vim: syntax=ruby
+namespace :test do
+  desc "Run tests for all Rails versions"
+  task "all" do
+    Dir.glob("gemfiles/Gemfile-*[!.lock]").each do |gemfile|
+      Bundler.with_clean_env do
+        sh "bundle --gemfile=#{gemfile} && bundle exec rake test"
+      end
+    end
+  end
+end
