@@ -2,8 +2,8 @@
 
 Minitest integration for Rails 6.0
 
-{<img src="https://secure.travis-ci.org/blowmage/minitest-rails.png" alt="Build Status" />}[http://travis-ci.org/blowmage/minitest-rails]
-{<img src="https://codeclimate.com/github/blowmage/minitest-rails.png" />}[https://codeclimate.com/github/blowmage/minitest-rails]
+[![Build Status](https://secure.travis-ci.org/blowmage/minitest-rails.png)](http://travis-ci.org/blowmage/minitest-rails)
+[![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
 
 ## Install
 
