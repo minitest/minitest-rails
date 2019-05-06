@@ -1,5 +1,5 @@
 module Minitest
   module Rails
-    VERSION = "6.0.0.rc1".freeze
+    VERSION = "5.2.0".freeze
   end
 end

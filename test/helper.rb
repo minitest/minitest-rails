@@ -10,9 +10,6 @@ require "active_record"
 require "action_controller"
 require "action_controller/railtie"
 
-require "action_cable"
-require "action_cable/connection/test_case"
-
 begin
   require "active_job"
 rescue LoadError
@@ -47,7 +44,6 @@ module TestApp
   class Application < ::Rails::Application
     config.active_support.test_order = :random
     config.secret_key_base = "abc123"
-    config.hosts << "www.example.com"
     config.eager_load = false
   end
 end
@@ -83,23 +79,6 @@ class UserInviteJob < ActiveJob::Base
   def perform arg = nil; end
 end
 
-# Set test adapter and logger
-ActionCable.server.config.cable = { "adapter" => "test" }
-ActionCable.server.config.logger = Logger.new(nil)
-
-class MyAppChannel < ActionCable::Channel::Base
-end
-
-class MyAppConnection < ActionCable::Connection::Base
-  def connect
-    reject_unauthorized_connection
-  end
-
-  def disconnect
-    # Any cleanup work needed when the cable connection is cut.
-  end
-end
-
 require "action_mailer"
 require "action_mailer/test_case"
 
@@ -132,11 +111,4 @@ class MyAppMailer < ActionMailer::Base
          to: "test@example.com",
          from: "tester@example.com"
   end
-end
-
-class MyAppDeliveryJob < ActionMailer::MailDeliveryJob
-end
-
-class MyAppDeliveryMailer < MyAppMailer
-  self.delivery_job = MyAppDeliveryJob
 end

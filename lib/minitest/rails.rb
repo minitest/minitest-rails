@@ -106,34 +106,6 @@ class Rails::Generators::TestCase
   end
 end
 
-if defined? ActionCable
-  # TODO: require?
-
-  class ActionCable::Channel::TestCase
-    # Use AC::Ch::TC for the base class when describing a channel
-    register_spec_type(self) do |desc|
-      desc < ActionCable::Channel::Base if desc.is_a?(Class)
-    end
-
-    # Use AC::Ch::TC for the base class when described using :channel
-    register_spec_type(self) do |_desc, *addl|
-      addl.include? :channel
-    end
-  end
-
-  class ActionCable::Connection::TestCase
-    # Use AC::Co::TC for the base class when describing a connection
-    register_spec_type(self) do |desc|
-      desc < ActionCable::Connection::Base if desc.is_a?(Class)
-    end
-
-    # Use AC::Co::TC for the base class when described using :connection
-    register_spec_type(self) do |_desc, *addl|
-      addl.include? :connection
-    end
-  end
-end
-
 ################################################################################
 # Assertions and Expectations
 ################################################################################
