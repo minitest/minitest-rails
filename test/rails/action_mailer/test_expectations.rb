@@ -29,14 +29,4 @@ class TestActionMailerExpectations < ActionMailer::TestCase
       MyAppMailer.test.deliver_now
     end
   end
-
-  def test_must_enqueue_email_with
-    skip "The mailer isn't wired up to queue the message."
-
-    must_enqueue_email_with MyAppMailer, :test do
-      silence_stream($stdout) do
-        MyAppMailer.test.deliver_later
-      end
-    end
-  end
 end

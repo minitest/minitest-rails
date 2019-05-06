@@ -94,44 +94,6 @@ module Minitest
         # :call-seq: must_have_enqueued_emails(number, &block)
 
         ##
-        # Asserts that a specific email has been enqueued, optionally
-        # matching arguments.
-        #
-        #   def test_email
-        #     ContactMailer.welcome.deliver_later
-        #     must_enqueue_email_with ContactMailer, :welcome
-        #   end
-        #
-        #   def test_email_with_arguments
-        #     ContactMailer.welcome("Hello", "Goodbye").deliver_later
-        #     must_enqueue_email_with ContactMailer, :welcome, args: ["Hello", "Goodbye"]
-        #   end
-        #
-        # If a block is passed, that block should cause the specified email
-        # to be enqueued.
-        #
-        #   def test_email_in_block
-        #     must_enqueue_email_with ContactMailer, :welcome do
-        #       ContactMailer.welcome.deliver_later
-        #     end
-        #   end
-        #
-        # If +args+ is provided as a Hash, a parameterized email is matched.
-        #
-        #   def test_parameterized_email
-        #     must_enqueue_email_with ContactMailer, :welcome,
-        #       args: {email: 'user@example.com'} do
-        #       ContactMailer.with(email: 'user@example.com').welcome.deliver_later
-        #     end
-        #   end
-        #
-        # See also ActionMailer::TestClass#assert_enqueued_email_with
-        # See https://api.rubyonrails.org/v6.0/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_email_with
-        #
-        # :method: must_enqueue_email_with
-        # :call-seq: must_enqueue_email_with(mailer, method, args: nil, queue: "mailers", &block)
-
-        ##
         # Asserts that no emails are enqueued for later delivery.
         #
         #   def test_no_emails
@@ -160,7 +122,6 @@ module Minitest
           alias_method :must_have_emails, :assert_emails
           alias_method :wont_have_emails, :assert_no_emails
           alias_method :must_have_enqueued_emails, :assert_enqueued_emails
-          alias_method :must_enqueue_email_with, :assert_enqueued_email_with
           alias_method :wont_have_enqueued_emails, :assert_no_enqueued_emails
         end
       end

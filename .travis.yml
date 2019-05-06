@@ -16,5 +16,5 @@ rvm:
   - 2.3.8
   - 2.3.0
 gemfile:
-  - gemfiles/rails-5.2.3.gemfile
-  - gemfiles/rails-5.2.0.gemfile
+  - gemfiles/rails-5.1.7.gemfile
+  - gemfiles/rails-5.1.0.gemfile
