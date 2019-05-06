@@ -23,3 +23,8 @@ namespace :test do
     end
   end
 end
+
+desc "Run the CI build"
+task :ci do
+  Rake::Task[:test].invoke
+end
