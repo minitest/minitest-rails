@@ -1,4 +1,5 @@
 doc
 log
 pkg
-Gemfile*.lock
+Gemfile.lock
+*.gemfile.lock

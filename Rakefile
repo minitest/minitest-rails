@@ -16,7 +16,7 @@ end
 namespace :test do
   desc "Run tests for all Rails versions"
   task "all" do
-    Dir.glob("gemfiles/Gemfile-*[!.lock]").each do |gemfile|
+    Dir.glob("gemfiles/*.gemfile").each do |gemfile|
       Bundler.with_clean_env do
         sh "bundle --gemfile=#{gemfile} && bundle exec rake test"
       end
