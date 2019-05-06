@@ -19,11 +19,33 @@ Create a new rails app:
 
 `rails new MyApp`
 
-Add `minitest-rails` to the Gemfile:
+### Choosing a version
+
+If you are running Rails 6.0 prerelease, set the gem using the github repo in the Gemfile:
 
 ```ruby
-gem "minitest-rails"
+gem "minitest-rails", github: "blowmage/minitest-rails"
 ```
+
+If you are running Rails 5.x, specify a 3.x release in the Gemfile:
+
+```ruby
+gem "minitest-rails", "~> 3.0"
+```
+
+If you are running Rails 4.1 or 4.2, specify a 2.x release in the Gemfile:
+
+```ruby
+gem "minitest-rails", "~> 2.0"
+```
+
+If you are running Rails 4.0 or earlier, specify a 1.x release in the Gemfile:
+
+```ruby
+gem "minitest-rails", "~> 1.0"
+```
+
+### Installing
 
 Next run the installation generator with the following:
 
