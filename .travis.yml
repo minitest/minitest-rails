@@ -13,7 +13,7 @@ rvm:
   - 2.5.0
   - ruby-head
 gemfile:
-  - gemfiles/Gemfile-rails-6.0.0.rc1
-  - gemfiles/Gemfile-rails-6.0.0.beta3
-  - gemfiles/Gemfile-rails-6.0.0.beta2
-  - gemfiles/Gemfile-rails-6.0.0.beta1
+  - gemfiles/rails-6.0.0.rc1.gemfile
+  - gemfiles/rails-6.0.0.beta3.gemfile
+  - gemfiles/rails-6.0.0.beta2.gemfile
+  - gemfiles/rails-6.0.0.beta1.gemfile
