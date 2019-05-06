@@ -13,17 +13,6 @@ Rake::TestTask.new do |t|
   t.warning = false
 end
 
-namespace :test do
-  desc "Run tests for all Rails versions"
-  task "all" do
-    Dir.glob("gemfiles/*.gemfile").each do |gemfile|
-      Bundler.with_clean_env do
-        sh "bundle --gemfile=#{gemfile} && bundle exec rake test"
-      end
-    end
-  end
-end
-
 desc "Run the CI build"
 task :ci do
   Rake::Task[:rubocop].invoke
