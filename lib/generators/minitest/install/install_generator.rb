@@ -26,7 +26,6 @@ module Minitest
         empty_directory_with_keep_file "test/helpers"
         empty_directory_with_keep_file "test/integration"
 
-        template "test/application_system_test_case.rb"
         template "test/test_helper.rb"
       end
     end

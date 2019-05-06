@@ -3,6 +3,6 @@ source "http://rubygems.org"
 gemspec
 
 gem "irb"
-gem "rails", "5.1.7"
+gem "rails", "~> 5.0.7"
 gem "rake"
-gem "sqlite3"
+gem "sqlite3", "~> 1.3.6"
