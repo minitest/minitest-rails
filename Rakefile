@@ -2,8 +2,8 @@ require "bundler"
 require "bundler/setup"
 require "bundler/gem_tasks"
 
-# require "rubocop/rake_task"
-# RuboCop::RakeTask.new
+require "rubocop/rake_task"
+RuboCop::RakeTask.new
 
 require "rake/testtask"
 desc "Run tests."
@@ -26,6 +26,7 @@ end
 
 desc "Run the CI build"
 task :ci do
+  Rake::Task[:rubocop].invoke
   Rake::Task[:test].invoke
 end
 
