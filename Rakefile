@@ -28,3 +28,5 @@ desc "Run the CI build"
 task :ci do
   Rake::Task[:test].invoke
 end
+
+task default: :ci
