@@ -8,10 +8,10 @@ module Minitest
     class InstallGenerator < ::Rails::Generators::AppBase
       class_option :skip_active_record, type: :boolean, default: false, desc: "Skip Active Record files"
 
-      desc <<DESC
-Description:
-    Copy minitest files to your application.
-DESC
+      desc <<~DESC
+        Description:
+            Copy minitest files to your application.
+      DESC
 
       def self.source_root
         @source_root ||= File.expand_path(File.join(File.dirname(__FILE__), "templates"))

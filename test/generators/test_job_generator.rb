@@ -5,8 +5,8 @@ class TestJobGenerator < GeneratorTest
   tests Minitest::Generators::JobGenerator
 
   def test_job_generator
-    output = run_generator %w(user_invite --no-spec)
-    assert_match /create  test\/jobs\/user_invite_job_test.rb/m, output
+    output = run_generator %w[user_invite --no-spec]
+    assert_match %r{create  test/jobs/user_invite_job_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     # assert_output(/create  test\/jobs\/user_invite_job_test.rb/m) do
@@ -18,8 +18,8 @@ class TestJobGenerator < GeneratorTest
   end
 
   def test_namespaced_job_generator
-    output = run_generator %w(admin/user_invite --no-spec)
-    assert_match /create  test\/jobs\/admin\/user_invite_job_test.rb/m, output
+    output = run_generator %w[admin/user_invite --no-spec]
+    assert_match %r{create  test/jobs/admin/user_invite_job_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     # assert_output(/create  test\/jobs\/admin\/user_invite_job_test.rb/m) do
@@ -31,8 +31,8 @@ class TestJobGenerator < GeneratorTest
   end
 
   def test_job_generator_spec
-    output = run_generator %w(user_invite)
-    assert_match /create  test\/jobs\/user_invite_job_test.rb/m, output
+    output = run_generator %w[user_invite]
+    assert_match %r{create  test/jobs/user_invite_job_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/jobs/user_invite_job_test.rb"
@@ -41,8 +41,8 @@ class TestJobGenerator < GeneratorTest
   end
 
   def test_namespaced_job_generator_spec
-    output = run_generator %w(admin/user_invite)
-    assert_match /create  test\/jobs\/admin\/user_invite_job_test.rb/m, output
+    output = run_generator %w[admin/user_invite]
+    assert_match %r{create  test/jobs/admin/user_invite_job_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/jobs/admin/user_invite_job_test.rb"

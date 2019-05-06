@@ -12,7 +12,7 @@ class TestIntegrationAssertions < ActionDispatch::IntegrationTest
   end
 
   def test_routing_assertions
-    params = { :controller => "models", :action => "index" }
+    params = { controller: "models", action: "index" }
     path = "/models"
     assert_generates path, params
     assert_recognizes params, path

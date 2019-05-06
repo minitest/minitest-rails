@@ -8,7 +8,7 @@ module Minitest # :nodoc:
       check_class_collision suffix: "Test"
 
       def create_test_files
-        if !File.exist?(File.join("test/application_system_test_case.rb"))
+        unless File.exist?(File.join("test/application_system_test_case.rb"))
           template "application_system_test_case.rb", File.join("test", "application_system_test_case.rb")
         end
 

@@ -163,12 +163,12 @@ module Minitest
         include ::ActiveJob::TestHelper
 
         included do
-          alias :must_enqueue_jobs :assert_enqueued_jobs
-          alias :must_perform_jobs :assert_performed_jobs
-          alias :wont_enqueue_jobs :assert_no_enqueued_jobs
-          alias :wont_perform_jobs :assert_no_performed_jobs
-          alias :must_enqueue_with :assert_enqueued_with
-          alias :must_perform_with :assert_performed_with
+          alias_method :must_enqueue_jobs, :assert_enqueued_jobs
+          alias_method :must_perform_jobs, :assert_performed_jobs
+          alias_method :wont_enqueue_jobs, :assert_no_enqueued_jobs
+          alias_method :wont_perform_jobs, :assert_no_performed_jobs
+          alias_method :must_enqueue_with, :assert_enqueued_with
+          alias_method :must_perform_with, :assert_performed_with
         end
       end
     end

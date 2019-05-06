@@ -53,8 +53,14 @@ TestApp::Application.initialize!
 
 class ApplicationController < ActionController::Base; end
 class ModelsController < ApplicationController
-  def index; render html: "<html><head><title>Models</title></head><body><h1>All <em>Models</em></h1></body></html>".html_safe; end
-  def new; redirect_to "/models"; end
+  def index
+    render html: "<html><head><title>Models</title></head>" \
+                 "<body><h1>All <em>Models</em></h1></body></html>".html_safe
+  end
+
+  def new
+    redirect_to "/models"
+  end
 end
 module Admin
   class WidgetsController < ApplicationController; end
@@ -71,5 +77,5 @@ end
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 class UserInviteJob < ActiveJob::Base
-  def perform(arg = nil); end
+  def perform arg = nil; end
 end

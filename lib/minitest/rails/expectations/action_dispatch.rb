@@ -289,11 +289,11 @@ module Minitest
         extend ::ActiveSupport::Concern
 
         included do
-          alias :must_respond_with :assert_response
-          alias :must_redirect_to :assert_redirected_to
-          alias :must_select :assert_select
-          alias :must_select_email :assert_select_email
-          alias :must_select_encoded :assert_select_encoded
+          alias_method :must_respond_with, :assert_response
+          alias_method :must_redirect_to, :assert_redirected_to
+          alias_method :must_select, :assert_select
+          alias_method :must_select_email, :assert_select_email
+          alias_method :must_select_encoded, :assert_select_encoded
         end
       end
     end

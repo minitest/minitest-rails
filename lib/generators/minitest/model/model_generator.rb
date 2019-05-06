@@ -5,7 +5,7 @@ require "generators/minitest"
 module Minitest # :nodoc:
   module Generators # :nodoc:
     class ModelGenerator < Base # :nodoc:
-      RESERVED_YAML_KEYWORDS = %w(y yes n no true false on off null)
+      RESERVED_YAML_KEYWORDS = %w[y yes n no true false on off null].freeze
 
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
       class_option :fixture, type: :boolean
@@ -25,13 +25,14 @@ module Minitest # :nodoc:
       end
 
       private
-        def yaml_key_value(key, value)
-          if RESERVED_YAML_KEYWORDS.include?(key.downcase)
-            "'#{key}': #{value}"
-          else
-            "#{key}: #{value}"
-          end
+
+      def yaml_key_value key, value
+        if RESERVED_YAML_KEYWORDS.include?(key.downcase)
+          "'#{key}': #{value}"
+        else
+          "#{key}: #{value}"
         end
+      end
     end
   end
 end

@@ -17,9 +17,7 @@ module Minitest
       end
 
       rake_tasks do
-        unless Rake::Task.task_defined? "test:run"
-          load "rails/test_unit/testing.rake"
-        end
+        load "rails/test_unit/testing.rake" unless Rake::Task.task_defined? "test:run"
       end
     end
   end

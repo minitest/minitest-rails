@@ -33,7 +33,7 @@ class ActionDispatch::IntegrationTest
   # See also Minitest::Rails::Expectations#wont_change
   #
   # :args: expression, message = nil, &block
-  alias :refute_difference :assert_no_difference
+  alias refute_difference assert_no_difference
 
   # Asserts that the response is one of the following types:
   #
@@ -352,5 +352,5 @@ class ActionDispatch::IntegrationTest
   #
   # :method: assert_dom_equal
   # :call-seq: assert_dom_equal(expected, actual, message = nil)
-  alias :refute_dom_equal :assert_dom_not_equal
+  alias refute_dom_equal assert_dom_not_equal
 end

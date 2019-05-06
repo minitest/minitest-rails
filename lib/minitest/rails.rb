@@ -10,10 +10,12 @@ require "active_support/testing/constant_lookup"
 class ActiveSupport::TestCase
   # Add and configure the spec DSL
   # Remove describe method if present
-  class << self
-    remove_method :describe
-  end if self.respond_to?(:describe) &&
-         self.method(:describe).owner == ActiveSupport::TestCase
+  if respond_to?(:describe) &&
+     method(:describe).owner == ActiveSupport::TestCase
+    class << self
+      remove_method :describe
+    end
+  end
 
   # Add spec DSL
   extend Minitest::Spec::DSL
@@ -29,7 +31,7 @@ class ActiveSupport::TestCase
   end
 
   # Use AS::TC for the base class when described using :model
-  register_spec_type(self) do |desc, *addl|
+  register_spec_type(self) do |_desc, *addl|
     addl.include? :model
   end
 end
@@ -38,12 +40,12 @@ require "action_view/test_case"
 
 class ActionView::TestCase
   # Use AV::TC for the base class when described using :view or :helper
-  register_spec_type(self) do |desc, *addl|
+  register_spec_type(self) do |_desc, *addl|
     addl.include?(:view) || addl.include?(:helper)
   end
 
   # Resolve the helper or view from the test name when using the spec DSL
-  def self.determine_default_helper_class(name)
+  def self.determine_default_helper_class name
     determine_constant_from_test_name(name) do |constant|
       Module === constant && !(Class === constant)
     end
@@ -60,7 +62,7 @@ if defined? ActiveJob
     end
 
     # Use AJ::TC for the base class when described using :job
-    register_spec_type(self) do |desc, *addl|
+    register_spec_type(self) do |_desc, *addl|
       addl.include? :job
     end
   end
@@ -77,16 +79,17 @@ if defined? ActionMailer
     end
 
     # Use AM::TC for the base class when described using :mailer
-    register_spec_type(self) do |desc, *addl|
+    register_spec_type(self) do |_desc, *addl|
       addl.include? :mailer
     end
 
     # Resolve the mailer from the test name when using the spec DSL
-    def self.determine_default_mailer(name)
+    def self.determine_default_mailer name
       mailer = determine_constant_from_test_name(name) do |constant|
         Class === constant && constant < ::ActionMailer::Base
       end
-      raise ActionMailer::NonInferrableMailerError.new(name) if mailer.nil?
+      raise ActionMailer::NonInferrableMailerError, name if mailer.nil?
+
       mailer
     end
   end
@@ -101,7 +104,7 @@ class ActionDispatch::IntegrationTest
   end
 
   # Use AD:IT for the base class when described using :integration
-  register_spec_type(self) do |desc, *addl|
+  register_spec_type(self) do |_desc, *addl|
     addl.include? :integration
   end
 end
@@ -115,16 +118,17 @@ class Rails::Generators::TestCase
   end
 
   # Use R::G::TC for the base class when described using :generator
-  register_spec_type(self) do |desc, *addl|
+  register_spec_type(self) do |_desc, *addl|
     addl.include? :generator
   end
 
   # Resolve the generator from the test name when using the spec DSL
-  def self.determine_default_generator(name)
+  def self.determine_default_generator name
     generator = determine_constant_from_test_name(name) do |constant|
       Class === constant && constant < Rails::Generators::Base
     end
-    raise NameError.new("Unable to resolve generator for #{name}") if generator.nil?
+    raise NameError, "Unable to resolve generator for #{name}" if generator.nil?
+
     generator
   end
 end
@@ -134,7 +138,7 @@ if defined? ActionCable
 
   class ActionCable::Connection::TestCase
     # Use AC::C::TC for the base class when described using :connection
-    register_spec_type(self) do |desc, *addl|
+    register_spec_type(self) do |_desc, *addl|
       addl.include? :connection
     end
   end

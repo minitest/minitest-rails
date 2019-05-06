@@ -1,0 +1,51 @@
+AllCops:
+  TargetRubyVersion: 2.5
+
+Documentation:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Exclude:
+    - test/helper.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - lib/generators/**/*
+Metrics/ClassLength:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - gemfiles/**/*
+    - lib/generators/**/*
+    - lib/minitest/rails/assertions/**/*
+    - lib/minitest/rails/expectations/**/*
+    - test/generators/test_scaffold_generator.rb
+Metrics/MethodLength:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - gemfiles/**/*
+    - lib/minitest-rails.rb
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - lib/generators/**/*
+
+Style/Alias:
+  EnforcedStyle: prefer_alias
+Style/CaseEquality:
+  Exclude:
+    - lib/minitest/rails.rb
+    - test/rails/test_constant_lookup.rb
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/GuardClause:
+  Exclude:
+    - lib/generators/**/*
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

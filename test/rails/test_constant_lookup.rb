@@ -1,21 +1,22 @@
 require "helper"
 
 class Foo; end
-class Bar < Foo;
+class Bar < Foo
   def index; end
+
   def self.index; end
 end
 class Baz < Bar; end
 module FooBar; end
 
 class TestLookup < ActiveSupport::TestCase
-  def find_foo(name)
+  def find_foo name
     self.class.determine_constant_from_test_name(name) do |constant|
       Class === constant && constant < Foo
     end
   end
 
-  def find_module(name)
+  def find_module name
     self.class.determine_constant_from_test_name(name) do |constant|
       Module === constant
     end

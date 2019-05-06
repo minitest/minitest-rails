@@ -5,8 +5,8 @@ class TestScaffoldGenerator < GeneratorTest
   tests Minitest::Generators::ScaffoldGenerator
 
   def test_scaffold_generator
-    output = run_generator %w(User name:string email:string --no-spec)
-    assert_match /create  test\/controllers\/users_controller_test.rb/m, output
+    output = run_generator %w[User name:string email:string --no-spec]
+    assert_match %r{create  test/controllers/users_controller_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     # assert_output(/create  test\/controllers\/users_controller_test.rb/m) do
@@ -20,8 +20,8 @@ class TestScaffoldGenerator < GeneratorTest
   end
 
   def test_scaffold_generator_spec
-    output = run_generator %w(User name:string email:string --spec)
-    assert_match /create  test\/controllers\/users_controller_test.rb/m, output
+    output = run_generator %w[User name:string email:string --spec]
+    assert_match %r{create  test/controllers/users_controller_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     # assert_output(/create  test\/controllers\/users_controller_test.rb/m) do

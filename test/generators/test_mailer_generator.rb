@@ -5,8 +5,8 @@ class TestMailerGenerator < GeneratorTest
   tests Minitest::Generators::MailerGenerator
 
   def test_mailer_generator
-    output = run_generator %w(notification welcome --no-spec)
-    assert_match /create  test\/mailers\/notification_mailer_test.rb/m, output
+    output = run_generator %w[notification welcome --no-spec]
+    assert_match %r{create  test/mailers/notification_mailer_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/mailers/notification_mailer_test.rb"
@@ -17,8 +17,8 @@ class TestMailerGenerator < GeneratorTest
   end
 
   def test_namespaced_mailer_generator
-    output = run_generator %w(admin/notification welcome --no-spec)
-    assert_match /create  test\/mailers\/admin\/notification_mailer_test.rb/m, output
+    output = run_generator %w[admin/notification welcome --no-spec]
+    assert_match %r{create  test/mailers/admin/notification_mailer_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/mailers/admin/notification_mailer_test.rb"
@@ -29,8 +29,8 @@ class TestMailerGenerator < GeneratorTest
   end
 
   def test_mailer_generator_spec
-    output = run_generator %w(notification welcome)
-    assert_match /create  test\/mailers\/notification_mailer_test.rb/m, output
+    output = run_generator %w[notification welcome]
+    assert_match %r{create  test/mailers/notification_mailer_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/mailers/notification_mailer_test.rb"
@@ -41,8 +41,8 @@ class TestMailerGenerator < GeneratorTest
   end
 
   def test_namespaced_mailer_generator_spec
-    output = run_generator %w(admin/notification welcome)
-    assert_match /create  test\/mailers\/admin\/notification_mailer_test.rb/m, output
+    output = run_generator %w[admin/notification welcome]
+    assert_match %r{create  test/mailers/admin/notification_mailer_test.rb}m, output
 
     Dir.chdir self.class.destination_root
     assert File.exist? "test/mailers/admin/notification_mailer_test.rb"

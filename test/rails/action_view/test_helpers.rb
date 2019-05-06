@@ -1,7 +1,7 @@
 require "helper"
 
 module PeopleHelper
-  def title(text)
+  def title text
     content_tag(:h1, text)
   end
 
@@ -13,7 +13,7 @@ module PeopleHelper
     people_url
   end
 
-  def link_to_person(person)
+  def link_to_person person
     link_to person.name, person
   end
 end
@@ -36,7 +36,7 @@ class CrazySymbolHelperTest < ActionView::TestCase
 end
 
 class CrazyStringHelperTest < ActionView::TestCase
-  tests 'people'
+  tests "people"
 
   def test_set_helper_class_using_string
     assert_equal PeopleHelper, self.class.helper_class

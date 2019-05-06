@@ -1,5 +1,4 @@
-# -*- encoding: utf-8 -*-
-require File.expand_path("../lib/minitest/rails/version", __FILE__)
+require File.expand_path("lib/minitest/rails/version", __dir__)
 
 Gem::Specification.new do |gem|
   gem.name          = "minitest-rails"
@@ -25,4 +24,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "minitest-focus", "~> 1.1"
   gem.add_development_dependency "minitest-rg", "~> 5.2"
   gem.add_development_dependency "rdoc", "~> 6.0"
+  gem.add_development_dependency "rubocop", "~> 0.64.0"
 end

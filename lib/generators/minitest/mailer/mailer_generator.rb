@@ -20,9 +20,10 @@ module Minitest # :nodoc:
       end
 
       private
-        def file_name
-          @_file_name ||= super.sub(/_mailer\z/i, "")
-        end
+
+      def file_name
+        @_file_name ||= super.sub(/_mailer\z/i, "")
+      end
     end
   end
 end

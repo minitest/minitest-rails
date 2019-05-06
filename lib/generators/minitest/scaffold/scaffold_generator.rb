@@ -14,7 +14,7 @@ module Minitest # :nodoc:
                          desc: "Generates API functional tests"
 
       class_option :system_tests, type: :string,
-                         desc: "Skip system test files"
+                                  desc: "Skip system test files"
 
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
 
@@ -39,26 +39,26 @@ module Minitest # :nodoc:
 
       private
 
-        def attributes_string
-          attributes_hash.map { |k, v| "#{k}: #{v}" }.join(", ")
-        end
+      def attributes_string
+        attributes_hash.map { |k, v| "#{k}: #{v}" }.join(", ")
+      end
 
-        def attributes_hash
-          return {} if attributes_names.empty?
+      def attributes_hash
+        return {} if attributes_names.empty?
 
-          attributes_names.map do |name|
-            if %w(password password_confirmation).include?(name) && attributes.any?(&:password_digest?)
-              ["#{name}", "'secret'"]
-            else
-              ["#{name}", "@#{singular_table_name}.#{name}"]
-            end
-          end.sort.to_h
-        end
+        attributes_names.map do |name|
+          if %w[password password_confirmation].include?(name) && attributes.any?(&:password_digest?)
+            [name.to_s, "'secret'"]
+          else
+            [name.to_s, "@#{singular_table_name}.#{name}"]
+          end
+        end.sort.to_h
+      end
 
-        def boolean?(name)
-          attribute = attributes.find { |attr| attr.name == name }
-          attribute&.type == :boolean
-        end
+      def boolean? name
+        attribute = attributes.find { |attr| attr.name == name }
+        attribute&.type == :boolean
+      end
     end
   end
 end

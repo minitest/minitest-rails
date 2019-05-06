@@ -13,7 +13,7 @@ class TestIntegrationExpectations < ActionDispatch::IntegrationTest
   end
 
   def test_routing_expectations
-    params = { :controller => "models", :action => "index" }
+    params = { controller: "models", action: "index" }
     path = "/models"
     value(params).must_route_to path
     value(path).must_route_from params

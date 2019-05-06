@@ -20,7 +20,7 @@ class CrazySymbolNameMailerTest < ActionMailer::TestCase
 end
 
 class CrazyStringNameMailerTest < ActionMailer::TestCase
-  tests 'test_test_mailer'
+  tests "test_test_mailer"
 
   def test_set_mailer_class_manual_using_string
     assert_equal TestTestMailer, self.class.mailer_class
@@ -77,7 +77,7 @@ describe "AnotherCrazySymbolNameMailer", :mailer do
 end
 
 describe "AnotherCrazyStringNameMailer", :mailer do
-  tests 'test_test_mailer'
+  tests "test_test_mailer"
 
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class
@@ -101,7 +101,7 @@ describe "Another Crazy Symbol Name", :mailer do
 end
 
 describe "Another Crazy String Name", :mailer do
-  tests 'test_test_mailer'
+  tests "test_test_mailer"
 
   it "gets the mailer after setting it with a string" do
     assert_equal TestTestMailer, self.class.mailer_class

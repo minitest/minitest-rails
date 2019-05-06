@@ -25,7 +25,7 @@ class ActiveSupport::TestCase
   # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_changes
   #
   # :args: expression, message = nil, &block
-  alias :refute_changes :assert_no_changes
+  alias refute_changes assert_no_changes
 
   ##
   # Test numeric difference between the return value of an expression as a
@@ -53,5 +53,5 @@ class ActiveSupport::TestCase
   # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
   #
   # :args: expression, message = nil, &block
-  alias :refute_difference :assert_no_difference
+  alias refute_difference assert_no_difference
 end
