@@ -32,7 +32,7 @@ class ActiveJob::TestCase
   # Asserts that no jobs have been enqueued.
   #
   #   def test_jobs
-  #     assert_no_enqueued_jobs
+  #     refute_enqueued_jobs
   #     HelloJob.perform_later('jeremy')
   #     assert_enqueued_jobs 1
   #   end
@@ -40,7 +40,7 @@ class ActiveJob::TestCase
   # If a block is passed, that block should not cause any job to be enqueued.
   #
   #   def test_jobs_again
-  #     assert_no_enqueued_jobs do
+  #     refute_enqueued_jobs do
   #       # No job should be enqueued from this block
   #     end
   #   end
@@ -51,8 +51,8 @@ class ActiveJob::TestCase
   #
   # See also Minitest::Rails::Expectations#wont_enqueue_jobs
   #
-  # :method: assert_no_enqueued_jobs
-  # :call-seq: assert_no_enqueued_jobs(number)
+  # :args: number
+  alias refute_enqueued_jobs assert_no_enqueued_jobs
 
   ##
   # Asserts that the number of performed jobs matches the given number.
@@ -96,7 +96,7 @@ class ActiveJob::TestCase
   # Asserts that no jobs have been performed.
   #
   #   def test_jobs
-  #     assert_no_performed_jobs
+  #     refute_performed_jobs
   #
   #     perform_enqueued_jobs do
   #       HelloJob.perform_later('matthew')
@@ -107,7 +107,7 @@ class ActiveJob::TestCase
   # If a block is passed, that block should not cause any job to be performed.
   #
   #   def test_jobs_again
-  #     assert_no_performed_jobs do
+  #     refute_performed_jobs do
   #       # No job should be performed from this block
   #     end
   #   end
@@ -118,8 +118,8 @@ class ActiveJob::TestCase
   #
   # See also Minitest::Rails::Expectations#wont_perform_jobs
   #
-  # :method: assert_no_performed_jobs
-  # :call-seq: assert_no_performed_jobs(number)
+  # :args: number
+  alias refute_performed_jobs assert_no_performed_jobs
 
   ##
   # Asserts that the job passed in the block has been enqueued with the given arguments.

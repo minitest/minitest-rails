@@ -59,7 +59,7 @@ module Minitest
         #
         #   must_enqueue_jobs 0, &block
         #
-        # See also ActiveJob::TestCase#assert_no_enqueued_jobs
+        # See also ActiveJob::TestCase#refute_enqueued_jobs
         #
         # :method: wont_enqueue_jobs
         # :call-seq: wont_enqueue_jobs(number)
@@ -126,7 +126,7 @@ module Minitest
         #
         #   must_perform_jobs 0, &block
         #
-        # See also ActiveJob::TestCase#assert_no_performed_jobs
+        # See also ActiveJob::TestCase#refute_performed_jobs
         #
         # :method: wont_perform_jobs
         # :call-seq: wont_perform_jobs(number)

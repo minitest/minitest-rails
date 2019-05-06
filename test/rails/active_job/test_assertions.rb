@@ -13,6 +13,12 @@ class TestActiveJobAssertions < ActiveJob::TestCase
     assert_no_enqueued_jobs
   end
 
+  def test_refute_enqueued_jobs
+    refute_enqueued_jobs
+    UserInviteJob.new
+    refute_enqueued_jobs
+  end
+
   def test_assert_performed_jobs
     assert_performed_jobs 0
     assert_performed_jobs 2 do
@@ -26,6 +32,13 @@ class TestActiveJobAssertions < ActiveJob::TestCase
   def test_assert_no_performed_jobs
     assert_no_performed_jobs
     assert_no_performed_jobs do
+      UserInviteJob.new
+    end
+  end
+
+  def test_refute_performed_jobs
+    refute_performed_jobs
+    refute_performed_jobs do
       UserInviteJob.new
     end
   end
