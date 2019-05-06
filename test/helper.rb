@@ -99,3 +99,44 @@ class MyAppConnection < ActionCable::Connection::Base
     # Any cleanup work needed when the cable connection is cut.
   end
 end
+
+require "action_mailer"
+require "action_mailer/test_case"
+
+# Emulate AV railtie
+require "action_view"
+ActionMailer::Base.include(ActionView::Layouts)
+
+# Show backtraces for deprecated behavior for quicker cleanup.
+ActiveSupport::Deprecation.debug = true
+
+# Disable available locale checks to avoid warnings running the test suite.
+I18n.enforce_available_locales = false
+
+class MyAppMailer < ActionMailer::Base
+  def test
+    @world = "Earth"
+    mail body: render(inline: "Hello, <%= @world %>"),
+         to: "test@example.com",
+         from: "tester@example.com"
+  end
+
+  def test_args recipient, name
+    mail body: render(inline: "Hello, #{name}"),
+         to: recipient,
+         from: "tester@example.com"
+  end
+
+  def test_parameter_args
+    mail body: render(inline: "All is #{params[:all]}"),
+         to: "test@example.com",
+         from: "tester@example.com"
+  end
+end
+
+class MyAppDeliveryJob < ActionMailer::MailDeliveryJob
+end
+
+class MyAppDeliveryMailer < MyAppMailer
+  self.delivery_job = MyAppDeliveryJob
+end
