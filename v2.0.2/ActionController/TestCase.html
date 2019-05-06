@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActionController::TestCase - minitest-rails v2.0.2</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-determine_default_controller_class">::determine_default_controller_class</a>
+    
+    <li ><a href="#method-i-assert_dom_equal">#assert_dom_equal</a>
+    
+    <li ><a href="#method-i-assert_dom_not_equal">#assert_dom_not_equal</a>
+    
+    <li ><a href="#method-i-assert_generates">#assert_generates</a>
+    
+    <li ><a href="#method-i-assert_no_tag">#assert_no_tag</a>
+    
+    <li ><a href="#method-i-assert_recognizes">#assert_recognizes</a>
+    
+    <li ><a href="#method-i-assert_redirected_to">#assert_redirected_to</a>
+    
+    <li ><a href="#method-i-assert_response">#assert_response</a>
+    
+    <li ><a href="#method-i-assert_routing">#assert_routing</a>
+    
+    <li ><a href="#method-i-assert_select">#assert_select</a>
+    
+    <li ><a href="#method-i-assert_select_email">#assert_select_email</a>
+    
+    <li ><a href="#method-i-assert_select_encoded">#assert_select_encoded</a>
+    
+    <li ><a href="#method-i-assert_tag">#assert_tag</a>
+    
+    <li ><a href="#method-i-assert_template">#assert_template</a>
+    
+    <li ><a href="#method-i-refute_dom_equal">#refute_dom_equal</a>
+    
+    <li ><a href="#method-i-refute_tag">#refute_tag</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActionController::TestCase">
+  <h1 id="class-ActionController::TestCase" class="class">
+    class ActionController::TestCase
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-determine_default_controller_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_default_controller_class</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resolve the controller from the test name when using the spec DSL</p>
+          
+          
+
+          
+          <div class="method-source-code" id="determine_default_controller_class-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">determine_default_controller_class</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">controller</span> = <span class="ruby-identifier">determine_constant_from_test_name</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">constant</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">constant</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">constant</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Metal</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Unable to resolve controller for #{name}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">controller</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assert_dom_equal" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_dom_equal(expected, actual, message = nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Checks that two HTML strings are equivalent. That they contain the same elements and attributes with the associated values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">assert_dom_equal</span> <span class="ruby-string">&#39;&lt;a href=&quot;http://www.example.com&quot;&gt;Apples&lt;/a&gt;&#39;</span>,
+                 <span class="ruby-identifier">link_to</span>(<span class="ruby-string">&quot;Apples&quot;</span>, <span class="ruby-string">&quot;http://www.example.com&quot;</span>)
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_dom_equal"><code>Minitest::Rails::Expectations#must_dom_equal</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_dom_equal-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 372</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_dom_not_equal" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_dom_not_equal(expected, actual, message = nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Checks that two HTML strings are not equivalent. That they do not contain the same elements and attributes with the associated values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">assert_dom_not_equal</span> <span class="ruby-string">&#39;&lt;a href=&quot;http://www.example.com&quot;&gt;Oranges&lt;/a&gt;&#39;</span>,
+                     <span class="ruby-identifier">link_to</span>(<span class="ruby-string">&quot;Apples&quot;</span>, <span class="ruby-string">&quot;http://www.example.com&quot;</span>)
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-wont_dom_equal"><code>Minitest::Rails::Expectations#wont_dom_equal</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_dom_not_equal-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 383</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TestCase.html#method-i-refute_dom_equal">refute_dom_equal</a>, refute_dom_equal, refute_dom_equal
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_generates" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_generates(expected_path, options, defaults={}, extras = {}, message=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the provided options can be used to generate the provided path. This is the inverse of <code>assert_recognizes</code>. The <code>extras</code> parameter is used to tell the request the names and values of additional request parameters that would be in a query string. The <code>message</code> parameter allows you to specify a custom error message for assertion failures.</p>
+
+<p>The <code>defaults</code> parameter is unused.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Asserts that the default action is generated for a route with no action</span>
+<span class="ruby-identifier">assert_generates</span> <span class="ruby-string">&quot;/items&quot;</span>, <span class="ruby-value">controller:</span> <span class="ruby-string">&quot;items&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;index&quot;</span>
+
+<span class="ruby-comment"># Tests that the list action is properly routed</span>
+<span class="ruby-identifier">assert_generates</span> <span class="ruby-string">&quot;/items/list&quot;</span>, <span class="ruby-value">controller:</span> <span class="ruby-string">&quot;items&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;list&quot;</span>
+
+<span class="ruby-comment"># Tests the generation of a route with a parameter</span>
+<span class="ruby-identifier">assert_generates</span> <span class="ruby-string">&quot;/items/list/1&quot;</span>, { <span class="ruby-value">controller:</span> <span class="ruby-string">&quot;items&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;list&quot;</span>, <span class="ruby-value">id:</span> <span class="ruby-string">&quot;1&quot;</span> }
+
+<span class="ruby-comment"># Asserts that the generated route gives us our custom route</span>
+<span class="ruby-identifier">assert_generates</span> <span class="ruby-string">&quot;changesets/12&quot;</span>, { <span class="ruby-value">controller:</span> <span class="ruby-string">&#39;scm&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;show_diff&#39;</span>, <span class="ruby-value">revision:</span> <span class="ruby-string">&quot;12&quot;</span> }
+</pre>
+
+<p>See also Minitest::Rails::Expectations#must_route_to</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_generates-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 144</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_no_tag" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_no_tag(*opts)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Identical to <code>assert_tag</code>, but asserts that a matching tag does <em>not</em> exist. (See <code>assert_tag</code> for a full discussion of the syntax.)</p>
+
+<pre class="ruby"><span class="ruby-comment"># Assert that there is not a &quot;div&quot; containing a &quot;p&quot;</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;div&quot;</span>, <span class="ruby-value">descendant:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;p&quot;</span> }
+
+<span class="ruby-comment"># Assert that an unordered list is empty</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;ul&quot;</span>, <span class="ruby-value">descendant:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;li&quot;</span> }
+
+<span class="ruby-comment"># Assert that there is not a &quot;p&quot; tag with between 1 to 3 &quot;img&quot; tags</span>
+<span class="ruby-comment"># as immediate children</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;p&quot;</span>,
+           <span class="ruby-value">children:</span> { <span class="ruby-value">count:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>, <span class="ruby-value">only:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;img&quot;</span> } }
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-wont_have_tag"><code>Minitest::Rails::Expectations#wont_have_tag</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_no_tag-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 511</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TestCase.html#method-i-refute_tag">refute_tag</a>, refute_tag, refute_tag
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_recognizes" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_recognizes(expected_options, path, extras={}, msg=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the routing of the given <code>path</code> was handled correctly and that the parsed options (given in the <code>expected_options</code> hash) match <code>path</code>. Basically, it asserts that Rails recognizes the route given by <code>expected_options</code>.</p>
+
+<p>Pass a hash in the second argument (<code>path</code>) to specify the request method. This is useful for routes requiring a specific HTTP method. The hash should contain a :path with the incoming request path and a :method containing the required HTTP verb.</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that POSTing to /items will call the create action on ItemsController</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;create&#39;</span>}, {<span class="ruby-value">path:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">method:</span> <span class="ruby-value">:post</span>})
+</pre>
+
+<p>You can also pass in <code>extras</code> with a hash containing URL parameters that would normally be in the query string. This can be used to assert that values in the query string string will end up in the params hash correctly. To test query strings you must use the extras argument, appending the query string on the path directly will not work. For example:</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that a path of &#39;/items/list/1?view=print&#39; returns the correct options</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;list&#39;</span>, <span class="ruby-value">id:</span> <span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-value">view:</span> <span class="ruby-string">&#39;print&#39;</span>}, <span class="ruby-string">&#39;items/list/1&#39;</span>, { <span class="ruby-value">view:</span> <span class="ruby-string">&quot;print&quot;</span> })
+</pre>
+
+<p>The <code>message</code> parameter allows you to pass in an error message that is displayed upon failure.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Check the default route (i.e., the index action)</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;index&#39;</span>}, <span class="ruby-string">&#39;items&#39;</span>)
+
+<span class="ruby-comment"># Test a specific action</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;list&#39;</span>}, <span class="ruby-string">&#39;items/list&#39;</span>)
+
+<span class="ruby-comment"># Test an action with a parameter</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;destroy&#39;</span>, <span class="ruby-value">id:</span> <span class="ruby-string">&#39;1&#39;</span>}, <span class="ruby-string">&#39;items/destroy/1&#39;</span>)
+
+<span class="ruby-comment"># Test a custom route</span>
+<span class="ruby-identifier">assert_recognizes</span>({<span class="ruby-value">controller:</span> <span class="ruby-string">&#39;items&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">id:</span> <span class="ruby-string">&#39;1&#39;</span>}, <span class="ruby-string">&#39;view/item1&#39;</span>)
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_route_from"><code>Minitest::Rails::Expectations#must_route_from</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_recognizes-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 181</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_redirected_to" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_redirected_to(options = {}, message=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Assert that the redirection options passed in match those of the redirect called in the latest action. This match can be partial, such that <code>assert_redirected_to(controller: &quot;weblog&quot;)</code> will also match the redirection of <code>redirect_to(controller: &quot;weblog&quot;, action: &quot;show&quot;)</code> and so on.</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that the redirection was to the &quot;index&quot; action on the WeblogController</span>
+<span class="ruby-identifier">assert_redirected_to</span> <span class="ruby-value">controller:</span> <span class="ruby-string">&quot;weblog&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;index&quot;</span>
+
+<span class="ruby-comment"># assert that the redirection was to the named route login_url</span>
+<span class="ruby-identifier">assert_redirected_to</span> <span class="ruby-identifier">login_url</span>
+
+<span class="ruby-comment"># assert that the redirection was to the url for @customer</span>
+<span class="ruby-identifier">assert_redirected_to</span> <span class="ruby-ivar">@customer</span>
+
+<span class="ruby-comment"># asserts that the redirection matches the regular expression</span>
+<span class="ruby-identifier">assert_redirected_to</span> <span class="ruby-regexp">%r(\Ahttp://example.org)</span>
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_redirect_to"><code>Minitest::Rails::Expectations#must_redirect_to</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_redirected_to-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 85</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_response" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_response(type, message = nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the response is one of the following types:</p>
+<ul><li>
+<p><code>:success</code>   - Status code was in the 200-299 range</p>
+</li><li>
+<p><code>:redirect</code>  - Status code was in the 300-399 range</p>
+</li><li>
+<p><code>:missing</code>   - Status code was 404</p>
+</li><li>
+<p><code>:error</code>     - Status code was in the 500-599 range</p>
+</li></ul>
+
+<p>You can also pass an explicit status number like <code>assert_response(501)</code> or its symbolic equivalent <code>assert_response(:not_implemented)</code>. See Rack::Utils::SYMBOL_TO_STATUS_CODE for a full list.</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that the response was a redirection</span>
+<span class="ruby-identifier">assert_response</span> <span class="ruby-value">:redirect</span>
+
+<span class="ruby-comment"># assert that the response code was status code 401 (unauthorized)</span>
+<span class="ruby-identifier">assert_response</span> <span class="ruby-value">401</span>
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_respond_with"><code>Minitest::Rails::Expectations#must_respond_with</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_response-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 63</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_routing" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_routing(path, options, defaults={}, extras={}, message=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that path and options match both ways; in other words, it verifies that <code>path</code> generates <code>options</code> and then that <code>options</code> generates <code>path</code>. This essentially combines <code>assert_recognizes</code> and <code>assert_generates</code> into one step.</p>
+
+<p>The <code>extras</code> hash allows you to specify options that would normally be provided as a query string to the action. The <code>message</code> parameter allows you to specify a custom error message to display upon failure.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Assert a basic route: a controller with the default action (index)</span>
+<span class="ruby-identifier">assert_routing</span> <span class="ruby-string">&#39;/home&#39;</span>, <span class="ruby-value">controller:</span> <span class="ruby-string">&#39;home&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;index&#39;</span>
+
+<span class="ruby-comment"># Test a route generated with a specific controller, action, and parameter (id)</span>
+<span class="ruby-identifier">assert_routing</span> <span class="ruby-string">&#39;/entries/show/23&#39;</span>, <span class="ruby-value">controller:</span> <span class="ruby-string">&#39;entries&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">id:</span> <span class="ruby-value">23</span>
+
+<span class="ruby-comment"># Assert a basic route (controller + default action), with an error message if it fails</span>
+<span class="ruby-identifier">assert_routing</span> <span class="ruby-string">&#39;/store&#39;</span>, { <span class="ruby-value">controller:</span> <span class="ruby-string">&#39;store&#39;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&#39;index&#39;</span> }, {}, {}, <span class="ruby-string">&#39;Route for store index not generated properly&#39;</span>
+
+<span class="ruby-comment"># Tests a route, providing a defaults hash</span>
+<span class="ruby-identifier">assert_routing</span> <span class="ruby-string">&#39;controller/action/9&#39;</span>, {<span class="ruby-value">id:</span> <span class="ruby-string">&quot;9&quot;</span>, <span class="ruby-value">item:</span> <span class="ruby-string">&quot;square&quot;</span>}, {<span class="ruby-value">controller:</span> <span class="ruby-string">&quot;controller&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;action&quot;</span>}, {}, {<span class="ruby-value">item:</span> <span class="ruby-string">&quot;square&quot;</span>}
+
+<span class="ruby-comment"># Tests a route with a HTTP method</span>
+<span class="ruby-identifier">assert_routing</span>({ <span class="ruby-value">method:</span> <span class="ruby-string">&#39;put&#39;</span>, <span class="ruby-value">path:</span> <span class="ruby-string">&#39;/product/321&#39;</span> }, { <span class="ruby-value">controller:</span> <span class="ruby-string">&quot;product&quot;</span>, <span class="ruby-value">action:</span> <span class="ruby-string">&quot;update&quot;</span>, <span class="ruby-value">id:</span> <span class="ruby-string">&quot;321&quot;</span> })
+</pre>
+
+<p>See also Minitest::Rails::Expectations#must_route</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_routing-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 209</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_select" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_select(*args, &amp;block)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>An assertion that selects elements and makes one or more equality tests.</p>
+
+<p>If the first argument is an element, selects all matching elements starting from (and including) that element and all its children in depth-first order.</p>
+
+<p>If no element if specified, calling <code>assert_select</code> selects from the response HTML unless <code>assert_select</code> is called from within an <code>assert_select</code> block.</p>
+
+<p>When called with a block <code>assert_select</code> passes an array of selected elements to the block. Calling <code>assert_select</code> from the block, with no element specified, runs the assertion on the complete set of elements selected by the enclosing assertion. Alternatively the array may be iterated through so that <code>assert_select</code> can be called separately for each element.</p>
+
+<h4 id="method-i-assert_select-label-Example">Example<span><a href="#method-i-assert_select-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>If the response contains two ordered lists, each with four list elements then:</p>
+
+<pre class="ruby"><span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;ol&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elements</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">elements</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_select</span> <span class="ruby-identifier">element</span>, <span class="ruby-string">&quot;li&quot;</span>, <span class="ruby-value">4</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>will pass, as will:</p>
+
+<pre class="ruby"><span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;ol&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;li&quot;</span>, <span class="ruby-value">8</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The selector may be a CSS selector expression (String), an expression with substitution values, or an HTML::Selector object.</p>
+
+<h3 id="method-i-assert_select-label-Equality+Tests">Equality Tests<span><a href="#method-i-assert_select-label-Equality+Tests">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The equality test may be one of the following:</p>
+<ul><li>
+<p><code>true</code> - Assertion is true if at least one element selected.</p>
+</li><li>
+<p><code>false</code> - Assertion is true if no element selected.</p>
+</li><li>
+<p><code>String/Regexp</code> - Assertion is true if the text value of at least one element matches the string or regular expression.</p>
+</li><li>
+<p><code>Integer</code> - Assertion is true if exactly that number of elements are selected.</p>
+</li><li>
+<p><code>Range</code> - Assertion is true if the number of selected elements fit the range.</p>
+</li></ul>
+
+<p>If no equality test specified, the assertion is true if at least one element selected.</p>
+
+<p>To perform more than one equality tests, use a hash with the following keys:</p>
+<ul><li>
+<p><code>:text</code> - Narrow the selection to elements that have this text value (string or regexp).</p>
+</li><li>
+<p><code>:html</code> - Narrow the selection to elements that have this HTML content (string or regexp).</p>
+</li><li>
+<p><code>:count</code> - Assertion is true if the number of selected elements is equal to this value.</p>
+</li><li>
+<p><code>:minimum</code> - Assertion is true if the number of selected elements is at least this value.</p>
+</li><li>
+<p><code>:maximum</code> - Assertion is true if the number of selected elements is at most this value.</p>
+</li></ul>
+
+<p>If the method is called with a block, once all equality tests are evaluated the block is called with an array of all matched elements.</p>
+
+<pre class="ruby"><span class="ruby-comment"># At least one form element</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;form&quot;</span>
+
+<span class="ruby-comment"># Form element includes four input fields</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;form input&quot;</span>, <span class="ruby-value">4</span>
+
+<span class="ruby-comment"># Page title is &quot;Welcome&quot;</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;title&quot;</span>, <span class="ruby-string">&quot;Welcome&quot;</span>
+
+<span class="ruby-comment"># Page title is &quot;Welcome&quot; and there is only one title element</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;title&quot;</span>, {<span class="ruby-value">count:</span> <span class="ruby-value">1</span>, <span class="ruby-value">text:</span> <span class="ruby-string">&quot;Welcome&quot;</span>},
+    <span class="ruby-string">&quot;Wrong title or more than one title element&quot;</span>
+
+<span class="ruby-comment"># Page contains no forms</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;form&quot;</span>, <span class="ruby-keyword">false</span>, <span class="ruby-string">&quot;This page must contain no forms&quot;</span>
+
+<span class="ruby-comment"># Test the content and style</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;body div.header ul.menu&quot;</span>
+
+<span class="ruby-comment"># Use substitution values</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;ol&gt;li#?&quot;</span>, <span class="ruby-regexp">/item-\d+/</span>
+
+<span class="ruby-comment"># All input fields in the form have a name</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;form input&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;[name=?]&quot;</span>, <span class="ruby-regexp">/.+/</span>  <span class="ruby-comment"># Not empty</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_select"><code>Minitest::Rails::Expectations#must_select</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_select-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 302</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_select_email" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_select_email(&amp;block)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Extracts the body of an email and runs nested assertions on it.</p>
+
+<p>You must enable deliveries for this assertion to work, use:</p>
+
+<pre class="ruby"> <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">perform_deliveries</span> = <span class="ruby-keyword">true</span>
+
+<span class="ruby-identifier">assert_select_email</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;h1&quot;</span>, <span class="ruby-string">&quot;Email alert&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">assert_select_email</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">items</span> = <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;ol&gt;li&quot;</span>
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span>
+     <span class="ruby-comment"># Work with items here...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_select_email"><code>Minitest::Rails::Expectations#must_select_email</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_select_email-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 323</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_select_encoded" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_select_encoded(element = nil, &amp;block)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Extracts the content of an element, treats it as encoded HTML and runs nested assertion on it.</p>
+
+<p>You typically call this method within another assertion to operate on all currently selected elements. You can also pass an element or array of elements.</p>
+
+<p>The content of each element is un-encoded, and wrapped in the root element <code>encoded</code>. It then calls the block with all un-encoded elements.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Selects all bold tags from within the title of an Atom feed&#39;s entries (perhaps to nab a section name prefix)</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;feed[xmlns=&#39;http://www.w3.org/2005/Atom&#39;]&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># Select each entry item and then the title item</span>
+  <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;entry&gt;title&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Run assertions on the encoded title elements</span>
+    <span class="ruby-identifier">assert_select_encoded</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;b&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># Selects all paragraph tags from within the description of an RSS feed</span>
+<span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;rss[version=2.0]&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># Select description element of each feed item.</span>
+  <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;channel&gt;item&gt;description&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Run assertions on the encoded elements.</span>
+    <span class="ruby-identifier">assert_select_encoded</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">assert_select</span> <span class="ruby-string">&quot;p&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_select_encoded"><code>Minitest::Rails::Expectations#must_select_encoded</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_select_encoded-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 361</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_tag" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_tag(*opts)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that there is a tag/node/element in the body of the response that meets all of the given conditions. The <code>conditions</code> parameter must be a hash of any of the following keys (all are optional):</p>
+<ul><li>
+<p><code>:tag</code>: the node type must match the corresponding value</p>
+</li><li>
+<p><code>:attributes</code>: a hash. The node&#39;s attributes must match the corresponding values in the hash.</p>
+</li><li>
+<p><code>:parent</code>: a hash. The node&#39;s parent must match the corresponding hash.</p>
+</li><li>
+<p><code>:child</code>: a hash. At least one of the node&#39;s immediate children must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:ancestor</code>: a hash. At least one of the node&#39;s ancestors must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:descendant</code>: a hash. At least one of the node&#39;s descendants must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:sibling</code>: a hash. At least one of the node&#39;s siblings must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:after</code>: a hash. The node must be after any sibling meeting the criteria described by the hash, and at least one sibling must match.</p>
+</li><li>
+<p><code>:before</code>: a hash. The node must be before any sibling meeting the criteria described by the hash, and at least one sibling must match.</p>
+</li><li>
+<p><code>:children</code>: a hash, for counting children of a node. Accepts the keys:</p>
+<ul><li>
+<p><code>:count</code>: either a number or a range which must equal (or include) the number of children that match.</p>
+</li><li>
+<p><code>:less_than</code>: the number of matching children must be less than this number.</p>
+</li><li>
+<p><code>:greater_than</code>: the number of matching children must be greater than this number.</p>
+</li><li>
+<p><code>:only</code>: another hash consisting of the keys to use to match on the children, and only matching children will be counted.</p>
+</li></ul>
+</li><li>
+<p><code>:content</code>: the textual content of the node must match the given value. This will not match HTML tags in the body of a tag–only text.</p>
+</li></ul>
+
+<p>Conditions are matched using the following algorithm:</p>
+<ul><li>
+<p>if the condition is a string, it must be a substring of the value.</p>
+</li><li>
+<p>if the condition is a regexp, it must match the value.</p>
+</li><li>
+<p>if the condition is a number, the value must match number.to_s.</p>
+</li><li>
+<p>if the condition is <code>true</code>, the value must not be <code>nil</code>.</p>
+</li><li>
+<p>if the condition is <code>false</code> or <code>nil</code>, the value must be <code>nil</code>.</p>
+
+<p># Assert that there is a “span” tag <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”</p>
+
+<p># Assert that there is a “span” tag with id=“x” <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”, attributes: { id: “x” }</p>
+
+<p># Assert that there is a “span” tag using the short-hand <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> :span</p>
+
+<p># Assert that there is a “span” tag with id=“x” using the short-hand <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> :span, attributes: { id: “x” }</p>
+
+<p># Assert that there is a “span” inside of a “div” <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”, parent: { tag: “div” }</p>
+
+<p># Assert that there is a “span” somewhere inside a table <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”, ancestor: { tag: “table” }</p>
+
+<p># Assert that there is a “span” with at least one “em” child <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”, child: { tag: “em” }</p>
+
+<p># Assert that there is a “span” containing a (possibly nested) # “strong” tag. <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”, descendant: { tag: “strong” }</p>
+
+<p># Assert that there is a “span” containing between 2 and 4 “em” tags # as immediate children <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “span”,</p>
+
+<pre>children: { count: 2..4, only: { tag: &quot;em&quot; } }</pre>
+
+<p># Get funky: assert that there is a “div”, with an “ul” ancestor # and an “li” parent (with “class” = “enum”), and containing a # “span” descendant that contains text matching /hello world/ <a href="TestCase.html#method-i-assert_tag"><code>assert_tag</code></a> tag: “div”,</p>
+
+<pre>ancestor: { tag: &quot;ul&quot; },
+parent: { tag: &quot;li&quot;,
+             attributes: { class: &quot;enum&quot; } },
+descendant: { tag: &quot;span&quot;,
+                 child: /hello world/ }</pre>
+</li></ul>
+
+<p><strong>Please note</strong>: <code>assert_tag</code> and <code>assert_no_tag</code> only work with well-formed XHTML. They recognize a few tags as implicitly self-closing (like br and hr and such) but will not work correctly with tags that allow optional closing tags (p, li, td). <em>You must explicitly close all of your tags to use these assertions.</em></p>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_have_tag"><code>Minitest::Rails::Expectations#must_have_tag</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_tag-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 491</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_template" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            assert_template(options = {}, message = nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the request was rendered with the appropriate template file or partials.</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that the &quot;new&quot; view template was rendered</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-string">&quot;new&quot;</span>
+
+<span class="ruby-comment"># assert that the exact template &quot;admin/posts/new&quot; was rendered</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-regexp">%r{\Aadmin/posts/new\Z}</span>
+
+<span class="ruby-comment"># assert that the layout &#39;admin&#39; was rendered</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;admin&#39;</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;layouts/admin&#39;</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">layout:</span> <span class="ruby-value">:admin</span>
+
+<span class="ruby-comment"># assert that no layout was rendered</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">layout:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">layout:</span> <span class="ruby-keyword">false</span>
+
+<span class="ruby-comment"># assert that the &quot;_customer&quot; partial was rendered twice</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">partial:</span> <span class="ruby-string">&#39;_customer&#39;</span>, <span class="ruby-value">count:</span> <span class="ruby-value">2</span>
+
+<span class="ruby-comment"># assert that no partials were rendered</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">partial:</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<p>In a view test case, you can also assert that specific locals are passed to partials:</p>
+
+<pre class="ruby"><span class="ruby-comment"># assert that the &quot;_customer&quot; partial was rendered with a specific object</span>
+<span class="ruby-identifier">assert_template</span> <span class="ruby-value">partial:</span> <span class="ruby-string">&#39;_customer&#39;</span>, <span class="ruby-value">locals:</span> { <span class="ruby-value">customer:</span> <span class="ruby-ivar">@customer</span> }
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-must_render_template"><code>Minitest::Rails::Expectations#must_render_template</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_template-source">
+            <pre><span class="ruby-comment"># File lib/minitest/rails/assertions.rb, line 120</span>
+  </pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-refute_dom_equal" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">refute_dom_equal</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks that two HTML strings are not equivalent. That they do not contain the same elements and attributes with the associated values.</p>
+
+<pre class="ruby"><span class="ruby-identifier">refute_dom_equal</span> <span class="ruby-string">&#39;&lt;a href=&quot;http://www.example.com&quot;&gt;Oranges&lt;/a&gt;&#39;</span>,
+                 <span class="ruby-identifier">link_to</span>(<span class="ruby-string">&quot;Apples&quot;</span>, <span class="ruby-string">&quot;http://www.example.com&quot;</span>)
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-wont_dom_equal"><code>Minitest::Rails::Expectations#wont_dom_equal</code></a></p>
+
+<p>:method: <a href="TestCase.html#method-i-assert_dom_equal"><code>assert_dom_equal</code></a> :call-seq: <a href="TestCase.html#method-i-assert_dom_equal"><code>assert_dom_equal</code></a>(expected, actual, message = nil)</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TestCase.html#method-i-assert_dom_not_equal">assert_dom_not_equal</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-refute_tag" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">refute_tag</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Identical to <code>assert_tag</code>, but asserts that a matching tag does <em>not</em> exist. (See <code>assert_tag</code> for a full discussion of the syntax.)</p>
+
+<pre class="ruby"><span class="ruby-comment"># Assert that there is not a &quot;div&quot; containing a &quot;p&quot;</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;div&quot;</span>, <span class="ruby-value">descendant:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;p&quot;</span> }
+
+<span class="ruby-comment"># Assert that an unordered list is empty</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;ul&quot;</span>, <span class="ruby-value">descendant:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;li&quot;</span> }
+
+<span class="ruby-comment"># Assert that there is not a &quot;p&quot; tag with between 1 to 3 &quot;img&quot; tags</span>
+<span class="ruby-comment"># as immediate children</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;p&quot;</span>,
+           <span class="ruby-value">children:</span> { <span class="ruby-value">count:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>, <span class="ruby-value">only:</span> { <span class="ruby-value">tag:</span> <span class="ruby-string">&quot;img&quot;</span> } }
+</pre>
+
+<p>See also <a href="../Minitest/Rails/Expectations.html#method-i-wont_have_tag"><code>Minitest::Rails::Expectations#wont_have_tag</code></a></p>
+
+<p>:method: <a href="TestCase.html#method-i-refute_tag"><code>refute_tag</code></a> :call-seq: <a href="TestCase.html#method-i-refute_tag"><code>refute_tag</code></a>(*opts)</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TestCase.html#method-i-assert_no_tag">assert_no_tag</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
