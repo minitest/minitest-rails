@@ -43,13 +43,6 @@ class ActionView::TestCase
   register_spec_type(self) do |_desc, *addl|
     addl.include?(:view) || addl.include?(:helper)
   end
-
-  # Resolve the helper or view from the test name when using the spec DSL
-  def self.determine_default_helper_class name
-    determine_constant_from_test_name(name) do |constant|
-      Module === constant && !(Class === constant)
-    end
-  end
 end
 
 if defined? ActiveJob
@@ -82,16 +75,6 @@ if defined? ActionMailer
     register_spec_type(self) do |_desc, *addl|
       addl.include? :mailer
     end
-
-    # Resolve the mailer from the test name when using the spec DSL
-    def self.determine_default_mailer name
-      mailer = determine_constant_from_test_name(name) do |constant|
-        Class === constant && constant < ::ActionMailer::Base
-      end
-      raise ActionMailer::NonInferrableMailerError, name if mailer.nil?
-
-      mailer
-    end
   end
 end
 
@@ -121,16 +104,6 @@ class Rails::Generators::TestCase
   register_spec_type(self) do |_desc, *addl|
     addl.include? :generator
   end
-
-  # Resolve the generator from the test name when using the spec DSL
-  def self.determine_default_generator name
-    generator = determine_constant_from_test_name(name) do |constant|
-      Class === constant && constant < Rails::Generators::Base
-    end
-    raise NameError, "Unable to resolve generator for #{name}" if generator.nil?
-
-    generator
-  end
 end
 
 if defined? ActionCable
@@ -146,15 +119,6 @@ if defined? ActionCable
     register_spec_type(self) do |_desc, *addl|
       addl.include? :channel
     end
-
-    # # Resolve the channel from the test name when using the spec DSL
-    # def self.determine_default_channel name
-    #   channel = determine_constant_from_test_name(name) do |constant|
-    #      Class === constant && constant < ActionCable::Channel::Base
-    #    end
-    #    raise NonInferrableChannelError.new(name) if channel.nil?
-    #    channel
-    # end
   end
 
   class ActionCable::Connection::TestCase
@@ -167,14 +131,6 @@ if defined? ActionCable
     register_spec_type(self) do |_desc, *addl|
       addl.include? :connection
     end
-
-    # def self.determine_default_connection(name)
-    #   connection = determine_constant_from_test_name(name) do |constant|
-    #     Class === constant && constant < ActionCable::Connection::Base
-    #   end
-    #   raise NonInferrableConnectionError.new(name) if connection.nil?
-    #   connection
-    # end
   end
 end
 
