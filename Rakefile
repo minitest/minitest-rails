@@ -2,6 +2,14 @@ require "bundler"
 require "bundler/setup"
 require "bundler/gem_tasks"
 
+require "rdoc/task"
+RDoc::Task.new do |rdoc|
+  rdoc.main = "README.md"
+  rdoc.title = "minitest-rails"
+  rdoc.rdoc_files.include "README.md", "lib/**/*.rb"
+  rdoc.rdoc_dir = "doc"
+end
+
 require "rubocop/rake_task"
 RuboCop::RakeTask.new
 
