@@ -19,7 +19,7 @@ describe "WidgetsController" do
 If you want to pass a string, then you must provide an additional description to tell the Spec DSL what test class to use:
 
 ```ruby
-describe "WidgetsController", controller do
+describe "WidgetsController", :controller do
 ```
 
 ## Expectations
