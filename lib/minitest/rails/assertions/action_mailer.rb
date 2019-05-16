@@ -25,7 +25,7 @@ class ActionMailer::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionMailer#must_have_emails
-  # See https://api.rubyonrails.org/v6.0/classes/ActionMailer/TestHelper.html#method-i-assert_emails
+  # See https://api.rubyonrails.org/v5.1/classes/ActionMailer/TestHelper.html#method-i-assert_emails
   #
   # :method: assert_emails
   # :call-seq: assert_emails(number, &block)
@@ -51,7 +51,7 @@ class ActionMailer::TestCase
   #   assert_emails 0, &block
   #
   # See also Minitest::Rails::Expectations::ActionMailer#wont_have_emails
-  # See https://api.rubyonrails.org/v6.0/classes/ActionMailer/TestHelper.html#method-i-assert_no_emails
+  # See https://api.rubyonrails.org/v5.1/classes/ActionMailer/TestHelper.html#method-i-assert_no_emails
   #
   # :method: refute_emails
   # :call-seq: refute_emails(&block)
@@ -84,7 +84,7 @@ class ActionMailer::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionMailer#must_have_enqueued_emails
-  # See https://api.rubyonrails.org/v6.0/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_emails
+  # See https://api.rubyonrails.org/v5.1/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_emails
   #
   # :method: assert_enqueued_emails
   # :call-seq: assert_enqueued_emails(number, &block)
@@ -107,7 +107,7 @@ class ActionMailer::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionMailer#wont_have_enqueued_emails
-  # See https://api.rubyonrails.org/v6.0/classes/ActionMailer/TestHelper.html#method-i-assert_no_enqueued_emails
+  # See https://api.rubyonrails.org/v5.1/classes/ActionMailer/TestHelper.html#method-i-assert_no_enqueued_emails
   #
   # :method: refute_enqueued_emails
   # :call-seq: refute_enqueued_emails(&block)
