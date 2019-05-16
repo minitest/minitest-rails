@@ -11,6 +11,7 @@ Lint/HandleExceptions:
 Metrics/AbcSize:
   Exclude:
     - lib/generators/**/*
+    - lib/minitest/rails/parallelize.rb
 Metrics/ClassLength:
   Enabled: false
 Metrics/LineLength:
@@ -32,6 +33,9 @@ Naming/MemoizedInstanceVariableName:
   Exclude:
     - lib/generators/**/*
 
+Style/AccessModifierDeclarations:
+  Exclude:
+    - lib/minitest/rails/parallelize.rb
 Style/Alias:
   EnforcedStyle: prefer_alias
 Style/CaseEquality:

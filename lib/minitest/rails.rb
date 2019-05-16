@@ -141,6 +141,12 @@ end
 require "minitest/rails/assertions"
 require "minitest/rails/expectations"
 
+################################################################################
+# Support Rails parallelize
+################################################################################
+
+require "minitest/rails/parallelize"
+
 # :stopdoc:
 
 ################################################################################
