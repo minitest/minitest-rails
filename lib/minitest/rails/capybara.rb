@@ -1,3 +1,4 @@
+require "minitest/rails"
 require "capybara/minitest"
 require "capybara/minitest/spec"
 
