@@ -8,7 +8,7 @@ class ActiveSupport::TestCase
   #     end
   #
   # See also Minitest::Rails::Expectations::ActiveSupport#must_change
-  # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
+  # See https://api.rubyonrails.org/v5.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
   #
   # :method: assert_difference
   # :call-seq: assert_difference(expression, *args, &block)
@@ -22,7 +22,7 @@ class ActiveSupport::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActiveSupport#wont_change
-  # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
+  # See https://api.rubyonrails.org/v5.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
   #
   # :args: expression, message = nil, &block
   alias refute_difference assert_no_difference

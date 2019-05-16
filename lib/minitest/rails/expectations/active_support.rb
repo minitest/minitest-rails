@@ -12,7 +12,7 @@ module Minitest
         #             end }.must_differ "User.count", 3
         #
         # See also ActiveSupport::TestCase#assert_difference
-        # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
+        # See https://api.rubyonrails.org/v5.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
         #
         # :method: must_differ
         # :args: expression, *args
@@ -25,7 +25,7 @@ module Minitest
         #     value { User.new }.wont_differ "User.count"
         #
         # See also ActiveSupport::TestCase#refute_difference
-        # See https://api.rubyonrails.org/v6.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
+        # See https://api.rubyonrails.org/v5.0/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
         #
         # :method: wont_differ
         # :args: expression

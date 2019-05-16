@@ -1,6 +1,6 @@
 # minitest-rails
 
-Minitest integration for Rails 6.0
+Minitest integration for Rails 5.0
 
 [![Build Status](https://secure.travis-ci.org/blowmage/minitest-rails.png)](http://travis-ci.org/blowmage/minitest-rails)
 [![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
@@ -19,30 +19,13 @@ Create a new rails app:
 
 `rails new MyApp`
 
-### Choosing a version
+### Update Gemfile
 
-If you are running Rails 6.0 prerelease, set the gem using the github repo in the Gemfile:
-
-```ruby
-gem "minitest-rails", github: "blowmage/minitest-rails"
-```
-
-If you are running Rails 5.x, specify a 3.x release in the Gemfile:
+This version is for Rails 5.0 applications. Update your application to use the
+gem by adding the following to your Gemfile:
 
 ```ruby
-gem "minitest-rails", "~> 3.0"
-```
-
-If you are running Rails 4.1 or 4.2, specify a 2.x release in the Gemfile:
-
-```ruby
-gem "minitest-rails", "~> 2.0"
-```
-
-If you are running Rails 4.0 or earlier, specify a 1.x release in the Gemfile:
-
-```ruby
-gem "minitest-rails", "~> 1.0"
+gem "minitest-rails", "~> 5.0.0"
 ```
 
 ### Installing
