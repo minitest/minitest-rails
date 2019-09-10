@@ -16,3 +16,4 @@ gemfile:
   - gemfiles/rails-5.2.gemfile
   - gemfiles/rails-5.1.gemfile
   - gemfiles/rails-5.0.gemfile
+script: "bundle exec rake test"
