@@ -30,7 +30,7 @@ module Kernel #:nodoc:
     cls_const = "Test__#{cls.name.to_s.split(/\W/).reject(&:empty?).join('_'.freeze)}"
     if block.source_location
       source_path, line_num = block.source_location
-      source_path = Pathname.new(source_path).relative_path_from(Rails.root).to_s
+      source_path = Pathname.new(File.expand_path(source_path)).relative_path_from(Rails.root).to_s
       source_path = source_path.split(/\W/).reject(&:empty?).join("_".freeze)
       cls_const += "__#{source_path}__#{line_num}"
     end
