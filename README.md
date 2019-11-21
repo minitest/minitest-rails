@@ -33,6 +33,12 @@ If you are running Rails 5.x, specify a 5.x release in the Gemfile:
 gem "minitest-rails", "~> 5.0"
 ```
 
+Or, if you prefer to run the previous release for Rails 5.x, specify a 3.x release in the Gemfile:
+
+```ruby
+gem "minitest-rails", "~> 3.0"
+```
+
 If you are running Rails 4.1 or 4.2, specify a 2.x release in the Gemfile:
 
 ```ruby
