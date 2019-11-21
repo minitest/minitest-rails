@@ -21,13 +21,19 @@ Create a new rails app:
 
 ### Choosing a version
 
-If you are running Rails 6.0 prerelease, set the gem using the github repo in the Gemfile:
+If you are running Rails 6.x, specify a corresponding 6.x release in the Gemfile. For example, if you are using Rails 6.0 you will specify:
 
 ```ruby
-gem "minitest-rails", github: "blowmage/minitest-rails"
+gem "minitest-rails", "~> 6.0.0"
 ```
 
-If you are running Rails 5.x, specify a 3.x release in the Gemfile:
+If you are running Rails 5.x, specify a corresponding 5.x release in the Gemfile. For example, if you are using Rails 5.2 you will specify:
+
+```ruby
+gem "minitest-rails", "~> 5.2.0"
+```
+
+Or, if you prefer to run the previous release for Rails 5.x, specify a 3.x release in the Gemfile:
 
 ```ruby
 gem "minitest-rails", "~> 3.0"
