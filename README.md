@@ -1,6 +1,6 @@
 # minitest-rails
 
-Minitest integration for Rails 6.0
+Minitest integration for Rails 6.1
 
 [![Build Status](https://circleci.com/gh/blowmage/minitest-rails.svg?style=svg)](https://circleci.com/gh/blowmage/minitest-rails)
 [![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
@@ -21,10 +21,10 @@ Create a new rails app:
 
 ### Choosing a version
 
-If you are running Rails 6.x, specify a corresponding 6.x release in the Gemfile. For example, if you are using Rails 6.0 you will specify:
+If you are running Rails 6.x, specify a corresponding 6.x release in the Gemfile. For example, if you are using Rails 6.1 you will specify:
 
 ```ruby
-gem "minitest-rails", "~> 6.0.0"
+gem "minitest-rails", "~> 6.1.0"
 ```
 
 If you are running Rails 5.x, specify a corresponding 5.x release in the Gemfile. For example, if you are using Rails 5.2 you will specify:
