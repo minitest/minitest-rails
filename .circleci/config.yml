@@ -9,10 +9,8 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - ruby/install-deps
+          bundler-version: "1.17.3"
       - run:
           name: Build CI
           command: bundle exec rake ci
@@ -22,10 +20,8 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - ruby/install-deps
+          bundler-version: "1.17.3"
       - run:
           name: Build CI
           command: bundle exec rake ci
