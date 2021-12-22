@@ -3,9 +3,9 @@ orbs:
   ruby: circleci/ruby@0.1.2
 
 jobs:
-  build_2-7-2:
+  build_3-0-0:
     docker:
-      - image: circleci/ruby:2.7.2
+      - image: circleci/ruby:3.0.3
     executor: ruby/default
     steps:
       - checkout
@@ -16,22 +16,9 @@ jobs:
       - run:
           name: Build CI
           command: bundle exec rake ci
-  build_2-6-6:
+  build_2-7-5:
     docker:
-      - image: circleci/ruby:2.6.6
-    executor: ruby/default
-    steps:
-      - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
-      - run:
-          name: Build CI
-          command: bundle exec rake ci
-  build_2-5-8:
-    docker:
-      - image: circleci/ruby:2.5.8
+      - image: circleci/ruby:2.7.5
     executor: ruby/default
     steps:
       - checkout
@@ -47,6 +34,5 @@ jobs:
 workflows:
   build_and_test:
     jobs:
+      - build_3-0-3
       - build_2-7-2
-      - build_2-6-6
-      - build_2-5-8
