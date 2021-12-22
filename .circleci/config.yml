@@ -3,9 +3,9 @@ orbs:
   ruby: circleci/ruby@1.2.0
 
 jobs:
-  build_3-0-3:
+  build_3-0:
     docker:
-      - image: circleci/ruby:3.0.3
+      - image: cimg/ruby:3.0
     executor: ruby/default
     steps:
       - checkout
@@ -16,9 +16,9 @@ jobs:
       - run:
           name: Build CI
           command: bundle exec rake ci
-  build_2-7-5:
+  build_2-7:
     docker:
-      - image: circleci/ruby:2.7.5
+      - image: cimg/ruby:2.7
     executor: ruby/default
     steps:
       - checkout
@@ -34,5 +34,5 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build_3-0-3
-      - build_2-7-2
+      - build_3-0
+      - build_2-7
