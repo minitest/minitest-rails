@@ -3,7 +3,7 @@ orbs:
   ruby: circleci/ruby@1.2.0
 
 jobs:
-  build_3-0-0:
+  build_3-0-3:
     docker:
       - image: circleci/ruby:3.0.3
     executor: ruby/default
