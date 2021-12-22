@@ -1,34 +1,28 @@
 version: 2.1
+
 orbs:
-  ruby: circleci/ruby@1.2.0
+  ruby: circleci/ruby@1.2
 
 jobs:
-  build_3-0:
+  test:
+    parameters:
+      ruby-version:
+        type: string
     docker:
-      - image: cimg/ruby:3.0
-    executor: ruby/default
+      - image: cimg/ruby:<< parameters.ruby-version >>
     steps:
       - checkout
-      - ruby/install-deps
-          bundler-version: "1.17.3"
-      - run:
-          name: Build CI
-          command: bundle exec rake ci
-  build_2-7:
-    docker:
-      - image: cimg/ruby:2.7
-    executor: ruby/default
-    steps:
-      - checkout
-      - ruby/install-deps
-          bundler-version: "1.17.3"
+      - ruby/install-deps:
+          bundler-version: "1.17.2"
+          with-cache: false
       - run:
           name: Build CI
           command: bundle exec rake ci
 
-# Orchestrate our job run sequence
 workflows:
   build_and_test:
     jobs:
-      - build_3-0
-      - build_2-7
+      - test:
+          matrix:
+            parameters:
+              ruby-version: ["3.0", "2.7"]
