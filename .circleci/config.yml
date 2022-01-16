@@ -5,7 +5,7 @@ orbs:
 jobs:
   build_3-1-0:
     docker:
-      - image: circleci/ruby:3.1.0
+      - image: cimg/ruby:3.1.0
     executor: ruby/default
     steps:
       - checkout
@@ -18,7 +18,7 @@ jobs:
           command: bundle exec rake ci
   build_3-0-3:
     docker:
-      - image: circleci/ruby:3.0.3
+      - image: cimg/ruby:3.0.3
     executor: ruby/default
     steps:
       - checkout
@@ -31,7 +31,7 @@ jobs:
           command: bundle exec rake ci
   build_2-7-5:
     docker:
-      - image: circleci/ruby:2.7.5
+      - image: cimg/ruby:2.7.5
     executor: ruby/default
     steps:
       - checkout
@@ -44,7 +44,7 @@ jobs:
           command: bundle exec rake ci
   build_2-6-9:
     docker:
-      - image: circleci/ruby:2.6.9
+      - image: cimg/ruby:2.6.9
     executor: ruby/default
     steps:
       - checkout
