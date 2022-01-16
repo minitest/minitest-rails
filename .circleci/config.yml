@@ -27,7 +27,9 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/install-deps
+      - run:
+          name: Bundle Install
+          command: bundle install
       - run:
           name: Build CI
           command: bundle exec rake ci
@@ -40,7 +42,9 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/install-deps
+      - run:
+          name: Bundle Install
+          command: bundle install
       - run:
           name: Build CI
           command: bundle exec rake ci
@@ -53,7 +57,9 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/install-deps
+      - run:
+          name: Bundle Install
+          command: bundle install
       - run:
           name: Build CI
           command: bundle exec rake ci
