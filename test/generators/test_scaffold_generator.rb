@@ -16,7 +16,7 @@ class TestScaffoldGenerator < GeneratorTest
 
     contents = File.read "test/controllers/users_controller_test.rb"
     assert_match(/class UsersControllerTest/m, contents)
-    assert_match(/post users_url, params: { user: { email: \@user.email, name: \@user.name } }/m, contents)
+    assert_match(/post users_url, params: { user: { email: @user.email, name: @user.name } }/m, contents)
   end
 
   def test_scaffold_generator_spec

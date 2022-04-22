@@ -100,7 +100,6 @@ class MyAppConnection < ActionCable::Connection::Base
   end
 end
 
-require "action_mailer"
 require "action_mailer/test_case"
 
 # Emulate AV railtie
