@@ -33,10 +33,4 @@ namespace :test do
   end
 end
 
-desc "Run the CI build"
-task :ci do
-  Rake::Task[:rubocop].invoke
-  Rake::Task[:test].invoke
-end
-
-task default: :ci
+task default: %i[test rubocop]
