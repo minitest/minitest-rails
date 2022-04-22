@@ -21,6 +21,12 @@ Create a new rails app:
 
 ### Choosing a version
 
+If you are running Rails 7.x, specify a corresponding 7.x release in the Gemfile. For example, if you are using Rails 7.0 you will specify:
+
+```ruby
+gem "minitest-rails", "~> 7.0.0"
+```
+
 If you are running Rails 6.x, specify a corresponding 6.x release in the Gemfile. For example, if you are using Rails 6.1 you will specify:
 
 ```ruby
