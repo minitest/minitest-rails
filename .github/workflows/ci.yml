@@ -1,0 +1,65 @@
+---
+name: CI
+
+# https://github.com/actions/virtual-environments#available-environments
+
+'on': [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    name: test
+
+    runs-on: ubuntu-latest
+    if: |
+      !(   contains(github.event.pull_request.title,  '[ci skip]')
+        || contains(github.event.pull_request.title,  '[skip ci]'))
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+          - '2.7'
+          - '3.0'
+          - '3.1'
+        gemfile:
+          - gemfiles/rails-7.0.0.gemfile
+
+    env:
+      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+
+      - name: rake test
+        run: |
+          ruby -v
+          bundle -v
+          bundle exec rake test
+        timeout-minutes: 3
+
+  rubocop:
+    name: rubocop
+
+    runs-on: ubuntu-latest
+    if: |
+      !(   contains(github.event.pull_request.title,  '[ci skip]')
+        || contains(github.event.pull_request.title,  '[skip ci]'))
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: rubocop
+        run: |
+          ruby -v
+          bundle -v
+          bundle exec rake rubocop

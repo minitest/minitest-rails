@@ -2,7 +2,7 @@
 
 Minitest integration for Rails 6.1
 
-[![Build Status](https://circleci.com/gh/blowmage/minitest-rails.svg?style=svg)](https://circleci.com/gh/blowmage/minitest-rails)
+[![CI](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml)
 [![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
 
 ## Install
