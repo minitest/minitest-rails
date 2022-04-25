@@ -21,31 +21,42 @@ Create a new rails app:
 
 ### Choosing a version
 
-If you are running Rails 6.x, specify a corresponding 6.x release in the Gemfile. For example, if you are using Rails 6.1 you will specify:
+This gem follows the versioning of Rails.
+If you are running Rails 7.0, specify the corresponding 7.0 release in the Gemfile.
+For example:
+
+```ruby
+gem "minitest-rails", "~> 7.0.0"
+```
+
+If you are running Rails 6.x, specify the corresponding 6.x release in the Gemfile.
+For example, if you are using Rails 6.1 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 6.1.0"
 ```
 
-If you are running Rails 5.x, specify a corresponding 5.x release in the Gemfile. For example, if you are using Rails 5.2 you will specify:
+If you are running Rails 5.x, specify the corresponding 5.x release in the Gemfile.
+For example, if you are using Rails 5.2 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 5.2.0"
 ```
 
-Or, if you prefer to run the previous release for Rails 5.x, specify a 3.x release in the Gemfile:
+Or, if you prefer to run the previous release for Rails 5.x, specify the 3.x release in the Gemfile:
 
 ```ruby
 gem "minitest-rails", "~> 3.0"
 ```
 
-If you are running Rails 4.1 or 4.2, specify a 2.x release in the Gemfile:
+If you are running Rails 4.1 or 4.2, specify the 2.x release in the Gemfile:
 
 ```ruby
 gem "minitest-rails", "~> 2.0"
 ```
 
-If you are running Rails 4.0 or earlier, specify a 1.x release in the Gemfile:
+If you are running Rails 4.0 or earlier, you really need to upgrade.
+But if you are you need to specify the 1.x release in the Gemfile:
 
 ```ruby
 gem "minitest-rails", "~> 1.0"

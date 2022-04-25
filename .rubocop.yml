@@ -2,8 +2,20 @@ AllCops:
   TargetRubyVersion: 2.7
   NewCops: enable
 
-Style/Documentation:
-  Enabled: false
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - gemfiles/**/*
+    - lib/generators/**/*
+    - lib/minitest/rails/assertions/**/*
+    - lib/minitest/rails/expectations/**/*
+    - test/generators/test_scaffold_generator.rb
+
+Lint/EmptyClass:
+  Exclude:
+    - lib/minitest/rails/assertions/action_cable.rb
+    - test/rails/action_cable/test_spec_type.rb
+    - test/rails/test_constant_lookup.rb
 
 Lint/SuppressedException:
   Exclude:
@@ -13,16 +25,10 @@ Metrics/AbcSize:
   Exclude:
     - lib/generators/**/*
     - lib/minitest/rails/parallelize.rb
+
 Metrics/ClassLength:
   Enabled: false
-Layout/LineLength:
-  Max: 100
-  Exclude:
-    - gemfiles/**/*
-    - lib/generators/**/*
-    - lib/minitest/rails/assertions/**/*
-    - lib/minitest/rails/expectations/**/*
-    - test/generators/test_scaffold_generator.rb
+
 Metrics/MethodLength:
   Enabled: false
 
@@ -30,6 +36,7 @@ Naming/FileName:
   Exclude:
     - gemfiles/**/*
     - lib/minitest-rails.rb
+
 Naming/MemoizedInstanceVariableName:
   Exclude:
     - lib/generators/**/*
@@ -37,20 +44,30 @@ Naming/MemoizedInstanceVariableName:
 Style/AccessModifierDeclarations:
   Exclude:
     - lib/minitest/rails/parallelize.rb
+
 Style/Alias:
   EnforcedStyle: prefer_alias
+
 Style/CaseEquality:
   Exclude:
     - lib/minitest/rails.rb
     - test/rails/test_constant_lookup.rb
+
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
 Style/FrozenStringLiteralComment:
   Enabled: false
+
 Style/GuardClause:
   Exclude:
     - lib/generators/**/*
+
 Style/MethodDefParentheses:
   EnforcedStyle: require_no_parentheses
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes

@@ -17,12 +17,12 @@ module Minitest
     # This module is a placeholder for all the Test classes created using the
     # spec DSL. Normally all classes are created but not assigned to a constant.
     # This module is where constants will be created for these classes.
-    module SpecTests #:nodoc:
+    module SpecTests # :nodoc:
     end
   end
 end
 
-module Kernel #:nodoc:
+module Kernel # :nodoc:
   alias describe_before_minitest_spec_constant_fix describe
   private :describe_before_minitest_spec_constant_fix
   def describe *args, &block

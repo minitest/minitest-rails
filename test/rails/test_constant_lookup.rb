@@ -1,11 +1,13 @@
 require "helper"
 
 class Foo; end
+
 class Bar < Foo
   def index; end
 
   def self.index; end
 end
+
 class Baz < Bar; end
 module FooBar; end
 

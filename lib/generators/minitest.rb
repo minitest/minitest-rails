@@ -4,7 +4,7 @@ require "rails/generators/named_base"
 
 module Minitest
   module Generators
-    class Base < ::Rails::Generators::NamedBase #:nodoc:
+    class Base < ::Rails::Generators::NamedBase # :nodoc:
       class_option :spec, type: :boolean, default: true,
                           desc: "Use Minitest::Spec DSL"
       class_option :spec_expectation_monad, type: :string, default: "value",
