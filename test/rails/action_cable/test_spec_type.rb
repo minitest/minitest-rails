@@ -2,6 +2,7 @@ require "helper"
 
 class NotAChannel
 end
+
 class NotAConnection
 end
 

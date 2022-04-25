@@ -23,6 +23,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "minitest-autotest", "~> 1.1"
   gem.add_development_dependency "minitest-focus", "~> 1.3"
   gem.add_development_dependency "minitest-rg", "~> 5.2"
-  gem.add_development_dependency "rdoc", "~> 6.0"
+  gem.add_development_dependency "rdoc", "~> 6.4"
   gem.add_development_dependency "rubocop", "~> 1.28.0"
+  gem.metadata["rubygems_mfa_required"] = "true"
 end

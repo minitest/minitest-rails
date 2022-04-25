@@ -55,6 +55,7 @@ end
 TestApp::Application.initialize!
 
 class ApplicationController < ActionController::Base; end
+
 class ModelsController < ApplicationController
   def index
     render html: "<html><head><title>Models</title></head>" \
@@ -65,6 +66,7 @@ class ModelsController < ApplicationController
     redirect_to "/models"
   end
 end
+
 module Admin
   class WidgetsController < ApplicationController; end
 end
