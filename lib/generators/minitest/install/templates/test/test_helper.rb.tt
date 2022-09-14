@@ -4,7 +4,7 @@ require "rails/test_help"
 require "minitest/rails"
 
 # Consider setting MT_NO_EXPECTATIONS to not add expectations to Object.
-# ENV["MT_NO_EXPECTATIONS"] = true
+# ENV["MT_NO_EXPECTATIONS"] = 'true'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
