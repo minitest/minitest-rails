@@ -4,76 +4,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>
       minitest-rails
     </title>
-    <link rel="stylesheet" href="/stylesheets/poole.css">
-    <link rel="stylesheet" href="/stylesheets/lanyon.css">
-    <link rel="stylesheet" href="/stylesheets/syntax.css">
-    <link rel="stylesheet" href="/stylesheets/blowmage.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.atom">
   </head>
   <body>
-    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-    <div class="sidebar" id="sidebar">
-      <div class="sidebar-item">
-        <p>My name is Mike Moore. I like to hack with Ruby. You can <a href="http://humanecode.com/hire">hire me</a>.</p>
-      </div>
-
-      <nav class="sidebar-nav">
-        <a class="sidebar-nav-item" href="/">Home</a>
-        <a class="sidebar-nav-item" href="/about">About</a>
-        <a class="sidebar-nav-item" href="/archives">Archives</a>
-        <h3 class="sidebar-nav-item">Projects</h3>
-        <a class="sidebar-nav-item active" href="/minitest-rails">Minitest Rails</a>
-        <a class="sidebar-nav-item" href="/rubyhop">Ruby Hop</a>
-      </nav>
-
-      <div class="sidebar-item">
-        <p>
-          &copy; {{ site.time | date: '%Y' }} Mike Moore.<br>
-          All rights reserved.
-        </p>
-      </div>
-    </div>
-
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
-          <h3 class="masthead-title">
-            <a href="/" title="Home">blowmage</a>
-            <small>A Mike Moore joint</small>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-        <div class="page">
-          <h1 class="page-title">
-            minitest-rails
-          </h1>
-          <p>
-            Here is the documentation for the various releases. Enjoy!
-          </p>
-          <ul class="v-list">
-            {% for release in site.data.releases %}
-              <li>
-                <a href="{{ release }}">{{ release }}</a>
-                - <em><a href="https://github.com/blowmage/minitest-rails/releases/tag/{{ release }}">Release notes</a></em>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-
-    </div>
-    <script src="http://www.google-analytics.com/urchin.js"></script>
-    <script>_uacct = "UA-73219-1"; urchinTracker();</script>
+    <h1>
+      minitest-rails
+    </h1>
+    <p>
+      Here is the documentation for the various releases. Enjoy!
+    </p>
+    <ul>
+      {% for release in site.data.releases %}
+        <li>
+          <a href="{{ release }}">{{ release }}</a>
+          - <em><a href="https://github.com/minitest/minitest-rails/releases/tag/{{ release }}">Release notes</a></em>
+        </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
