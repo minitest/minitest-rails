@@ -1,6 +1,6 @@
 # minitest-rails
 
-Minitest integration for Rails 6.1
+Minitest integration for Rails 7.0
 
 [![CI](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml)
 [![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
