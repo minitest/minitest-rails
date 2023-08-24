@@ -92,7 +92,7 @@ class ActionDispatch::IntegrationTest
   end
 end
 
-# TODO: Rails::Generators::TestCase require?
+require "rails/generators"
 
 class Rails::Generators::TestCase
   # Use R::G::TC for the base class when describing a generator
