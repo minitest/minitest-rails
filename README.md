@@ -22,11 +22,11 @@ Create a new rails app:
 ### Choosing a version
 
 This gem follows the versioning of Rails.
-If you are running Rails 7.0, specify the corresponding 7.0 release in the Gemfile.
+If you are running Rails 7.1, specify the corresponding 7.1 release in the Gemfile.
 For example:
 
 ```ruby
-gem "minitest-rails", "~> 7.0.0"
+gem "minitest-rails", "~> 7.1.0"
 ```
 
 If you are running Rails 6.x, specify the corresponding 6.x release in the Gemfile.
