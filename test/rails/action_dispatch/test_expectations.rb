@@ -1,4 +1,5 @@
 require "helper"
+require "rails/test_help"
 
 class TestIntegrationExpectations < ActionDispatch::IntegrationTest
   def test_must_respond_with
