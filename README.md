@@ -22,51 +22,28 @@ Create a new rails app:
 ### Choosing a version
 
 This gem follows the versioning of Rails.
-If you are running Rails 7.1, specify the corresponding 7.1 release in the Gemfile.
-For example:
+For example, if you are using Rails 7.1 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 7.1.0"
 ```
 
-If you are running Rails 7.0, specify the corresponding 7.0 release in the Gemfile.
-For example, if you are using Rails 6.1 you will specify:
+If you are running Rails 7.0 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 7.0.0"
 ```
 
-If you are running Rails 6.x, specify the corresponding 6.x release in the Gemfile.
-For example, if you are using Rails 6.1 you will specify:
+If you are running Rails 6.1 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 6.1.0"
 ```
 
-If you are running Rails 5.x, specify the corresponding 5.x release in the Gemfile.
-For example, if you are using Rails 5.2 you will specify:
+If you are running Rails 6.0 you will specify:
 
 ```ruby
-gem "minitest-rails", "~> 5.2.0"
-```
-
-Or, if you prefer to run the previous release for Rails 5.x, specify the 3.x release in the Gemfile:
-
-```ruby
-gem "minitest-rails", "~> 3.0"
-```
-
-If you are running Rails 4.1 or 4.2, specify the 2.x release in the Gemfile:
-
-```ruby
-gem "minitest-rails", "~> 2.0"
-```
-
-If you are running Rails 4.0 or earlier, you really need to upgrade.
-But if you are you need to specify the 1.x release in the Gemfile:
-
-```ruby
-gem "minitest-rails", "~> 1.0"
+gem "minitest-rails", "~> 6.0.0"
 ```
 
 ### Installing
@@ -107,13 +84,21 @@ To run your tests use the `rails test` that ship with rails.
 
 ## Get Involved
 
-Join the mailing list to get help or offer suggestions.
+Join the Github discussions to get help or offer suggestions:
 
-https://groups.google.com/group/minitest-rails
+https://github.com/minitest/minitest-rails/discussions
+
+Report bugs by opening an issue:
+
+https://github.com/minitest/minitest-rails/issues
+
+Contribute changes by creating a pull request:
+
+https://github.com/minitest/minitest-rails/pulls
 
 ## License
 
-Copyright (c) 2019 Mike Moore
+Copyright (c) 2023 Mike Moore
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
