@@ -20,35 +20,13 @@ end
 
 require "action_mailer"
 
-require "minitest-rails"
-require "rails/test_help"
-require "minitest/rails"
-
-require "minitest/focus"
-
-require "rails/generators/test_case"
-class GeneratorTest < ::Rails::Generators::TestCase
-  setup :set_destination
-  setup :prepare_destination
-  teardown :cleanup_destination
-
-  def set_destination
-    self.class.destination Dir.mktmpdir
-  end
-
-  def cleanup_destination
-    # puts "tree #{self.class.destination_root}"
-    # puts `tree #{self.class.destination_root}`
-    FileUtils.remove_entry self.class.destination_root
-  end
-end
-
 module TestApp
   class Application < ::Rails::Application
     config.active_support.test_order = :random
     config.secret_key_base = "abc123"
     config.hosts << "www.example.com"
     config.eager_load = false
+    config.load_defaults 7.1
   end
 end
 
@@ -109,7 +87,7 @@ require "action_view"
 ActionMailer::Base.include(ActionView::Layouts)
 
 # Show backtraces for deprecated behavior for quicker cleanup.
-ActiveSupport::Deprecation.debug = true
+Rails.application.deprecators.debug = true
 
 # Disable available locale checks to avoid warnings running the test suite.
 I18n.enforce_available_locales = false
@@ -140,4 +118,27 @@ end
 
 class MyAppDeliveryMailer < MyAppMailer
   self.delivery_job = MyAppDeliveryJob
+end
+
+require "minitest-rails"
+require "rails/test_help"
+require "minitest/rails"
+
+require "minitest/focus"
+
+require "rails/generators/test_case"
+class GeneratorTest < Rails::Generators::TestCase
+  setup :set_destination
+  setup :prepare_destination
+  teardown :cleanup_destination
+
+  def set_destination
+    self.class.destination Dir.mktmpdir
+  end
+
+  def cleanup_destination
+    # puts "tree #{self.class.destination_root}"
+    # puts `tree #{self.class.destination_root}`
+    FileUtils.remove_entry self.class.destination_root
+  end
 end

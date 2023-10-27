@@ -11,7 +11,7 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
   end
 
   def test_get_index
-    get <%= index_helper %>_url
+    get <%= index_helper(type: :url) %>
     assert_response :success
   end
 
@@ -22,10 +22,10 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
 
   def test_create_<%= singular_table_name %>
     assert_difference("<%= class_name %>.count") do
-      post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
+      post <%= index_helper(type: :url) %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
     end
 
-    assert_redirected_to <%= singular_table_name %>_url(<%= class_name %>.last)
+    assert_redirected_to <%= show_helper("#{class_name}.last") %>
   end
 
   def test_show_<%= singular_table_name %>
@@ -40,7 +40,7 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
 
   def test_update_<%= singular_table_name %>
     patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
-    assert_redirected_to <%= singular_table_name %>_url(<%= "@#{singular_table_name}" %>)
+    assert_redirected_to <%= show_helper %>
   end
 
   def test_destroy_<%= singular_table_name %>
@@ -48,7 +48,7 @@ class <%= controller_class_name %>ControllerTest < ActionDispatch::IntegrationTe
       delete <%= show_helper %>
     end
 
-    assert_redirected_to <%= index_helper %>_url
+    assert_redirected_to <%= index_helper(type: :url) %>
   end
 end
 <% end -%>

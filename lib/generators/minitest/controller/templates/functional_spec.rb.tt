@@ -12,11 +12,11 @@ describe <%= class_name %>Controller do
   # end
 <% else -%>
 <% actions.each do |action| -%>
-  it "must get <%= action %>" do
+  it "gets <%= action %>" do
     get <%= url_helper_prefix %>_<%= action %>_url
     must_respond_with :success
   end
-
+<%= "\n" unless action == actions.last -%>
 <% end -%>
 <% end -%>
 end

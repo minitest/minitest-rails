@@ -11,7 +11,7 @@ module Minitest # :nodoc:
       check_class_collision suffix: "ControllerTest"
 
       class_option :api, type: :boolean,
-                         desc: "Generates API functional tests"
+                         desc: "Generate API functional tests"
 
       class_option :system_tests, type: :string,
                                   desc: "Skip system test files"
@@ -46,10 +46,10 @@ module Minitest # :nodoc:
       def attributes_hash
         return {} if attributes_names.empty?
 
-        attributes_names.map do |name|
+        attributes_names.filter_map do |name|
           if %w[password password_confirmation].include?(name) && attributes.any?(&:password_digest?)
-            [name.to_s, "'secret'"]
-          else
+            [name.to_s, '"secret"']
+          elsif !virtual?(name)
             [name.to_s, "@#{singular_table_name}.#{name}"]
           end
         end.sort.to_h
@@ -58,6 +58,11 @@ module Minitest # :nodoc:
       def boolean? name
         attribute = attributes.find { |attr| attr.name == name }
         attribute&.type == :boolean
+      end
+
+      def virtual? name
+        attribute = attributes.find { |attr| attr.name == name }
+        attribute&.virtual?
       end
     end
   end

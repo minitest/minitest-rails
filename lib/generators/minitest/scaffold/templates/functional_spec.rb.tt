@@ -9,7 +9,7 @@ describe <%= controller_class_name %>Controller do
   let(:<%= singular_table_name %>) { <%= fixture_name %>(:one) }
 
   it "should get index" do
-    get <%= index_helper %>_url
+    get <%= index_helper(type: :url) %>
     must_respond_with :success
   end
 
@@ -20,10 +20,10 @@ describe <%= controller_class_name %>Controller do
 
   it "should create <%= singular_table_name %>" do
     assert_difference("<%= class_name %>.count") do
-      post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
+      post <%= index_helper(type: :url) %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
     end
 
-    must_redirect_to <%= singular_table_name %>_url(<%= class_name %>.last)
+    must_redirect_to <%= show_helper("#{class_name}.last") %>
   end
 
   it "should show <%= singular_table_name %>" do
@@ -38,7 +38,7 @@ describe <%= controller_class_name %>Controller do
 
   it "should update <%= singular_table_name %>" do
     patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }
-    must_redirect_to <%= singular_table_name %>_url(<%= "#{singular_table_name}" %>)
+    must_redirect_to <%= show_helper %>
   end
 
   it "should destroy <%= singular_table_name %>" do
@@ -46,7 +46,7 @@ describe <%= controller_class_name %>Controller do
       delete <%= show_helper %>
     end
 
-    must_redirect_to <%= index_helper %>_url
+    must_redirect_to <%= index_helper(type: :url) %>
   end
 end
 <% end -%>

@@ -53,7 +53,7 @@ class TestGeneratorGenerator < GeneratorTest
     Dir.chdir self.class.destination_root
     assert File.exist? "test/lib/generators/awesome_generator_test.rb"
     contents = File.read "test/lib/generators/awesome_generator_test.rb"
-    assert_match(/describe AwesomeGenerator do/m, contents)
+    assert_match(/describe AwesomeGenerator, :generator do/m, contents)
   end
 
   def test_namespaced_generator_generator_spec
@@ -64,6 +64,6 @@ class TestGeneratorGenerator < GeneratorTest
     assert File.exist? "test/lib/generators/rails/awesome_generator_test.rb"
 
     contents = File.read "test/lib/generators/rails/awesome_generator_test.rb"
-    assert_match(/describe Rails::AwesomeGenerator do/m, contents)
+    assert_match(/describe Rails::AwesomeGenerator, :generator do/m, contents)
   end
 end

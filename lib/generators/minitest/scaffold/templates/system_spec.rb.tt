@@ -4,14 +4,14 @@ require "application_system_test_case"
 describe "<%= class_name.pluralize %>", :system do
   let(:<%= singular_table_name %>) { <%= fixture_name %>(:one) }
 
-  it "visiting the index" do
+  it "visits the index" do
     visit <%= plural_table_name %>_url
-    assert_selector "h1", text: "<%= class_name.pluralize.titleize %>"
+    assert_selector "h1", text: "<%= human_name.pluralize %>"
   end
 
-  it "creating a <%= human_name %>" do
+  it "creates a <%= human_name %>" do
     visit <%= plural_table_name %>_url
-    click_on "New <%= class_name.titleize %>"
+    click_on "New <%= human_name.downcase %>"
 
     <%- attributes_hash.each do |attr, value| -%>
     <%- if boolean?(attr) -%>
@@ -26,9 +26,9 @@ describe "<%= class_name.pluralize %>", :system do
     click_on "Back"
   end
 
-  it "updating a <%= human_name %>" do
-    visit <%= plural_table_name %>_url
-    click_on "Edit", match: :first
+  it "updates a <%= human_name %>" do
+    visit <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    click_on "Edit this <%= human_name.downcase %>", match: :first
 
     <%- attributes_hash.each do |attr, value| -%>
     <%- if boolean?(attr) -%>
@@ -43,11 +43,9 @@ describe "<%= class_name.pluralize %>", :system do
     click_on "Back"
   end
 
-  it "destroying a <%= human_name %>" do
-    visit <%= plural_table_name %>_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
+  it "destroys a <%= human_name %>" do
+    visit <%= singular_table_name %>_url(@<%= singular_table_name %>)
+    click_on "Destroy this <%= human_name.downcase %>", match: :first
 
     assert_text "<%= human_name %> was successfully destroyed"
   end

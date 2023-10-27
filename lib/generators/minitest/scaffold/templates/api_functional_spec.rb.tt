@@ -18,7 +18,7 @@ describe <%= controller_class_name %>Controller do
       post <%= index_helper %>_url, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }, as: :json
     end.must_differ "<%= class_name %>.count"
 
-    must_respond_with 201
+    must_respond_with :created
   end
 
   it "should show <%= singular_table_name %>" do
@@ -28,7 +28,7 @@ describe <%= controller_class_name %>Controller do
 
   it "should update <%= singular_table_name %>" do
     patch <%= show_helper %>, params: { <%= "#{singular_table_name}: { #{attributes_string} }" %> }, as: :json
-    must_respond_with 200
+    must_respond_with :success
   end
 
   it "should destroy <%= singular_table_name %>" do
@@ -36,7 +36,7 @@ describe <%= controller_class_name %>Controller do
       delete <%= show_helper %>, as: :json
     end.must_differ "<%= class_name %>.count", -1
 
-    must_respond_with 204
+    must_respond_with :no_content
   end
 end
 <% end -%>

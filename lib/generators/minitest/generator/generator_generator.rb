@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require "generators/minitest"
 
-module Minitest
-  module Generators
+module Minitest # :nodoc:
+  module Generators # :nodoc:
     class GeneratorGenerator < Base # :nodoc:
       check_class_collision suffix: "GeneratorTest"
 

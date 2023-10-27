@@ -92,17 +92,19 @@ class ActionDispatch::IntegrationTest
   end
 end
 
-# TODO: Rails::Generators::TestCase require?
+if defined? Rails::Generators
+  require "rails/generators/test_unit"
 
-class Rails::Generators::TestCase
-  # Use R::G::TC for the base class when describing a generator
-  register_spec_type(self) do |desc|
-    desc < Rails::Generators::Base if desc.is_a?(Class)
-  end
+  class Rails::Generators::TestCase
+    # Use R::G::TC for the base class when describing a generator
+    register_spec_type(self) do |desc|
+      desc < Rails::Generators::Base if desc.is_a?(Class)
+    end
 
-  # Use R::G::TC for the base class when described using :generator
-  register_spec_type(self) do |_desc, *addl|
-    addl.include? :generator
+    # Use R::G::TC for the base class when described using :generator
+    register_spec_type(self) do |_desc, *addl|
+      addl.include? :generator
+    end
   end
 end
 
