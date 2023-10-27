@@ -149,3 +149,8 @@ class ActiveJob::TestCase
   # :method: assert_performed_with
   # :call-seq: assert_performed_with(args)
 end
+
+module ActiveJob::TestHelper # :nodoc:
+  alias refute_enqueued_jobs assert_no_enqueued_jobs # :nodoc:
+  alias refute_performed_jobs assert_no_performed_jobs # :nodoc:
+end

@@ -176,6 +176,10 @@ module Minitest
 end
 
 unless ENV["MT_NO_EXPECTATIONS"]
+  class ActionDispatch::IntegrationTest # :nodoc:
+    include Minitest::Rails::Expectations::ActiveJob
+  end
+
   class ActiveJob::TestCase # :nodoc:
     include Minitest::Rails::Expectations::ActiveJob
   end
