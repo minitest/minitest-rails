@@ -2,8 +2,8 @@
 
 Minitest integration for Rails 7.1
 
-[![CI](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/blowmage/minitest-rails/actions/workflows/ci.yml)
-[![Code Climate](https://codeclimate.com/github/blowmage/minitest-rails.png)](https://codeclimate.com/github/blowmage/minitest-rails)
+[![CI](https://github.com/minitest/minitest-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/minitest/minitest-rails/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/minitest/minitest-rails/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/minitest/minitest-rails/actions/workflows/github-code-scanning/codeql)
 
 ## Install
 
