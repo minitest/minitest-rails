@@ -1,5 +1,9 @@
 # Changes
 
+### 7.2.0 / 2024-08-30
+
+Support Rails 7.2.
+
 ### 7.1.0 / 2023-10-26
 
 Support Rails 7.1.

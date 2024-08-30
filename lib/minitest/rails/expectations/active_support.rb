@@ -12,7 +12,7 @@ module Minitest
         #             end }.must_change "User.count", from: 5, to: 8
         #
         # See also ActiveSupport::TestCase#assert_difference
-        # See https://api.rubyonrails.org/v7.1/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_changes
+        # See https://api.rubyonrails.org/v7.2/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_changes
         #
         # :method: must_change
         # :args: expression, from: UNTRACKED, to: UNTRACKED
@@ -27,7 +27,7 @@ module Minitest
         #   end
         #
         # See also ActiveSupport::TestCase#assert_difference
-        # See https://api.rubyonrails.org/v7.1/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_changes
+        # See https://api.rubyonrails.org/v7.2/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_changes
         #
         # :method: wont_change
         # :args: expression
@@ -43,7 +43,7 @@ module Minitest
         #             end }.must_differ "User.count", 3
         #
         # See also ActiveSupport::TestCase#assert_difference
-        # See https://api.rubyonrails.org/v7.1/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
+        # See https://api.rubyonrails.org/v7.2/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_difference
         #
         # :method: must_differ
         # :args: expression, *args
@@ -56,7 +56,7 @@ module Minitest
         #     value { User.new }.wont_differ "User.count"
         #
         # See also ActiveSupport::TestCase#refute_difference
-        # See https://api.rubyonrails.org/v7.1/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
+        # See https://api.rubyonrails.org/v7.2/classes/ActiveSupport/Testing/Assertions.html#method-i-assert_no_difference
         #
         # :method: wont_differ
         # :args: expression
