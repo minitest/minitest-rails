@@ -25,12 +25,12 @@ jobs:
           - '3.3'
         gemfile:
           - gemfiles/rails-7.1.0.gemfile
-          - gemfiles/rails-7.2.0.beta2.gemfile
+          - gemfiles/rails-7.2.0.gemfile
         exclude:
           - ruby: '2.7'
-            gemfile: gemfiles/rails-7.2.0.beta2.gemfile
+            gemfile: gemfiles/rails-7.2.0.gemfile
           - ruby: '3.0'
-            gemfile: gemfiles/rails-7.2.0.beta2.gemfile
+            gemfile: gemfiles/rails-7.2.0.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
 

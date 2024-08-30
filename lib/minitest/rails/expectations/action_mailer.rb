@@ -30,7 +30,7 @@ module Minitest
         #   end
         #
         # See also ActionMailer::TestClass#assert_emails
-        # See https://api.rubyonrails.org/v7.1/classes/ActionMailer/TestHelper.html#method-i-assert_emails
+        # See https://api.rubyonrails.org/v7.2/classes/ActionMailer/TestHelper.html#method-i-assert_emails
         #
         # :method: must_have_emails
         # :call-seq: must_have_emails(number, &block)
@@ -56,7 +56,7 @@ module Minitest
         #   must_have_emails 0, &block
         #
         # See also ActionMailer::TestClass#wont_have_emails
-        # See https://api.rubyonrails.org/v7.1/classes/ActionMailer/TestHelper.html#method-i-assert_no_emails
+        # See https://api.rubyonrails.org/v7.2/classes/ActionMailer/TestHelper.html#method-i-assert_no_emails
         #
         # :method: wont_have_emails
         # :call-seq: wont_have_emails(&block)
@@ -88,7 +88,7 @@ module Minitest
         #   end
         #
         # See also ActionMailer::TestClass#assert_enqueued_emails
-        # See https://api.rubyonrails.org/v7.1/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_emails
+        # See https://api.rubyonrails.org/v7.2/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_emails
         #
         # :method: must_have_enqueued_emails
         # :call-seq: must_have_enqueued_emails(number, &block)
@@ -126,7 +126,7 @@ module Minitest
         #   end
         #
         # See also ActionMailer::TestClass#assert_enqueued_email_with
-        # See https://api.rubyonrails.org/v7.1/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_email_with
+        # See https://api.rubyonrails.org/v7.2/classes/ActionMailer/TestHelper.html#method-i-assert_enqueued_email_with
         #
         # :method: must_enqueue_email_with
         # :call-seq: must_enqueue_email_with(mailer, method, args: nil, queue: "mailers", &block)
@@ -149,7 +149,7 @@ module Minitest
         #   end
         #
         # See also ActionMailer::TestClass#assert_no_enqueued_emails
-        # See https://api.rubyonrails.org/v7.1/classes/ActionMailer/TestHelper.html#method-i-assert_no_enqueued_emails
+        # See https://api.rubyonrails.org/v7.2/classes/ActionMailer/TestHelper.html#method-i-assert_no_enqueued_emails
         #
         # :method: wont_have_enqueued_emails
         # :call-seq: wont_have_enqueued_emails(&block)

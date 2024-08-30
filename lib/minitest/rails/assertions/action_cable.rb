@@ -25,7 +25,7 @@ class ActionCable::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#must_have_broadcasts
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
   #
   # :method: assert_broadcasts
   # :call-seq: assert_broadcasts(stream, number)
@@ -52,7 +52,7 @@ class ActionCable::TestCase
   #   assert_broadcasts 'messages', 0, &block
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#wont_have_broadcasts
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
   #
   # :method: refute_broadcasts
   # :call-seq: refute_broadcasts(stream, &block)
@@ -75,7 +75,7 @@ class ActionCable::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#must_broadcast_on
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
   #
   # :method: assert_broadcast_on
   # :call-seq: assert_broadcast_on(stream, data)
@@ -108,7 +108,7 @@ class ActionCable::Channel::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#must_have_broadcasts
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
   #
   # :method: assert_broadcasts
   # :call-seq: assert_broadcasts(stream, number)
@@ -135,7 +135,7 @@ class ActionCable::Channel::TestCase
   #   assert_broadcasts 'messages', 0, &block
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#wont_have_broadcasts
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
   #
   # :method: refute_broadcasts
   # :call-seq: refute_broadcasts(stream, &block)
@@ -158,7 +158,7 @@ class ActionCable::Channel::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::TestHelper#must_broadcast_on
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
   #
   # :method: assert_broadcast_on
   # :call-seq: assert_broadcast_on(stream, data)
@@ -172,7 +172,7 @@ class ActionCable::Channel::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::Channel#wont_have_streams
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_no_streams
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_no_streams
   #
   # :method: refute_streams
   alias refute_streams assert_no_streams
@@ -186,7 +186,7 @@ class ActionCable::Channel::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::Channel#must_have_streams
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream
   #
   # :method: assert_has_stream
   # :call-seq: assert_has_stream(stream)
@@ -200,7 +200,7 @@ class ActionCable::Channel::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable::Channel#must_have_stream_for
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream_for
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream_for
   #
   # :method: assert_has_stream_for
   # :call-seq: assert_has_stream_for(object)
@@ -226,7 +226,7 @@ class ActionCable::Connection::TestCase
   #   end
   #
   # See also Minitest::Rails::Expectations::ActionCable#must_reject_connection
-  # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Connection/Assertions.html#method-i-assert_reject_connection
+  # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Connection/Assertions.html#method-i-assert_reject_connection
   #
   # :method: assert_reject_connection
 end

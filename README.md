@@ -1,6 +1,6 @@
 # minitest-rails
 
-Minitest integration for Rails 7.1
+Minitest integration for Rails 7.2
 
 [![CI](https://github.com/minitest/minitest-rails/actions/workflows/ci.yml/badge.svg)](https://github.com/minitest/minitest-rails/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/minitest/minitest-rails/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/minitest/minitest-rails/actions/workflows/github-code-scanning/codeql)
@@ -22,7 +22,13 @@ Create a new rails app:
 ### Choosing a version
 
 This gem follows the versioning of Rails.
-For example, if you are using Rails 7.1 you will specify:
+For example, if you are using Rails 7.2 you will specify:
+
+```ruby
+gem "minitest-rails", "~> 7.2.0"
+```
+
+If you are running Rails 7.1 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 7.1.0"

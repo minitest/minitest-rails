@@ -31,7 +31,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::TestHelper#assert_broadcasts
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcasts
           #
           # :method: must_have_broadcasts
           # :call-seq: must_have_broadcasts(stream, number)
@@ -58,7 +58,7 @@ module Minitest
           #   must_have_broadcasts 'messages', 0, &block
           #
           # See also ActionCable::TestHelper#wont_have_broadcasts
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_no_broadcasts
           #
           # :method: wont_have_broadcasts
           # :call-seq: wont_have_broadcasts(stream, &block)
@@ -80,7 +80,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::TestHelper#assert_broadcast_on
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/TestHelper.html#method-i-assert_broadcast_on
           #
           # :method: must_broadcast_on
           # :call-seq: must_broadcast_on(stream, data)
@@ -104,7 +104,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::Channel::TestCase#assert_no_streams
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_no_streams
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_no_streams
           #
           # :method: wont_have_streams
 
@@ -117,7 +117,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::Channel::TestCase#assert_has_stream
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream
           #
           # :method: must_have_streams
           # :call-seq: must_have_streams(stream)
@@ -131,7 +131,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::Channel::TestCase#assert_has_stream_for
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream_for
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Channel/TestCase/Behavior.html#method-i-assert_has_stream_for
           #
           # :method: must_have_stream_for
           # :call-seq: must_have_stream_for(object)
@@ -166,7 +166,7 @@ module Minitest
           #   end
           #
           # See also ActionCable::Connection::TestCase#assert_reject_connection
-          # See https://api.rubyonrails.org/v7.1/classes/ActionCable/Connection/Assertions.html#method-i-assert_reject_connection
+          # See https://api.rubyonrails.org/v7.2/classes/ActionCable/Connection/Assertions.html#method-i-assert_reject_connection
           #
           # :method: must_reject_connection
 
