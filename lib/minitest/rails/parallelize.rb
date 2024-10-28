@@ -25,8 +25,8 @@ end
 module Kernel # :nodoc:
   alias describe_before_minitest_spec_constant_fix describe
   private :describe_before_minitest_spec_constant_fix
-  def describe *args, &block
-    cls = describe_before_minitest_spec_constant_fix(*args, &block)
+  def describe(*, &block)
+    cls = describe_before_minitest_spec_constant_fix(*, &block)
     cls_const = "Test__#{cls.name.to_s.split(/\W/).reject(&:empty?).join('_'.freeze)}"
     if block.source_location
       source_path, line_num = block.source_location
