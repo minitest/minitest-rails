@@ -15,10 +15,10 @@ Gem::Specification.new do |gem|
                       ["README.md", "UPDATING.md", "CHANGELOG.md", "LICENSE"]
   gem.require_paths = ["lib"]
 
-  gem.required_ruby_version = ">= 3.1"
+  gem.required_ruby_version = ">= 3.2"
 
   gem.add_dependency "minitest", "~> 5.20"
-  gem.add_dependency "railties", ">= 7.2.0", "< 8.0.0"
+  gem.add_dependency "railties", ">= 8.0.0", "< 8.1.0"
 
   gem.add_development_dependency "minitest-autotest", "~> 1.1"
   gem.add_development_dependency "minitest-focus", "~> 1.4"
