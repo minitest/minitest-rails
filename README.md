@@ -22,7 +22,13 @@ Create a new rails app:
 ### Choosing a version
 
 This gem follows the versioning of Rails.
-For example, if you are using Rails 7.2 you will specify:
+For example, if you are using Rails 8.0 you will specify:
+
+```ruby
+gem "minitest-rails", "~> 8.0.0"
+```
+
+If you are running Rails 7.2 you will specify:
 
 ```ruby
 gem "minitest-rails", "~> 7.2.0"

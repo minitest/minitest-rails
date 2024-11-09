@@ -1,0 +1,12 @@
+source "http://rubygems.org"
+
+gem "minitest-rails", path: "../"
+gem "rails", "~> 8.0.0"
+gem "rake"
+gem "sqlite3"
+
+gem "minitest-autotest", "~> 1.1"
+gem "minitest-focus", "~> 1.4"
+gem "minitest-rg", "~> 5.2"
+gem "rdoc", "~> 6.5"
+gem "rubocop", "~> 1.57.0"
