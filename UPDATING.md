@@ -1,6 +1,6 @@
 # Updating from previous versions
 
-If you are upgrading from previous versions, then there are some subtle changes that you should be aware of. Do you see a change that is not listed in this document? Then please [open an issue](https://github.com/blowmage/minitest-rails/issues/new) to add it.
+If you are upgrading from previous versions, then there are some subtle changes that you should be aware of. Do you see a change that is not listed in this document? Then please [open an issue](https://github.com/minitest/minitest-rails/issues/new) to add it.
 
 ## Spec DSL
 
