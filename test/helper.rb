@@ -26,7 +26,7 @@ module TestApp
     config.secret_key_base = "abc123"
     config.hosts << "www.example.com"
     config.eager_load = false
-    config.load_defaults 7.1
+    config.load_defaults 7.2
   end
 end
 
