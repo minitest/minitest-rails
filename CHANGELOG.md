@@ -1,5 +1,9 @@
 # Changes
 
+### 8.1.0 / 2025-10-22
+
+Support Rails 8.1.
+
 ### 8.0.0 / 2024-12-18
 
 Support Rails 8.0.

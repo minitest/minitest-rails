@@ -20,8 +20,9 @@ jobs:
         ruby:
           - '3.2'
           - '3.3'
+          - '3.4'
         gemfile:
-          - gemfiles/rails-8.0.0.gemfile
+          - gemfiles/rails-8.1.0.gemfile
     env:
       BUNDLE_GEMFILE: ${{ matrix.gemfile }}
 

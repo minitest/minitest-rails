@@ -18,12 +18,12 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = ">= 3.2"
 
   gem.add_dependency "minitest", "~> 5.20"
-  gem.add_dependency "railties", ">= 8.0.0", "< 8.1.0"
+  gem.add_dependency "railties", ">= 8.1.0", "< 8.2.0"
 
   gem.add_development_dependency "minitest-autotest", "~> 1.1"
   gem.add_development_dependency "minitest-focus", "~> 1.4"
-  gem.add_development_dependency "minitest-rg", "~> 5.2"
-  gem.add_development_dependency "rdoc", "~> 6.5"
-  gem.add_development_dependency "rubocop", "~> 1.57.0"
+  gem.add_development_dependency "minitest-rg", "~> 5.3"
+  gem.add_development_dependency "rdoc", "~> 6.14"
+  gem.add_development_dependency "rubocop", "~> 1.81.0"
   gem.metadata["rubygems_mfa_required"] = "true"
 end
