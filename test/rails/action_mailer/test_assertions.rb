@@ -2,6 +2,7 @@ require "helper"
 
 class TestActionMailerAssertions < ActionMailer::TestCase
   include ActiveSupport::Testing::Stream
+
   tests MyAppMailer
 
   def test_assert_emails

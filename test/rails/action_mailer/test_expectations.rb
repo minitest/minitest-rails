@@ -2,6 +2,7 @@ require "helper"
 
 class TestActionMailerExpectations < ActionMailer::TestCase
   include ActiveSupport::Testing::Stream
+
   tests MyAppMailer
 
   def test_must_have_emails
