@@ -3,3 +3,4 @@ log
 pkg
 Gemfile.lock
 *.gemfile.lock
+/Rakefile.local

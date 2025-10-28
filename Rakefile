@@ -2,6 +2,8 @@ require "bundler"
 require "bundler/setup"
 require "bundler/gem_tasks"
 
+load "./Rakefile.local" if File.exist? "./Rakefile.local"
+
 require "rdoc/task"
 RDoc::Task.new do |rdoc|
   rdoc.main = "README.md"
